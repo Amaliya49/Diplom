@@ -117,26 +117,48 @@ exports.Prisma.TransactionIsolationLevel = makeStrictEnum({
   Serializable: 'Serializable'
 });
 
-exports.Prisma.Favorite_sizeScalarFieldEnum = {
-  id: 'id',
-  customer_id: 'customer_id',
-  title: 'title',
-  description: 'description',
-  country_id: 'country_id',
-  gender: 'gender'
-};
-
-exports.Prisma.CountryScalarFieldEnum = {
-  id: 'id',
-  name: 'name'
-};
-
 exports.Prisma.CustomerScalarFieldEnum = {
   id: 'id',
   email: 'email',
   name: 'name',
   image: 'image',
   role: 'role'
+};
+
+exports.Prisma.CountryScalarFieldEnum = {
+  id: 'id',
+  code: 'code',
+  name: 'name'
+};
+
+exports.Prisma.CategoryScalarFieldEnum = {
+  id: 'id',
+  type: 'type'
+};
+
+exports.Prisma.SizeScalarFieldEnum = {
+  id: 'id',
+  category_id: 'category_id',
+  country_id: 'country_id',
+  size_label: 'size_label'
+};
+
+exports.Prisma.ConversionScalarFieldEnum = {
+  id: 'id',
+  customer_id: 'customer_id',
+  from_size_id: 'from_size_id',
+  to_size_id: 'to_size_id'
+};
+
+exports.Prisma.FavoriteSizeScalarFieldEnum = {
+  id: 'id',
+  customer_id: 'customer_id',
+  title: 'title',
+  description: 'description',
+  gender: 'gender',
+  country_id: 'country_id',
+  category_id: 'category_id',
+  size_id: 'size_id'
 };
 
 exports.Prisma.SortOrder = {
@@ -153,21 +175,24 @@ exports.Prisma.NullsOrder = {
   first: 'first',
   last: 'last'
 };
+exports.Role = exports.$Enums.Role = {
+  CUSTOMER: 'CUSTOMER',
+  ADMIN: 'ADMIN'
+};
+
 exports.Gender = exports.$Enums.Gender = {
   MALE: 'MALE',
   FEMALE: 'FEMALE',
   UNISEX: 'UNISEX'
 };
 
-exports.Role = exports.$Enums.Role = {
-  CUSTOMER: 'CUSTOMER',
-  ADMIN: 'ADMIN'
-};
-
 exports.Prisma.ModelName = {
-  Favorite_size: 'Favorite_size',
+  Customer: 'Customer',
   Country: 'Country',
-  Customer: 'Customer'
+  Category: 'Category',
+  Size: 'Size',
+  Conversion: 'Conversion',
+  FavoriteSize: 'FavoriteSize'
 };
 
 /**

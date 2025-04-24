@@ -1,9 +1,3 @@
-// This is your Prisma schema file,
-// learn more about it in the docs: https://pris.ly/d/prisma-schema
-
-// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
-// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
-
 generator client {
   provider = "prisma-client-js"
   output   = "./src/generated/prisma/client"
@@ -26,29 +20,71 @@ enum Gender {
   UNISEX
 }
 
-model Favorite_size {
-  id          Int     @id @default(autoincrement())
-  customer_id Int
-  title       String
-  description String?
-  country_id  Int
-  gender      Gender
+model Customer {
+  id    Int     @id @default(autoincrement())
+  email String  @unique
+  name  String?
+  image String?
+  role  Role[]
 
-  customer Customer @relation(fields: [customer_id], references: [id])
-  country  Country  @relation(fields: [country_id], references: [id])
+  conversions   Conversion[]   @relation("CustomerConversions")
+  favoriteSizes FavoriteSize[] @relation("CustomerFavorites")
 }
 
 model Country {
-  id            Int             @id @default(autoincrement())
-  name          String          @unique
-  favorite_size Favorite_size[]
+  id   Int    @id @default(autoincrement())
+  code String
+  name String @unique
+
+  sizes         Size[]         @relation("CountrySizes")
+  favoriteSizes FavoriteSize[] @relation("CountryFavorites")
 }
 
-model Customer {
-  id            Int             @id @default(autoincrement())
-  email         String          @unique
-  name          String?
-  image         String?
-  role          Role            @default(CUSTOMER)
-  favorite_size Favorite_size[]
+model Category {
+  id   Int    @id @default(autoincrement())
+  type String
+
+  sizes         Size[]         @relation("CategorySizes")
+  favoriteSizes FavoriteSize[] @relation("CategoryFavorites")
+}
+
+model Size {
+  id          Int    @id @default(autoincrement())
+  category_id Int
+  country_id  Int
+  size_label  String
+
+  category Category @relation("CategorySizes", fields: [category_id], references: [id])
+  country  Country  @relation("CountrySizes", fields: [country_id], references: [id])
+
+  favoriteSizes   FavoriteSize[] @relation("SizeFavorites")
+  fromConversions Conversion[]   @relation("FromSizeConversions")
+  toConversions   Conversion[]   @relation("ToSizeConversions")
+}
+
+model Conversion {
+  id           Int @id @default(autoincrement())
+  customer_id  Int
+  from_size_id Int
+  to_size_id   Int
+
+  customer Customer @relation("CustomerConversions", fields: [customer_id], references: [id])
+  fromSize Size     @relation("FromSizeConversions", fields: [from_size_id], references: [id])
+  toSize   Size     @relation("ToSizeConversions", fields: [to_size_id], references: [id])
+}
+
+model FavoriteSize {
+  id          Int      @id @default(autoincrement())
+  customer_id Int
+  title       String
+  description String?
+  gender      Gender[]
+  country_id  Int
+  category_id Int
+  size_id     Int
+
+  customer Customer @relation("CustomerFavorites", fields: [customer_id], references: [id])
+  country  Country  @relation("CountryFavorites", fields: [country_id], references: [id])
+  category Category @relation("CategoryFavorites", fields: [category_id], references: [id])
+  size     Size     @relation("SizeFavorites", fields: [size_id], references: [id])
 }

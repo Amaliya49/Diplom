@@ -14,20 +14,35 @@ export type PrismaPromise<T> = $Public.PrismaPromise<T>
 
 
 /**
- * Model Favorite_size
+ * Model Customer
  * 
  */
-export type Favorite_size = $Result.DefaultSelection<Prisma.$Favorite_sizePayload>
+export type Customer = $Result.DefaultSelection<Prisma.$CustomerPayload>
 /**
  * Model Country
  * 
  */
 export type Country = $Result.DefaultSelection<Prisma.$CountryPayload>
 /**
- * Model Customer
+ * Model Category
  * 
  */
-export type Customer = $Result.DefaultSelection<Prisma.$CustomerPayload>
+export type Category = $Result.DefaultSelection<Prisma.$CategoryPayload>
+/**
+ * Model Size
+ * 
+ */
+export type Size = $Result.DefaultSelection<Prisma.$SizePayload>
+/**
+ * Model Conversion
+ * 
+ */
+export type Conversion = $Result.DefaultSelection<Prisma.$ConversionPayload>
+/**
+ * Model FavoriteSize
+ * 
+ */
+export type FavoriteSize = $Result.DefaultSelection<Prisma.$FavoriteSizePayload>
 
 /**
  * Enums
@@ -66,8 +81,8 @@ export const Gender: typeof $Enums.Gender
  * @example
  * ```
  * const prisma = new PrismaClient()
- * // Fetch zero or more Favorite_sizes
- * const favorite_sizes = await prisma.favorite_size.findMany()
+ * // Fetch zero or more Customers
+ * const customers = await prisma.customer.findMany()
  * ```
  *
  *
@@ -87,8 +102,8 @@ export class PrismaClient<
    * @example
    * ```
    * const prisma = new PrismaClient()
-   * // Fetch zero or more Favorite_sizes
-   * const favorite_sizes = await prisma.favorite_size.findMany()
+   * // Fetch zero or more Customers
+   * const customers = await prisma.customer.findMany()
    * ```
    *
    *
@@ -185,14 +200,14 @@ export class PrismaClient<
   }>>
 
       /**
-   * `prisma.favorite_size`: Exposes CRUD operations for the **Favorite_size** model.
+   * `prisma.customer`: Exposes CRUD operations for the **Customer** model.
     * Example usage:
     * ```ts
-    * // Fetch zero or more Favorite_sizes
-    * const favorite_sizes = await prisma.favorite_size.findMany()
+    * // Fetch zero or more Customers
+    * const customers = await prisma.customer.findMany()
     * ```
     */
-  get favorite_size(): Prisma.Favorite_sizeDelegate<ExtArgs, ClientOptions>;
+  get customer(): Prisma.CustomerDelegate<ExtArgs, ClientOptions>;
 
   /**
    * `prisma.country`: Exposes CRUD operations for the **Country** model.
@@ -205,14 +220,44 @@ export class PrismaClient<
   get country(): Prisma.CountryDelegate<ExtArgs, ClientOptions>;
 
   /**
-   * `prisma.customer`: Exposes CRUD operations for the **Customer** model.
+   * `prisma.category`: Exposes CRUD operations for the **Category** model.
     * Example usage:
     * ```ts
-    * // Fetch zero or more Customers
-    * const customers = await prisma.customer.findMany()
+    * // Fetch zero or more Categories
+    * const categories = await prisma.category.findMany()
     * ```
     */
-  get customer(): Prisma.CustomerDelegate<ExtArgs, ClientOptions>;
+  get category(): Prisma.CategoryDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.size`: Exposes CRUD operations for the **Size** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more Sizes
+    * const sizes = await prisma.size.findMany()
+    * ```
+    */
+  get size(): Prisma.SizeDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.conversion`: Exposes CRUD operations for the **Conversion** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more Conversions
+    * const conversions = await prisma.conversion.findMany()
+    * ```
+    */
+  get conversion(): Prisma.ConversionDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.favoriteSize`: Exposes CRUD operations for the **FavoriteSize** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more FavoriteSizes
+    * const favoriteSizes = await prisma.favoriteSize.findMany()
+    * ```
+    */
+  get favoriteSize(): Prisma.FavoriteSizeDelegate<ExtArgs, ClientOptions>;
 }
 
 export namespace Prisma {
@@ -653,9 +698,12 @@ export namespace Prisma {
 
 
   export const ModelName: {
-    Favorite_size: 'Favorite_size',
+    Customer: 'Customer',
     Country: 'Country',
-    Customer: 'Customer'
+    Category: 'Category',
+    Size: 'Size',
+    Conversion: 'Conversion',
+    FavoriteSize: 'FavoriteSize'
   };
 
   export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -674,81 +722,81 @@ export namespace Prisma {
       omit: GlobalOmitOptions
     }
     meta: {
-      modelProps: "favorite_size" | "country" | "customer"
+      modelProps: "customer" | "country" | "category" | "size" | "conversion" | "favoriteSize"
       txIsolationLevel: Prisma.TransactionIsolationLevel
     }
     model: {
-      Favorite_size: {
-        payload: Prisma.$Favorite_sizePayload<ExtArgs>
-        fields: Prisma.Favorite_sizeFieldRefs
+      Customer: {
+        payload: Prisma.$CustomerPayload<ExtArgs>
+        fields: Prisma.CustomerFieldRefs
         operations: {
           findUnique: {
-            args: Prisma.Favorite_sizeFindUniqueArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$Favorite_sizePayload> | null
+            args: Prisma.CustomerFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CustomerPayload> | null
           }
           findUniqueOrThrow: {
-            args: Prisma.Favorite_sizeFindUniqueOrThrowArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$Favorite_sizePayload>
+            args: Prisma.CustomerFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CustomerPayload>
           }
           findFirst: {
-            args: Prisma.Favorite_sizeFindFirstArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$Favorite_sizePayload> | null
+            args: Prisma.CustomerFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CustomerPayload> | null
           }
           findFirstOrThrow: {
-            args: Prisma.Favorite_sizeFindFirstOrThrowArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$Favorite_sizePayload>
+            args: Prisma.CustomerFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CustomerPayload>
           }
           findMany: {
-            args: Prisma.Favorite_sizeFindManyArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$Favorite_sizePayload>[]
+            args: Prisma.CustomerFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CustomerPayload>[]
           }
           create: {
-            args: Prisma.Favorite_sizeCreateArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$Favorite_sizePayload>
+            args: Prisma.CustomerCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CustomerPayload>
           }
           createMany: {
-            args: Prisma.Favorite_sizeCreateManyArgs<ExtArgs>
+            args: Prisma.CustomerCreateManyArgs<ExtArgs>
             result: BatchPayload
           }
           createManyAndReturn: {
-            args: Prisma.Favorite_sizeCreateManyAndReturnArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$Favorite_sizePayload>[]
+            args: Prisma.CustomerCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CustomerPayload>[]
           }
           delete: {
-            args: Prisma.Favorite_sizeDeleteArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$Favorite_sizePayload>
+            args: Prisma.CustomerDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CustomerPayload>
           }
           update: {
-            args: Prisma.Favorite_sizeUpdateArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$Favorite_sizePayload>
+            args: Prisma.CustomerUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CustomerPayload>
           }
           deleteMany: {
-            args: Prisma.Favorite_sizeDeleteManyArgs<ExtArgs>
+            args: Prisma.CustomerDeleteManyArgs<ExtArgs>
             result: BatchPayload
           }
           updateMany: {
-            args: Prisma.Favorite_sizeUpdateManyArgs<ExtArgs>
+            args: Prisma.CustomerUpdateManyArgs<ExtArgs>
             result: BatchPayload
           }
           updateManyAndReturn: {
-            args: Prisma.Favorite_sizeUpdateManyAndReturnArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$Favorite_sizePayload>[]
+            args: Prisma.CustomerUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CustomerPayload>[]
           }
           upsert: {
-            args: Prisma.Favorite_sizeUpsertArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$Favorite_sizePayload>
+            args: Prisma.CustomerUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CustomerPayload>
           }
           aggregate: {
-            args: Prisma.Favorite_sizeAggregateArgs<ExtArgs>
-            result: $Utils.Optional<AggregateFavorite_size>
+            args: Prisma.CustomerAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateCustomer>
           }
           groupBy: {
-            args: Prisma.Favorite_sizeGroupByArgs<ExtArgs>
-            result: $Utils.Optional<Favorite_sizeGroupByOutputType>[]
+            args: Prisma.CustomerGroupByArgs<ExtArgs>
+            result: $Utils.Optional<CustomerGroupByOutputType>[]
           }
           count: {
-            args: Prisma.Favorite_sizeCountArgs<ExtArgs>
-            result: $Utils.Optional<Favorite_sizeCountAggregateOutputType> | number
+            args: Prisma.CustomerCountArgs<ExtArgs>
+            result: $Utils.Optional<CustomerCountAggregateOutputType> | number
           }
         }
       }
@@ -826,77 +874,299 @@ export namespace Prisma {
           }
         }
       }
-      Customer: {
-        payload: Prisma.$CustomerPayload<ExtArgs>
-        fields: Prisma.CustomerFieldRefs
+      Category: {
+        payload: Prisma.$CategoryPayload<ExtArgs>
+        fields: Prisma.CategoryFieldRefs
         operations: {
           findUnique: {
-            args: Prisma.CustomerFindUniqueArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$CustomerPayload> | null
+            args: Prisma.CategoryFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CategoryPayload> | null
           }
           findUniqueOrThrow: {
-            args: Prisma.CustomerFindUniqueOrThrowArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$CustomerPayload>
+            args: Prisma.CategoryFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CategoryPayload>
           }
           findFirst: {
-            args: Prisma.CustomerFindFirstArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$CustomerPayload> | null
+            args: Prisma.CategoryFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CategoryPayload> | null
           }
           findFirstOrThrow: {
-            args: Prisma.CustomerFindFirstOrThrowArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$CustomerPayload>
+            args: Prisma.CategoryFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CategoryPayload>
           }
           findMany: {
-            args: Prisma.CustomerFindManyArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$CustomerPayload>[]
+            args: Prisma.CategoryFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CategoryPayload>[]
           }
           create: {
-            args: Prisma.CustomerCreateArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$CustomerPayload>
+            args: Prisma.CategoryCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CategoryPayload>
           }
           createMany: {
-            args: Prisma.CustomerCreateManyArgs<ExtArgs>
+            args: Prisma.CategoryCreateManyArgs<ExtArgs>
             result: BatchPayload
           }
           createManyAndReturn: {
-            args: Prisma.CustomerCreateManyAndReturnArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$CustomerPayload>[]
+            args: Prisma.CategoryCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CategoryPayload>[]
           }
           delete: {
-            args: Prisma.CustomerDeleteArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$CustomerPayload>
+            args: Prisma.CategoryDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CategoryPayload>
           }
           update: {
-            args: Prisma.CustomerUpdateArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$CustomerPayload>
+            args: Prisma.CategoryUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CategoryPayload>
           }
           deleteMany: {
-            args: Prisma.CustomerDeleteManyArgs<ExtArgs>
+            args: Prisma.CategoryDeleteManyArgs<ExtArgs>
             result: BatchPayload
           }
           updateMany: {
-            args: Prisma.CustomerUpdateManyArgs<ExtArgs>
+            args: Prisma.CategoryUpdateManyArgs<ExtArgs>
             result: BatchPayload
           }
           updateManyAndReturn: {
-            args: Prisma.CustomerUpdateManyAndReturnArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$CustomerPayload>[]
+            args: Prisma.CategoryUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CategoryPayload>[]
           }
           upsert: {
-            args: Prisma.CustomerUpsertArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$CustomerPayload>
+            args: Prisma.CategoryUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CategoryPayload>
           }
           aggregate: {
-            args: Prisma.CustomerAggregateArgs<ExtArgs>
-            result: $Utils.Optional<AggregateCustomer>
+            args: Prisma.CategoryAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateCategory>
           }
           groupBy: {
-            args: Prisma.CustomerGroupByArgs<ExtArgs>
-            result: $Utils.Optional<CustomerGroupByOutputType>[]
+            args: Prisma.CategoryGroupByArgs<ExtArgs>
+            result: $Utils.Optional<CategoryGroupByOutputType>[]
           }
           count: {
-            args: Prisma.CustomerCountArgs<ExtArgs>
-            result: $Utils.Optional<CustomerCountAggregateOutputType> | number
+            args: Prisma.CategoryCountArgs<ExtArgs>
+            result: $Utils.Optional<CategoryCountAggregateOutputType> | number
+          }
+        }
+      }
+      Size: {
+        payload: Prisma.$SizePayload<ExtArgs>
+        fields: Prisma.SizeFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.SizeFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$SizePayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.SizeFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$SizePayload>
+          }
+          findFirst: {
+            args: Prisma.SizeFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$SizePayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.SizeFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$SizePayload>
+          }
+          findMany: {
+            args: Prisma.SizeFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$SizePayload>[]
+          }
+          create: {
+            args: Prisma.SizeCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$SizePayload>
+          }
+          createMany: {
+            args: Prisma.SizeCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.SizeCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$SizePayload>[]
+          }
+          delete: {
+            args: Prisma.SizeDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$SizePayload>
+          }
+          update: {
+            args: Prisma.SizeUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$SizePayload>
+          }
+          deleteMany: {
+            args: Prisma.SizeDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.SizeUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateManyAndReturn: {
+            args: Prisma.SizeUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$SizePayload>[]
+          }
+          upsert: {
+            args: Prisma.SizeUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$SizePayload>
+          }
+          aggregate: {
+            args: Prisma.SizeAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateSize>
+          }
+          groupBy: {
+            args: Prisma.SizeGroupByArgs<ExtArgs>
+            result: $Utils.Optional<SizeGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.SizeCountArgs<ExtArgs>
+            result: $Utils.Optional<SizeCountAggregateOutputType> | number
+          }
+        }
+      }
+      Conversion: {
+        payload: Prisma.$ConversionPayload<ExtArgs>
+        fields: Prisma.ConversionFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.ConversionFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ConversionPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.ConversionFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ConversionPayload>
+          }
+          findFirst: {
+            args: Prisma.ConversionFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ConversionPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.ConversionFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ConversionPayload>
+          }
+          findMany: {
+            args: Prisma.ConversionFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ConversionPayload>[]
+          }
+          create: {
+            args: Prisma.ConversionCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ConversionPayload>
+          }
+          createMany: {
+            args: Prisma.ConversionCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.ConversionCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ConversionPayload>[]
+          }
+          delete: {
+            args: Prisma.ConversionDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ConversionPayload>
+          }
+          update: {
+            args: Prisma.ConversionUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ConversionPayload>
+          }
+          deleteMany: {
+            args: Prisma.ConversionDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.ConversionUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateManyAndReturn: {
+            args: Prisma.ConversionUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ConversionPayload>[]
+          }
+          upsert: {
+            args: Prisma.ConversionUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ConversionPayload>
+          }
+          aggregate: {
+            args: Prisma.ConversionAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateConversion>
+          }
+          groupBy: {
+            args: Prisma.ConversionGroupByArgs<ExtArgs>
+            result: $Utils.Optional<ConversionGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.ConversionCountArgs<ExtArgs>
+            result: $Utils.Optional<ConversionCountAggregateOutputType> | number
+          }
+        }
+      }
+      FavoriteSize: {
+        payload: Prisma.$FavoriteSizePayload<ExtArgs>
+        fields: Prisma.FavoriteSizeFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.FavoriteSizeFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$FavoriteSizePayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.FavoriteSizeFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$FavoriteSizePayload>
+          }
+          findFirst: {
+            args: Prisma.FavoriteSizeFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$FavoriteSizePayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.FavoriteSizeFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$FavoriteSizePayload>
+          }
+          findMany: {
+            args: Prisma.FavoriteSizeFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$FavoriteSizePayload>[]
+          }
+          create: {
+            args: Prisma.FavoriteSizeCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$FavoriteSizePayload>
+          }
+          createMany: {
+            args: Prisma.FavoriteSizeCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.FavoriteSizeCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$FavoriteSizePayload>[]
+          }
+          delete: {
+            args: Prisma.FavoriteSizeDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$FavoriteSizePayload>
+          }
+          update: {
+            args: Prisma.FavoriteSizeUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$FavoriteSizePayload>
+          }
+          deleteMany: {
+            args: Prisma.FavoriteSizeDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.FavoriteSizeUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateManyAndReturn: {
+            args: Prisma.FavoriteSizeUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$FavoriteSizePayload>[]
+          }
+          upsert: {
+            args: Prisma.FavoriteSizeUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$FavoriteSizePayload>
+          }
+          aggregate: {
+            args: Prisma.FavoriteSizeAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateFavoriteSize>
+          }
+          groupBy: {
+            args: Prisma.FavoriteSizeGroupByArgs<ExtArgs>
+            result: $Utils.Optional<FavoriteSizeGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.FavoriteSizeCountArgs<ExtArgs>
+            result: $Utils.Optional<FavoriteSizeCountAggregateOutputType> | number
           }
         }
       }
@@ -984,9 +1254,12 @@ export namespace Prisma {
     omit?: Prisma.GlobalOmitConfig
   }
   export type GlobalOmitConfig = {
-    favorite_size?: Favorite_sizeOmit
-    country?: CountryOmit
     customer?: CustomerOmit
+    country?: CountryOmit
+    category?: CategoryOmit
+    size?: SizeOmit
+    conversion?: ConversionOmit
+    favoriteSize?: FavoriteSizeOmit
   }
 
   /* Types for Logging */
@@ -1077,46 +1350,17 @@ export namespace Prisma {
 
 
   /**
-   * Count Type CountryCountOutputType
-   */
-
-  export type CountryCountOutputType = {
-    favorite_size: number
-  }
-
-  export type CountryCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    favorite_size?: boolean | CountryCountOutputTypeCountFavorite_sizeArgs
-  }
-
-  // Custom InputTypes
-  /**
-   * CountryCountOutputType without action
-   */
-  export type CountryCountOutputTypeDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the CountryCountOutputType
-     */
-    select?: CountryCountOutputTypeSelect<ExtArgs> | null
-  }
-
-  /**
-   * CountryCountOutputType without action
-   */
-  export type CountryCountOutputTypeCountFavorite_sizeArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    where?: Favorite_sizeWhereInput
-  }
-
-
-  /**
    * Count Type CustomerCountOutputType
    */
 
   export type CustomerCountOutputType = {
-    favorite_size: number
+    conversions: number
+    favoriteSizes: number
   }
 
   export type CustomerCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    favorite_size?: boolean | CustomerCountOutputTypeCountFavorite_sizeArgs
+    conversions?: boolean | CustomerCountOutputTypeCountConversionsArgs
+    favoriteSizes?: boolean | CustomerCountOutputTypeCountFavoriteSizesArgs
   }
 
   // Custom InputTypes
@@ -1133,8 +1377,144 @@ export namespace Prisma {
   /**
    * CustomerCountOutputType without action
    */
-  export type CustomerCountOutputTypeCountFavorite_sizeArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    where?: Favorite_sizeWhereInput
+  export type CustomerCountOutputTypeCountConversionsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: ConversionWhereInput
+  }
+
+  /**
+   * CustomerCountOutputType without action
+   */
+  export type CustomerCountOutputTypeCountFavoriteSizesArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: FavoriteSizeWhereInput
+  }
+
+
+  /**
+   * Count Type CountryCountOutputType
+   */
+
+  export type CountryCountOutputType = {
+    sizes: number
+    favoriteSizes: number
+  }
+
+  export type CountryCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    sizes?: boolean | CountryCountOutputTypeCountSizesArgs
+    favoriteSizes?: boolean | CountryCountOutputTypeCountFavoriteSizesArgs
+  }
+
+  // Custom InputTypes
+  /**
+   * CountryCountOutputType without action
+   */
+  export type CountryCountOutputTypeDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the CountryCountOutputType
+     */
+    select?: CountryCountOutputTypeSelect<ExtArgs> | null
+  }
+
+  /**
+   * CountryCountOutputType without action
+   */
+  export type CountryCountOutputTypeCountSizesArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: SizeWhereInput
+  }
+
+  /**
+   * CountryCountOutputType without action
+   */
+  export type CountryCountOutputTypeCountFavoriteSizesArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: FavoriteSizeWhereInput
+  }
+
+
+  /**
+   * Count Type CategoryCountOutputType
+   */
+
+  export type CategoryCountOutputType = {
+    sizes: number
+    favoriteSizes: number
+  }
+
+  export type CategoryCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    sizes?: boolean | CategoryCountOutputTypeCountSizesArgs
+    favoriteSizes?: boolean | CategoryCountOutputTypeCountFavoriteSizesArgs
+  }
+
+  // Custom InputTypes
+  /**
+   * CategoryCountOutputType without action
+   */
+  export type CategoryCountOutputTypeDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the CategoryCountOutputType
+     */
+    select?: CategoryCountOutputTypeSelect<ExtArgs> | null
+  }
+
+  /**
+   * CategoryCountOutputType without action
+   */
+  export type CategoryCountOutputTypeCountSizesArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: SizeWhereInput
+  }
+
+  /**
+   * CategoryCountOutputType without action
+   */
+  export type CategoryCountOutputTypeCountFavoriteSizesArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: FavoriteSizeWhereInput
+  }
+
+
+  /**
+   * Count Type SizeCountOutputType
+   */
+
+  export type SizeCountOutputType = {
+    favoriteSizes: number
+    fromConversions: number
+    toConversions: number
+  }
+
+  export type SizeCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    favoriteSizes?: boolean | SizeCountOutputTypeCountFavoriteSizesArgs
+    fromConversions?: boolean | SizeCountOutputTypeCountFromConversionsArgs
+    toConversions?: boolean | SizeCountOutputTypeCountToConversionsArgs
+  }
+
+  // Custom InputTypes
+  /**
+   * SizeCountOutputType without action
+   */
+  export type SizeCountOutputTypeDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the SizeCountOutputType
+     */
+    select?: SizeCountOutputTypeSelect<ExtArgs> | null
+  }
+
+  /**
+   * SizeCountOutputType without action
+   */
+  export type SizeCountOutputTypeCountFavoriteSizesArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: FavoriteSizeWhereInput
+  }
+
+  /**
+   * SizeCountOutputType without action
+   */
+  export type SizeCountOutputTypeCountFromConversionsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: ConversionWhereInput
+  }
+
+  /**
+   * SizeCountOutputType without action
+   */
+  export type SizeCountOutputTypeCountToConversionsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: ConversionWhereInput
   }
 
 
@@ -1143,411 +1523,379 @@ export namespace Prisma {
    */
 
   /**
-   * Model Favorite_size
+   * Model Customer
    */
 
-  export type AggregateFavorite_size = {
-    _count: Favorite_sizeCountAggregateOutputType | null
-    _avg: Favorite_sizeAvgAggregateOutputType | null
-    _sum: Favorite_sizeSumAggregateOutputType | null
-    _min: Favorite_sizeMinAggregateOutputType | null
-    _max: Favorite_sizeMaxAggregateOutputType | null
+  export type AggregateCustomer = {
+    _count: CustomerCountAggregateOutputType | null
+    _avg: CustomerAvgAggregateOutputType | null
+    _sum: CustomerSumAggregateOutputType | null
+    _min: CustomerMinAggregateOutputType | null
+    _max: CustomerMaxAggregateOutputType | null
   }
 
-  export type Favorite_sizeAvgAggregateOutputType = {
+  export type CustomerAvgAggregateOutputType = {
     id: number | null
-    customer_id: number | null
-    country_id: number | null
   }
 
-  export type Favorite_sizeSumAggregateOutputType = {
+  export type CustomerSumAggregateOutputType = {
     id: number | null
-    customer_id: number | null
-    country_id: number | null
   }
 
-  export type Favorite_sizeMinAggregateOutputType = {
+  export type CustomerMinAggregateOutputType = {
     id: number | null
-    customer_id: number | null
-    title: string | null
-    description: string | null
-    country_id: number | null
-    gender: $Enums.Gender | null
+    email: string | null
+    name: string | null
+    image: string | null
   }
 
-  export type Favorite_sizeMaxAggregateOutputType = {
+  export type CustomerMaxAggregateOutputType = {
     id: number | null
-    customer_id: number | null
-    title: string | null
-    description: string | null
-    country_id: number | null
-    gender: $Enums.Gender | null
+    email: string | null
+    name: string | null
+    image: string | null
   }
 
-  export type Favorite_sizeCountAggregateOutputType = {
+  export type CustomerCountAggregateOutputType = {
     id: number
-    customer_id: number
-    title: number
-    description: number
-    country_id: number
-    gender: number
+    email: number
+    name: number
+    image: number
+    role: number
     _all: number
   }
 
 
-  export type Favorite_sizeAvgAggregateInputType = {
+  export type CustomerAvgAggregateInputType = {
     id?: true
-    customer_id?: true
-    country_id?: true
   }
 
-  export type Favorite_sizeSumAggregateInputType = {
+  export type CustomerSumAggregateInputType = {
     id?: true
-    customer_id?: true
-    country_id?: true
   }
 
-  export type Favorite_sizeMinAggregateInputType = {
+  export type CustomerMinAggregateInputType = {
     id?: true
-    customer_id?: true
-    title?: true
-    description?: true
-    country_id?: true
-    gender?: true
+    email?: true
+    name?: true
+    image?: true
   }
 
-  export type Favorite_sizeMaxAggregateInputType = {
+  export type CustomerMaxAggregateInputType = {
     id?: true
-    customer_id?: true
-    title?: true
-    description?: true
-    country_id?: true
-    gender?: true
+    email?: true
+    name?: true
+    image?: true
   }
 
-  export type Favorite_sizeCountAggregateInputType = {
+  export type CustomerCountAggregateInputType = {
     id?: true
-    customer_id?: true
-    title?: true
-    description?: true
-    country_id?: true
-    gender?: true
+    email?: true
+    name?: true
+    image?: true
+    role?: true
     _all?: true
   }
 
-  export type Favorite_sizeAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type CustomerAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Filter which Favorite_size to aggregate.
+     * Filter which Customer to aggregate.
      */
-    where?: Favorite_sizeWhereInput
+    where?: CustomerWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
      * 
-     * Determine the order of Favorite_sizes to fetch.
+     * Determine the order of Customers to fetch.
      */
-    orderBy?: Favorite_sizeOrderByWithRelationInput | Favorite_sizeOrderByWithRelationInput[]
+    orderBy?: CustomerOrderByWithRelationInput | CustomerOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
      * Sets the start position
      */
-    cursor?: Favorite_sizeWhereUniqueInput
+    cursor?: CustomerWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Take `±n` Favorite_sizes from the position of the cursor.
+     * Take `±n` Customers from the position of the cursor.
      */
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Skip the first `n` Favorite_sizes.
+     * Skip the first `n` Customers.
      */
     skip?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
-     * Count returned Favorite_sizes
+     * Count returned Customers
     **/
-    _count?: true | Favorite_sizeCountAggregateInputType
+    _count?: true | CustomerCountAggregateInputType
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
      * Select which fields to average
     **/
-    _avg?: Favorite_sizeAvgAggregateInputType
+    _avg?: CustomerAvgAggregateInputType
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
      * Select which fields to sum
     **/
-    _sum?: Favorite_sizeSumAggregateInputType
+    _sum?: CustomerSumAggregateInputType
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
      * Select which fields to find the minimum value
     **/
-    _min?: Favorite_sizeMinAggregateInputType
+    _min?: CustomerMinAggregateInputType
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
      * Select which fields to find the maximum value
     **/
-    _max?: Favorite_sizeMaxAggregateInputType
+    _max?: CustomerMaxAggregateInputType
   }
 
-  export type GetFavorite_sizeAggregateType<T extends Favorite_sizeAggregateArgs> = {
-        [P in keyof T & keyof AggregateFavorite_size]: P extends '_count' | 'count'
+  export type GetCustomerAggregateType<T extends CustomerAggregateArgs> = {
+        [P in keyof T & keyof AggregateCustomer]: P extends '_count' | 'count'
       ? T[P] extends true
         ? number
-        : GetScalarType<T[P], AggregateFavorite_size[P]>
-      : GetScalarType<T[P], AggregateFavorite_size[P]>
+        : GetScalarType<T[P], AggregateCustomer[P]>
+      : GetScalarType<T[P], AggregateCustomer[P]>
   }
 
 
 
 
-  export type Favorite_sizeGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    where?: Favorite_sizeWhereInput
-    orderBy?: Favorite_sizeOrderByWithAggregationInput | Favorite_sizeOrderByWithAggregationInput[]
-    by: Favorite_sizeScalarFieldEnum[] | Favorite_sizeScalarFieldEnum
-    having?: Favorite_sizeScalarWhereWithAggregatesInput
+  export type CustomerGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: CustomerWhereInput
+    orderBy?: CustomerOrderByWithAggregationInput | CustomerOrderByWithAggregationInput[]
+    by: CustomerScalarFieldEnum[] | CustomerScalarFieldEnum
+    having?: CustomerScalarWhereWithAggregatesInput
     take?: number
     skip?: number
-    _count?: Favorite_sizeCountAggregateInputType | true
-    _avg?: Favorite_sizeAvgAggregateInputType
-    _sum?: Favorite_sizeSumAggregateInputType
-    _min?: Favorite_sizeMinAggregateInputType
-    _max?: Favorite_sizeMaxAggregateInputType
+    _count?: CustomerCountAggregateInputType | true
+    _avg?: CustomerAvgAggregateInputType
+    _sum?: CustomerSumAggregateInputType
+    _min?: CustomerMinAggregateInputType
+    _max?: CustomerMaxAggregateInputType
   }
 
-  export type Favorite_sizeGroupByOutputType = {
+  export type CustomerGroupByOutputType = {
     id: number
-    customer_id: number
-    title: string
-    description: string | null
-    country_id: number
-    gender: $Enums.Gender
-    _count: Favorite_sizeCountAggregateOutputType | null
-    _avg: Favorite_sizeAvgAggregateOutputType | null
-    _sum: Favorite_sizeSumAggregateOutputType | null
-    _min: Favorite_sizeMinAggregateOutputType | null
-    _max: Favorite_sizeMaxAggregateOutputType | null
+    email: string
+    name: string | null
+    image: string | null
+    role: $Enums.Role[]
+    _count: CustomerCountAggregateOutputType | null
+    _avg: CustomerAvgAggregateOutputType | null
+    _sum: CustomerSumAggregateOutputType | null
+    _min: CustomerMinAggregateOutputType | null
+    _max: CustomerMaxAggregateOutputType | null
   }
 
-  type GetFavorite_sizeGroupByPayload<T extends Favorite_sizeGroupByArgs> = Prisma.PrismaPromise<
+  type GetCustomerGroupByPayload<T extends CustomerGroupByArgs> = Prisma.PrismaPromise<
     Array<
-      PickEnumerable<Favorite_sizeGroupByOutputType, T['by']> &
+      PickEnumerable<CustomerGroupByOutputType, T['by']> &
         {
-          [P in ((keyof T) & (keyof Favorite_sizeGroupByOutputType))]: P extends '_count'
+          [P in ((keyof T) & (keyof CustomerGroupByOutputType))]: P extends '_count'
             ? T[P] extends boolean
               ? number
-              : GetScalarType<T[P], Favorite_sizeGroupByOutputType[P]>
-            : GetScalarType<T[P], Favorite_sizeGroupByOutputType[P]>
+              : GetScalarType<T[P], CustomerGroupByOutputType[P]>
+            : GetScalarType<T[P], CustomerGroupByOutputType[P]>
         }
       >
     >
 
 
-  export type Favorite_sizeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+  export type CustomerSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
-    customer_id?: boolean
-    title?: boolean
-    description?: boolean
-    country_id?: boolean
-    gender?: boolean
-    customer?: boolean | CustomerDefaultArgs<ExtArgs>
-    country?: boolean | CountryDefaultArgs<ExtArgs>
-  }, ExtArgs["result"]["favorite_size"]>
+    email?: boolean
+    name?: boolean
+    image?: boolean
+    role?: boolean
+    conversions?: boolean | Customer$conversionsArgs<ExtArgs>
+    favoriteSizes?: boolean | Customer$favoriteSizesArgs<ExtArgs>
+    _count?: boolean | CustomerCountOutputTypeDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["customer"]>
 
-  export type Favorite_sizeSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+  export type CustomerSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
-    customer_id?: boolean
-    title?: boolean
-    description?: boolean
-    country_id?: boolean
-    gender?: boolean
-    customer?: boolean | CustomerDefaultArgs<ExtArgs>
-    country?: boolean | CountryDefaultArgs<ExtArgs>
-  }, ExtArgs["result"]["favorite_size"]>
+    email?: boolean
+    name?: boolean
+    image?: boolean
+    role?: boolean
+  }, ExtArgs["result"]["customer"]>
 
-  export type Favorite_sizeSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+  export type CustomerSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
-    customer_id?: boolean
-    title?: boolean
-    description?: boolean
-    country_id?: boolean
-    gender?: boolean
-    customer?: boolean | CustomerDefaultArgs<ExtArgs>
-    country?: boolean | CountryDefaultArgs<ExtArgs>
-  }, ExtArgs["result"]["favorite_size"]>
+    email?: boolean
+    name?: boolean
+    image?: boolean
+    role?: boolean
+  }, ExtArgs["result"]["customer"]>
 
-  export type Favorite_sizeSelectScalar = {
+  export type CustomerSelectScalar = {
     id?: boolean
-    customer_id?: boolean
-    title?: boolean
-    description?: boolean
-    country_id?: boolean
-    gender?: boolean
+    email?: boolean
+    name?: boolean
+    image?: boolean
+    role?: boolean
   }
 
-  export type Favorite_sizeOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "customer_id" | "title" | "description" | "country_id" | "gender", ExtArgs["result"]["favorite_size"]>
-  export type Favorite_sizeInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    customer?: boolean | CustomerDefaultArgs<ExtArgs>
-    country?: boolean | CountryDefaultArgs<ExtArgs>
+  export type CustomerOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "email" | "name" | "image" | "role", ExtArgs["result"]["customer"]>
+  export type CustomerInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    conversions?: boolean | Customer$conversionsArgs<ExtArgs>
+    favoriteSizes?: boolean | Customer$favoriteSizesArgs<ExtArgs>
+    _count?: boolean | CustomerCountOutputTypeDefaultArgs<ExtArgs>
   }
-  export type Favorite_sizeIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    customer?: boolean | CustomerDefaultArgs<ExtArgs>
-    country?: boolean | CountryDefaultArgs<ExtArgs>
-  }
-  export type Favorite_sizeIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    customer?: boolean | CustomerDefaultArgs<ExtArgs>
-    country?: boolean | CountryDefaultArgs<ExtArgs>
-  }
+  export type CustomerIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {}
+  export type CustomerIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {}
 
-  export type $Favorite_sizePayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    name: "Favorite_size"
+  export type $CustomerPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "Customer"
     objects: {
-      customer: Prisma.$CustomerPayload<ExtArgs>
-      country: Prisma.$CountryPayload<ExtArgs>
+      conversions: Prisma.$ConversionPayload<ExtArgs>[]
+      favoriteSizes: Prisma.$FavoriteSizePayload<ExtArgs>[]
     }
     scalars: $Extensions.GetPayloadResult<{
       id: number
-      customer_id: number
-      title: string
-      description: string | null
-      country_id: number
-      gender: $Enums.Gender
-    }, ExtArgs["result"]["favorite_size"]>
+      email: string
+      name: string | null
+      image: string | null
+      role: $Enums.Role[]
+    }, ExtArgs["result"]["customer"]>
     composites: {}
   }
 
-  type Favorite_sizeGetPayload<S extends boolean | null | undefined | Favorite_sizeDefaultArgs> = $Result.GetResult<Prisma.$Favorite_sizePayload, S>
+  type CustomerGetPayload<S extends boolean | null | undefined | CustomerDefaultArgs> = $Result.GetResult<Prisma.$CustomerPayload, S>
 
-  type Favorite_sizeCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
-    Omit<Favorite_sizeFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
-      select?: Favorite_sizeCountAggregateInputType | true
+  type CustomerCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<CustomerFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: CustomerCountAggregateInputType | true
     }
 
-  export interface Favorite_sizeDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
-    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['Favorite_size'], meta: { name: 'Favorite_size' } }
+  export interface CustomerDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['Customer'], meta: { name: 'Customer' } }
     /**
-     * Find zero or one Favorite_size that matches the filter.
-     * @param {Favorite_sizeFindUniqueArgs} args - Arguments to find a Favorite_size
+     * Find zero or one Customer that matches the filter.
+     * @param {CustomerFindUniqueArgs} args - Arguments to find a Customer
      * @example
-     * // Get one Favorite_size
-     * const favorite_size = await prisma.favorite_size.findUnique({
+     * // Get one Customer
+     * const customer = await prisma.customer.findUnique({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
      */
-    findUnique<T extends Favorite_sizeFindUniqueArgs>(args: SelectSubset<T, Favorite_sizeFindUniqueArgs<ExtArgs>>): Prisma__Favorite_sizeClient<$Result.GetResult<Prisma.$Favorite_sizePayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+    findUnique<T extends CustomerFindUniqueArgs>(args: SelectSubset<T, CustomerFindUniqueArgs<ExtArgs>>): Prisma__CustomerClient<$Result.GetResult<Prisma.$CustomerPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Find one Favorite_size that matches the filter or throw an error with `error.code='P2025'`
+     * Find one Customer that matches the filter or throw an error with `error.code='P2025'`
      * if no matches were found.
-     * @param {Favorite_sizeFindUniqueOrThrowArgs} args - Arguments to find a Favorite_size
+     * @param {CustomerFindUniqueOrThrowArgs} args - Arguments to find a Customer
      * @example
-     * // Get one Favorite_size
-     * const favorite_size = await prisma.favorite_size.findUniqueOrThrow({
+     * // Get one Customer
+     * const customer = await prisma.customer.findUniqueOrThrow({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
      */
-    findUniqueOrThrow<T extends Favorite_sizeFindUniqueOrThrowArgs>(args: SelectSubset<T, Favorite_sizeFindUniqueOrThrowArgs<ExtArgs>>): Prisma__Favorite_sizeClient<$Result.GetResult<Prisma.$Favorite_sizePayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+    findUniqueOrThrow<T extends CustomerFindUniqueOrThrowArgs>(args: SelectSubset<T, CustomerFindUniqueOrThrowArgs<ExtArgs>>): Prisma__CustomerClient<$Result.GetResult<Prisma.$CustomerPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Find the first Favorite_size that matches the filter.
+     * Find the first Customer that matches the filter.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {Favorite_sizeFindFirstArgs} args - Arguments to find a Favorite_size
+     * @param {CustomerFindFirstArgs} args - Arguments to find a Customer
      * @example
-     * // Get one Favorite_size
-     * const favorite_size = await prisma.favorite_size.findFirst({
+     * // Get one Customer
+     * const customer = await prisma.customer.findFirst({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
      */
-    findFirst<T extends Favorite_sizeFindFirstArgs>(args?: SelectSubset<T, Favorite_sizeFindFirstArgs<ExtArgs>>): Prisma__Favorite_sizeClient<$Result.GetResult<Prisma.$Favorite_sizePayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+    findFirst<T extends CustomerFindFirstArgs>(args?: SelectSubset<T, CustomerFindFirstArgs<ExtArgs>>): Prisma__CustomerClient<$Result.GetResult<Prisma.$CustomerPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Find the first Favorite_size that matches the filter or
+     * Find the first Customer that matches the filter or
      * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {Favorite_sizeFindFirstOrThrowArgs} args - Arguments to find a Favorite_size
+     * @param {CustomerFindFirstOrThrowArgs} args - Arguments to find a Customer
      * @example
-     * // Get one Favorite_size
-     * const favorite_size = await prisma.favorite_size.findFirstOrThrow({
+     * // Get one Customer
+     * const customer = await prisma.customer.findFirstOrThrow({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
      */
-    findFirstOrThrow<T extends Favorite_sizeFindFirstOrThrowArgs>(args?: SelectSubset<T, Favorite_sizeFindFirstOrThrowArgs<ExtArgs>>): Prisma__Favorite_sizeClient<$Result.GetResult<Prisma.$Favorite_sizePayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+    findFirstOrThrow<T extends CustomerFindFirstOrThrowArgs>(args?: SelectSubset<T, CustomerFindFirstOrThrowArgs<ExtArgs>>): Prisma__CustomerClient<$Result.GetResult<Prisma.$CustomerPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Find zero or more Favorite_sizes that matches the filter.
+     * Find zero or more Customers that matches the filter.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {Favorite_sizeFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @param {CustomerFindManyArgs} args - Arguments to filter and select certain fields only.
      * @example
-     * // Get all Favorite_sizes
-     * const favorite_sizes = await prisma.favorite_size.findMany()
+     * // Get all Customers
+     * const customers = await prisma.customer.findMany()
      * 
-     * // Get first 10 Favorite_sizes
-     * const favorite_sizes = await prisma.favorite_size.findMany({ take: 10 })
+     * // Get first 10 Customers
+     * const customers = await prisma.customer.findMany({ take: 10 })
      * 
      * // Only select the `id`
-     * const favorite_sizeWithIdOnly = await prisma.favorite_size.findMany({ select: { id: true } })
+     * const customerWithIdOnly = await prisma.customer.findMany({ select: { id: true } })
      * 
      */
-    findMany<T extends Favorite_sizeFindManyArgs>(args?: SelectSubset<T, Favorite_sizeFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$Favorite_sizePayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+    findMany<T extends CustomerFindManyArgs>(args?: SelectSubset<T, CustomerFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$CustomerPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
 
     /**
-     * Create a Favorite_size.
-     * @param {Favorite_sizeCreateArgs} args - Arguments to create a Favorite_size.
+     * Create a Customer.
+     * @param {CustomerCreateArgs} args - Arguments to create a Customer.
      * @example
-     * // Create one Favorite_size
-     * const Favorite_size = await prisma.favorite_size.create({
+     * // Create one Customer
+     * const Customer = await prisma.customer.create({
      *   data: {
-     *     // ... data to create a Favorite_size
+     *     // ... data to create a Customer
      *   }
      * })
      * 
      */
-    create<T extends Favorite_sizeCreateArgs>(args: SelectSubset<T, Favorite_sizeCreateArgs<ExtArgs>>): Prisma__Favorite_sizeClient<$Result.GetResult<Prisma.$Favorite_sizePayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+    create<T extends CustomerCreateArgs>(args: SelectSubset<T, CustomerCreateArgs<ExtArgs>>): Prisma__CustomerClient<$Result.GetResult<Prisma.$CustomerPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Create many Favorite_sizes.
-     * @param {Favorite_sizeCreateManyArgs} args - Arguments to create many Favorite_sizes.
+     * Create many Customers.
+     * @param {CustomerCreateManyArgs} args - Arguments to create many Customers.
      * @example
-     * // Create many Favorite_sizes
-     * const favorite_size = await prisma.favorite_size.createMany({
+     * // Create many Customers
+     * const customer = await prisma.customer.createMany({
      *   data: [
      *     // ... provide data here
      *   ]
      * })
      *     
      */
-    createMany<T extends Favorite_sizeCreateManyArgs>(args?: SelectSubset<T, Favorite_sizeCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+    createMany<T extends CustomerCreateManyArgs>(args?: SelectSubset<T, CustomerCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
 
     /**
-     * Create many Favorite_sizes and returns the data saved in the database.
-     * @param {Favorite_sizeCreateManyAndReturnArgs} args - Arguments to create many Favorite_sizes.
+     * Create many Customers and returns the data saved in the database.
+     * @param {CustomerCreateManyAndReturnArgs} args - Arguments to create many Customers.
      * @example
-     * // Create many Favorite_sizes
-     * const favorite_size = await prisma.favorite_size.createManyAndReturn({
+     * // Create many Customers
+     * const customer = await prisma.customer.createManyAndReturn({
      *   data: [
      *     // ... provide data here
      *   ]
      * })
      * 
-     * // Create many Favorite_sizes and only return the `id`
-     * const favorite_sizeWithIdOnly = await prisma.favorite_size.createManyAndReturn({
+     * // Create many Customers and only return the `id`
+     * const customerWithIdOnly = await prisma.customer.createManyAndReturn({
      *   select: { id: true },
      *   data: [
      *     // ... provide data here
@@ -1557,28 +1905,28 @@ export namespace Prisma {
      * Read more here: https://pris.ly/d/null-undefined
      * 
      */
-    createManyAndReturn<T extends Favorite_sizeCreateManyAndReturnArgs>(args?: SelectSubset<T, Favorite_sizeCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$Favorite_sizePayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+    createManyAndReturn<T extends CustomerCreateManyAndReturnArgs>(args?: SelectSubset<T, CustomerCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$CustomerPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
 
     /**
-     * Delete a Favorite_size.
-     * @param {Favorite_sizeDeleteArgs} args - Arguments to delete one Favorite_size.
+     * Delete a Customer.
+     * @param {CustomerDeleteArgs} args - Arguments to delete one Customer.
      * @example
-     * // Delete one Favorite_size
-     * const Favorite_size = await prisma.favorite_size.delete({
+     * // Delete one Customer
+     * const Customer = await prisma.customer.delete({
      *   where: {
-     *     // ... filter to delete one Favorite_size
+     *     // ... filter to delete one Customer
      *   }
      * })
      * 
      */
-    delete<T extends Favorite_sizeDeleteArgs>(args: SelectSubset<T, Favorite_sizeDeleteArgs<ExtArgs>>): Prisma__Favorite_sizeClient<$Result.GetResult<Prisma.$Favorite_sizePayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+    delete<T extends CustomerDeleteArgs>(args: SelectSubset<T, CustomerDeleteArgs<ExtArgs>>): Prisma__CustomerClient<$Result.GetResult<Prisma.$CustomerPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Update one Favorite_size.
-     * @param {Favorite_sizeUpdateArgs} args - Arguments to update one Favorite_size.
+     * Update one Customer.
+     * @param {CustomerUpdateArgs} args - Arguments to update one Customer.
      * @example
-     * // Update one Favorite_size
-     * const favorite_size = await prisma.favorite_size.update({
+     * // Update one Customer
+     * const customer = await prisma.customer.update({
      *   where: {
      *     // ... provide filter here
      *   },
@@ -1588,30 +1936,30 @@ export namespace Prisma {
      * })
      * 
      */
-    update<T extends Favorite_sizeUpdateArgs>(args: SelectSubset<T, Favorite_sizeUpdateArgs<ExtArgs>>): Prisma__Favorite_sizeClient<$Result.GetResult<Prisma.$Favorite_sizePayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+    update<T extends CustomerUpdateArgs>(args: SelectSubset<T, CustomerUpdateArgs<ExtArgs>>): Prisma__CustomerClient<$Result.GetResult<Prisma.$CustomerPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Delete zero or more Favorite_sizes.
-     * @param {Favorite_sizeDeleteManyArgs} args - Arguments to filter Favorite_sizes to delete.
+     * Delete zero or more Customers.
+     * @param {CustomerDeleteManyArgs} args - Arguments to filter Customers to delete.
      * @example
-     * // Delete a few Favorite_sizes
-     * const { count } = await prisma.favorite_size.deleteMany({
+     * // Delete a few Customers
+     * const { count } = await prisma.customer.deleteMany({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
      * 
      */
-    deleteMany<T extends Favorite_sizeDeleteManyArgs>(args?: SelectSubset<T, Favorite_sizeDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+    deleteMany<T extends CustomerDeleteManyArgs>(args?: SelectSubset<T, CustomerDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
 
     /**
-     * Update zero or more Favorite_sizes.
+     * Update zero or more Customers.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {Favorite_sizeUpdateManyArgs} args - Arguments to update one or more rows.
+     * @param {CustomerUpdateManyArgs} args - Arguments to update one or more rows.
      * @example
-     * // Update many Favorite_sizes
-     * const favorite_size = await prisma.favorite_size.updateMany({
+     * // Update many Customers
+     * const customer = await prisma.customer.updateMany({
      *   where: {
      *     // ... provide filter here
      *   },
@@ -1621,14 +1969,14 @@ export namespace Prisma {
      * })
      * 
      */
-    updateMany<T extends Favorite_sizeUpdateManyArgs>(args: SelectSubset<T, Favorite_sizeUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+    updateMany<T extends CustomerUpdateManyArgs>(args: SelectSubset<T, CustomerUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
 
     /**
-     * Update zero or more Favorite_sizes and returns the data updated in the database.
-     * @param {Favorite_sizeUpdateManyAndReturnArgs} args - Arguments to update many Favorite_sizes.
+     * Update zero or more Customers and returns the data updated in the database.
+     * @param {CustomerUpdateManyAndReturnArgs} args - Arguments to update many Customers.
      * @example
-     * // Update many Favorite_sizes
-     * const favorite_size = await prisma.favorite_size.updateManyAndReturn({
+     * // Update many Customers
+     * const customer = await prisma.customer.updateManyAndReturn({
      *   where: {
      *     // ... provide filter here
      *   },
@@ -1637,8 +1985,8 @@ export namespace Prisma {
      *   ]
      * })
      * 
-     * // Update zero or more Favorite_sizes and only return the `id`
-     * const favorite_sizeWithIdOnly = await prisma.favorite_size.updateManyAndReturn({
+     * // Update zero or more Customers and only return the `id`
+     * const customerWithIdOnly = await prisma.customer.updateManyAndReturn({
      *   select: { id: true },
      *   where: {
      *     // ... provide filter here
@@ -1651,56 +1999,56 @@ export namespace Prisma {
      * Read more here: https://pris.ly/d/null-undefined
      * 
      */
-    updateManyAndReturn<T extends Favorite_sizeUpdateManyAndReturnArgs>(args: SelectSubset<T, Favorite_sizeUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$Favorite_sizePayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+    updateManyAndReturn<T extends CustomerUpdateManyAndReturnArgs>(args: SelectSubset<T, CustomerUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$CustomerPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
 
     /**
-     * Create or update one Favorite_size.
-     * @param {Favorite_sizeUpsertArgs} args - Arguments to update or create a Favorite_size.
+     * Create or update one Customer.
+     * @param {CustomerUpsertArgs} args - Arguments to update or create a Customer.
      * @example
-     * // Update or create a Favorite_size
-     * const favorite_size = await prisma.favorite_size.upsert({
+     * // Update or create a Customer
+     * const customer = await prisma.customer.upsert({
      *   create: {
-     *     // ... data to create a Favorite_size
+     *     // ... data to create a Customer
      *   },
      *   update: {
      *     // ... in case it already exists, update
      *   },
      *   where: {
-     *     // ... the filter for the Favorite_size we want to update
+     *     // ... the filter for the Customer we want to update
      *   }
      * })
      */
-    upsert<T extends Favorite_sizeUpsertArgs>(args: SelectSubset<T, Favorite_sizeUpsertArgs<ExtArgs>>): Prisma__Favorite_sizeClient<$Result.GetResult<Prisma.$Favorite_sizePayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+    upsert<T extends CustomerUpsertArgs>(args: SelectSubset<T, CustomerUpsertArgs<ExtArgs>>): Prisma__CustomerClient<$Result.GetResult<Prisma.$CustomerPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
 
     /**
-     * Count the number of Favorite_sizes.
+     * Count the number of Customers.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {Favorite_sizeCountArgs} args - Arguments to filter Favorite_sizes to count.
+     * @param {CustomerCountArgs} args - Arguments to filter Customers to count.
      * @example
-     * // Count the number of Favorite_sizes
-     * const count = await prisma.favorite_size.count({
+     * // Count the number of Customers
+     * const count = await prisma.customer.count({
      *   where: {
-     *     // ... the filter for the Favorite_sizes we want to count
+     *     // ... the filter for the Customers we want to count
      *   }
      * })
     **/
-    count<T extends Favorite_sizeCountArgs>(
-      args?: Subset<T, Favorite_sizeCountArgs>,
+    count<T extends CustomerCountArgs>(
+      args?: Subset<T, CustomerCountArgs>,
     ): Prisma.PrismaPromise<
       T extends $Utils.Record<'select', any>
         ? T['select'] extends true
           ? number
-          : GetScalarType<T['select'], Favorite_sizeCountAggregateOutputType>
+          : GetScalarType<T['select'], CustomerCountAggregateOutputType>
         : number
     >
 
     /**
-     * Allows you to perform aggregations operations on a Favorite_size.
+     * Allows you to perform aggregations operations on a Customer.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {Favorite_sizeAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @param {CustomerAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
      * @example
      * // Ordered by age ascending
      * // Where email contains prisma.io
@@ -1720,13 +2068,13 @@ export namespace Prisma {
      *   take: 10,
      * })
     **/
-    aggregate<T extends Favorite_sizeAggregateArgs>(args: Subset<T, Favorite_sizeAggregateArgs>): Prisma.PrismaPromise<GetFavorite_sizeAggregateType<T>>
+    aggregate<T extends CustomerAggregateArgs>(args: Subset<T, CustomerAggregateArgs>): Prisma.PrismaPromise<GetCustomerAggregateType<T>>
 
     /**
-     * Group by Favorite_size.
+     * Group by Customer.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {Favorite_sizeGroupByArgs} args - Group by arguments.
+     * @param {CustomerGroupByArgs} args - Group by arguments.
      * @example
      * // Group by city, order by createdAt, get count
      * const result = await prisma.user.groupBy({
@@ -1741,14 +2089,14 @@ export namespace Prisma {
      * 
     **/
     groupBy<
-      T extends Favorite_sizeGroupByArgs,
+      T extends CustomerGroupByArgs,
       HasSelectOrTake extends Or<
         Extends<'skip', Keys<T>>,
         Extends<'take', Keys<T>>
       >,
       OrderByArg extends True extends HasSelectOrTake
-        ? { orderBy: Favorite_sizeGroupByArgs['orderBy'] }
-        : { orderBy?: Favorite_sizeGroupByArgs['orderBy'] },
+        ? { orderBy: CustomerGroupByArgs['orderBy'] }
+        : { orderBy?: CustomerGroupByArgs['orderBy'] },
       OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
       ByFields extends MaybeTupleToUnion<T['by']>,
       ByValid extends Has<ByFields, OrderFields>,
@@ -1797,23 +2145,23 @@ export namespace Prisma {
             ? never
             : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
         }[OrderFields]
-    >(args: SubsetIntersection<T, Favorite_sizeGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetFavorite_sizeGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+    >(args: SubsetIntersection<T, CustomerGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetCustomerGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
   /**
-   * Fields of the Favorite_size model
+   * Fields of the Customer model
    */
-  readonly fields: Favorite_sizeFieldRefs;
+  readonly fields: CustomerFieldRefs;
   }
 
   /**
-   * The delegate class that acts as a "Promise-like" for Favorite_size.
+   * The delegate class that acts as a "Promise-like" for Customer.
    * Why is this prefixed with `Prisma__`?
    * Because we want to prevent naming conflicts as mentioned in
    * https://github.com/prisma/prisma-client-js/issues/707
    */
-  export interface Prisma__Favorite_sizeClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+  export interface Prisma__CustomerClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: "PrismaPromise"
-    customer<T extends CustomerDefaultArgs<ExtArgs> = {}>(args?: Subset<T, CustomerDefaultArgs<ExtArgs>>): Prisma__CustomerClient<$Result.GetResult<Prisma.$CustomerPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
-    country<T extends CountryDefaultArgs<ExtArgs> = {}>(args?: Subset<T, CountryDefaultArgs<ExtArgs>>): Prisma__CountryClient<$Result.GetResult<Prisma.$CountryPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    conversions<T extends Customer$conversionsArgs<ExtArgs> = {}>(args?: Subset<T, Customer$conversionsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ConversionPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    favoriteSizes<T extends Customer$favoriteSizesArgs<ExtArgs> = {}>(args?: Subset<T, Customer$favoriteSizesArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$FavoriteSizePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -1840,426 +2188,465 @@ export namespace Prisma {
 
 
   /**
-   * Fields of the Favorite_size model
+   * Fields of the Customer model
    */
-  interface Favorite_sizeFieldRefs {
-    readonly id: FieldRef<"Favorite_size", 'Int'>
-    readonly customer_id: FieldRef<"Favorite_size", 'Int'>
-    readonly title: FieldRef<"Favorite_size", 'String'>
-    readonly description: FieldRef<"Favorite_size", 'String'>
-    readonly country_id: FieldRef<"Favorite_size", 'Int'>
-    readonly gender: FieldRef<"Favorite_size", 'Gender'>
+  interface CustomerFieldRefs {
+    readonly id: FieldRef<"Customer", 'Int'>
+    readonly email: FieldRef<"Customer", 'String'>
+    readonly name: FieldRef<"Customer", 'String'>
+    readonly image: FieldRef<"Customer", 'String'>
+    readonly role: FieldRef<"Customer", 'Role[]'>
   }
     
 
   // Custom InputTypes
   /**
-   * Favorite_size findUnique
+   * Customer findUnique
    */
-  export type Favorite_sizeFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type CustomerFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Favorite_size
+     * Select specific fields to fetch from the Customer
      */
-    select?: Favorite_sizeSelect<ExtArgs> | null
+    select?: CustomerSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the Favorite_size
+     * Omit specific fields from the Customer
      */
-    omit?: Favorite_sizeOmit<ExtArgs> | null
+    omit?: CustomerOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: Favorite_sizeInclude<ExtArgs> | null
+    include?: CustomerInclude<ExtArgs> | null
     /**
-     * Filter, which Favorite_size to fetch.
+     * Filter, which Customer to fetch.
      */
-    where: Favorite_sizeWhereUniqueInput
+    where: CustomerWhereUniqueInput
   }
 
   /**
-   * Favorite_size findUniqueOrThrow
+   * Customer findUniqueOrThrow
    */
-  export type Favorite_sizeFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type CustomerFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Favorite_size
+     * Select specific fields to fetch from the Customer
      */
-    select?: Favorite_sizeSelect<ExtArgs> | null
+    select?: CustomerSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the Favorite_size
+     * Omit specific fields from the Customer
      */
-    omit?: Favorite_sizeOmit<ExtArgs> | null
+    omit?: CustomerOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: Favorite_sizeInclude<ExtArgs> | null
+    include?: CustomerInclude<ExtArgs> | null
     /**
-     * Filter, which Favorite_size to fetch.
+     * Filter, which Customer to fetch.
      */
-    where: Favorite_sizeWhereUniqueInput
+    where: CustomerWhereUniqueInput
   }
 
   /**
-   * Favorite_size findFirst
+   * Customer findFirst
    */
-  export type Favorite_sizeFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type CustomerFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Favorite_size
+     * Select specific fields to fetch from the Customer
      */
-    select?: Favorite_sizeSelect<ExtArgs> | null
+    select?: CustomerSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the Favorite_size
+     * Omit specific fields from the Customer
      */
-    omit?: Favorite_sizeOmit<ExtArgs> | null
+    omit?: CustomerOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: Favorite_sizeInclude<ExtArgs> | null
+    include?: CustomerInclude<ExtArgs> | null
     /**
-     * Filter, which Favorite_size to fetch.
+     * Filter, which Customer to fetch.
      */
-    where?: Favorite_sizeWhereInput
+    where?: CustomerWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
      * 
-     * Determine the order of Favorite_sizes to fetch.
+     * Determine the order of Customers to fetch.
      */
-    orderBy?: Favorite_sizeOrderByWithRelationInput | Favorite_sizeOrderByWithRelationInput[]
+    orderBy?: CustomerOrderByWithRelationInput | CustomerOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
-     * Sets the position for searching for Favorite_sizes.
+     * Sets the position for searching for Customers.
      */
-    cursor?: Favorite_sizeWhereUniqueInput
+    cursor?: CustomerWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Take `±n` Favorite_sizes from the position of the cursor.
+     * Take `±n` Customers from the position of the cursor.
      */
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Skip the first `n` Favorite_sizes.
+     * Skip the first `n` Customers.
      */
     skip?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
      * 
-     * Filter by unique combinations of Favorite_sizes.
+     * Filter by unique combinations of Customers.
      */
-    distinct?: Favorite_sizeScalarFieldEnum | Favorite_sizeScalarFieldEnum[]
+    distinct?: CustomerScalarFieldEnum | CustomerScalarFieldEnum[]
   }
 
   /**
-   * Favorite_size findFirstOrThrow
+   * Customer findFirstOrThrow
    */
-  export type Favorite_sizeFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type CustomerFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Favorite_size
+     * Select specific fields to fetch from the Customer
      */
-    select?: Favorite_sizeSelect<ExtArgs> | null
+    select?: CustomerSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the Favorite_size
+     * Omit specific fields from the Customer
      */
-    omit?: Favorite_sizeOmit<ExtArgs> | null
+    omit?: CustomerOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: Favorite_sizeInclude<ExtArgs> | null
+    include?: CustomerInclude<ExtArgs> | null
     /**
-     * Filter, which Favorite_size to fetch.
+     * Filter, which Customer to fetch.
      */
-    where?: Favorite_sizeWhereInput
+    where?: CustomerWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
      * 
-     * Determine the order of Favorite_sizes to fetch.
+     * Determine the order of Customers to fetch.
      */
-    orderBy?: Favorite_sizeOrderByWithRelationInput | Favorite_sizeOrderByWithRelationInput[]
+    orderBy?: CustomerOrderByWithRelationInput | CustomerOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
-     * Sets the position for searching for Favorite_sizes.
+     * Sets the position for searching for Customers.
      */
-    cursor?: Favorite_sizeWhereUniqueInput
+    cursor?: CustomerWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Take `±n` Favorite_sizes from the position of the cursor.
+     * Take `±n` Customers from the position of the cursor.
      */
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Skip the first `n` Favorite_sizes.
+     * Skip the first `n` Customers.
      */
     skip?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
      * 
-     * Filter by unique combinations of Favorite_sizes.
+     * Filter by unique combinations of Customers.
      */
-    distinct?: Favorite_sizeScalarFieldEnum | Favorite_sizeScalarFieldEnum[]
+    distinct?: CustomerScalarFieldEnum | CustomerScalarFieldEnum[]
   }
 
   /**
-   * Favorite_size findMany
+   * Customer findMany
    */
-  export type Favorite_sizeFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type CustomerFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Favorite_size
+     * Select specific fields to fetch from the Customer
      */
-    select?: Favorite_sizeSelect<ExtArgs> | null
+    select?: CustomerSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the Favorite_size
+     * Omit specific fields from the Customer
      */
-    omit?: Favorite_sizeOmit<ExtArgs> | null
+    omit?: CustomerOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: Favorite_sizeInclude<ExtArgs> | null
+    include?: CustomerInclude<ExtArgs> | null
     /**
-     * Filter, which Favorite_sizes to fetch.
+     * Filter, which Customers to fetch.
      */
-    where?: Favorite_sizeWhereInput
+    where?: CustomerWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
      * 
-     * Determine the order of Favorite_sizes to fetch.
+     * Determine the order of Customers to fetch.
      */
-    orderBy?: Favorite_sizeOrderByWithRelationInput | Favorite_sizeOrderByWithRelationInput[]
+    orderBy?: CustomerOrderByWithRelationInput | CustomerOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
-     * Sets the position for listing Favorite_sizes.
+     * Sets the position for listing Customers.
      */
-    cursor?: Favorite_sizeWhereUniqueInput
+    cursor?: CustomerWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Take `±n` Favorite_sizes from the position of the cursor.
+     * Take `±n` Customers from the position of the cursor.
      */
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Skip the first `n` Favorite_sizes.
+     * Skip the first `n` Customers.
      */
     skip?: number
-    distinct?: Favorite_sizeScalarFieldEnum | Favorite_sizeScalarFieldEnum[]
+    distinct?: CustomerScalarFieldEnum | CustomerScalarFieldEnum[]
   }
 
   /**
-   * Favorite_size create
+   * Customer create
    */
-  export type Favorite_sizeCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type CustomerCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Favorite_size
+     * Select specific fields to fetch from the Customer
      */
-    select?: Favorite_sizeSelect<ExtArgs> | null
+    select?: CustomerSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the Favorite_size
+     * Omit specific fields from the Customer
      */
-    omit?: Favorite_sizeOmit<ExtArgs> | null
+    omit?: CustomerOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: Favorite_sizeInclude<ExtArgs> | null
+    include?: CustomerInclude<ExtArgs> | null
     /**
-     * The data needed to create a Favorite_size.
+     * The data needed to create a Customer.
      */
-    data: XOR<Favorite_sizeCreateInput, Favorite_sizeUncheckedCreateInput>
+    data: XOR<CustomerCreateInput, CustomerUncheckedCreateInput>
   }
 
   /**
-   * Favorite_size createMany
+   * Customer createMany
    */
-  export type Favorite_sizeCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type CustomerCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * The data used to create many Favorite_sizes.
+     * The data used to create many Customers.
      */
-    data: Favorite_sizeCreateManyInput | Favorite_sizeCreateManyInput[]
+    data: CustomerCreateManyInput | CustomerCreateManyInput[]
     skipDuplicates?: boolean
   }
 
   /**
-   * Favorite_size createManyAndReturn
+   * Customer createManyAndReturn
    */
-  export type Favorite_sizeCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type CustomerCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Favorite_size
+     * Select specific fields to fetch from the Customer
      */
-    select?: Favorite_sizeSelectCreateManyAndReturn<ExtArgs> | null
+    select?: CustomerSelectCreateManyAndReturn<ExtArgs> | null
     /**
-     * Omit specific fields from the Favorite_size
+     * Omit specific fields from the Customer
      */
-    omit?: Favorite_sizeOmit<ExtArgs> | null
+    omit?: CustomerOmit<ExtArgs> | null
     /**
-     * The data used to create many Favorite_sizes.
+     * The data used to create many Customers.
      */
-    data: Favorite_sizeCreateManyInput | Favorite_sizeCreateManyInput[]
+    data: CustomerCreateManyInput | CustomerCreateManyInput[]
     skipDuplicates?: boolean
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: Favorite_sizeIncludeCreateManyAndReturn<ExtArgs> | null
   }
 
   /**
-   * Favorite_size update
+   * Customer update
    */
-  export type Favorite_sizeUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type CustomerUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Favorite_size
+     * Select specific fields to fetch from the Customer
      */
-    select?: Favorite_sizeSelect<ExtArgs> | null
+    select?: CustomerSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the Favorite_size
+     * Omit specific fields from the Customer
      */
-    omit?: Favorite_sizeOmit<ExtArgs> | null
+    omit?: CustomerOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: Favorite_sizeInclude<ExtArgs> | null
+    include?: CustomerInclude<ExtArgs> | null
     /**
-     * The data needed to update a Favorite_size.
+     * The data needed to update a Customer.
      */
-    data: XOR<Favorite_sizeUpdateInput, Favorite_sizeUncheckedUpdateInput>
+    data: XOR<CustomerUpdateInput, CustomerUncheckedUpdateInput>
     /**
-     * Choose, which Favorite_size to update.
+     * Choose, which Customer to update.
      */
-    where: Favorite_sizeWhereUniqueInput
+    where: CustomerWhereUniqueInput
   }
 
   /**
-   * Favorite_size updateMany
+   * Customer updateMany
    */
-  export type Favorite_sizeUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type CustomerUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * The data used to update Favorite_sizes.
+     * The data used to update Customers.
      */
-    data: XOR<Favorite_sizeUpdateManyMutationInput, Favorite_sizeUncheckedUpdateManyInput>
+    data: XOR<CustomerUpdateManyMutationInput, CustomerUncheckedUpdateManyInput>
     /**
-     * Filter which Favorite_sizes to update
+     * Filter which Customers to update
      */
-    where?: Favorite_sizeWhereInput
+    where?: CustomerWhereInput
     /**
-     * Limit how many Favorite_sizes to update.
+     * Limit how many Customers to update.
      */
     limit?: number
   }
 
   /**
-   * Favorite_size updateManyAndReturn
+   * Customer updateManyAndReturn
    */
-  export type Favorite_sizeUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type CustomerUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Favorite_size
+     * Select specific fields to fetch from the Customer
      */
-    select?: Favorite_sizeSelectUpdateManyAndReturn<ExtArgs> | null
+    select?: CustomerSelectUpdateManyAndReturn<ExtArgs> | null
     /**
-     * Omit specific fields from the Favorite_size
+     * Omit specific fields from the Customer
      */
-    omit?: Favorite_sizeOmit<ExtArgs> | null
+    omit?: CustomerOmit<ExtArgs> | null
     /**
-     * The data used to update Favorite_sizes.
+     * The data used to update Customers.
      */
-    data: XOR<Favorite_sizeUpdateManyMutationInput, Favorite_sizeUncheckedUpdateManyInput>
+    data: XOR<CustomerUpdateManyMutationInput, CustomerUncheckedUpdateManyInput>
     /**
-     * Filter which Favorite_sizes to update
+     * Filter which Customers to update
      */
-    where?: Favorite_sizeWhereInput
+    where?: CustomerWhereInput
     /**
-     * Limit how many Favorite_sizes to update.
-     */
-    limit?: number
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: Favorite_sizeIncludeUpdateManyAndReturn<ExtArgs> | null
-  }
-
-  /**
-   * Favorite_size upsert
-   */
-  export type Favorite_sizeUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the Favorite_size
-     */
-    select?: Favorite_sizeSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the Favorite_size
-     */
-    omit?: Favorite_sizeOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: Favorite_sizeInclude<ExtArgs> | null
-    /**
-     * The filter to search for the Favorite_size to update in case it exists.
-     */
-    where: Favorite_sizeWhereUniqueInput
-    /**
-     * In case the Favorite_size found by the `where` argument doesn't exist, create a new Favorite_size with this data.
-     */
-    create: XOR<Favorite_sizeCreateInput, Favorite_sizeUncheckedCreateInput>
-    /**
-     * In case the Favorite_size was found with the provided `where` argument, update it with this data.
-     */
-    update: XOR<Favorite_sizeUpdateInput, Favorite_sizeUncheckedUpdateInput>
-  }
-
-  /**
-   * Favorite_size delete
-   */
-  export type Favorite_sizeDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the Favorite_size
-     */
-    select?: Favorite_sizeSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the Favorite_size
-     */
-    omit?: Favorite_sizeOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: Favorite_sizeInclude<ExtArgs> | null
-    /**
-     * Filter which Favorite_size to delete.
-     */
-    where: Favorite_sizeWhereUniqueInput
-  }
-
-  /**
-   * Favorite_size deleteMany
-   */
-  export type Favorite_sizeDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Filter which Favorite_sizes to delete
-     */
-    where?: Favorite_sizeWhereInput
-    /**
-     * Limit how many Favorite_sizes to delete.
+     * Limit how many Customers to update.
      */
     limit?: number
   }
 
   /**
-   * Favorite_size without action
+   * Customer upsert
    */
-  export type Favorite_sizeDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type CustomerUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Favorite_size
+     * Select specific fields to fetch from the Customer
      */
-    select?: Favorite_sizeSelect<ExtArgs> | null
+    select?: CustomerSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the Favorite_size
+     * Omit specific fields from the Customer
      */
-    omit?: Favorite_sizeOmit<ExtArgs> | null
+    omit?: CustomerOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: Favorite_sizeInclude<ExtArgs> | null
+    include?: CustomerInclude<ExtArgs> | null
+    /**
+     * The filter to search for the Customer to update in case it exists.
+     */
+    where: CustomerWhereUniqueInput
+    /**
+     * In case the Customer found by the `where` argument doesn't exist, create a new Customer with this data.
+     */
+    create: XOR<CustomerCreateInput, CustomerUncheckedCreateInput>
+    /**
+     * In case the Customer was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<CustomerUpdateInput, CustomerUncheckedUpdateInput>
+  }
+
+  /**
+   * Customer delete
+   */
+  export type CustomerDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Customer
+     */
+    select?: CustomerSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Customer
+     */
+    omit?: CustomerOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CustomerInclude<ExtArgs> | null
+    /**
+     * Filter which Customer to delete.
+     */
+    where: CustomerWhereUniqueInput
+  }
+
+  /**
+   * Customer deleteMany
+   */
+  export type CustomerDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which Customers to delete
+     */
+    where?: CustomerWhereInput
+    /**
+     * Limit how many Customers to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * Customer.conversions
+   */
+  export type Customer$conversionsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Conversion
+     */
+    select?: ConversionSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Conversion
+     */
+    omit?: ConversionOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ConversionInclude<ExtArgs> | null
+    where?: ConversionWhereInput
+    orderBy?: ConversionOrderByWithRelationInput | ConversionOrderByWithRelationInput[]
+    cursor?: ConversionWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: ConversionScalarFieldEnum | ConversionScalarFieldEnum[]
+  }
+
+  /**
+   * Customer.favoriteSizes
+   */
+  export type Customer$favoriteSizesArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the FavoriteSize
+     */
+    select?: FavoriteSizeSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the FavoriteSize
+     */
+    omit?: FavoriteSizeOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: FavoriteSizeInclude<ExtArgs> | null
+    where?: FavoriteSizeWhereInput
+    orderBy?: FavoriteSizeOrderByWithRelationInput | FavoriteSizeOrderByWithRelationInput[]
+    cursor?: FavoriteSizeWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: FavoriteSizeScalarFieldEnum | FavoriteSizeScalarFieldEnum[]
+  }
+
+  /**
+   * Customer without action
+   */
+  export type CustomerDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Customer
+     */
+    select?: CustomerSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Customer
+     */
+    omit?: CustomerOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CustomerInclude<ExtArgs> | null
   }
 
 
@@ -2285,16 +2672,19 @@ export namespace Prisma {
 
   export type CountryMinAggregateOutputType = {
     id: number | null
+    code: string | null
     name: string | null
   }
 
   export type CountryMaxAggregateOutputType = {
     id: number | null
+    code: string | null
     name: string | null
   }
 
   export type CountryCountAggregateOutputType = {
     id: number
+    code: number
     name: number
     _all: number
   }
@@ -2310,16 +2700,19 @@ export namespace Prisma {
 
   export type CountryMinAggregateInputType = {
     id?: true
+    code?: true
     name?: true
   }
 
   export type CountryMaxAggregateInputType = {
     id?: true
+    code?: true
     name?: true
   }
 
   export type CountryCountAggregateInputType = {
     id?: true
+    code?: true
     name?: true
     _all?: true
   }
@@ -2412,6 +2805,7 @@ export namespace Prisma {
 
   export type CountryGroupByOutputType = {
     id: number
+    code: string
     name: string
     _count: CountryCountAggregateOutputType | null
     _avg: CountryAvgAggregateOutputType | null
@@ -2436,29 +2830,35 @@ export namespace Prisma {
 
   export type CountrySelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
+    code?: boolean
     name?: boolean
-    favorite_size?: boolean | Country$favorite_sizeArgs<ExtArgs>
+    sizes?: boolean | Country$sizesArgs<ExtArgs>
+    favoriteSizes?: boolean | Country$favoriteSizesArgs<ExtArgs>
     _count?: boolean | CountryCountOutputTypeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["country"]>
 
   export type CountrySelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
+    code?: boolean
     name?: boolean
   }, ExtArgs["result"]["country"]>
 
   export type CountrySelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
+    code?: boolean
     name?: boolean
   }, ExtArgs["result"]["country"]>
 
   export type CountrySelectScalar = {
     id?: boolean
+    code?: boolean
     name?: boolean
   }
 
-  export type CountryOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "name", ExtArgs["result"]["country"]>
+  export type CountryOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "code" | "name", ExtArgs["result"]["country"]>
   export type CountryInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    favorite_size?: boolean | Country$favorite_sizeArgs<ExtArgs>
+    sizes?: boolean | Country$sizesArgs<ExtArgs>
+    favoriteSizes?: boolean | Country$favoriteSizesArgs<ExtArgs>
     _count?: boolean | CountryCountOutputTypeDefaultArgs<ExtArgs>
   }
   export type CountryIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {}
@@ -2467,10 +2867,12 @@ export namespace Prisma {
   export type $CountryPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     name: "Country"
     objects: {
-      favorite_size: Prisma.$Favorite_sizePayload<ExtArgs>[]
+      sizes: Prisma.$SizePayload<ExtArgs>[]
+      favoriteSizes: Prisma.$FavoriteSizePayload<ExtArgs>[]
     }
     scalars: $Extensions.GetPayloadResult<{
       id: number
+      code: string
       name: string
     }, ExtArgs["result"]["country"]>
     composites: {}
@@ -2866,7 +3268,8 @@ export namespace Prisma {
    */
   export interface Prisma__CountryClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: "PrismaPromise"
-    favorite_size<T extends Country$favorite_sizeArgs<ExtArgs> = {}>(args?: Subset<T, Country$favorite_sizeArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$Favorite_sizePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    sizes<T extends Country$sizesArgs<ExtArgs> = {}>(args?: Subset<T, Country$sizesArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$SizePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    favoriteSizes<T extends Country$favoriteSizesArgs<ExtArgs> = {}>(args?: Subset<T, Country$favoriteSizesArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$FavoriteSizePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -2897,6 +3300,7 @@ export namespace Prisma {
    */
   interface CountryFieldRefs {
     readonly id: FieldRef<"Country", 'Int'>
+    readonly code: FieldRef<"Country", 'String'>
     readonly name: FieldRef<"Country", 'String'>
   }
     
@@ -3286,27 +3690,51 @@ export namespace Prisma {
   }
 
   /**
-   * Country.favorite_size
+   * Country.sizes
    */
-  export type Country$favorite_sizeArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type Country$sizesArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Favorite_size
+     * Select specific fields to fetch from the Size
      */
-    select?: Favorite_sizeSelect<ExtArgs> | null
+    select?: SizeSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the Favorite_size
+     * Omit specific fields from the Size
      */
-    omit?: Favorite_sizeOmit<ExtArgs> | null
+    omit?: SizeOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: Favorite_sizeInclude<ExtArgs> | null
-    where?: Favorite_sizeWhereInput
-    orderBy?: Favorite_sizeOrderByWithRelationInput | Favorite_sizeOrderByWithRelationInput[]
-    cursor?: Favorite_sizeWhereUniqueInput
+    include?: SizeInclude<ExtArgs> | null
+    where?: SizeWhereInput
+    orderBy?: SizeOrderByWithRelationInput | SizeOrderByWithRelationInput[]
+    cursor?: SizeWhereUniqueInput
     take?: number
     skip?: number
-    distinct?: Favorite_sizeScalarFieldEnum | Favorite_sizeScalarFieldEnum[]
+    distinct?: SizeScalarFieldEnum | SizeScalarFieldEnum[]
+  }
+
+  /**
+   * Country.favoriteSizes
+   */
+  export type Country$favoriteSizesArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the FavoriteSize
+     */
+    select?: FavoriteSizeSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the FavoriteSize
+     */
+    omit?: FavoriteSizeOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: FavoriteSizeInclude<ExtArgs> | null
+    where?: FavoriteSizeWhereInput
+    orderBy?: FavoriteSizeOrderByWithRelationInput | FavoriteSizeOrderByWithRelationInput[]
+    cursor?: FavoriteSizeWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: FavoriteSizeScalarFieldEnum | FavoriteSizeScalarFieldEnum[]
   }
 
   /**
@@ -3329,380 +3757,347 @@ export namespace Prisma {
 
 
   /**
-   * Model Customer
+   * Model Category
    */
 
-  export type AggregateCustomer = {
-    _count: CustomerCountAggregateOutputType | null
-    _avg: CustomerAvgAggregateOutputType | null
-    _sum: CustomerSumAggregateOutputType | null
-    _min: CustomerMinAggregateOutputType | null
-    _max: CustomerMaxAggregateOutputType | null
+  export type AggregateCategory = {
+    _count: CategoryCountAggregateOutputType | null
+    _avg: CategoryAvgAggregateOutputType | null
+    _sum: CategorySumAggregateOutputType | null
+    _min: CategoryMinAggregateOutputType | null
+    _max: CategoryMaxAggregateOutputType | null
   }
 
-  export type CustomerAvgAggregateOutputType = {
+  export type CategoryAvgAggregateOutputType = {
     id: number | null
   }
 
-  export type CustomerSumAggregateOutputType = {
+  export type CategorySumAggregateOutputType = {
     id: number | null
   }
 
-  export type CustomerMinAggregateOutputType = {
+  export type CategoryMinAggregateOutputType = {
     id: number | null
-    email: string | null
-    name: string | null
-    image: string | null
-    role: $Enums.Role | null
+    type: string | null
   }
 
-  export type CustomerMaxAggregateOutputType = {
+  export type CategoryMaxAggregateOutputType = {
     id: number | null
-    email: string | null
-    name: string | null
-    image: string | null
-    role: $Enums.Role | null
+    type: string | null
   }
 
-  export type CustomerCountAggregateOutputType = {
+  export type CategoryCountAggregateOutputType = {
     id: number
-    email: number
-    name: number
-    image: number
-    role: number
+    type: number
     _all: number
   }
 
 
-  export type CustomerAvgAggregateInputType = {
+  export type CategoryAvgAggregateInputType = {
     id?: true
   }
 
-  export type CustomerSumAggregateInputType = {
+  export type CategorySumAggregateInputType = {
     id?: true
   }
 
-  export type CustomerMinAggregateInputType = {
+  export type CategoryMinAggregateInputType = {
     id?: true
-    email?: true
-    name?: true
-    image?: true
-    role?: true
+    type?: true
   }
 
-  export type CustomerMaxAggregateInputType = {
+  export type CategoryMaxAggregateInputType = {
     id?: true
-    email?: true
-    name?: true
-    image?: true
-    role?: true
+    type?: true
   }
 
-  export type CustomerCountAggregateInputType = {
+  export type CategoryCountAggregateInputType = {
     id?: true
-    email?: true
-    name?: true
-    image?: true
-    role?: true
+    type?: true
     _all?: true
   }
 
-  export type CustomerAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type CategoryAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Filter which Customer to aggregate.
+     * Filter which Category to aggregate.
      */
-    where?: CustomerWhereInput
+    where?: CategoryWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
      * 
-     * Determine the order of Customers to fetch.
+     * Determine the order of Categories to fetch.
      */
-    orderBy?: CustomerOrderByWithRelationInput | CustomerOrderByWithRelationInput[]
+    orderBy?: CategoryOrderByWithRelationInput | CategoryOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
      * Sets the start position
      */
-    cursor?: CustomerWhereUniqueInput
+    cursor?: CategoryWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Take `±n` Customers from the position of the cursor.
+     * Take `±n` Categories from the position of the cursor.
      */
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Skip the first `n` Customers.
+     * Skip the first `n` Categories.
      */
     skip?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
-     * Count returned Customers
+     * Count returned Categories
     **/
-    _count?: true | CustomerCountAggregateInputType
+    _count?: true | CategoryCountAggregateInputType
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
      * Select which fields to average
     **/
-    _avg?: CustomerAvgAggregateInputType
+    _avg?: CategoryAvgAggregateInputType
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
      * Select which fields to sum
     **/
-    _sum?: CustomerSumAggregateInputType
+    _sum?: CategorySumAggregateInputType
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
      * Select which fields to find the minimum value
     **/
-    _min?: CustomerMinAggregateInputType
+    _min?: CategoryMinAggregateInputType
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
      * Select which fields to find the maximum value
     **/
-    _max?: CustomerMaxAggregateInputType
+    _max?: CategoryMaxAggregateInputType
   }
 
-  export type GetCustomerAggregateType<T extends CustomerAggregateArgs> = {
-        [P in keyof T & keyof AggregateCustomer]: P extends '_count' | 'count'
+  export type GetCategoryAggregateType<T extends CategoryAggregateArgs> = {
+        [P in keyof T & keyof AggregateCategory]: P extends '_count' | 'count'
       ? T[P] extends true
         ? number
-        : GetScalarType<T[P], AggregateCustomer[P]>
-      : GetScalarType<T[P], AggregateCustomer[P]>
+        : GetScalarType<T[P], AggregateCategory[P]>
+      : GetScalarType<T[P], AggregateCategory[P]>
   }
 
 
 
 
-  export type CustomerGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    where?: CustomerWhereInput
-    orderBy?: CustomerOrderByWithAggregationInput | CustomerOrderByWithAggregationInput[]
-    by: CustomerScalarFieldEnum[] | CustomerScalarFieldEnum
-    having?: CustomerScalarWhereWithAggregatesInput
+  export type CategoryGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: CategoryWhereInput
+    orderBy?: CategoryOrderByWithAggregationInput | CategoryOrderByWithAggregationInput[]
+    by: CategoryScalarFieldEnum[] | CategoryScalarFieldEnum
+    having?: CategoryScalarWhereWithAggregatesInput
     take?: number
     skip?: number
-    _count?: CustomerCountAggregateInputType | true
-    _avg?: CustomerAvgAggregateInputType
-    _sum?: CustomerSumAggregateInputType
-    _min?: CustomerMinAggregateInputType
-    _max?: CustomerMaxAggregateInputType
+    _count?: CategoryCountAggregateInputType | true
+    _avg?: CategoryAvgAggregateInputType
+    _sum?: CategorySumAggregateInputType
+    _min?: CategoryMinAggregateInputType
+    _max?: CategoryMaxAggregateInputType
   }
 
-  export type CustomerGroupByOutputType = {
+  export type CategoryGroupByOutputType = {
     id: number
-    email: string
-    name: string | null
-    image: string | null
-    role: $Enums.Role
-    _count: CustomerCountAggregateOutputType | null
-    _avg: CustomerAvgAggregateOutputType | null
-    _sum: CustomerSumAggregateOutputType | null
-    _min: CustomerMinAggregateOutputType | null
-    _max: CustomerMaxAggregateOutputType | null
+    type: string
+    _count: CategoryCountAggregateOutputType | null
+    _avg: CategoryAvgAggregateOutputType | null
+    _sum: CategorySumAggregateOutputType | null
+    _min: CategoryMinAggregateOutputType | null
+    _max: CategoryMaxAggregateOutputType | null
   }
 
-  type GetCustomerGroupByPayload<T extends CustomerGroupByArgs> = Prisma.PrismaPromise<
+  type GetCategoryGroupByPayload<T extends CategoryGroupByArgs> = Prisma.PrismaPromise<
     Array<
-      PickEnumerable<CustomerGroupByOutputType, T['by']> &
+      PickEnumerable<CategoryGroupByOutputType, T['by']> &
         {
-          [P in ((keyof T) & (keyof CustomerGroupByOutputType))]: P extends '_count'
+          [P in ((keyof T) & (keyof CategoryGroupByOutputType))]: P extends '_count'
             ? T[P] extends boolean
               ? number
-              : GetScalarType<T[P], CustomerGroupByOutputType[P]>
-            : GetScalarType<T[P], CustomerGroupByOutputType[P]>
+              : GetScalarType<T[P], CategoryGroupByOutputType[P]>
+            : GetScalarType<T[P], CategoryGroupByOutputType[P]>
         }
       >
     >
 
 
-  export type CustomerSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+  export type CategorySelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
-    email?: boolean
-    name?: boolean
-    image?: boolean
-    role?: boolean
-    favorite_size?: boolean | Customer$favorite_sizeArgs<ExtArgs>
-    _count?: boolean | CustomerCountOutputTypeDefaultArgs<ExtArgs>
-  }, ExtArgs["result"]["customer"]>
+    type?: boolean
+    sizes?: boolean | Category$sizesArgs<ExtArgs>
+    favoriteSizes?: boolean | Category$favoriteSizesArgs<ExtArgs>
+    _count?: boolean | CategoryCountOutputTypeDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["category"]>
 
-  export type CustomerSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+  export type CategorySelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
-    email?: boolean
-    name?: boolean
-    image?: boolean
-    role?: boolean
-  }, ExtArgs["result"]["customer"]>
+    type?: boolean
+  }, ExtArgs["result"]["category"]>
 
-  export type CustomerSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+  export type CategorySelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
-    email?: boolean
-    name?: boolean
-    image?: boolean
-    role?: boolean
-  }, ExtArgs["result"]["customer"]>
+    type?: boolean
+  }, ExtArgs["result"]["category"]>
 
-  export type CustomerSelectScalar = {
+  export type CategorySelectScalar = {
     id?: boolean
-    email?: boolean
-    name?: boolean
-    image?: boolean
-    role?: boolean
+    type?: boolean
   }
 
-  export type CustomerOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "email" | "name" | "image" | "role", ExtArgs["result"]["customer"]>
-  export type CustomerInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    favorite_size?: boolean | Customer$favorite_sizeArgs<ExtArgs>
-    _count?: boolean | CustomerCountOutputTypeDefaultArgs<ExtArgs>
+  export type CategoryOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "type", ExtArgs["result"]["category"]>
+  export type CategoryInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    sizes?: boolean | Category$sizesArgs<ExtArgs>
+    favoriteSizes?: boolean | Category$favoriteSizesArgs<ExtArgs>
+    _count?: boolean | CategoryCountOutputTypeDefaultArgs<ExtArgs>
   }
-  export type CustomerIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {}
-  export type CustomerIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {}
+  export type CategoryIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {}
+  export type CategoryIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {}
 
-  export type $CustomerPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    name: "Customer"
+  export type $CategoryPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "Category"
     objects: {
-      favorite_size: Prisma.$Favorite_sizePayload<ExtArgs>[]
+      sizes: Prisma.$SizePayload<ExtArgs>[]
+      favoriteSizes: Prisma.$FavoriteSizePayload<ExtArgs>[]
     }
     scalars: $Extensions.GetPayloadResult<{
       id: number
-      email: string
-      name: string | null
-      image: string | null
-      role: $Enums.Role
-    }, ExtArgs["result"]["customer"]>
+      type: string
+    }, ExtArgs["result"]["category"]>
     composites: {}
   }
 
-  type CustomerGetPayload<S extends boolean | null | undefined | CustomerDefaultArgs> = $Result.GetResult<Prisma.$CustomerPayload, S>
+  type CategoryGetPayload<S extends boolean | null | undefined | CategoryDefaultArgs> = $Result.GetResult<Prisma.$CategoryPayload, S>
 
-  type CustomerCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
-    Omit<CustomerFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
-      select?: CustomerCountAggregateInputType | true
+  type CategoryCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<CategoryFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: CategoryCountAggregateInputType | true
     }
 
-  export interface CustomerDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
-    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['Customer'], meta: { name: 'Customer' } }
+  export interface CategoryDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['Category'], meta: { name: 'Category' } }
     /**
-     * Find zero or one Customer that matches the filter.
-     * @param {CustomerFindUniqueArgs} args - Arguments to find a Customer
+     * Find zero or one Category that matches the filter.
+     * @param {CategoryFindUniqueArgs} args - Arguments to find a Category
      * @example
-     * // Get one Customer
-     * const customer = await prisma.customer.findUnique({
+     * // Get one Category
+     * const category = await prisma.category.findUnique({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
      */
-    findUnique<T extends CustomerFindUniqueArgs>(args: SelectSubset<T, CustomerFindUniqueArgs<ExtArgs>>): Prisma__CustomerClient<$Result.GetResult<Prisma.$CustomerPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+    findUnique<T extends CategoryFindUniqueArgs>(args: SelectSubset<T, CategoryFindUniqueArgs<ExtArgs>>): Prisma__CategoryClient<$Result.GetResult<Prisma.$CategoryPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Find one Customer that matches the filter or throw an error with `error.code='P2025'`
+     * Find one Category that matches the filter or throw an error with `error.code='P2025'`
      * if no matches were found.
-     * @param {CustomerFindUniqueOrThrowArgs} args - Arguments to find a Customer
+     * @param {CategoryFindUniqueOrThrowArgs} args - Arguments to find a Category
      * @example
-     * // Get one Customer
-     * const customer = await prisma.customer.findUniqueOrThrow({
+     * // Get one Category
+     * const category = await prisma.category.findUniqueOrThrow({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
      */
-    findUniqueOrThrow<T extends CustomerFindUniqueOrThrowArgs>(args: SelectSubset<T, CustomerFindUniqueOrThrowArgs<ExtArgs>>): Prisma__CustomerClient<$Result.GetResult<Prisma.$CustomerPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+    findUniqueOrThrow<T extends CategoryFindUniqueOrThrowArgs>(args: SelectSubset<T, CategoryFindUniqueOrThrowArgs<ExtArgs>>): Prisma__CategoryClient<$Result.GetResult<Prisma.$CategoryPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Find the first Customer that matches the filter.
+     * Find the first Category that matches the filter.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {CustomerFindFirstArgs} args - Arguments to find a Customer
+     * @param {CategoryFindFirstArgs} args - Arguments to find a Category
      * @example
-     * // Get one Customer
-     * const customer = await prisma.customer.findFirst({
+     * // Get one Category
+     * const category = await prisma.category.findFirst({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
      */
-    findFirst<T extends CustomerFindFirstArgs>(args?: SelectSubset<T, CustomerFindFirstArgs<ExtArgs>>): Prisma__CustomerClient<$Result.GetResult<Prisma.$CustomerPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+    findFirst<T extends CategoryFindFirstArgs>(args?: SelectSubset<T, CategoryFindFirstArgs<ExtArgs>>): Prisma__CategoryClient<$Result.GetResult<Prisma.$CategoryPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Find the first Customer that matches the filter or
+     * Find the first Category that matches the filter or
      * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {CustomerFindFirstOrThrowArgs} args - Arguments to find a Customer
+     * @param {CategoryFindFirstOrThrowArgs} args - Arguments to find a Category
      * @example
-     * // Get one Customer
-     * const customer = await prisma.customer.findFirstOrThrow({
+     * // Get one Category
+     * const category = await prisma.category.findFirstOrThrow({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
      */
-    findFirstOrThrow<T extends CustomerFindFirstOrThrowArgs>(args?: SelectSubset<T, CustomerFindFirstOrThrowArgs<ExtArgs>>): Prisma__CustomerClient<$Result.GetResult<Prisma.$CustomerPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+    findFirstOrThrow<T extends CategoryFindFirstOrThrowArgs>(args?: SelectSubset<T, CategoryFindFirstOrThrowArgs<ExtArgs>>): Prisma__CategoryClient<$Result.GetResult<Prisma.$CategoryPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Find zero or more Customers that matches the filter.
+     * Find zero or more Categories that matches the filter.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {CustomerFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @param {CategoryFindManyArgs} args - Arguments to filter and select certain fields only.
      * @example
-     * // Get all Customers
-     * const customers = await prisma.customer.findMany()
+     * // Get all Categories
+     * const categories = await prisma.category.findMany()
      * 
-     * // Get first 10 Customers
-     * const customers = await prisma.customer.findMany({ take: 10 })
+     * // Get first 10 Categories
+     * const categories = await prisma.category.findMany({ take: 10 })
      * 
      * // Only select the `id`
-     * const customerWithIdOnly = await prisma.customer.findMany({ select: { id: true } })
+     * const categoryWithIdOnly = await prisma.category.findMany({ select: { id: true } })
      * 
      */
-    findMany<T extends CustomerFindManyArgs>(args?: SelectSubset<T, CustomerFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$CustomerPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+    findMany<T extends CategoryFindManyArgs>(args?: SelectSubset<T, CategoryFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$CategoryPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
 
     /**
-     * Create a Customer.
-     * @param {CustomerCreateArgs} args - Arguments to create a Customer.
+     * Create a Category.
+     * @param {CategoryCreateArgs} args - Arguments to create a Category.
      * @example
-     * // Create one Customer
-     * const Customer = await prisma.customer.create({
+     * // Create one Category
+     * const Category = await prisma.category.create({
      *   data: {
-     *     // ... data to create a Customer
+     *     // ... data to create a Category
      *   }
      * })
      * 
      */
-    create<T extends CustomerCreateArgs>(args: SelectSubset<T, CustomerCreateArgs<ExtArgs>>): Prisma__CustomerClient<$Result.GetResult<Prisma.$CustomerPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+    create<T extends CategoryCreateArgs>(args: SelectSubset<T, CategoryCreateArgs<ExtArgs>>): Prisma__CategoryClient<$Result.GetResult<Prisma.$CategoryPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Create many Customers.
-     * @param {CustomerCreateManyArgs} args - Arguments to create many Customers.
+     * Create many Categories.
+     * @param {CategoryCreateManyArgs} args - Arguments to create many Categories.
      * @example
-     * // Create many Customers
-     * const customer = await prisma.customer.createMany({
+     * // Create many Categories
+     * const category = await prisma.category.createMany({
      *   data: [
      *     // ... provide data here
      *   ]
      * })
      *     
      */
-    createMany<T extends CustomerCreateManyArgs>(args?: SelectSubset<T, CustomerCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+    createMany<T extends CategoryCreateManyArgs>(args?: SelectSubset<T, CategoryCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
 
     /**
-     * Create many Customers and returns the data saved in the database.
-     * @param {CustomerCreateManyAndReturnArgs} args - Arguments to create many Customers.
+     * Create many Categories and returns the data saved in the database.
+     * @param {CategoryCreateManyAndReturnArgs} args - Arguments to create many Categories.
      * @example
-     * // Create many Customers
-     * const customer = await prisma.customer.createManyAndReturn({
+     * // Create many Categories
+     * const category = await prisma.category.createManyAndReturn({
      *   data: [
      *     // ... provide data here
      *   ]
      * })
      * 
-     * // Create many Customers and only return the `id`
-     * const customerWithIdOnly = await prisma.customer.createManyAndReturn({
+     * // Create many Categories and only return the `id`
+     * const categoryWithIdOnly = await prisma.category.createManyAndReturn({
      *   select: { id: true },
      *   data: [
      *     // ... provide data here
@@ -3712,28 +4107,28 @@ export namespace Prisma {
      * Read more here: https://pris.ly/d/null-undefined
      * 
      */
-    createManyAndReturn<T extends CustomerCreateManyAndReturnArgs>(args?: SelectSubset<T, CustomerCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$CustomerPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+    createManyAndReturn<T extends CategoryCreateManyAndReturnArgs>(args?: SelectSubset<T, CategoryCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$CategoryPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
 
     /**
-     * Delete a Customer.
-     * @param {CustomerDeleteArgs} args - Arguments to delete one Customer.
+     * Delete a Category.
+     * @param {CategoryDeleteArgs} args - Arguments to delete one Category.
      * @example
-     * // Delete one Customer
-     * const Customer = await prisma.customer.delete({
+     * // Delete one Category
+     * const Category = await prisma.category.delete({
      *   where: {
-     *     // ... filter to delete one Customer
+     *     // ... filter to delete one Category
      *   }
      * })
      * 
      */
-    delete<T extends CustomerDeleteArgs>(args: SelectSubset<T, CustomerDeleteArgs<ExtArgs>>): Prisma__CustomerClient<$Result.GetResult<Prisma.$CustomerPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+    delete<T extends CategoryDeleteArgs>(args: SelectSubset<T, CategoryDeleteArgs<ExtArgs>>): Prisma__CategoryClient<$Result.GetResult<Prisma.$CategoryPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Update one Customer.
-     * @param {CustomerUpdateArgs} args - Arguments to update one Customer.
+     * Update one Category.
+     * @param {CategoryUpdateArgs} args - Arguments to update one Category.
      * @example
-     * // Update one Customer
-     * const customer = await prisma.customer.update({
+     * // Update one Category
+     * const category = await prisma.category.update({
      *   where: {
      *     // ... provide filter here
      *   },
@@ -3743,30 +4138,30 @@ export namespace Prisma {
      * })
      * 
      */
-    update<T extends CustomerUpdateArgs>(args: SelectSubset<T, CustomerUpdateArgs<ExtArgs>>): Prisma__CustomerClient<$Result.GetResult<Prisma.$CustomerPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+    update<T extends CategoryUpdateArgs>(args: SelectSubset<T, CategoryUpdateArgs<ExtArgs>>): Prisma__CategoryClient<$Result.GetResult<Prisma.$CategoryPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Delete zero or more Customers.
-     * @param {CustomerDeleteManyArgs} args - Arguments to filter Customers to delete.
+     * Delete zero or more Categories.
+     * @param {CategoryDeleteManyArgs} args - Arguments to filter Categories to delete.
      * @example
-     * // Delete a few Customers
-     * const { count } = await prisma.customer.deleteMany({
+     * // Delete a few Categories
+     * const { count } = await prisma.category.deleteMany({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
      * 
      */
-    deleteMany<T extends CustomerDeleteManyArgs>(args?: SelectSubset<T, CustomerDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+    deleteMany<T extends CategoryDeleteManyArgs>(args?: SelectSubset<T, CategoryDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
 
     /**
-     * Update zero or more Customers.
+     * Update zero or more Categories.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {CustomerUpdateManyArgs} args - Arguments to update one or more rows.
+     * @param {CategoryUpdateManyArgs} args - Arguments to update one or more rows.
      * @example
-     * // Update many Customers
-     * const customer = await prisma.customer.updateMany({
+     * // Update many Categories
+     * const category = await prisma.category.updateMany({
      *   where: {
      *     // ... provide filter here
      *   },
@@ -3776,14 +4171,14 @@ export namespace Prisma {
      * })
      * 
      */
-    updateMany<T extends CustomerUpdateManyArgs>(args: SelectSubset<T, CustomerUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+    updateMany<T extends CategoryUpdateManyArgs>(args: SelectSubset<T, CategoryUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
 
     /**
-     * Update zero or more Customers and returns the data updated in the database.
-     * @param {CustomerUpdateManyAndReturnArgs} args - Arguments to update many Customers.
+     * Update zero or more Categories and returns the data updated in the database.
+     * @param {CategoryUpdateManyAndReturnArgs} args - Arguments to update many Categories.
      * @example
-     * // Update many Customers
-     * const customer = await prisma.customer.updateManyAndReturn({
+     * // Update many Categories
+     * const category = await prisma.category.updateManyAndReturn({
      *   where: {
      *     // ... provide filter here
      *   },
@@ -3792,8 +4187,8 @@ export namespace Prisma {
      *   ]
      * })
      * 
-     * // Update zero or more Customers and only return the `id`
-     * const customerWithIdOnly = await prisma.customer.updateManyAndReturn({
+     * // Update zero or more Categories and only return the `id`
+     * const categoryWithIdOnly = await prisma.category.updateManyAndReturn({
      *   select: { id: true },
      *   where: {
      *     // ... provide filter here
@@ -3806,56 +4201,56 @@ export namespace Prisma {
      * Read more here: https://pris.ly/d/null-undefined
      * 
      */
-    updateManyAndReturn<T extends CustomerUpdateManyAndReturnArgs>(args: SelectSubset<T, CustomerUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$CustomerPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+    updateManyAndReturn<T extends CategoryUpdateManyAndReturnArgs>(args: SelectSubset<T, CategoryUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$CategoryPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
 
     /**
-     * Create or update one Customer.
-     * @param {CustomerUpsertArgs} args - Arguments to update or create a Customer.
+     * Create or update one Category.
+     * @param {CategoryUpsertArgs} args - Arguments to update or create a Category.
      * @example
-     * // Update or create a Customer
-     * const customer = await prisma.customer.upsert({
+     * // Update or create a Category
+     * const category = await prisma.category.upsert({
      *   create: {
-     *     // ... data to create a Customer
+     *     // ... data to create a Category
      *   },
      *   update: {
      *     // ... in case it already exists, update
      *   },
      *   where: {
-     *     // ... the filter for the Customer we want to update
+     *     // ... the filter for the Category we want to update
      *   }
      * })
      */
-    upsert<T extends CustomerUpsertArgs>(args: SelectSubset<T, CustomerUpsertArgs<ExtArgs>>): Prisma__CustomerClient<$Result.GetResult<Prisma.$CustomerPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+    upsert<T extends CategoryUpsertArgs>(args: SelectSubset<T, CategoryUpsertArgs<ExtArgs>>): Prisma__CategoryClient<$Result.GetResult<Prisma.$CategoryPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
 
     /**
-     * Count the number of Customers.
+     * Count the number of Categories.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {CustomerCountArgs} args - Arguments to filter Customers to count.
+     * @param {CategoryCountArgs} args - Arguments to filter Categories to count.
      * @example
-     * // Count the number of Customers
-     * const count = await prisma.customer.count({
+     * // Count the number of Categories
+     * const count = await prisma.category.count({
      *   where: {
-     *     // ... the filter for the Customers we want to count
+     *     // ... the filter for the Categories we want to count
      *   }
      * })
     **/
-    count<T extends CustomerCountArgs>(
-      args?: Subset<T, CustomerCountArgs>,
+    count<T extends CategoryCountArgs>(
+      args?: Subset<T, CategoryCountArgs>,
     ): Prisma.PrismaPromise<
       T extends $Utils.Record<'select', any>
         ? T['select'] extends true
           ? number
-          : GetScalarType<T['select'], CustomerCountAggregateOutputType>
+          : GetScalarType<T['select'], CategoryCountAggregateOutputType>
         : number
     >
 
     /**
-     * Allows you to perform aggregations operations on a Customer.
+     * Allows you to perform aggregations operations on a Category.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {CustomerAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @param {CategoryAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
      * @example
      * // Ordered by age ascending
      * // Where email contains prisma.io
@@ -3875,13 +4270,13 @@ export namespace Prisma {
      *   take: 10,
      * })
     **/
-    aggregate<T extends CustomerAggregateArgs>(args: Subset<T, CustomerAggregateArgs>): Prisma.PrismaPromise<GetCustomerAggregateType<T>>
+    aggregate<T extends CategoryAggregateArgs>(args: Subset<T, CategoryAggregateArgs>): Prisma.PrismaPromise<GetCategoryAggregateType<T>>
 
     /**
-     * Group by Customer.
+     * Group by Category.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {CustomerGroupByArgs} args - Group by arguments.
+     * @param {CategoryGroupByArgs} args - Group by arguments.
      * @example
      * // Group by city, order by createdAt, get count
      * const result = await prisma.user.groupBy({
@@ -3896,14 +4291,14 @@ export namespace Prisma {
      * 
     **/
     groupBy<
-      T extends CustomerGroupByArgs,
+      T extends CategoryGroupByArgs,
       HasSelectOrTake extends Or<
         Extends<'skip', Keys<T>>,
         Extends<'take', Keys<T>>
       >,
       OrderByArg extends True extends HasSelectOrTake
-        ? { orderBy: CustomerGroupByArgs['orderBy'] }
-        : { orderBy?: CustomerGroupByArgs['orderBy'] },
+        ? { orderBy: CategoryGroupByArgs['orderBy'] }
+        : { orderBy?: CategoryGroupByArgs['orderBy'] },
       OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
       ByFields extends MaybeTupleToUnion<T['by']>,
       ByValid extends Has<ByFields, OrderFields>,
@@ -3952,22 +4347,23 @@ export namespace Prisma {
             ? never
             : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
         }[OrderFields]
-    >(args: SubsetIntersection<T, CustomerGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetCustomerGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+    >(args: SubsetIntersection<T, CategoryGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetCategoryGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
   /**
-   * Fields of the Customer model
+   * Fields of the Category model
    */
-  readonly fields: CustomerFieldRefs;
+  readonly fields: CategoryFieldRefs;
   }
 
   /**
-   * The delegate class that acts as a "Promise-like" for Customer.
+   * The delegate class that acts as a "Promise-like" for Category.
    * Why is this prefixed with `Prisma__`?
    * Because we want to prevent naming conflicts as mentioned in
    * https://github.com/prisma/prisma-client-js/issues/707
    */
-  export interface Prisma__CustomerClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+  export interface Prisma__CategoryClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: "PrismaPromise"
-    favorite_size<T extends Customer$favorite_sizeArgs<ExtArgs> = {}>(args?: Subset<T, Customer$favorite_sizeArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$Favorite_sizePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    sizes<T extends Category$sizesArgs<ExtArgs> = {}>(args?: Subset<T, Category$sizesArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$SizePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    favoriteSizes<T extends Category$favoriteSizesArgs<ExtArgs> = {}>(args?: Subset<T, Category$favoriteSizesArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$FavoriteSizePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -3994,441 +4390,3917 @@ export namespace Prisma {
 
 
   /**
-   * Fields of the Customer model
+   * Fields of the Category model
    */
-  interface CustomerFieldRefs {
-    readonly id: FieldRef<"Customer", 'Int'>
-    readonly email: FieldRef<"Customer", 'String'>
-    readonly name: FieldRef<"Customer", 'String'>
-    readonly image: FieldRef<"Customer", 'String'>
-    readonly role: FieldRef<"Customer", 'Role'>
+  interface CategoryFieldRefs {
+    readonly id: FieldRef<"Category", 'Int'>
+    readonly type: FieldRef<"Category", 'String'>
   }
     
 
   // Custom InputTypes
   /**
-   * Customer findUnique
+   * Category findUnique
    */
-  export type CustomerFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type CategoryFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Customer
+     * Select specific fields to fetch from the Category
      */
-    select?: CustomerSelect<ExtArgs> | null
+    select?: CategorySelect<ExtArgs> | null
     /**
-     * Omit specific fields from the Customer
+     * Omit specific fields from the Category
      */
-    omit?: CustomerOmit<ExtArgs> | null
+    omit?: CategoryOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: CustomerInclude<ExtArgs> | null
+    include?: CategoryInclude<ExtArgs> | null
     /**
-     * Filter, which Customer to fetch.
+     * Filter, which Category to fetch.
      */
-    where: CustomerWhereUniqueInput
+    where: CategoryWhereUniqueInput
   }
 
   /**
-   * Customer findUniqueOrThrow
+   * Category findUniqueOrThrow
    */
-  export type CustomerFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type CategoryFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Customer
+     * Select specific fields to fetch from the Category
      */
-    select?: CustomerSelect<ExtArgs> | null
+    select?: CategorySelect<ExtArgs> | null
     /**
-     * Omit specific fields from the Customer
+     * Omit specific fields from the Category
      */
-    omit?: CustomerOmit<ExtArgs> | null
+    omit?: CategoryOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: CustomerInclude<ExtArgs> | null
+    include?: CategoryInclude<ExtArgs> | null
     /**
-     * Filter, which Customer to fetch.
+     * Filter, which Category to fetch.
      */
-    where: CustomerWhereUniqueInput
+    where: CategoryWhereUniqueInput
   }
 
   /**
-   * Customer findFirst
+   * Category findFirst
    */
-  export type CustomerFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type CategoryFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Customer
+     * Select specific fields to fetch from the Category
      */
-    select?: CustomerSelect<ExtArgs> | null
+    select?: CategorySelect<ExtArgs> | null
     /**
-     * Omit specific fields from the Customer
+     * Omit specific fields from the Category
      */
-    omit?: CustomerOmit<ExtArgs> | null
+    omit?: CategoryOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: CustomerInclude<ExtArgs> | null
+    include?: CategoryInclude<ExtArgs> | null
     /**
-     * Filter, which Customer to fetch.
+     * Filter, which Category to fetch.
      */
-    where?: CustomerWhereInput
+    where?: CategoryWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
      * 
-     * Determine the order of Customers to fetch.
+     * Determine the order of Categories to fetch.
      */
-    orderBy?: CustomerOrderByWithRelationInput | CustomerOrderByWithRelationInput[]
+    orderBy?: CategoryOrderByWithRelationInput | CategoryOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
-     * Sets the position for searching for Customers.
+     * Sets the position for searching for Categories.
      */
-    cursor?: CustomerWhereUniqueInput
+    cursor?: CategoryWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Take `±n` Customers from the position of the cursor.
+     * Take `±n` Categories from the position of the cursor.
      */
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Skip the first `n` Customers.
+     * Skip the first `n` Categories.
      */
     skip?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
      * 
-     * Filter by unique combinations of Customers.
+     * Filter by unique combinations of Categories.
      */
-    distinct?: CustomerScalarFieldEnum | CustomerScalarFieldEnum[]
+    distinct?: CategoryScalarFieldEnum | CategoryScalarFieldEnum[]
   }
 
   /**
-   * Customer findFirstOrThrow
+   * Category findFirstOrThrow
    */
-  export type CustomerFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type CategoryFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Customer
+     * Select specific fields to fetch from the Category
      */
-    select?: CustomerSelect<ExtArgs> | null
+    select?: CategorySelect<ExtArgs> | null
     /**
-     * Omit specific fields from the Customer
+     * Omit specific fields from the Category
      */
-    omit?: CustomerOmit<ExtArgs> | null
+    omit?: CategoryOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: CustomerInclude<ExtArgs> | null
+    include?: CategoryInclude<ExtArgs> | null
     /**
-     * Filter, which Customer to fetch.
+     * Filter, which Category to fetch.
      */
-    where?: CustomerWhereInput
+    where?: CategoryWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
      * 
-     * Determine the order of Customers to fetch.
+     * Determine the order of Categories to fetch.
      */
-    orderBy?: CustomerOrderByWithRelationInput | CustomerOrderByWithRelationInput[]
+    orderBy?: CategoryOrderByWithRelationInput | CategoryOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
-     * Sets the position for searching for Customers.
+     * Sets the position for searching for Categories.
      */
-    cursor?: CustomerWhereUniqueInput
+    cursor?: CategoryWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Take `±n` Customers from the position of the cursor.
+     * Take `±n` Categories from the position of the cursor.
      */
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Skip the first `n` Customers.
+     * Skip the first `n` Categories.
      */
     skip?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
      * 
-     * Filter by unique combinations of Customers.
+     * Filter by unique combinations of Categories.
      */
-    distinct?: CustomerScalarFieldEnum | CustomerScalarFieldEnum[]
+    distinct?: CategoryScalarFieldEnum | CategoryScalarFieldEnum[]
   }
 
   /**
-   * Customer findMany
+   * Category findMany
    */
-  export type CustomerFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type CategoryFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Customer
+     * Select specific fields to fetch from the Category
      */
-    select?: CustomerSelect<ExtArgs> | null
+    select?: CategorySelect<ExtArgs> | null
     /**
-     * Omit specific fields from the Customer
+     * Omit specific fields from the Category
      */
-    omit?: CustomerOmit<ExtArgs> | null
+    omit?: CategoryOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: CustomerInclude<ExtArgs> | null
+    include?: CategoryInclude<ExtArgs> | null
     /**
-     * Filter, which Customers to fetch.
+     * Filter, which Categories to fetch.
      */
-    where?: CustomerWhereInput
+    where?: CategoryWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
      * 
-     * Determine the order of Customers to fetch.
+     * Determine the order of Categories to fetch.
      */
-    orderBy?: CustomerOrderByWithRelationInput | CustomerOrderByWithRelationInput[]
+    orderBy?: CategoryOrderByWithRelationInput | CategoryOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
-     * Sets the position for listing Customers.
+     * Sets the position for listing Categories.
      */
-    cursor?: CustomerWhereUniqueInput
+    cursor?: CategoryWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Take `±n` Customers from the position of the cursor.
+     * Take `±n` Categories from the position of the cursor.
      */
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Skip the first `n` Customers.
+     * Skip the first `n` Categories.
      */
     skip?: number
-    distinct?: CustomerScalarFieldEnum | CustomerScalarFieldEnum[]
+    distinct?: CategoryScalarFieldEnum | CategoryScalarFieldEnum[]
   }
 
   /**
-   * Customer create
+   * Category create
    */
-  export type CustomerCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type CategoryCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Customer
+     * Select specific fields to fetch from the Category
      */
-    select?: CustomerSelect<ExtArgs> | null
+    select?: CategorySelect<ExtArgs> | null
     /**
-     * Omit specific fields from the Customer
+     * Omit specific fields from the Category
      */
-    omit?: CustomerOmit<ExtArgs> | null
+    omit?: CategoryOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: CustomerInclude<ExtArgs> | null
+    include?: CategoryInclude<ExtArgs> | null
     /**
-     * The data needed to create a Customer.
+     * The data needed to create a Category.
      */
-    data: XOR<CustomerCreateInput, CustomerUncheckedCreateInput>
+    data: XOR<CategoryCreateInput, CategoryUncheckedCreateInput>
   }
 
   /**
-   * Customer createMany
+   * Category createMany
    */
-  export type CustomerCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type CategoryCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * The data used to create many Customers.
+     * The data used to create many Categories.
      */
-    data: CustomerCreateManyInput | CustomerCreateManyInput[]
+    data: CategoryCreateManyInput | CategoryCreateManyInput[]
     skipDuplicates?: boolean
   }
 
   /**
-   * Customer createManyAndReturn
+   * Category createManyAndReturn
    */
-  export type CustomerCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type CategoryCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Customer
+     * Select specific fields to fetch from the Category
      */
-    select?: CustomerSelectCreateManyAndReturn<ExtArgs> | null
+    select?: CategorySelectCreateManyAndReturn<ExtArgs> | null
     /**
-     * Omit specific fields from the Customer
+     * Omit specific fields from the Category
      */
-    omit?: CustomerOmit<ExtArgs> | null
+    omit?: CategoryOmit<ExtArgs> | null
     /**
-     * The data used to create many Customers.
+     * The data used to create many Categories.
      */
-    data: CustomerCreateManyInput | CustomerCreateManyInput[]
+    data: CategoryCreateManyInput | CategoryCreateManyInput[]
     skipDuplicates?: boolean
   }
 
   /**
-   * Customer update
+   * Category update
    */
-  export type CustomerUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type CategoryUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Customer
+     * Select specific fields to fetch from the Category
      */
-    select?: CustomerSelect<ExtArgs> | null
+    select?: CategorySelect<ExtArgs> | null
     /**
-     * Omit specific fields from the Customer
+     * Omit specific fields from the Category
      */
-    omit?: CustomerOmit<ExtArgs> | null
+    omit?: CategoryOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: CustomerInclude<ExtArgs> | null
+    include?: CategoryInclude<ExtArgs> | null
     /**
-     * The data needed to update a Customer.
+     * The data needed to update a Category.
      */
-    data: XOR<CustomerUpdateInput, CustomerUncheckedUpdateInput>
+    data: XOR<CategoryUpdateInput, CategoryUncheckedUpdateInput>
     /**
-     * Choose, which Customer to update.
+     * Choose, which Category to update.
      */
-    where: CustomerWhereUniqueInput
+    where: CategoryWhereUniqueInput
   }
 
   /**
-   * Customer updateMany
+   * Category updateMany
    */
-  export type CustomerUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type CategoryUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * The data used to update Customers.
+     * The data used to update Categories.
      */
-    data: XOR<CustomerUpdateManyMutationInput, CustomerUncheckedUpdateManyInput>
+    data: XOR<CategoryUpdateManyMutationInput, CategoryUncheckedUpdateManyInput>
     /**
-     * Filter which Customers to update
+     * Filter which Categories to update
      */
-    where?: CustomerWhereInput
+    where?: CategoryWhereInput
     /**
-     * Limit how many Customers to update.
+     * Limit how many Categories to update.
      */
     limit?: number
   }
 
   /**
-   * Customer updateManyAndReturn
+   * Category updateManyAndReturn
    */
-  export type CustomerUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type CategoryUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Customer
+     * Select specific fields to fetch from the Category
      */
-    select?: CustomerSelectUpdateManyAndReturn<ExtArgs> | null
+    select?: CategorySelectUpdateManyAndReturn<ExtArgs> | null
     /**
-     * Omit specific fields from the Customer
+     * Omit specific fields from the Category
      */
-    omit?: CustomerOmit<ExtArgs> | null
+    omit?: CategoryOmit<ExtArgs> | null
     /**
-     * The data used to update Customers.
+     * The data used to update Categories.
      */
-    data: XOR<CustomerUpdateManyMutationInput, CustomerUncheckedUpdateManyInput>
+    data: XOR<CategoryUpdateManyMutationInput, CategoryUncheckedUpdateManyInput>
     /**
-     * Filter which Customers to update
+     * Filter which Categories to update
      */
-    where?: CustomerWhereInput
+    where?: CategoryWhereInput
     /**
-     * Limit how many Customers to update.
+     * Limit how many Categories to update.
      */
     limit?: number
   }
 
   /**
-   * Customer upsert
+   * Category upsert
    */
-  export type CustomerUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type CategoryUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Customer
+     * Select specific fields to fetch from the Category
      */
-    select?: CustomerSelect<ExtArgs> | null
+    select?: CategorySelect<ExtArgs> | null
     /**
-     * Omit specific fields from the Customer
+     * Omit specific fields from the Category
      */
-    omit?: CustomerOmit<ExtArgs> | null
+    omit?: CategoryOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: CustomerInclude<ExtArgs> | null
+    include?: CategoryInclude<ExtArgs> | null
     /**
-     * The filter to search for the Customer to update in case it exists.
+     * The filter to search for the Category to update in case it exists.
      */
-    where: CustomerWhereUniqueInput
+    where: CategoryWhereUniqueInput
     /**
-     * In case the Customer found by the `where` argument doesn't exist, create a new Customer with this data.
+     * In case the Category found by the `where` argument doesn't exist, create a new Category with this data.
      */
-    create: XOR<CustomerCreateInput, CustomerUncheckedCreateInput>
+    create: XOR<CategoryCreateInput, CategoryUncheckedCreateInput>
     /**
-     * In case the Customer was found with the provided `where` argument, update it with this data.
+     * In case the Category was found with the provided `where` argument, update it with this data.
      */
-    update: XOR<CustomerUpdateInput, CustomerUncheckedUpdateInput>
+    update: XOR<CategoryUpdateInput, CategoryUncheckedUpdateInput>
   }
 
   /**
-   * Customer delete
+   * Category delete
    */
-  export type CustomerDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type CategoryDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Customer
+     * Select specific fields to fetch from the Category
      */
-    select?: CustomerSelect<ExtArgs> | null
+    select?: CategorySelect<ExtArgs> | null
     /**
-     * Omit specific fields from the Customer
+     * Omit specific fields from the Category
      */
-    omit?: CustomerOmit<ExtArgs> | null
+    omit?: CategoryOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: CustomerInclude<ExtArgs> | null
+    include?: CategoryInclude<ExtArgs> | null
     /**
-     * Filter which Customer to delete.
+     * Filter which Category to delete.
      */
-    where: CustomerWhereUniqueInput
+    where: CategoryWhereUniqueInput
   }
 
   /**
-   * Customer deleteMany
+   * Category deleteMany
    */
-  export type CustomerDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type CategoryDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Filter which Customers to delete
+     * Filter which Categories to delete
      */
-    where?: CustomerWhereInput
+    where?: CategoryWhereInput
     /**
-     * Limit how many Customers to delete.
+     * Limit how many Categories to delete.
      */
     limit?: number
   }
 
   /**
-   * Customer.favorite_size
+   * Category.sizes
    */
-  export type Customer$favorite_sizeArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type Category$sizesArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Favorite_size
+     * Select specific fields to fetch from the Size
      */
-    select?: Favorite_sizeSelect<ExtArgs> | null
+    select?: SizeSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the Favorite_size
+     * Omit specific fields from the Size
      */
-    omit?: Favorite_sizeOmit<ExtArgs> | null
+    omit?: SizeOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: Favorite_sizeInclude<ExtArgs> | null
-    where?: Favorite_sizeWhereInput
-    orderBy?: Favorite_sizeOrderByWithRelationInput | Favorite_sizeOrderByWithRelationInput[]
-    cursor?: Favorite_sizeWhereUniqueInput
+    include?: SizeInclude<ExtArgs> | null
+    where?: SizeWhereInput
+    orderBy?: SizeOrderByWithRelationInput | SizeOrderByWithRelationInput[]
+    cursor?: SizeWhereUniqueInput
     take?: number
     skip?: number
-    distinct?: Favorite_sizeScalarFieldEnum | Favorite_sizeScalarFieldEnum[]
+    distinct?: SizeScalarFieldEnum | SizeScalarFieldEnum[]
   }
 
   /**
-   * Customer without action
+   * Category.favoriteSizes
    */
-  export type CustomerDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type Category$favoriteSizesArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Customer
+     * Select specific fields to fetch from the FavoriteSize
      */
-    select?: CustomerSelect<ExtArgs> | null
+    select?: FavoriteSizeSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the Customer
+     * Omit specific fields from the FavoriteSize
      */
-    omit?: CustomerOmit<ExtArgs> | null
+    omit?: FavoriteSizeOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: CustomerInclude<ExtArgs> | null
+    include?: FavoriteSizeInclude<ExtArgs> | null
+    where?: FavoriteSizeWhereInput
+    orderBy?: FavoriteSizeOrderByWithRelationInput | FavoriteSizeOrderByWithRelationInput[]
+    cursor?: FavoriteSizeWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: FavoriteSizeScalarFieldEnum | FavoriteSizeScalarFieldEnum[]
+  }
+
+  /**
+   * Category without action
+   */
+  export type CategoryDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Category
+     */
+    select?: CategorySelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Category
+     */
+    omit?: CategoryOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CategoryInclude<ExtArgs> | null
+  }
+
+
+  /**
+   * Model Size
+   */
+
+  export type AggregateSize = {
+    _count: SizeCountAggregateOutputType | null
+    _avg: SizeAvgAggregateOutputType | null
+    _sum: SizeSumAggregateOutputType | null
+    _min: SizeMinAggregateOutputType | null
+    _max: SizeMaxAggregateOutputType | null
+  }
+
+  export type SizeAvgAggregateOutputType = {
+    id: number | null
+    category_id: number | null
+    country_id: number | null
+  }
+
+  export type SizeSumAggregateOutputType = {
+    id: number | null
+    category_id: number | null
+    country_id: number | null
+  }
+
+  export type SizeMinAggregateOutputType = {
+    id: number | null
+    category_id: number | null
+    country_id: number | null
+    size_label: string | null
+  }
+
+  export type SizeMaxAggregateOutputType = {
+    id: number | null
+    category_id: number | null
+    country_id: number | null
+    size_label: string | null
+  }
+
+  export type SizeCountAggregateOutputType = {
+    id: number
+    category_id: number
+    country_id: number
+    size_label: number
+    _all: number
+  }
+
+
+  export type SizeAvgAggregateInputType = {
+    id?: true
+    category_id?: true
+    country_id?: true
+  }
+
+  export type SizeSumAggregateInputType = {
+    id?: true
+    category_id?: true
+    country_id?: true
+  }
+
+  export type SizeMinAggregateInputType = {
+    id?: true
+    category_id?: true
+    country_id?: true
+    size_label?: true
+  }
+
+  export type SizeMaxAggregateInputType = {
+    id?: true
+    category_id?: true
+    country_id?: true
+    size_label?: true
+  }
+
+  export type SizeCountAggregateInputType = {
+    id?: true
+    category_id?: true
+    country_id?: true
+    size_label?: true
+    _all?: true
+  }
+
+  export type SizeAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which Size to aggregate.
+     */
+    where?: SizeWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Sizes to fetch.
+     */
+    orderBy?: SizeOrderByWithRelationInput | SizeOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: SizeWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Sizes from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Sizes.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned Sizes
+    **/
+    _count?: true | SizeCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: SizeAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: SizeSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: SizeMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: SizeMaxAggregateInputType
+  }
+
+  export type GetSizeAggregateType<T extends SizeAggregateArgs> = {
+        [P in keyof T & keyof AggregateSize]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateSize[P]>
+      : GetScalarType<T[P], AggregateSize[P]>
+  }
+
+
+
+
+  export type SizeGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: SizeWhereInput
+    orderBy?: SizeOrderByWithAggregationInput | SizeOrderByWithAggregationInput[]
+    by: SizeScalarFieldEnum[] | SizeScalarFieldEnum
+    having?: SizeScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: SizeCountAggregateInputType | true
+    _avg?: SizeAvgAggregateInputType
+    _sum?: SizeSumAggregateInputType
+    _min?: SizeMinAggregateInputType
+    _max?: SizeMaxAggregateInputType
+  }
+
+  export type SizeGroupByOutputType = {
+    id: number
+    category_id: number
+    country_id: number
+    size_label: string
+    _count: SizeCountAggregateOutputType | null
+    _avg: SizeAvgAggregateOutputType | null
+    _sum: SizeSumAggregateOutputType | null
+    _min: SizeMinAggregateOutputType | null
+    _max: SizeMaxAggregateOutputType | null
+  }
+
+  type GetSizeGroupByPayload<T extends SizeGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<SizeGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof SizeGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], SizeGroupByOutputType[P]>
+            : GetScalarType<T[P], SizeGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type SizeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    category_id?: boolean
+    country_id?: boolean
+    size_label?: boolean
+    category?: boolean | CategoryDefaultArgs<ExtArgs>
+    country?: boolean | CountryDefaultArgs<ExtArgs>
+    favoriteSizes?: boolean | Size$favoriteSizesArgs<ExtArgs>
+    fromConversions?: boolean | Size$fromConversionsArgs<ExtArgs>
+    toConversions?: boolean | Size$toConversionsArgs<ExtArgs>
+    _count?: boolean | SizeCountOutputTypeDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["size"]>
+
+  export type SizeSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    category_id?: boolean
+    country_id?: boolean
+    size_label?: boolean
+    category?: boolean | CategoryDefaultArgs<ExtArgs>
+    country?: boolean | CountryDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["size"]>
+
+  export type SizeSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    category_id?: boolean
+    country_id?: boolean
+    size_label?: boolean
+    category?: boolean | CategoryDefaultArgs<ExtArgs>
+    country?: boolean | CountryDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["size"]>
+
+  export type SizeSelectScalar = {
+    id?: boolean
+    category_id?: boolean
+    country_id?: boolean
+    size_label?: boolean
+  }
+
+  export type SizeOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "category_id" | "country_id" | "size_label", ExtArgs["result"]["size"]>
+  export type SizeInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    category?: boolean | CategoryDefaultArgs<ExtArgs>
+    country?: boolean | CountryDefaultArgs<ExtArgs>
+    favoriteSizes?: boolean | Size$favoriteSizesArgs<ExtArgs>
+    fromConversions?: boolean | Size$fromConversionsArgs<ExtArgs>
+    toConversions?: boolean | Size$toConversionsArgs<ExtArgs>
+    _count?: boolean | SizeCountOutputTypeDefaultArgs<ExtArgs>
+  }
+  export type SizeIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    category?: boolean | CategoryDefaultArgs<ExtArgs>
+    country?: boolean | CountryDefaultArgs<ExtArgs>
+  }
+  export type SizeIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    category?: boolean | CategoryDefaultArgs<ExtArgs>
+    country?: boolean | CountryDefaultArgs<ExtArgs>
+  }
+
+  export type $SizePayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "Size"
+    objects: {
+      category: Prisma.$CategoryPayload<ExtArgs>
+      country: Prisma.$CountryPayload<ExtArgs>
+      favoriteSizes: Prisma.$FavoriteSizePayload<ExtArgs>[]
+      fromConversions: Prisma.$ConversionPayload<ExtArgs>[]
+      toConversions: Prisma.$ConversionPayload<ExtArgs>[]
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: number
+      category_id: number
+      country_id: number
+      size_label: string
+    }, ExtArgs["result"]["size"]>
+    composites: {}
+  }
+
+  type SizeGetPayload<S extends boolean | null | undefined | SizeDefaultArgs> = $Result.GetResult<Prisma.$SizePayload, S>
+
+  type SizeCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<SizeFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: SizeCountAggregateInputType | true
+    }
+
+  export interface SizeDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['Size'], meta: { name: 'Size' } }
+    /**
+     * Find zero or one Size that matches the filter.
+     * @param {SizeFindUniqueArgs} args - Arguments to find a Size
+     * @example
+     * // Get one Size
+     * const size = await prisma.size.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends SizeFindUniqueArgs>(args: SelectSubset<T, SizeFindUniqueArgs<ExtArgs>>): Prisma__SizeClient<$Result.GetResult<Prisma.$SizePayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one Size that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {SizeFindUniqueOrThrowArgs} args - Arguments to find a Size
+     * @example
+     * // Get one Size
+     * const size = await prisma.size.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends SizeFindUniqueOrThrowArgs>(args: SelectSubset<T, SizeFindUniqueOrThrowArgs<ExtArgs>>): Prisma__SizeClient<$Result.GetResult<Prisma.$SizePayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Size that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {SizeFindFirstArgs} args - Arguments to find a Size
+     * @example
+     * // Get one Size
+     * const size = await prisma.size.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends SizeFindFirstArgs>(args?: SelectSubset<T, SizeFindFirstArgs<ExtArgs>>): Prisma__SizeClient<$Result.GetResult<Prisma.$SizePayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Size that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {SizeFindFirstOrThrowArgs} args - Arguments to find a Size
+     * @example
+     * // Get one Size
+     * const size = await prisma.size.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends SizeFindFirstOrThrowArgs>(args?: SelectSubset<T, SizeFindFirstOrThrowArgs<ExtArgs>>): Prisma__SizeClient<$Result.GetResult<Prisma.$SizePayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more Sizes that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {SizeFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all Sizes
+     * const sizes = await prisma.size.findMany()
+     * 
+     * // Get first 10 Sizes
+     * const sizes = await prisma.size.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const sizeWithIdOnly = await prisma.size.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends SizeFindManyArgs>(args?: SelectSubset<T, SizeFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$SizePayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a Size.
+     * @param {SizeCreateArgs} args - Arguments to create a Size.
+     * @example
+     * // Create one Size
+     * const Size = await prisma.size.create({
+     *   data: {
+     *     // ... data to create a Size
+     *   }
+     * })
+     * 
+     */
+    create<T extends SizeCreateArgs>(args: SelectSubset<T, SizeCreateArgs<ExtArgs>>): Prisma__SizeClient<$Result.GetResult<Prisma.$SizePayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many Sizes.
+     * @param {SizeCreateManyArgs} args - Arguments to create many Sizes.
+     * @example
+     * // Create many Sizes
+     * const size = await prisma.size.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends SizeCreateManyArgs>(args?: SelectSubset<T, SizeCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many Sizes and returns the data saved in the database.
+     * @param {SizeCreateManyAndReturnArgs} args - Arguments to create many Sizes.
+     * @example
+     * // Create many Sizes
+     * const size = await prisma.size.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many Sizes and only return the `id`
+     * const sizeWithIdOnly = await prisma.size.createManyAndReturn({
+     *   select: { id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends SizeCreateManyAndReturnArgs>(args?: SelectSubset<T, SizeCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$SizePayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Delete a Size.
+     * @param {SizeDeleteArgs} args - Arguments to delete one Size.
+     * @example
+     * // Delete one Size
+     * const Size = await prisma.size.delete({
+     *   where: {
+     *     // ... filter to delete one Size
+     *   }
+     * })
+     * 
+     */
+    delete<T extends SizeDeleteArgs>(args: SelectSubset<T, SizeDeleteArgs<ExtArgs>>): Prisma__SizeClient<$Result.GetResult<Prisma.$SizePayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one Size.
+     * @param {SizeUpdateArgs} args - Arguments to update one Size.
+     * @example
+     * // Update one Size
+     * const size = await prisma.size.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends SizeUpdateArgs>(args: SelectSubset<T, SizeUpdateArgs<ExtArgs>>): Prisma__SizeClient<$Result.GetResult<Prisma.$SizePayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more Sizes.
+     * @param {SizeDeleteManyArgs} args - Arguments to filter Sizes to delete.
+     * @example
+     * // Delete a few Sizes
+     * const { count } = await prisma.size.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends SizeDeleteManyArgs>(args?: SelectSubset<T, SizeDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Sizes.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {SizeUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many Sizes
+     * const size = await prisma.size.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends SizeUpdateManyArgs>(args: SelectSubset<T, SizeUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Sizes and returns the data updated in the database.
+     * @param {SizeUpdateManyAndReturnArgs} args - Arguments to update many Sizes.
+     * @example
+     * // Update many Sizes
+     * const size = await prisma.size.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Update zero or more Sizes and only return the `id`
+     * const sizeWithIdOnly = await prisma.size.updateManyAndReturn({
+     *   select: { id: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    updateManyAndReturn<T extends SizeUpdateManyAndReturnArgs>(args: SelectSubset<T, SizeUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$SizePayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Create or update one Size.
+     * @param {SizeUpsertArgs} args - Arguments to update or create a Size.
+     * @example
+     * // Update or create a Size
+     * const size = await prisma.size.upsert({
+     *   create: {
+     *     // ... data to create a Size
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the Size we want to update
+     *   }
+     * })
+     */
+    upsert<T extends SizeUpsertArgs>(args: SelectSubset<T, SizeUpsertArgs<ExtArgs>>): Prisma__SizeClient<$Result.GetResult<Prisma.$SizePayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of Sizes.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {SizeCountArgs} args - Arguments to filter Sizes to count.
+     * @example
+     * // Count the number of Sizes
+     * const count = await prisma.size.count({
+     *   where: {
+     *     // ... the filter for the Sizes we want to count
+     *   }
+     * })
+    **/
+    count<T extends SizeCountArgs>(
+      args?: Subset<T, SizeCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], SizeCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a Size.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {SizeAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends SizeAggregateArgs>(args: Subset<T, SizeAggregateArgs>): Prisma.PrismaPromise<GetSizeAggregateType<T>>
+
+    /**
+     * Group by Size.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {SizeGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends SizeGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: SizeGroupByArgs['orderBy'] }
+        : { orderBy?: SizeGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, SizeGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetSizeGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the Size model
+   */
+  readonly fields: SizeFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for Size.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__SizeClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    category<T extends CategoryDefaultArgs<ExtArgs> = {}>(args?: Subset<T, CategoryDefaultArgs<ExtArgs>>): Prisma__CategoryClient<$Result.GetResult<Prisma.$CategoryPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    country<T extends CountryDefaultArgs<ExtArgs> = {}>(args?: Subset<T, CountryDefaultArgs<ExtArgs>>): Prisma__CountryClient<$Result.GetResult<Prisma.$CountryPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    favoriteSizes<T extends Size$favoriteSizesArgs<ExtArgs> = {}>(args?: Subset<T, Size$favoriteSizesArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$FavoriteSizePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    fromConversions<T extends Size$fromConversionsArgs<ExtArgs> = {}>(args?: Subset<T, Size$fromConversionsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ConversionPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    toConversions<T extends Size$toConversionsArgs<ExtArgs> = {}>(args?: Subset<T, Size$toConversionsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ConversionPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the Size model
+   */
+  interface SizeFieldRefs {
+    readonly id: FieldRef<"Size", 'Int'>
+    readonly category_id: FieldRef<"Size", 'Int'>
+    readonly country_id: FieldRef<"Size", 'Int'>
+    readonly size_label: FieldRef<"Size", 'String'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * Size findUnique
+   */
+  export type SizeFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Size
+     */
+    select?: SizeSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Size
+     */
+    omit?: SizeOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: SizeInclude<ExtArgs> | null
+    /**
+     * Filter, which Size to fetch.
+     */
+    where: SizeWhereUniqueInput
+  }
+
+  /**
+   * Size findUniqueOrThrow
+   */
+  export type SizeFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Size
+     */
+    select?: SizeSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Size
+     */
+    omit?: SizeOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: SizeInclude<ExtArgs> | null
+    /**
+     * Filter, which Size to fetch.
+     */
+    where: SizeWhereUniqueInput
+  }
+
+  /**
+   * Size findFirst
+   */
+  export type SizeFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Size
+     */
+    select?: SizeSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Size
+     */
+    omit?: SizeOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: SizeInclude<ExtArgs> | null
+    /**
+     * Filter, which Size to fetch.
+     */
+    where?: SizeWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Sizes to fetch.
+     */
+    orderBy?: SizeOrderByWithRelationInput | SizeOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for Sizes.
+     */
+    cursor?: SizeWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Sizes from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Sizes.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of Sizes.
+     */
+    distinct?: SizeScalarFieldEnum | SizeScalarFieldEnum[]
+  }
+
+  /**
+   * Size findFirstOrThrow
+   */
+  export type SizeFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Size
+     */
+    select?: SizeSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Size
+     */
+    omit?: SizeOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: SizeInclude<ExtArgs> | null
+    /**
+     * Filter, which Size to fetch.
+     */
+    where?: SizeWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Sizes to fetch.
+     */
+    orderBy?: SizeOrderByWithRelationInput | SizeOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for Sizes.
+     */
+    cursor?: SizeWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Sizes from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Sizes.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of Sizes.
+     */
+    distinct?: SizeScalarFieldEnum | SizeScalarFieldEnum[]
+  }
+
+  /**
+   * Size findMany
+   */
+  export type SizeFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Size
+     */
+    select?: SizeSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Size
+     */
+    omit?: SizeOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: SizeInclude<ExtArgs> | null
+    /**
+     * Filter, which Sizes to fetch.
+     */
+    where?: SizeWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Sizes to fetch.
+     */
+    orderBy?: SizeOrderByWithRelationInput | SizeOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing Sizes.
+     */
+    cursor?: SizeWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Sizes from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Sizes.
+     */
+    skip?: number
+    distinct?: SizeScalarFieldEnum | SizeScalarFieldEnum[]
+  }
+
+  /**
+   * Size create
+   */
+  export type SizeCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Size
+     */
+    select?: SizeSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Size
+     */
+    omit?: SizeOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: SizeInclude<ExtArgs> | null
+    /**
+     * The data needed to create a Size.
+     */
+    data: XOR<SizeCreateInput, SizeUncheckedCreateInput>
+  }
+
+  /**
+   * Size createMany
+   */
+  export type SizeCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many Sizes.
+     */
+    data: SizeCreateManyInput | SizeCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * Size createManyAndReturn
+   */
+  export type SizeCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Size
+     */
+    select?: SizeSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the Size
+     */
+    omit?: SizeOmit<ExtArgs> | null
+    /**
+     * The data used to create many Sizes.
+     */
+    data: SizeCreateManyInput | SizeCreateManyInput[]
+    skipDuplicates?: boolean
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: SizeIncludeCreateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * Size update
+   */
+  export type SizeUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Size
+     */
+    select?: SizeSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Size
+     */
+    omit?: SizeOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: SizeInclude<ExtArgs> | null
+    /**
+     * The data needed to update a Size.
+     */
+    data: XOR<SizeUpdateInput, SizeUncheckedUpdateInput>
+    /**
+     * Choose, which Size to update.
+     */
+    where: SizeWhereUniqueInput
+  }
+
+  /**
+   * Size updateMany
+   */
+  export type SizeUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update Sizes.
+     */
+    data: XOR<SizeUpdateManyMutationInput, SizeUncheckedUpdateManyInput>
+    /**
+     * Filter which Sizes to update
+     */
+    where?: SizeWhereInput
+    /**
+     * Limit how many Sizes to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * Size updateManyAndReturn
+   */
+  export type SizeUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Size
+     */
+    select?: SizeSelectUpdateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the Size
+     */
+    omit?: SizeOmit<ExtArgs> | null
+    /**
+     * The data used to update Sizes.
+     */
+    data: XOR<SizeUpdateManyMutationInput, SizeUncheckedUpdateManyInput>
+    /**
+     * Filter which Sizes to update
+     */
+    where?: SizeWhereInput
+    /**
+     * Limit how many Sizes to update.
+     */
+    limit?: number
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: SizeIncludeUpdateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * Size upsert
+   */
+  export type SizeUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Size
+     */
+    select?: SizeSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Size
+     */
+    omit?: SizeOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: SizeInclude<ExtArgs> | null
+    /**
+     * The filter to search for the Size to update in case it exists.
+     */
+    where: SizeWhereUniqueInput
+    /**
+     * In case the Size found by the `where` argument doesn't exist, create a new Size with this data.
+     */
+    create: XOR<SizeCreateInput, SizeUncheckedCreateInput>
+    /**
+     * In case the Size was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<SizeUpdateInput, SizeUncheckedUpdateInput>
+  }
+
+  /**
+   * Size delete
+   */
+  export type SizeDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Size
+     */
+    select?: SizeSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Size
+     */
+    omit?: SizeOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: SizeInclude<ExtArgs> | null
+    /**
+     * Filter which Size to delete.
+     */
+    where: SizeWhereUniqueInput
+  }
+
+  /**
+   * Size deleteMany
+   */
+  export type SizeDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which Sizes to delete
+     */
+    where?: SizeWhereInput
+    /**
+     * Limit how many Sizes to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * Size.favoriteSizes
+   */
+  export type Size$favoriteSizesArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the FavoriteSize
+     */
+    select?: FavoriteSizeSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the FavoriteSize
+     */
+    omit?: FavoriteSizeOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: FavoriteSizeInclude<ExtArgs> | null
+    where?: FavoriteSizeWhereInput
+    orderBy?: FavoriteSizeOrderByWithRelationInput | FavoriteSizeOrderByWithRelationInput[]
+    cursor?: FavoriteSizeWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: FavoriteSizeScalarFieldEnum | FavoriteSizeScalarFieldEnum[]
+  }
+
+  /**
+   * Size.fromConversions
+   */
+  export type Size$fromConversionsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Conversion
+     */
+    select?: ConversionSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Conversion
+     */
+    omit?: ConversionOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ConversionInclude<ExtArgs> | null
+    where?: ConversionWhereInput
+    orderBy?: ConversionOrderByWithRelationInput | ConversionOrderByWithRelationInput[]
+    cursor?: ConversionWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: ConversionScalarFieldEnum | ConversionScalarFieldEnum[]
+  }
+
+  /**
+   * Size.toConversions
+   */
+  export type Size$toConversionsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Conversion
+     */
+    select?: ConversionSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Conversion
+     */
+    omit?: ConversionOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ConversionInclude<ExtArgs> | null
+    where?: ConversionWhereInput
+    orderBy?: ConversionOrderByWithRelationInput | ConversionOrderByWithRelationInput[]
+    cursor?: ConversionWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: ConversionScalarFieldEnum | ConversionScalarFieldEnum[]
+  }
+
+  /**
+   * Size without action
+   */
+  export type SizeDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Size
+     */
+    select?: SizeSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Size
+     */
+    omit?: SizeOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: SizeInclude<ExtArgs> | null
+  }
+
+
+  /**
+   * Model Conversion
+   */
+
+  export type AggregateConversion = {
+    _count: ConversionCountAggregateOutputType | null
+    _avg: ConversionAvgAggregateOutputType | null
+    _sum: ConversionSumAggregateOutputType | null
+    _min: ConversionMinAggregateOutputType | null
+    _max: ConversionMaxAggregateOutputType | null
+  }
+
+  export type ConversionAvgAggregateOutputType = {
+    id: number | null
+    customer_id: number | null
+    from_size_id: number | null
+    to_size_id: number | null
+  }
+
+  export type ConversionSumAggregateOutputType = {
+    id: number | null
+    customer_id: number | null
+    from_size_id: number | null
+    to_size_id: number | null
+  }
+
+  export type ConversionMinAggregateOutputType = {
+    id: number | null
+    customer_id: number | null
+    from_size_id: number | null
+    to_size_id: number | null
+  }
+
+  export type ConversionMaxAggregateOutputType = {
+    id: number | null
+    customer_id: number | null
+    from_size_id: number | null
+    to_size_id: number | null
+  }
+
+  export type ConversionCountAggregateOutputType = {
+    id: number
+    customer_id: number
+    from_size_id: number
+    to_size_id: number
+    _all: number
+  }
+
+
+  export type ConversionAvgAggregateInputType = {
+    id?: true
+    customer_id?: true
+    from_size_id?: true
+    to_size_id?: true
+  }
+
+  export type ConversionSumAggregateInputType = {
+    id?: true
+    customer_id?: true
+    from_size_id?: true
+    to_size_id?: true
+  }
+
+  export type ConversionMinAggregateInputType = {
+    id?: true
+    customer_id?: true
+    from_size_id?: true
+    to_size_id?: true
+  }
+
+  export type ConversionMaxAggregateInputType = {
+    id?: true
+    customer_id?: true
+    from_size_id?: true
+    to_size_id?: true
+  }
+
+  export type ConversionCountAggregateInputType = {
+    id?: true
+    customer_id?: true
+    from_size_id?: true
+    to_size_id?: true
+    _all?: true
+  }
+
+  export type ConversionAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which Conversion to aggregate.
+     */
+    where?: ConversionWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Conversions to fetch.
+     */
+    orderBy?: ConversionOrderByWithRelationInput | ConversionOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: ConversionWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Conversions from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Conversions.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned Conversions
+    **/
+    _count?: true | ConversionCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: ConversionAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: ConversionSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: ConversionMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: ConversionMaxAggregateInputType
+  }
+
+  export type GetConversionAggregateType<T extends ConversionAggregateArgs> = {
+        [P in keyof T & keyof AggregateConversion]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateConversion[P]>
+      : GetScalarType<T[P], AggregateConversion[P]>
+  }
+
+
+
+
+  export type ConversionGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: ConversionWhereInput
+    orderBy?: ConversionOrderByWithAggregationInput | ConversionOrderByWithAggregationInput[]
+    by: ConversionScalarFieldEnum[] | ConversionScalarFieldEnum
+    having?: ConversionScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: ConversionCountAggregateInputType | true
+    _avg?: ConversionAvgAggregateInputType
+    _sum?: ConversionSumAggregateInputType
+    _min?: ConversionMinAggregateInputType
+    _max?: ConversionMaxAggregateInputType
+  }
+
+  export type ConversionGroupByOutputType = {
+    id: number
+    customer_id: number
+    from_size_id: number
+    to_size_id: number
+    _count: ConversionCountAggregateOutputType | null
+    _avg: ConversionAvgAggregateOutputType | null
+    _sum: ConversionSumAggregateOutputType | null
+    _min: ConversionMinAggregateOutputType | null
+    _max: ConversionMaxAggregateOutputType | null
+  }
+
+  type GetConversionGroupByPayload<T extends ConversionGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<ConversionGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof ConversionGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], ConversionGroupByOutputType[P]>
+            : GetScalarType<T[P], ConversionGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type ConversionSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    customer_id?: boolean
+    from_size_id?: boolean
+    to_size_id?: boolean
+    customer?: boolean | CustomerDefaultArgs<ExtArgs>
+    fromSize?: boolean | SizeDefaultArgs<ExtArgs>
+    toSize?: boolean | SizeDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["conversion"]>
+
+  export type ConversionSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    customer_id?: boolean
+    from_size_id?: boolean
+    to_size_id?: boolean
+    customer?: boolean | CustomerDefaultArgs<ExtArgs>
+    fromSize?: boolean | SizeDefaultArgs<ExtArgs>
+    toSize?: boolean | SizeDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["conversion"]>
+
+  export type ConversionSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    customer_id?: boolean
+    from_size_id?: boolean
+    to_size_id?: boolean
+    customer?: boolean | CustomerDefaultArgs<ExtArgs>
+    fromSize?: boolean | SizeDefaultArgs<ExtArgs>
+    toSize?: boolean | SizeDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["conversion"]>
+
+  export type ConversionSelectScalar = {
+    id?: boolean
+    customer_id?: boolean
+    from_size_id?: boolean
+    to_size_id?: boolean
+  }
+
+  export type ConversionOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "customer_id" | "from_size_id" | "to_size_id", ExtArgs["result"]["conversion"]>
+  export type ConversionInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    customer?: boolean | CustomerDefaultArgs<ExtArgs>
+    fromSize?: boolean | SizeDefaultArgs<ExtArgs>
+    toSize?: boolean | SizeDefaultArgs<ExtArgs>
+  }
+  export type ConversionIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    customer?: boolean | CustomerDefaultArgs<ExtArgs>
+    fromSize?: boolean | SizeDefaultArgs<ExtArgs>
+    toSize?: boolean | SizeDefaultArgs<ExtArgs>
+  }
+  export type ConversionIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    customer?: boolean | CustomerDefaultArgs<ExtArgs>
+    fromSize?: boolean | SizeDefaultArgs<ExtArgs>
+    toSize?: boolean | SizeDefaultArgs<ExtArgs>
+  }
+
+  export type $ConversionPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "Conversion"
+    objects: {
+      customer: Prisma.$CustomerPayload<ExtArgs>
+      fromSize: Prisma.$SizePayload<ExtArgs>
+      toSize: Prisma.$SizePayload<ExtArgs>
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: number
+      customer_id: number
+      from_size_id: number
+      to_size_id: number
+    }, ExtArgs["result"]["conversion"]>
+    composites: {}
+  }
+
+  type ConversionGetPayload<S extends boolean | null | undefined | ConversionDefaultArgs> = $Result.GetResult<Prisma.$ConversionPayload, S>
+
+  type ConversionCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<ConversionFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: ConversionCountAggregateInputType | true
+    }
+
+  export interface ConversionDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['Conversion'], meta: { name: 'Conversion' } }
+    /**
+     * Find zero or one Conversion that matches the filter.
+     * @param {ConversionFindUniqueArgs} args - Arguments to find a Conversion
+     * @example
+     * // Get one Conversion
+     * const conversion = await prisma.conversion.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends ConversionFindUniqueArgs>(args: SelectSubset<T, ConversionFindUniqueArgs<ExtArgs>>): Prisma__ConversionClient<$Result.GetResult<Prisma.$ConversionPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one Conversion that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {ConversionFindUniqueOrThrowArgs} args - Arguments to find a Conversion
+     * @example
+     * // Get one Conversion
+     * const conversion = await prisma.conversion.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends ConversionFindUniqueOrThrowArgs>(args: SelectSubset<T, ConversionFindUniqueOrThrowArgs<ExtArgs>>): Prisma__ConversionClient<$Result.GetResult<Prisma.$ConversionPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Conversion that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ConversionFindFirstArgs} args - Arguments to find a Conversion
+     * @example
+     * // Get one Conversion
+     * const conversion = await prisma.conversion.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends ConversionFindFirstArgs>(args?: SelectSubset<T, ConversionFindFirstArgs<ExtArgs>>): Prisma__ConversionClient<$Result.GetResult<Prisma.$ConversionPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Conversion that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ConversionFindFirstOrThrowArgs} args - Arguments to find a Conversion
+     * @example
+     * // Get one Conversion
+     * const conversion = await prisma.conversion.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends ConversionFindFirstOrThrowArgs>(args?: SelectSubset<T, ConversionFindFirstOrThrowArgs<ExtArgs>>): Prisma__ConversionClient<$Result.GetResult<Prisma.$ConversionPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more Conversions that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ConversionFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all Conversions
+     * const conversions = await prisma.conversion.findMany()
+     * 
+     * // Get first 10 Conversions
+     * const conversions = await prisma.conversion.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const conversionWithIdOnly = await prisma.conversion.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends ConversionFindManyArgs>(args?: SelectSubset<T, ConversionFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ConversionPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a Conversion.
+     * @param {ConversionCreateArgs} args - Arguments to create a Conversion.
+     * @example
+     * // Create one Conversion
+     * const Conversion = await prisma.conversion.create({
+     *   data: {
+     *     // ... data to create a Conversion
+     *   }
+     * })
+     * 
+     */
+    create<T extends ConversionCreateArgs>(args: SelectSubset<T, ConversionCreateArgs<ExtArgs>>): Prisma__ConversionClient<$Result.GetResult<Prisma.$ConversionPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many Conversions.
+     * @param {ConversionCreateManyArgs} args - Arguments to create many Conversions.
+     * @example
+     * // Create many Conversions
+     * const conversion = await prisma.conversion.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends ConversionCreateManyArgs>(args?: SelectSubset<T, ConversionCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many Conversions and returns the data saved in the database.
+     * @param {ConversionCreateManyAndReturnArgs} args - Arguments to create many Conversions.
+     * @example
+     * // Create many Conversions
+     * const conversion = await prisma.conversion.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many Conversions and only return the `id`
+     * const conversionWithIdOnly = await prisma.conversion.createManyAndReturn({
+     *   select: { id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends ConversionCreateManyAndReturnArgs>(args?: SelectSubset<T, ConversionCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ConversionPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Delete a Conversion.
+     * @param {ConversionDeleteArgs} args - Arguments to delete one Conversion.
+     * @example
+     * // Delete one Conversion
+     * const Conversion = await prisma.conversion.delete({
+     *   where: {
+     *     // ... filter to delete one Conversion
+     *   }
+     * })
+     * 
+     */
+    delete<T extends ConversionDeleteArgs>(args: SelectSubset<T, ConversionDeleteArgs<ExtArgs>>): Prisma__ConversionClient<$Result.GetResult<Prisma.$ConversionPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one Conversion.
+     * @param {ConversionUpdateArgs} args - Arguments to update one Conversion.
+     * @example
+     * // Update one Conversion
+     * const conversion = await prisma.conversion.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends ConversionUpdateArgs>(args: SelectSubset<T, ConversionUpdateArgs<ExtArgs>>): Prisma__ConversionClient<$Result.GetResult<Prisma.$ConversionPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more Conversions.
+     * @param {ConversionDeleteManyArgs} args - Arguments to filter Conversions to delete.
+     * @example
+     * // Delete a few Conversions
+     * const { count } = await prisma.conversion.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends ConversionDeleteManyArgs>(args?: SelectSubset<T, ConversionDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Conversions.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ConversionUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many Conversions
+     * const conversion = await prisma.conversion.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends ConversionUpdateManyArgs>(args: SelectSubset<T, ConversionUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Conversions and returns the data updated in the database.
+     * @param {ConversionUpdateManyAndReturnArgs} args - Arguments to update many Conversions.
+     * @example
+     * // Update many Conversions
+     * const conversion = await prisma.conversion.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Update zero or more Conversions and only return the `id`
+     * const conversionWithIdOnly = await prisma.conversion.updateManyAndReturn({
+     *   select: { id: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    updateManyAndReturn<T extends ConversionUpdateManyAndReturnArgs>(args: SelectSubset<T, ConversionUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ConversionPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Create or update one Conversion.
+     * @param {ConversionUpsertArgs} args - Arguments to update or create a Conversion.
+     * @example
+     * // Update or create a Conversion
+     * const conversion = await prisma.conversion.upsert({
+     *   create: {
+     *     // ... data to create a Conversion
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the Conversion we want to update
+     *   }
+     * })
+     */
+    upsert<T extends ConversionUpsertArgs>(args: SelectSubset<T, ConversionUpsertArgs<ExtArgs>>): Prisma__ConversionClient<$Result.GetResult<Prisma.$ConversionPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of Conversions.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ConversionCountArgs} args - Arguments to filter Conversions to count.
+     * @example
+     * // Count the number of Conversions
+     * const count = await prisma.conversion.count({
+     *   where: {
+     *     // ... the filter for the Conversions we want to count
+     *   }
+     * })
+    **/
+    count<T extends ConversionCountArgs>(
+      args?: Subset<T, ConversionCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], ConversionCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a Conversion.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ConversionAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends ConversionAggregateArgs>(args: Subset<T, ConversionAggregateArgs>): Prisma.PrismaPromise<GetConversionAggregateType<T>>
+
+    /**
+     * Group by Conversion.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ConversionGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends ConversionGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: ConversionGroupByArgs['orderBy'] }
+        : { orderBy?: ConversionGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, ConversionGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetConversionGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the Conversion model
+   */
+  readonly fields: ConversionFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for Conversion.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__ConversionClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    customer<T extends CustomerDefaultArgs<ExtArgs> = {}>(args?: Subset<T, CustomerDefaultArgs<ExtArgs>>): Prisma__CustomerClient<$Result.GetResult<Prisma.$CustomerPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    fromSize<T extends SizeDefaultArgs<ExtArgs> = {}>(args?: Subset<T, SizeDefaultArgs<ExtArgs>>): Prisma__SizeClient<$Result.GetResult<Prisma.$SizePayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    toSize<T extends SizeDefaultArgs<ExtArgs> = {}>(args?: Subset<T, SizeDefaultArgs<ExtArgs>>): Prisma__SizeClient<$Result.GetResult<Prisma.$SizePayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the Conversion model
+   */
+  interface ConversionFieldRefs {
+    readonly id: FieldRef<"Conversion", 'Int'>
+    readonly customer_id: FieldRef<"Conversion", 'Int'>
+    readonly from_size_id: FieldRef<"Conversion", 'Int'>
+    readonly to_size_id: FieldRef<"Conversion", 'Int'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * Conversion findUnique
+   */
+  export type ConversionFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Conversion
+     */
+    select?: ConversionSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Conversion
+     */
+    omit?: ConversionOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ConversionInclude<ExtArgs> | null
+    /**
+     * Filter, which Conversion to fetch.
+     */
+    where: ConversionWhereUniqueInput
+  }
+
+  /**
+   * Conversion findUniqueOrThrow
+   */
+  export type ConversionFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Conversion
+     */
+    select?: ConversionSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Conversion
+     */
+    omit?: ConversionOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ConversionInclude<ExtArgs> | null
+    /**
+     * Filter, which Conversion to fetch.
+     */
+    where: ConversionWhereUniqueInput
+  }
+
+  /**
+   * Conversion findFirst
+   */
+  export type ConversionFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Conversion
+     */
+    select?: ConversionSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Conversion
+     */
+    omit?: ConversionOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ConversionInclude<ExtArgs> | null
+    /**
+     * Filter, which Conversion to fetch.
+     */
+    where?: ConversionWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Conversions to fetch.
+     */
+    orderBy?: ConversionOrderByWithRelationInput | ConversionOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for Conversions.
+     */
+    cursor?: ConversionWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Conversions from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Conversions.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of Conversions.
+     */
+    distinct?: ConversionScalarFieldEnum | ConversionScalarFieldEnum[]
+  }
+
+  /**
+   * Conversion findFirstOrThrow
+   */
+  export type ConversionFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Conversion
+     */
+    select?: ConversionSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Conversion
+     */
+    omit?: ConversionOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ConversionInclude<ExtArgs> | null
+    /**
+     * Filter, which Conversion to fetch.
+     */
+    where?: ConversionWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Conversions to fetch.
+     */
+    orderBy?: ConversionOrderByWithRelationInput | ConversionOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for Conversions.
+     */
+    cursor?: ConversionWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Conversions from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Conversions.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of Conversions.
+     */
+    distinct?: ConversionScalarFieldEnum | ConversionScalarFieldEnum[]
+  }
+
+  /**
+   * Conversion findMany
+   */
+  export type ConversionFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Conversion
+     */
+    select?: ConversionSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Conversion
+     */
+    omit?: ConversionOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ConversionInclude<ExtArgs> | null
+    /**
+     * Filter, which Conversions to fetch.
+     */
+    where?: ConversionWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Conversions to fetch.
+     */
+    orderBy?: ConversionOrderByWithRelationInput | ConversionOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing Conversions.
+     */
+    cursor?: ConversionWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Conversions from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Conversions.
+     */
+    skip?: number
+    distinct?: ConversionScalarFieldEnum | ConversionScalarFieldEnum[]
+  }
+
+  /**
+   * Conversion create
+   */
+  export type ConversionCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Conversion
+     */
+    select?: ConversionSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Conversion
+     */
+    omit?: ConversionOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ConversionInclude<ExtArgs> | null
+    /**
+     * The data needed to create a Conversion.
+     */
+    data: XOR<ConversionCreateInput, ConversionUncheckedCreateInput>
+  }
+
+  /**
+   * Conversion createMany
+   */
+  export type ConversionCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many Conversions.
+     */
+    data: ConversionCreateManyInput | ConversionCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * Conversion createManyAndReturn
+   */
+  export type ConversionCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Conversion
+     */
+    select?: ConversionSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the Conversion
+     */
+    omit?: ConversionOmit<ExtArgs> | null
+    /**
+     * The data used to create many Conversions.
+     */
+    data: ConversionCreateManyInput | ConversionCreateManyInput[]
+    skipDuplicates?: boolean
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ConversionIncludeCreateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * Conversion update
+   */
+  export type ConversionUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Conversion
+     */
+    select?: ConversionSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Conversion
+     */
+    omit?: ConversionOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ConversionInclude<ExtArgs> | null
+    /**
+     * The data needed to update a Conversion.
+     */
+    data: XOR<ConversionUpdateInput, ConversionUncheckedUpdateInput>
+    /**
+     * Choose, which Conversion to update.
+     */
+    where: ConversionWhereUniqueInput
+  }
+
+  /**
+   * Conversion updateMany
+   */
+  export type ConversionUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update Conversions.
+     */
+    data: XOR<ConversionUpdateManyMutationInput, ConversionUncheckedUpdateManyInput>
+    /**
+     * Filter which Conversions to update
+     */
+    where?: ConversionWhereInput
+    /**
+     * Limit how many Conversions to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * Conversion updateManyAndReturn
+   */
+  export type ConversionUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Conversion
+     */
+    select?: ConversionSelectUpdateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the Conversion
+     */
+    omit?: ConversionOmit<ExtArgs> | null
+    /**
+     * The data used to update Conversions.
+     */
+    data: XOR<ConversionUpdateManyMutationInput, ConversionUncheckedUpdateManyInput>
+    /**
+     * Filter which Conversions to update
+     */
+    where?: ConversionWhereInput
+    /**
+     * Limit how many Conversions to update.
+     */
+    limit?: number
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ConversionIncludeUpdateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * Conversion upsert
+   */
+  export type ConversionUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Conversion
+     */
+    select?: ConversionSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Conversion
+     */
+    omit?: ConversionOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ConversionInclude<ExtArgs> | null
+    /**
+     * The filter to search for the Conversion to update in case it exists.
+     */
+    where: ConversionWhereUniqueInput
+    /**
+     * In case the Conversion found by the `where` argument doesn't exist, create a new Conversion with this data.
+     */
+    create: XOR<ConversionCreateInput, ConversionUncheckedCreateInput>
+    /**
+     * In case the Conversion was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<ConversionUpdateInput, ConversionUncheckedUpdateInput>
+  }
+
+  /**
+   * Conversion delete
+   */
+  export type ConversionDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Conversion
+     */
+    select?: ConversionSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Conversion
+     */
+    omit?: ConversionOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ConversionInclude<ExtArgs> | null
+    /**
+     * Filter which Conversion to delete.
+     */
+    where: ConversionWhereUniqueInput
+  }
+
+  /**
+   * Conversion deleteMany
+   */
+  export type ConversionDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which Conversions to delete
+     */
+    where?: ConversionWhereInput
+    /**
+     * Limit how many Conversions to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * Conversion without action
+   */
+  export type ConversionDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Conversion
+     */
+    select?: ConversionSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Conversion
+     */
+    omit?: ConversionOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ConversionInclude<ExtArgs> | null
+  }
+
+
+  /**
+   * Model FavoriteSize
+   */
+
+  export type AggregateFavoriteSize = {
+    _count: FavoriteSizeCountAggregateOutputType | null
+    _avg: FavoriteSizeAvgAggregateOutputType | null
+    _sum: FavoriteSizeSumAggregateOutputType | null
+    _min: FavoriteSizeMinAggregateOutputType | null
+    _max: FavoriteSizeMaxAggregateOutputType | null
+  }
+
+  export type FavoriteSizeAvgAggregateOutputType = {
+    id: number | null
+    customer_id: number | null
+    country_id: number | null
+    category_id: number | null
+    size_id: number | null
+  }
+
+  export type FavoriteSizeSumAggregateOutputType = {
+    id: number | null
+    customer_id: number | null
+    country_id: number | null
+    category_id: number | null
+    size_id: number | null
+  }
+
+  export type FavoriteSizeMinAggregateOutputType = {
+    id: number | null
+    customer_id: number | null
+    title: string | null
+    description: string | null
+    country_id: number | null
+    category_id: number | null
+    size_id: number | null
+  }
+
+  export type FavoriteSizeMaxAggregateOutputType = {
+    id: number | null
+    customer_id: number | null
+    title: string | null
+    description: string | null
+    country_id: number | null
+    category_id: number | null
+    size_id: number | null
+  }
+
+  export type FavoriteSizeCountAggregateOutputType = {
+    id: number
+    customer_id: number
+    title: number
+    description: number
+    gender: number
+    country_id: number
+    category_id: number
+    size_id: number
+    _all: number
+  }
+
+
+  export type FavoriteSizeAvgAggregateInputType = {
+    id?: true
+    customer_id?: true
+    country_id?: true
+    category_id?: true
+    size_id?: true
+  }
+
+  export type FavoriteSizeSumAggregateInputType = {
+    id?: true
+    customer_id?: true
+    country_id?: true
+    category_id?: true
+    size_id?: true
+  }
+
+  export type FavoriteSizeMinAggregateInputType = {
+    id?: true
+    customer_id?: true
+    title?: true
+    description?: true
+    country_id?: true
+    category_id?: true
+    size_id?: true
+  }
+
+  export type FavoriteSizeMaxAggregateInputType = {
+    id?: true
+    customer_id?: true
+    title?: true
+    description?: true
+    country_id?: true
+    category_id?: true
+    size_id?: true
+  }
+
+  export type FavoriteSizeCountAggregateInputType = {
+    id?: true
+    customer_id?: true
+    title?: true
+    description?: true
+    gender?: true
+    country_id?: true
+    category_id?: true
+    size_id?: true
+    _all?: true
+  }
+
+  export type FavoriteSizeAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which FavoriteSize to aggregate.
+     */
+    where?: FavoriteSizeWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of FavoriteSizes to fetch.
+     */
+    orderBy?: FavoriteSizeOrderByWithRelationInput | FavoriteSizeOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: FavoriteSizeWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` FavoriteSizes from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` FavoriteSizes.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned FavoriteSizes
+    **/
+    _count?: true | FavoriteSizeCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: FavoriteSizeAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: FavoriteSizeSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: FavoriteSizeMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: FavoriteSizeMaxAggregateInputType
+  }
+
+  export type GetFavoriteSizeAggregateType<T extends FavoriteSizeAggregateArgs> = {
+        [P in keyof T & keyof AggregateFavoriteSize]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateFavoriteSize[P]>
+      : GetScalarType<T[P], AggregateFavoriteSize[P]>
+  }
+
+
+
+
+  export type FavoriteSizeGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: FavoriteSizeWhereInput
+    orderBy?: FavoriteSizeOrderByWithAggregationInput | FavoriteSizeOrderByWithAggregationInput[]
+    by: FavoriteSizeScalarFieldEnum[] | FavoriteSizeScalarFieldEnum
+    having?: FavoriteSizeScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: FavoriteSizeCountAggregateInputType | true
+    _avg?: FavoriteSizeAvgAggregateInputType
+    _sum?: FavoriteSizeSumAggregateInputType
+    _min?: FavoriteSizeMinAggregateInputType
+    _max?: FavoriteSizeMaxAggregateInputType
+  }
+
+  export type FavoriteSizeGroupByOutputType = {
+    id: number
+    customer_id: number
+    title: string
+    description: string | null
+    gender: $Enums.Gender[]
+    country_id: number
+    category_id: number
+    size_id: number
+    _count: FavoriteSizeCountAggregateOutputType | null
+    _avg: FavoriteSizeAvgAggregateOutputType | null
+    _sum: FavoriteSizeSumAggregateOutputType | null
+    _min: FavoriteSizeMinAggregateOutputType | null
+    _max: FavoriteSizeMaxAggregateOutputType | null
+  }
+
+  type GetFavoriteSizeGroupByPayload<T extends FavoriteSizeGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<FavoriteSizeGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof FavoriteSizeGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], FavoriteSizeGroupByOutputType[P]>
+            : GetScalarType<T[P], FavoriteSizeGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type FavoriteSizeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    customer_id?: boolean
+    title?: boolean
+    description?: boolean
+    gender?: boolean
+    country_id?: boolean
+    category_id?: boolean
+    size_id?: boolean
+    customer?: boolean | CustomerDefaultArgs<ExtArgs>
+    country?: boolean | CountryDefaultArgs<ExtArgs>
+    category?: boolean | CategoryDefaultArgs<ExtArgs>
+    size?: boolean | SizeDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["favoriteSize"]>
+
+  export type FavoriteSizeSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    customer_id?: boolean
+    title?: boolean
+    description?: boolean
+    gender?: boolean
+    country_id?: boolean
+    category_id?: boolean
+    size_id?: boolean
+    customer?: boolean | CustomerDefaultArgs<ExtArgs>
+    country?: boolean | CountryDefaultArgs<ExtArgs>
+    category?: boolean | CategoryDefaultArgs<ExtArgs>
+    size?: boolean | SizeDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["favoriteSize"]>
+
+  export type FavoriteSizeSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    customer_id?: boolean
+    title?: boolean
+    description?: boolean
+    gender?: boolean
+    country_id?: boolean
+    category_id?: boolean
+    size_id?: boolean
+    customer?: boolean | CustomerDefaultArgs<ExtArgs>
+    country?: boolean | CountryDefaultArgs<ExtArgs>
+    category?: boolean | CategoryDefaultArgs<ExtArgs>
+    size?: boolean | SizeDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["favoriteSize"]>
+
+  export type FavoriteSizeSelectScalar = {
+    id?: boolean
+    customer_id?: boolean
+    title?: boolean
+    description?: boolean
+    gender?: boolean
+    country_id?: boolean
+    category_id?: boolean
+    size_id?: boolean
+  }
+
+  export type FavoriteSizeOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "customer_id" | "title" | "description" | "gender" | "country_id" | "category_id" | "size_id", ExtArgs["result"]["favoriteSize"]>
+  export type FavoriteSizeInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    customer?: boolean | CustomerDefaultArgs<ExtArgs>
+    country?: boolean | CountryDefaultArgs<ExtArgs>
+    category?: boolean | CategoryDefaultArgs<ExtArgs>
+    size?: boolean | SizeDefaultArgs<ExtArgs>
+  }
+  export type FavoriteSizeIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    customer?: boolean | CustomerDefaultArgs<ExtArgs>
+    country?: boolean | CountryDefaultArgs<ExtArgs>
+    category?: boolean | CategoryDefaultArgs<ExtArgs>
+    size?: boolean | SizeDefaultArgs<ExtArgs>
+  }
+  export type FavoriteSizeIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    customer?: boolean | CustomerDefaultArgs<ExtArgs>
+    country?: boolean | CountryDefaultArgs<ExtArgs>
+    category?: boolean | CategoryDefaultArgs<ExtArgs>
+    size?: boolean | SizeDefaultArgs<ExtArgs>
+  }
+
+  export type $FavoriteSizePayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "FavoriteSize"
+    objects: {
+      customer: Prisma.$CustomerPayload<ExtArgs>
+      country: Prisma.$CountryPayload<ExtArgs>
+      category: Prisma.$CategoryPayload<ExtArgs>
+      size: Prisma.$SizePayload<ExtArgs>
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: number
+      customer_id: number
+      title: string
+      description: string | null
+      gender: $Enums.Gender[]
+      country_id: number
+      category_id: number
+      size_id: number
+    }, ExtArgs["result"]["favoriteSize"]>
+    composites: {}
+  }
+
+  type FavoriteSizeGetPayload<S extends boolean | null | undefined | FavoriteSizeDefaultArgs> = $Result.GetResult<Prisma.$FavoriteSizePayload, S>
+
+  type FavoriteSizeCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<FavoriteSizeFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: FavoriteSizeCountAggregateInputType | true
+    }
+
+  export interface FavoriteSizeDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['FavoriteSize'], meta: { name: 'FavoriteSize' } }
+    /**
+     * Find zero or one FavoriteSize that matches the filter.
+     * @param {FavoriteSizeFindUniqueArgs} args - Arguments to find a FavoriteSize
+     * @example
+     * // Get one FavoriteSize
+     * const favoriteSize = await prisma.favoriteSize.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends FavoriteSizeFindUniqueArgs>(args: SelectSubset<T, FavoriteSizeFindUniqueArgs<ExtArgs>>): Prisma__FavoriteSizeClient<$Result.GetResult<Prisma.$FavoriteSizePayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one FavoriteSize that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {FavoriteSizeFindUniqueOrThrowArgs} args - Arguments to find a FavoriteSize
+     * @example
+     * // Get one FavoriteSize
+     * const favoriteSize = await prisma.favoriteSize.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends FavoriteSizeFindUniqueOrThrowArgs>(args: SelectSubset<T, FavoriteSizeFindUniqueOrThrowArgs<ExtArgs>>): Prisma__FavoriteSizeClient<$Result.GetResult<Prisma.$FavoriteSizePayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first FavoriteSize that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {FavoriteSizeFindFirstArgs} args - Arguments to find a FavoriteSize
+     * @example
+     * // Get one FavoriteSize
+     * const favoriteSize = await prisma.favoriteSize.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends FavoriteSizeFindFirstArgs>(args?: SelectSubset<T, FavoriteSizeFindFirstArgs<ExtArgs>>): Prisma__FavoriteSizeClient<$Result.GetResult<Prisma.$FavoriteSizePayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first FavoriteSize that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {FavoriteSizeFindFirstOrThrowArgs} args - Arguments to find a FavoriteSize
+     * @example
+     * // Get one FavoriteSize
+     * const favoriteSize = await prisma.favoriteSize.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends FavoriteSizeFindFirstOrThrowArgs>(args?: SelectSubset<T, FavoriteSizeFindFirstOrThrowArgs<ExtArgs>>): Prisma__FavoriteSizeClient<$Result.GetResult<Prisma.$FavoriteSizePayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more FavoriteSizes that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {FavoriteSizeFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all FavoriteSizes
+     * const favoriteSizes = await prisma.favoriteSize.findMany()
+     * 
+     * // Get first 10 FavoriteSizes
+     * const favoriteSizes = await prisma.favoriteSize.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const favoriteSizeWithIdOnly = await prisma.favoriteSize.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends FavoriteSizeFindManyArgs>(args?: SelectSubset<T, FavoriteSizeFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$FavoriteSizePayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a FavoriteSize.
+     * @param {FavoriteSizeCreateArgs} args - Arguments to create a FavoriteSize.
+     * @example
+     * // Create one FavoriteSize
+     * const FavoriteSize = await prisma.favoriteSize.create({
+     *   data: {
+     *     // ... data to create a FavoriteSize
+     *   }
+     * })
+     * 
+     */
+    create<T extends FavoriteSizeCreateArgs>(args: SelectSubset<T, FavoriteSizeCreateArgs<ExtArgs>>): Prisma__FavoriteSizeClient<$Result.GetResult<Prisma.$FavoriteSizePayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many FavoriteSizes.
+     * @param {FavoriteSizeCreateManyArgs} args - Arguments to create many FavoriteSizes.
+     * @example
+     * // Create many FavoriteSizes
+     * const favoriteSize = await prisma.favoriteSize.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends FavoriteSizeCreateManyArgs>(args?: SelectSubset<T, FavoriteSizeCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many FavoriteSizes and returns the data saved in the database.
+     * @param {FavoriteSizeCreateManyAndReturnArgs} args - Arguments to create many FavoriteSizes.
+     * @example
+     * // Create many FavoriteSizes
+     * const favoriteSize = await prisma.favoriteSize.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many FavoriteSizes and only return the `id`
+     * const favoriteSizeWithIdOnly = await prisma.favoriteSize.createManyAndReturn({
+     *   select: { id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends FavoriteSizeCreateManyAndReturnArgs>(args?: SelectSubset<T, FavoriteSizeCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$FavoriteSizePayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Delete a FavoriteSize.
+     * @param {FavoriteSizeDeleteArgs} args - Arguments to delete one FavoriteSize.
+     * @example
+     * // Delete one FavoriteSize
+     * const FavoriteSize = await prisma.favoriteSize.delete({
+     *   where: {
+     *     // ... filter to delete one FavoriteSize
+     *   }
+     * })
+     * 
+     */
+    delete<T extends FavoriteSizeDeleteArgs>(args: SelectSubset<T, FavoriteSizeDeleteArgs<ExtArgs>>): Prisma__FavoriteSizeClient<$Result.GetResult<Prisma.$FavoriteSizePayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one FavoriteSize.
+     * @param {FavoriteSizeUpdateArgs} args - Arguments to update one FavoriteSize.
+     * @example
+     * // Update one FavoriteSize
+     * const favoriteSize = await prisma.favoriteSize.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends FavoriteSizeUpdateArgs>(args: SelectSubset<T, FavoriteSizeUpdateArgs<ExtArgs>>): Prisma__FavoriteSizeClient<$Result.GetResult<Prisma.$FavoriteSizePayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more FavoriteSizes.
+     * @param {FavoriteSizeDeleteManyArgs} args - Arguments to filter FavoriteSizes to delete.
+     * @example
+     * // Delete a few FavoriteSizes
+     * const { count } = await prisma.favoriteSize.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends FavoriteSizeDeleteManyArgs>(args?: SelectSubset<T, FavoriteSizeDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more FavoriteSizes.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {FavoriteSizeUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many FavoriteSizes
+     * const favoriteSize = await prisma.favoriteSize.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends FavoriteSizeUpdateManyArgs>(args: SelectSubset<T, FavoriteSizeUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more FavoriteSizes and returns the data updated in the database.
+     * @param {FavoriteSizeUpdateManyAndReturnArgs} args - Arguments to update many FavoriteSizes.
+     * @example
+     * // Update many FavoriteSizes
+     * const favoriteSize = await prisma.favoriteSize.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Update zero or more FavoriteSizes and only return the `id`
+     * const favoriteSizeWithIdOnly = await prisma.favoriteSize.updateManyAndReturn({
+     *   select: { id: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    updateManyAndReturn<T extends FavoriteSizeUpdateManyAndReturnArgs>(args: SelectSubset<T, FavoriteSizeUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$FavoriteSizePayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Create or update one FavoriteSize.
+     * @param {FavoriteSizeUpsertArgs} args - Arguments to update or create a FavoriteSize.
+     * @example
+     * // Update or create a FavoriteSize
+     * const favoriteSize = await prisma.favoriteSize.upsert({
+     *   create: {
+     *     // ... data to create a FavoriteSize
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the FavoriteSize we want to update
+     *   }
+     * })
+     */
+    upsert<T extends FavoriteSizeUpsertArgs>(args: SelectSubset<T, FavoriteSizeUpsertArgs<ExtArgs>>): Prisma__FavoriteSizeClient<$Result.GetResult<Prisma.$FavoriteSizePayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of FavoriteSizes.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {FavoriteSizeCountArgs} args - Arguments to filter FavoriteSizes to count.
+     * @example
+     * // Count the number of FavoriteSizes
+     * const count = await prisma.favoriteSize.count({
+     *   where: {
+     *     // ... the filter for the FavoriteSizes we want to count
+     *   }
+     * })
+    **/
+    count<T extends FavoriteSizeCountArgs>(
+      args?: Subset<T, FavoriteSizeCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], FavoriteSizeCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a FavoriteSize.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {FavoriteSizeAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends FavoriteSizeAggregateArgs>(args: Subset<T, FavoriteSizeAggregateArgs>): Prisma.PrismaPromise<GetFavoriteSizeAggregateType<T>>
+
+    /**
+     * Group by FavoriteSize.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {FavoriteSizeGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends FavoriteSizeGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: FavoriteSizeGroupByArgs['orderBy'] }
+        : { orderBy?: FavoriteSizeGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, FavoriteSizeGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetFavoriteSizeGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the FavoriteSize model
+   */
+  readonly fields: FavoriteSizeFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for FavoriteSize.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__FavoriteSizeClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    customer<T extends CustomerDefaultArgs<ExtArgs> = {}>(args?: Subset<T, CustomerDefaultArgs<ExtArgs>>): Prisma__CustomerClient<$Result.GetResult<Prisma.$CustomerPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    country<T extends CountryDefaultArgs<ExtArgs> = {}>(args?: Subset<T, CountryDefaultArgs<ExtArgs>>): Prisma__CountryClient<$Result.GetResult<Prisma.$CountryPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    category<T extends CategoryDefaultArgs<ExtArgs> = {}>(args?: Subset<T, CategoryDefaultArgs<ExtArgs>>): Prisma__CategoryClient<$Result.GetResult<Prisma.$CategoryPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    size<T extends SizeDefaultArgs<ExtArgs> = {}>(args?: Subset<T, SizeDefaultArgs<ExtArgs>>): Prisma__SizeClient<$Result.GetResult<Prisma.$SizePayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the FavoriteSize model
+   */
+  interface FavoriteSizeFieldRefs {
+    readonly id: FieldRef<"FavoriteSize", 'Int'>
+    readonly customer_id: FieldRef<"FavoriteSize", 'Int'>
+    readonly title: FieldRef<"FavoriteSize", 'String'>
+    readonly description: FieldRef<"FavoriteSize", 'String'>
+    readonly gender: FieldRef<"FavoriteSize", 'Gender[]'>
+    readonly country_id: FieldRef<"FavoriteSize", 'Int'>
+    readonly category_id: FieldRef<"FavoriteSize", 'Int'>
+    readonly size_id: FieldRef<"FavoriteSize", 'Int'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * FavoriteSize findUnique
+   */
+  export type FavoriteSizeFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the FavoriteSize
+     */
+    select?: FavoriteSizeSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the FavoriteSize
+     */
+    omit?: FavoriteSizeOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: FavoriteSizeInclude<ExtArgs> | null
+    /**
+     * Filter, which FavoriteSize to fetch.
+     */
+    where: FavoriteSizeWhereUniqueInput
+  }
+
+  /**
+   * FavoriteSize findUniqueOrThrow
+   */
+  export type FavoriteSizeFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the FavoriteSize
+     */
+    select?: FavoriteSizeSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the FavoriteSize
+     */
+    omit?: FavoriteSizeOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: FavoriteSizeInclude<ExtArgs> | null
+    /**
+     * Filter, which FavoriteSize to fetch.
+     */
+    where: FavoriteSizeWhereUniqueInput
+  }
+
+  /**
+   * FavoriteSize findFirst
+   */
+  export type FavoriteSizeFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the FavoriteSize
+     */
+    select?: FavoriteSizeSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the FavoriteSize
+     */
+    omit?: FavoriteSizeOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: FavoriteSizeInclude<ExtArgs> | null
+    /**
+     * Filter, which FavoriteSize to fetch.
+     */
+    where?: FavoriteSizeWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of FavoriteSizes to fetch.
+     */
+    orderBy?: FavoriteSizeOrderByWithRelationInput | FavoriteSizeOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for FavoriteSizes.
+     */
+    cursor?: FavoriteSizeWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` FavoriteSizes from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` FavoriteSizes.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of FavoriteSizes.
+     */
+    distinct?: FavoriteSizeScalarFieldEnum | FavoriteSizeScalarFieldEnum[]
+  }
+
+  /**
+   * FavoriteSize findFirstOrThrow
+   */
+  export type FavoriteSizeFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the FavoriteSize
+     */
+    select?: FavoriteSizeSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the FavoriteSize
+     */
+    omit?: FavoriteSizeOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: FavoriteSizeInclude<ExtArgs> | null
+    /**
+     * Filter, which FavoriteSize to fetch.
+     */
+    where?: FavoriteSizeWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of FavoriteSizes to fetch.
+     */
+    orderBy?: FavoriteSizeOrderByWithRelationInput | FavoriteSizeOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for FavoriteSizes.
+     */
+    cursor?: FavoriteSizeWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` FavoriteSizes from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` FavoriteSizes.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of FavoriteSizes.
+     */
+    distinct?: FavoriteSizeScalarFieldEnum | FavoriteSizeScalarFieldEnum[]
+  }
+
+  /**
+   * FavoriteSize findMany
+   */
+  export type FavoriteSizeFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the FavoriteSize
+     */
+    select?: FavoriteSizeSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the FavoriteSize
+     */
+    omit?: FavoriteSizeOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: FavoriteSizeInclude<ExtArgs> | null
+    /**
+     * Filter, which FavoriteSizes to fetch.
+     */
+    where?: FavoriteSizeWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of FavoriteSizes to fetch.
+     */
+    orderBy?: FavoriteSizeOrderByWithRelationInput | FavoriteSizeOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing FavoriteSizes.
+     */
+    cursor?: FavoriteSizeWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` FavoriteSizes from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` FavoriteSizes.
+     */
+    skip?: number
+    distinct?: FavoriteSizeScalarFieldEnum | FavoriteSizeScalarFieldEnum[]
+  }
+
+  /**
+   * FavoriteSize create
+   */
+  export type FavoriteSizeCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the FavoriteSize
+     */
+    select?: FavoriteSizeSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the FavoriteSize
+     */
+    omit?: FavoriteSizeOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: FavoriteSizeInclude<ExtArgs> | null
+    /**
+     * The data needed to create a FavoriteSize.
+     */
+    data: XOR<FavoriteSizeCreateInput, FavoriteSizeUncheckedCreateInput>
+  }
+
+  /**
+   * FavoriteSize createMany
+   */
+  export type FavoriteSizeCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many FavoriteSizes.
+     */
+    data: FavoriteSizeCreateManyInput | FavoriteSizeCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * FavoriteSize createManyAndReturn
+   */
+  export type FavoriteSizeCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the FavoriteSize
+     */
+    select?: FavoriteSizeSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the FavoriteSize
+     */
+    omit?: FavoriteSizeOmit<ExtArgs> | null
+    /**
+     * The data used to create many FavoriteSizes.
+     */
+    data: FavoriteSizeCreateManyInput | FavoriteSizeCreateManyInput[]
+    skipDuplicates?: boolean
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: FavoriteSizeIncludeCreateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * FavoriteSize update
+   */
+  export type FavoriteSizeUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the FavoriteSize
+     */
+    select?: FavoriteSizeSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the FavoriteSize
+     */
+    omit?: FavoriteSizeOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: FavoriteSizeInclude<ExtArgs> | null
+    /**
+     * The data needed to update a FavoriteSize.
+     */
+    data: XOR<FavoriteSizeUpdateInput, FavoriteSizeUncheckedUpdateInput>
+    /**
+     * Choose, which FavoriteSize to update.
+     */
+    where: FavoriteSizeWhereUniqueInput
+  }
+
+  /**
+   * FavoriteSize updateMany
+   */
+  export type FavoriteSizeUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update FavoriteSizes.
+     */
+    data: XOR<FavoriteSizeUpdateManyMutationInput, FavoriteSizeUncheckedUpdateManyInput>
+    /**
+     * Filter which FavoriteSizes to update
+     */
+    where?: FavoriteSizeWhereInput
+    /**
+     * Limit how many FavoriteSizes to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * FavoriteSize updateManyAndReturn
+   */
+  export type FavoriteSizeUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the FavoriteSize
+     */
+    select?: FavoriteSizeSelectUpdateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the FavoriteSize
+     */
+    omit?: FavoriteSizeOmit<ExtArgs> | null
+    /**
+     * The data used to update FavoriteSizes.
+     */
+    data: XOR<FavoriteSizeUpdateManyMutationInput, FavoriteSizeUncheckedUpdateManyInput>
+    /**
+     * Filter which FavoriteSizes to update
+     */
+    where?: FavoriteSizeWhereInput
+    /**
+     * Limit how many FavoriteSizes to update.
+     */
+    limit?: number
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: FavoriteSizeIncludeUpdateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * FavoriteSize upsert
+   */
+  export type FavoriteSizeUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the FavoriteSize
+     */
+    select?: FavoriteSizeSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the FavoriteSize
+     */
+    omit?: FavoriteSizeOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: FavoriteSizeInclude<ExtArgs> | null
+    /**
+     * The filter to search for the FavoriteSize to update in case it exists.
+     */
+    where: FavoriteSizeWhereUniqueInput
+    /**
+     * In case the FavoriteSize found by the `where` argument doesn't exist, create a new FavoriteSize with this data.
+     */
+    create: XOR<FavoriteSizeCreateInput, FavoriteSizeUncheckedCreateInput>
+    /**
+     * In case the FavoriteSize was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<FavoriteSizeUpdateInput, FavoriteSizeUncheckedUpdateInput>
+  }
+
+  /**
+   * FavoriteSize delete
+   */
+  export type FavoriteSizeDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the FavoriteSize
+     */
+    select?: FavoriteSizeSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the FavoriteSize
+     */
+    omit?: FavoriteSizeOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: FavoriteSizeInclude<ExtArgs> | null
+    /**
+     * Filter which FavoriteSize to delete.
+     */
+    where: FavoriteSizeWhereUniqueInput
+  }
+
+  /**
+   * FavoriteSize deleteMany
+   */
+  export type FavoriteSizeDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which FavoriteSizes to delete
+     */
+    where?: FavoriteSizeWhereInput
+    /**
+     * Limit how many FavoriteSizes to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * FavoriteSize without action
+   */
+  export type FavoriteSizeDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the FavoriteSize
+     */
+    select?: FavoriteSizeSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the FavoriteSize
+     */
+    omit?: FavoriteSizeOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: FavoriteSizeInclude<ExtArgs> | null
   }
 
 
@@ -4446,26 +8318,6 @@ export namespace Prisma {
   export type TransactionIsolationLevel = (typeof TransactionIsolationLevel)[keyof typeof TransactionIsolationLevel]
 
 
-  export const Favorite_sizeScalarFieldEnum: {
-    id: 'id',
-    customer_id: 'customer_id',
-    title: 'title',
-    description: 'description',
-    country_id: 'country_id',
-    gender: 'gender'
-  };
-
-  export type Favorite_sizeScalarFieldEnum = (typeof Favorite_sizeScalarFieldEnum)[keyof typeof Favorite_sizeScalarFieldEnum]
-
-
-  export const CountryScalarFieldEnum: {
-    id: 'id',
-    name: 'name'
-  };
-
-  export type CountryScalarFieldEnum = (typeof CountryScalarFieldEnum)[keyof typeof CountryScalarFieldEnum]
-
-
   export const CustomerScalarFieldEnum: {
     id: 'id',
     email: 'email',
@@ -4475,6 +8327,57 @@ export namespace Prisma {
   };
 
   export type CustomerScalarFieldEnum = (typeof CustomerScalarFieldEnum)[keyof typeof CustomerScalarFieldEnum]
+
+
+  export const CountryScalarFieldEnum: {
+    id: 'id',
+    code: 'code',
+    name: 'name'
+  };
+
+  export type CountryScalarFieldEnum = (typeof CountryScalarFieldEnum)[keyof typeof CountryScalarFieldEnum]
+
+
+  export const CategoryScalarFieldEnum: {
+    id: 'id',
+    type: 'type'
+  };
+
+  export type CategoryScalarFieldEnum = (typeof CategoryScalarFieldEnum)[keyof typeof CategoryScalarFieldEnum]
+
+
+  export const SizeScalarFieldEnum: {
+    id: 'id',
+    category_id: 'category_id',
+    country_id: 'country_id',
+    size_label: 'size_label'
+  };
+
+  export type SizeScalarFieldEnum = (typeof SizeScalarFieldEnum)[keyof typeof SizeScalarFieldEnum]
+
+
+  export const ConversionScalarFieldEnum: {
+    id: 'id',
+    customer_id: 'customer_id',
+    from_size_id: 'from_size_id',
+    to_size_id: 'to_size_id'
+  };
+
+  export type ConversionScalarFieldEnum = (typeof ConversionScalarFieldEnum)[keyof typeof ConversionScalarFieldEnum]
+
+
+  export const FavoriteSizeScalarFieldEnum: {
+    id: 'id',
+    customer_id: 'customer_id',
+    title: 'title',
+    description: 'description',
+    gender: 'gender',
+    country_id: 'country_id',
+    category_id: 'category_id',
+    size_id: 'size_id'
+  };
+
+  export type FavoriteSizeScalarFieldEnum = (typeof FavoriteSizeScalarFieldEnum)[keyof typeof FavoriteSizeScalarFieldEnum]
 
 
   export const SortOrder: {
@@ -4535,16 +8438,9 @@ export namespace Prisma {
 
 
   /**
-   * Reference to a field of type 'Gender'
+   * Reference to a field of type 'Role[]'
    */
-  export type EnumGenderFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Gender'>
-    
-
-
-  /**
-   * Reference to a field of type 'Gender[]'
-   */
-  export type ListEnumGenderFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Gender[]'>
+  export type ListEnumRoleFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Role[]'>
     
 
 
@@ -4556,9 +8452,16 @@ export namespace Prisma {
 
 
   /**
-   * Reference to a field of type 'Role[]'
+   * Reference to a field of type 'Gender[]'
    */
-  export type ListEnumRoleFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Role[]'>
+  export type ListEnumGenderFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Gender[]'>
+    
+
+
+  /**
+   * Reference to a field of type 'Gender'
+   */
+  export type EnumGenderFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Gender'>
     
 
 
@@ -4579,113 +8482,6 @@ export namespace Prisma {
    */
 
 
-  export type Favorite_sizeWhereInput = {
-    AND?: Favorite_sizeWhereInput | Favorite_sizeWhereInput[]
-    OR?: Favorite_sizeWhereInput[]
-    NOT?: Favorite_sizeWhereInput | Favorite_sizeWhereInput[]
-    id?: IntFilter<"Favorite_size"> | number
-    customer_id?: IntFilter<"Favorite_size"> | number
-    title?: StringFilter<"Favorite_size"> | string
-    description?: StringNullableFilter<"Favorite_size"> | string | null
-    country_id?: IntFilter<"Favorite_size"> | number
-    gender?: EnumGenderFilter<"Favorite_size"> | $Enums.Gender
-    customer?: XOR<CustomerScalarRelationFilter, CustomerWhereInput>
-    country?: XOR<CountryScalarRelationFilter, CountryWhereInput>
-  }
-
-  export type Favorite_sizeOrderByWithRelationInput = {
-    id?: SortOrder
-    customer_id?: SortOrder
-    title?: SortOrder
-    description?: SortOrderInput | SortOrder
-    country_id?: SortOrder
-    gender?: SortOrder
-    customer?: CustomerOrderByWithRelationInput
-    country?: CountryOrderByWithRelationInput
-  }
-
-  export type Favorite_sizeWhereUniqueInput = Prisma.AtLeast<{
-    id?: number
-    AND?: Favorite_sizeWhereInput | Favorite_sizeWhereInput[]
-    OR?: Favorite_sizeWhereInput[]
-    NOT?: Favorite_sizeWhereInput | Favorite_sizeWhereInput[]
-    customer_id?: IntFilter<"Favorite_size"> | number
-    title?: StringFilter<"Favorite_size"> | string
-    description?: StringNullableFilter<"Favorite_size"> | string | null
-    country_id?: IntFilter<"Favorite_size"> | number
-    gender?: EnumGenderFilter<"Favorite_size"> | $Enums.Gender
-    customer?: XOR<CustomerScalarRelationFilter, CustomerWhereInput>
-    country?: XOR<CountryScalarRelationFilter, CountryWhereInput>
-  }, "id">
-
-  export type Favorite_sizeOrderByWithAggregationInput = {
-    id?: SortOrder
-    customer_id?: SortOrder
-    title?: SortOrder
-    description?: SortOrderInput | SortOrder
-    country_id?: SortOrder
-    gender?: SortOrder
-    _count?: Favorite_sizeCountOrderByAggregateInput
-    _avg?: Favorite_sizeAvgOrderByAggregateInput
-    _max?: Favorite_sizeMaxOrderByAggregateInput
-    _min?: Favorite_sizeMinOrderByAggregateInput
-    _sum?: Favorite_sizeSumOrderByAggregateInput
-  }
-
-  export type Favorite_sizeScalarWhereWithAggregatesInput = {
-    AND?: Favorite_sizeScalarWhereWithAggregatesInput | Favorite_sizeScalarWhereWithAggregatesInput[]
-    OR?: Favorite_sizeScalarWhereWithAggregatesInput[]
-    NOT?: Favorite_sizeScalarWhereWithAggregatesInput | Favorite_sizeScalarWhereWithAggregatesInput[]
-    id?: IntWithAggregatesFilter<"Favorite_size"> | number
-    customer_id?: IntWithAggregatesFilter<"Favorite_size"> | number
-    title?: StringWithAggregatesFilter<"Favorite_size"> | string
-    description?: StringNullableWithAggregatesFilter<"Favorite_size"> | string | null
-    country_id?: IntWithAggregatesFilter<"Favorite_size"> | number
-    gender?: EnumGenderWithAggregatesFilter<"Favorite_size"> | $Enums.Gender
-  }
-
-  export type CountryWhereInput = {
-    AND?: CountryWhereInput | CountryWhereInput[]
-    OR?: CountryWhereInput[]
-    NOT?: CountryWhereInput | CountryWhereInput[]
-    id?: IntFilter<"Country"> | number
-    name?: StringFilter<"Country"> | string
-    favorite_size?: Favorite_sizeListRelationFilter
-  }
-
-  export type CountryOrderByWithRelationInput = {
-    id?: SortOrder
-    name?: SortOrder
-    favorite_size?: Favorite_sizeOrderByRelationAggregateInput
-  }
-
-  export type CountryWhereUniqueInput = Prisma.AtLeast<{
-    id?: number
-    name?: string
-    AND?: CountryWhereInput | CountryWhereInput[]
-    OR?: CountryWhereInput[]
-    NOT?: CountryWhereInput | CountryWhereInput[]
-    favorite_size?: Favorite_sizeListRelationFilter
-  }, "id" | "name">
-
-  export type CountryOrderByWithAggregationInput = {
-    id?: SortOrder
-    name?: SortOrder
-    _count?: CountryCountOrderByAggregateInput
-    _avg?: CountryAvgOrderByAggregateInput
-    _max?: CountryMaxOrderByAggregateInput
-    _min?: CountryMinOrderByAggregateInput
-    _sum?: CountrySumOrderByAggregateInput
-  }
-
-  export type CountryScalarWhereWithAggregatesInput = {
-    AND?: CountryScalarWhereWithAggregatesInput | CountryScalarWhereWithAggregatesInput[]
-    OR?: CountryScalarWhereWithAggregatesInput[]
-    NOT?: CountryScalarWhereWithAggregatesInput | CountryScalarWhereWithAggregatesInput[]
-    id?: IntWithAggregatesFilter<"Country"> | number
-    name?: StringWithAggregatesFilter<"Country"> | string
-  }
-
   export type CustomerWhereInput = {
     AND?: CustomerWhereInput | CustomerWhereInput[]
     OR?: CustomerWhereInput[]
@@ -4694,8 +8490,9 @@ export namespace Prisma {
     email?: StringFilter<"Customer"> | string
     name?: StringNullableFilter<"Customer"> | string | null
     image?: StringNullableFilter<"Customer"> | string | null
-    role?: EnumRoleFilter<"Customer"> | $Enums.Role
-    favorite_size?: Favorite_sizeListRelationFilter
+    role?: EnumRoleNullableListFilter<"Customer">
+    conversions?: ConversionListRelationFilter
+    favoriteSizes?: FavoriteSizeListRelationFilter
   }
 
   export type CustomerOrderByWithRelationInput = {
@@ -4704,7 +8501,8 @@ export namespace Prisma {
     name?: SortOrderInput | SortOrder
     image?: SortOrderInput | SortOrder
     role?: SortOrder
-    favorite_size?: Favorite_sizeOrderByRelationAggregateInput
+    conversions?: ConversionOrderByRelationAggregateInput
+    favoriteSizes?: FavoriteSizeOrderByRelationAggregateInput
   }
 
   export type CustomerWhereUniqueInput = Prisma.AtLeast<{
@@ -4715,8 +8513,9 @@ export namespace Prisma {
     NOT?: CustomerWhereInput | CustomerWhereInput[]
     name?: StringNullableFilter<"Customer"> | string | null
     image?: StringNullableFilter<"Customer"> | string | null
-    role?: EnumRoleFilter<"Customer"> | $Enums.Role
-    favorite_size?: Favorite_sizeListRelationFilter
+    role?: EnumRoleNullableListFilter<"Customer">
+    conversions?: ConversionListRelationFilter
+    favoriteSizes?: FavoriteSizeListRelationFilter
   }, "id" | "email">
 
   export type CustomerOrderByWithAggregationInput = {
@@ -4740,109 +8539,314 @@ export namespace Prisma {
     email?: StringWithAggregatesFilter<"Customer"> | string
     name?: StringNullableWithAggregatesFilter<"Customer"> | string | null
     image?: StringNullableWithAggregatesFilter<"Customer"> | string | null
-    role?: EnumRoleWithAggregatesFilter<"Customer"> | $Enums.Role
+    role?: EnumRoleNullableListFilter<"Customer">
   }
 
-  export type Favorite_sizeCreateInput = {
-    title: string
-    description?: string | null
-    gender: $Enums.Gender
-    customer: CustomerCreateNestedOneWithoutFavorite_sizeInput
-    country: CountryCreateNestedOneWithoutFavorite_sizeInput
+  export type CountryWhereInput = {
+    AND?: CountryWhereInput | CountryWhereInput[]
+    OR?: CountryWhereInput[]
+    NOT?: CountryWhereInput | CountryWhereInput[]
+    id?: IntFilter<"Country"> | number
+    code?: StringFilter<"Country"> | string
+    name?: StringFilter<"Country"> | string
+    sizes?: SizeListRelationFilter
+    favoriteSizes?: FavoriteSizeListRelationFilter
   }
 
-  export type Favorite_sizeUncheckedCreateInput = {
+  export type CountryOrderByWithRelationInput = {
+    id?: SortOrder
+    code?: SortOrder
+    name?: SortOrder
+    sizes?: SizeOrderByRelationAggregateInput
+    favoriteSizes?: FavoriteSizeOrderByRelationAggregateInput
+  }
+
+  export type CountryWhereUniqueInput = Prisma.AtLeast<{
     id?: number
-    customer_id: number
-    title: string
-    description?: string | null
-    country_id: number
-    gender: $Enums.Gender
+    name?: string
+    AND?: CountryWhereInput | CountryWhereInput[]
+    OR?: CountryWhereInput[]
+    NOT?: CountryWhereInput | CountryWhereInput[]
+    code?: StringFilter<"Country"> | string
+    sizes?: SizeListRelationFilter
+    favoriteSizes?: FavoriteSizeListRelationFilter
+  }, "id" | "name">
+
+  export type CountryOrderByWithAggregationInput = {
+    id?: SortOrder
+    code?: SortOrder
+    name?: SortOrder
+    _count?: CountryCountOrderByAggregateInput
+    _avg?: CountryAvgOrderByAggregateInput
+    _max?: CountryMaxOrderByAggregateInput
+    _min?: CountryMinOrderByAggregateInput
+    _sum?: CountrySumOrderByAggregateInput
   }
 
-  export type Favorite_sizeUpdateInput = {
-    title?: StringFieldUpdateOperationsInput | string
-    description?: NullableStringFieldUpdateOperationsInput | string | null
-    gender?: EnumGenderFieldUpdateOperationsInput | $Enums.Gender
-    customer?: CustomerUpdateOneRequiredWithoutFavorite_sizeNestedInput
-    country?: CountryUpdateOneRequiredWithoutFavorite_sizeNestedInput
+  export type CountryScalarWhereWithAggregatesInput = {
+    AND?: CountryScalarWhereWithAggregatesInput | CountryScalarWhereWithAggregatesInput[]
+    OR?: CountryScalarWhereWithAggregatesInput[]
+    NOT?: CountryScalarWhereWithAggregatesInput | CountryScalarWhereWithAggregatesInput[]
+    id?: IntWithAggregatesFilter<"Country"> | number
+    code?: StringWithAggregatesFilter<"Country"> | string
+    name?: StringWithAggregatesFilter<"Country"> | string
   }
 
-  export type Favorite_sizeUncheckedUpdateInput = {
-    id?: IntFieldUpdateOperationsInput | number
-    customer_id?: IntFieldUpdateOperationsInput | number
-    title?: StringFieldUpdateOperationsInput | string
-    description?: NullableStringFieldUpdateOperationsInput | string | null
-    country_id?: IntFieldUpdateOperationsInput | number
-    gender?: EnumGenderFieldUpdateOperationsInput | $Enums.Gender
+  export type CategoryWhereInput = {
+    AND?: CategoryWhereInput | CategoryWhereInput[]
+    OR?: CategoryWhereInput[]
+    NOT?: CategoryWhereInput | CategoryWhereInput[]
+    id?: IntFilter<"Category"> | number
+    type?: StringFilter<"Category"> | string
+    sizes?: SizeListRelationFilter
+    favoriteSizes?: FavoriteSizeListRelationFilter
   }
 
-  export type Favorite_sizeCreateManyInput = {
+  export type CategoryOrderByWithRelationInput = {
+    id?: SortOrder
+    type?: SortOrder
+    sizes?: SizeOrderByRelationAggregateInput
+    favoriteSizes?: FavoriteSizeOrderByRelationAggregateInput
+  }
+
+  export type CategoryWhereUniqueInput = Prisma.AtLeast<{
     id?: number
-    customer_id: number
-    title: string
-    description?: string | null
-    country_id: number
-    gender: $Enums.Gender
+    AND?: CategoryWhereInput | CategoryWhereInput[]
+    OR?: CategoryWhereInput[]
+    NOT?: CategoryWhereInput | CategoryWhereInput[]
+    type?: StringFilter<"Category"> | string
+    sizes?: SizeListRelationFilter
+    favoriteSizes?: FavoriteSizeListRelationFilter
+  }, "id">
+
+  export type CategoryOrderByWithAggregationInput = {
+    id?: SortOrder
+    type?: SortOrder
+    _count?: CategoryCountOrderByAggregateInput
+    _avg?: CategoryAvgOrderByAggregateInput
+    _max?: CategoryMaxOrderByAggregateInput
+    _min?: CategoryMinOrderByAggregateInput
+    _sum?: CategorySumOrderByAggregateInput
   }
 
-  export type Favorite_sizeUpdateManyMutationInput = {
-    title?: StringFieldUpdateOperationsInput | string
-    description?: NullableStringFieldUpdateOperationsInput | string | null
-    gender?: EnumGenderFieldUpdateOperationsInput | $Enums.Gender
+  export type CategoryScalarWhereWithAggregatesInput = {
+    AND?: CategoryScalarWhereWithAggregatesInput | CategoryScalarWhereWithAggregatesInput[]
+    OR?: CategoryScalarWhereWithAggregatesInput[]
+    NOT?: CategoryScalarWhereWithAggregatesInput | CategoryScalarWhereWithAggregatesInput[]
+    id?: IntWithAggregatesFilter<"Category"> | number
+    type?: StringWithAggregatesFilter<"Category"> | string
   }
 
-  export type Favorite_sizeUncheckedUpdateManyInput = {
-    id?: IntFieldUpdateOperationsInput | number
-    customer_id?: IntFieldUpdateOperationsInput | number
-    title?: StringFieldUpdateOperationsInput | string
-    description?: NullableStringFieldUpdateOperationsInput | string | null
-    country_id?: IntFieldUpdateOperationsInput | number
-    gender?: EnumGenderFieldUpdateOperationsInput | $Enums.Gender
+  export type SizeWhereInput = {
+    AND?: SizeWhereInput | SizeWhereInput[]
+    OR?: SizeWhereInput[]
+    NOT?: SizeWhereInput | SizeWhereInput[]
+    id?: IntFilter<"Size"> | number
+    category_id?: IntFilter<"Size"> | number
+    country_id?: IntFilter<"Size"> | number
+    size_label?: StringFilter<"Size"> | string
+    category?: XOR<CategoryScalarRelationFilter, CategoryWhereInput>
+    country?: XOR<CountryScalarRelationFilter, CountryWhereInput>
+    favoriteSizes?: FavoriteSizeListRelationFilter
+    fromConversions?: ConversionListRelationFilter
+    toConversions?: ConversionListRelationFilter
   }
 
-  export type CountryCreateInput = {
-    name: string
-    favorite_size?: Favorite_sizeCreateNestedManyWithoutCountryInput
+  export type SizeOrderByWithRelationInput = {
+    id?: SortOrder
+    category_id?: SortOrder
+    country_id?: SortOrder
+    size_label?: SortOrder
+    category?: CategoryOrderByWithRelationInput
+    country?: CountryOrderByWithRelationInput
+    favoriteSizes?: FavoriteSizeOrderByRelationAggregateInput
+    fromConversions?: ConversionOrderByRelationAggregateInput
+    toConversions?: ConversionOrderByRelationAggregateInput
   }
 
-  export type CountryUncheckedCreateInput = {
+  export type SizeWhereUniqueInput = Prisma.AtLeast<{
     id?: number
-    name: string
-    favorite_size?: Favorite_sizeUncheckedCreateNestedManyWithoutCountryInput
+    AND?: SizeWhereInput | SizeWhereInput[]
+    OR?: SizeWhereInput[]
+    NOT?: SizeWhereInput | SizeWhereInput[]
+    category_id?: IntFilter<"Size"> | number
+    country_id?: IntFilter<"Size"> | number
+    size_label?: StringFilter<"Size"> | string
+    category?: XOR<CategoryScalarRelationFilter, CategoryWhereInput>
+    country?: XOR<CountryScalarRelationFilter, CountryWhereInput>
+    favoriteSizes?: FavoriteSizeListRelationFilter
+    fromConversions?: ConversionListRelationFilter
+    toConversions?: ConversionListRelationFilter
+  }, "id">
+
+  export type SizeOrderByWithAggregationInput = {
+    id?: SortOrder
+    category_id?: SortOrder
+    country_id?: SortOrder
+    size_label?: SortOrder
+    _count?: SizeCountOrderByAggregateInput
+    _avg?: SizeAvgOrderByAggregateInput
+    _max?: SizeMaxOrderByAggregateInput
+    _min?: SizeMinOrderByAggregateInput
+    _sum?: SizeSumOrderByAggregateInput
   }
 
-  export type CountryUpdateInput = {
-    name?: StringFieldUpdateOperationsInput | string
-    favorite_size?: Favorite_sizeUpdateManyWithoutCountryNestedInput
+  export type SizeScalarWhereWithAggregatesInput = {
+    AND?: SizeScalarWhereWithAggregatesInput | SizeScalarWhereWithAggregatesInput[]
+    OR?: SizeScalarWhereWithAggregatesInput[]
+    NOT?: SizeScalarWhereWithAggregatesInput | SizeScalarWhereWithAggregatesInput[]
+    id?: IntWithAggregatesFilter<"Size"> | number
+    category_id?: IntWithAggregatesFilter<"Size"> | number
+    country_id?: IntWithAggregatesFilter<"Size"> | number
+    size_label?: StringWithAggregatesFilter<"Size"> | string
   }
 
-  export type CountryUncheckedUpdateInput = {
-    id?: IntFieldUpdateOperationsInput | number
-    name?: StringFieldUpdateOperationsInput | string
-    favorite_size?: Favorite_sizeUncheckedUpdateManyWithoutCountryNestedInput
+  export type ConversionWhereInput = {
+    AND?: ConversionWhereInput | ConversionWhereInput[]
+    OR?: ConversionWhereInput[]
+    NOT?: ConversionWhereInput | ConversionWhereInput[]
+    id?: IntFilter<"Conversion"> | number
+    customer_id?: IntFilter<"Conversion"> | number
+    from_size_id?: IntFilter<"Conversion"> | number
+    to_size_id?: IntFilter<"Conversion"> | number
+    customer?: XOR<CustomerScalarRelationFilter, CustomerWhereInput>
+    fromSize?: XOR<SizeScalarRelationFilter, SizeWhereInput>
+    toSize?: XOR<SizeScalarRelationFilter, SizeWhereInput>
   }
 
-  export type CountryCreateManyInput = {
+  export type ConversionOrderByWithRelationInput = {
+    id?: SortOrder
+    customer_id?: SortOrder
+    from_size_id?: SortOrder
+    to_size_id?: SortOrder
+    customer?: CustomerOrderByWithRelationInput
+    fromSize?: SizeOrderByWithRelationInput
+    toSize?: SizeOrderByWithRelationInput
+  }
+
+  export type ConversionWhereUniqueInput = Prisma.AtLeast<{
     id?: number
-    name: string
+    AND?: ConversionWhereInput | ConversionWhereInput[]
+    OR?: ConversionWhereInput[]
+    NOT?: ConversionWhereInput | ConversionWhereInput[]
+    customer_id?: IntFilter<"Conversion"> | number
+    from_size_id?: IntFilter<"Conversion"> | number
+    to_size_id?: IntFilter<"Conversion"> | number
+    customer?: XOR<CustomerScalarRelationFilter, CustomerWhereInput>
+    fromSize?: XOR<SizeScalarRelationFilter, SizeWhereInput>
+    toSize?: XOR<SizeScalarRelationFilter, SizeWhereInput>
+  }, "id">
+
+  export type ConversionOrderByWithAggregationInput = {
+    id?: SortOrder
+    customer_id?: SortOrder
+    from_size_id?: SortOrder
+    to_size_id?: SortOrder
+    _count?: ConversionCountOrderByAggregateInput
+    _avg?: ConversionAvgOrderByAggregateInput
+    _max?: ConversionMaxOrderByAggregateInput
+    _min?: ConversionMinOrderByAggregateInput
+    _sum?: ConversionSumOrderByAggregateInput
   }
 
-  export type CountryUpdateManyMutationInput = {
-    name?: StringFieldUpdateOperationsInput | string
+  export type ConversionScalarWhereWithAggregatesInput = {
+    AND?: ConversionScalarWhereWithAggregatesInput | ConversionScalarWhereWithAggregatesInput[]
+    OR?: ConversionScalarWhereWithAggregatesInput[]
+    NOT?: ConversionScalarWhereWithAggregatesInput | ConversionScalarWhereWithAggregatesInput[]
+    id?: IntWithAggregatesFilter<"Conversion"> | number
+    customer_id?: IntWithAggregatesFilter<"Conversion"> | number
+    from_size_id?: IntWithAggregatesFilter<"Conversion"> | number
+    to_size_id?: IntWithAggregatesFilter<"Conversion"> | number
   }
 
-  export type CountryUncheckedUpdateManyInput = {
-    id?: IntFieldUpdateOperationsInput | number
-    name?: StringFieldUpdateOperationsInput | string
+  export type FavoriteSizeWhereInput = {
+    AND?: FavoriteSizeWhereInput | FavoriteSizeWhereInput[]
+    OR?: FavoriteSizeWhereInput[]
+    NOT?: FavoriteSizeWhereInput | FavoriteSizeWhereInput[]
+    id?: IntFilter<"FavoriteSize"> | number
+    customer_id?: IntFilter<"FavoriteSize"> | number
+    title?: StringFilter<"FavoriteSize"> | string
+    description?: StringNullableFilter<"FavoriteSize"> | string | null
+    gender?: EnumGenderNullableListFilter<"FavoriteSize">
+    country_id?: IntFilter<"FavoriteSize"> | number
+    category_id?: IntFilter<"FavoriteSize"> | number
+    size_id?: IntFilter<"FavoriteSize"> | number
+    customer?: XOR<CustomerScalarRelationFilter, CustomerWhereInput>
+    country?: XOR<CountryScalarRelationFilter, CountryWhereInput>
+    category?: XOR<CategoryScalarRelationFilter, CategoryWhereInput>
+    size?: XOR<SizeScalarRelationFilter, SizeWhereInput>
+  }
+
+  export type FavoriteSizeOrderByWithRelationInput = {
+    id?: SortOrder
+    customer_id?: SortOrder
+    title?: SortOrder
+    description?: SortOrderInput | SortOrder
+    gender?: SortOrder
+    country_id?: SortOrder
+    category_id?: SortOrder
+    size_id?: SortOrder
+    customer?: CustomerOrderByWithRelationInput
+    country?: CountryOrderByWithRelationInput
+    category?: CategoryOrderByWithRelationInput
+    size?: SizeOrderByWithRelationInput
+  }
+
+  export type FavoriteSizeWhereUniqueInput = Prisma.AtLeast<{
+    id?: number
+    AND?: FavoriteSizeWhereInput | FavoriteSizeWhereInput[]
+    OR?: FavoriteSizeWhereInput[]
+    NOT?: FavoriteSizeWhereInput | FavoriteSizeWhereInput[]
+    customer_id?: IntFilter<"FavoriteSize"> | number
+    title?: StringFilter<"FavoriteSize"> | string
+    description?: StringNullableFilter<"FavoriteSize"> | string | null
+    gender?: EnumGenderNullableListFilter<"FavoriteSize">
+    country_id?: IntFilter<"FavoriteSize"> | number
+    category_id?: IntFilter<"FavoriteSize"> | number
+    size_id?: IntFilter<"FavoriteSize"> | number
+    customer?: XOR<CustomerScalarRelationFilter, CustomerWhereInput>
+    country?: XOR<CountryScalarRelationFilter, CountryWhereInput>
+    category?: XOR<CategoryScalarRelationFilter, CategoryWhereInput>
+    size?: XOR<SizeScalarRelationFilter, SizeWhereInput>
+  }, "id">
+
+  export type FavoriteSizeOrderByWithAggregationInput = {
+    id?: SortOrder
+    customer_id?: SortOrder
+    title?: SortOrder
+    description?: SortOrderInput | SortOrder
+    gender?: SortOrder
+    country_id?: SortOrder
+    category_id?: SortOrder
+    size_id?: SortOrder
+    _count?: FavoriteSizeCountOrderByAggregateInput
+    _avg?: FavoriteSizeAvgOrderByAggregateInput
+    _max?: FavoriteSizeMaxOrderByAggregateInput
+    _min?: FavoriteSizeMinOrderByAggregateInput
+    _sum?: FavoriteSizeSumOrderByAggregateInput
+  }
+
+  export type FavoriteSizeScalarWhereWithAggregatesInput = {
+    AND?: FavoriteSizeScalarWhereWithAggregatesInput | FavoriteSizeScalarWhereWithAggregatesInput[]
+    OR?: FavoriteSizeScalarWhereWithAggregatesInput[]
+    NOT?: FavoriteSizeScalarWhereWithAggregatesInput | FavoriteSizeScalarWhereWithAggregatesInput[]
+    id?: IntWithAggregatesFilter<"FavoriteSize"> | number
+    customer_id?: IntWithAggregatesFilter<"FavoriteSize"> | number
+    title?: StringWithAggregatesFilter<"FavoriteSize"> | string
+    description?: StringNullableWithAggregatesFilter<"FavoriteSize"> | string | null
+    gender?: EnumGenderNullableListFilter<"FavoriteSize">
+    country_id?: IntWithAggregatesFilter<"FavoriteSize"> | number
+    category_id?: IntWithAggregatesFilter<"FavoriteSize"> | number
+    size_id?: IntWithAggregatesFilter<"FavoriteSize"> | number
   }
 
   export type CustomerCreateInput = {
     email: string
     name?: string | null
     image?: string | null
-    role?: $Enums.Role
-    favorite_size?: Favorite_sizeCreateNestedManyWithoutCustomerInput
+    role?: CustomerCreateroleInput | $Enums.Role[]
+    conversions?: ConversionCreateNestedManyWithoutCustomerInput
+    favoriteSizes?: FavoriteSizeCreateNestedManyWithoutCustomerInput
   }
 
   export type CustomerUncheckedCreateInput = {
@@ -4850,16 +8854,18 @@ export namespace Prisma {
     email: string
     name?: string | null
     image?: string | null
-    role?: $Enums.Role
-    favorite_size?: Favorite_sizeUncheckedCreateNestedManyWithoutCustomerInput
+    role?: CustomerCreateroleInput | $Enums.Role[]
+    conversions?: ConversionUncheckedCreateNestedManyWithoutCustomerInput
+    favoriteSizes?: FavoriteSizeUncheckedCreateNestedManyWithoutCustomerInput
   }
 
   export type CustomerUpdateInput = {
     email?: StringFieldUpdateOperationsInput | string
     name?: NullableStringFieldUpdateOperationsInput | string | null
     image?: NullableStringFieldUpdateOperationsInput | string | null
-    role?: EnumRoleFieldUpdateOperationsInput | $Enums.Role
-    favorite_size?: Favorite_sizeUpdateManyWithoutCustomerNestedInput
+    role?: CustomerUpdateroleInput | $Enums.Role[]
+    conversions?: ConversionUpdateManyWithoutCustomerNestedInput
+    favoriteSizes?: FavoriteSizeUpdateManyWithoutCustomerNestedInput
   }
 
   export type CustomerUncheckedUpdateInput = {
@@ -4867,8 +8873,9 @@ export namespace Prisma {
     email?: StringFieldUpdateOperationsInput | string
     name?: NullableStringFieldUpdateOperationsInput | string | null
     image?: NullableStringFieldUpdateOperationsInput | string | null
-    role?: EnumRoleFieldUpdateOperationsInput | $Enums.Role
-    favorite_size?: Favorite_sizeUncheckedUpdateManyWithoutCustomerNestedInput
+    role?: CustomerUpdateroleInput | $Enums.Role[]
+    conversions?: ConversionUncheckedUpdateManyWithoutCustomerNestedInput
+    favoriteSizes?: FavoriteSizeUncheckedUpdateManyWithoutCustomerNestedInput
   }
 
   export type CustomerCreateManyInput = {
@@ -4876,14 +8883,14 @@ export namespace Prisma {
     email: string
     name?: string | null
     image?: string | null
-    role?: $Enums.Role
+    role?: CustomerCreateroleInput | $Enums.Role[]
   }
 
   export type CustomerUpdateManyMutationInput = {
     email?: StringFieldUpdateOperationsInput | string
     name?: NullableStringFieldUpdateOperationsInput | string | null
     image?: NullableStringFieldUpdateOperationsInput | string | null
-    role?: EnumRoleFieldUpdateOperationsInput | $Enums.Role
+    role?: CustomerUpdateroleInput | $Enums.Role[]
   }
 
   export type CustomerUncheckedUpdateManyInput = {
@@ -4891,7 +8898,264 @@ export namespace Prisma {
     email?: StringFieldUpdateOperationsInput | string
     name?: NullableStringFieldUpdateOperationsInput | string | null
     image?: NullableStringFieldUpdateOperationsInput | string | null
-    role?: EnumRoleFieldUpdateOperationsInput | $Enums.Role
+    role?: CustomerUpdateroleInput | $Enums.Role[]
+  }
+
+  export type CountryCreateInput = {
+    code: string
+    name: string
+    sizes?: SizeCreateNestedManyWithoutCountryInput
+    favoriteSizes?: FavoriteSizeCreateNestedManyWithoutCountryInput
+  }
+
+  export type CountryUncheckedCreateInput = {
+    id?: number
+    code: string
+    name: string
+    sizes?: SizeUncheckedCreateNestedManyWithoutCountryInput
+    favoriteSizes?: FavoriteSizeUncheckedCreateNestedManyWithoutCountryInput
+  }
+
+  export type CountryUpdateInput = {
+    code?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    sizes?: SizeUpdateManyWithoutCountryNestedInput
+    favoriteSizes?: FavoriteSizeUpdateManyWithoutCountryNestedInput
+  }
+
+  export type CountryUncheckedUpdateInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    code?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    sizes?: SizeUncheckedUpdateManyWithoutCountryNestedInput
+    favoriteSizes?: FavoriteSizeUncheckedUpdateManyWithoutCountryNestedInput
+  }
+
+  export type CountryCreateManyInput = {
+    id?: number
+    code: string
+    name: string
+  }
+
+  export type CountryUpdateManyMutationInput = {
+    code?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type CountryUncheckedUpdateManyInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    code?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type CategoryCreateInput = {
+    type: string
+    sizes?: SizeCreateNestedManyWithoutCategoryInput
+    favoriteSizes?: FavoriteSizeCreateNestedManyWithoutCategoryInput
+  }
+
+  export type CategoryUncheckedCreateInput = {
+    id?: number
+    type: string
+    sizes?: SizeUncheckedCreateNestedManyWithoutCategoryInput
+    favoriteSizes?: FavoriteSizeUncheckedCreateNestedManyWithoutCategoryInput
+  }
+
+  export type CategoryUpdateInput = {
+    type?: StringFieldUpdateOperationsInput | string
+    sizes?: SizeUpdateManyWithoutCategoryNestedInput
+    favoriteSizes?: FavoriteSizeUpdateManyWithoutCategoryNestedInput
+  }
+
+  export type CategoryUncheckedUpdateInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    type?: StringFieldUpdateOperationsInput | string
+    sizes?: SizeUncheckedUpdateManyWithoutCategoryNestedInput
+    favoriteSizes?: FavoriteSizeUncheckedUpdateManyWithoutCategoryNestedInput
+  }
+
+  export type CategoryCreateManyInput = {
+    id?: number
+    type: string
+  }
+
+  export type CategoryUpdateManyMutationInput = {
+    type?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type CategoryUncheckedUpdateManyInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    type?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type SizeCreateInput = {
+    size_label: string
+    category: CategoryCreateNestedOneWithoutSizesInput
+    country: CountryCreateNestedOneWithoutSizesInput
+    favoriteSizes?: FavoriteSizeCreateNestedManyWithoutSizeInput
+    fromConversions?: ConversionCreateNestedManyWithoutFromSizeInput
+    toConversions?: ConversionCreateNestedManyWithoutToSizeInput
+  }
+
+  export type SizeUncheckedCreateInput = {
+    id?: number
+    category_id: number
+    country_id: number
+    size_label: string
+    favoriteSizes?: FavoriteSizeUncheckedCreateNestedManyWithoutSizeInput
+    fromConversions?: ConversionUncheckedCreateNestedManyWithoutFromSizeInput
+    toConversions?: ConversionUncheckedCreateNestedManyWithoutToSizeInput
+  }
+
+  export type SizeUpdateInput = {
+    size_label?: StringFieldUpdateOperationsInput | string
+    category?: CategoryUpdateOneRequiredWithoutSizesNestedInput
+    country?: CountryUpdateOneRequiredWithoutSizesNestedInput
+    favoriteSizes?: FavoriteSizeUpdateManyWithoutSizeNestedInput
+    fromConversions?: ConversionUpdateManyWithoutFromSizeNestedInput
+    toConversions?: ConversionUpdateManyWithoutToSizeNestedInput
+  }
+
+  export type SizeUncheckedUpdateInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    category_id?: IntFieldUpdateOperationsInput | number
+    country_id?: IntFieldUpdateOperationsInput | number
+    size_label?: StringFieldUpdateOperationsInput | string
+    favoriteSizes?: FavoriteSizeUncheckedUpdateManyWithoutSizeNestedInput
+    fromConversions?: ConversionUncheckedUpdateManyWithoutFromSizeNestedInput
+    toConversions?: ConversionUncheckedUpdateManyWithoutToSizeNestedInput
+  }
+
+  export type SizeCreateManyInput = {
+    id?: number
+    category_id: number
+    country_id: number
+    size_label: string
+  }
+
+  export type SizeUpdateManyMutationInput = {
+    size_label?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type SizeUncheckedUpdateManyInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    category_id?: IntFieldUpdateOperationsInput | number
+    country_id?: IntFieldUpdateOperationsInput | number
+    size_label?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type ConversionCreateInput = {
+    customer: CustomerCreateNestedOneWithoutConversionsInput
+    fromSize: SizeCreateNestedOneWithoutFromConversionsInput
+    toSize: SizeCreateNestedOneWithoutToConversionsInput
+  }
+
+  export type ConversionUncheckedCreateInput = {
+    id?: number
+    customer_id: number
+    from_size_id: number
+    to_size_id: number
+  }
+
+  export type ConversionUpdateInput = {
+    customer?: CustomerUpdateOneRequiredWithoutConversionsNestedInput
+    fromSize?: SizeUpdateOneRequiredWithoutFromConversionsNestedInput
+    toSize?: SizeUpdateOneRequiredWithoutToConversionsNestedInput
+  }
+
+  export type ConversionUncheckedUpdateInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    customer_id?: IntFieldUpdateOperationsInput | number
+    from_size_id?: IntFieldUpdateOperationsInput | number
+    to_size_id?: IntFieldUpdateOperationsInput | number
+  }
+
+  export type ConversionCreateManyInput = {
+    id?: number
+    customer_id: number
+    from_size_id: number
+    to_size_id: number
+  }
+
+  export type ConversionUpdateManyMutationInput = {
+
+  }
+
+  export type ConversionUncheckedUpdateManyInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    customer_id?: IntFieldUpdateOperationsInput | number
+    from_size_id?: IntFieldUpdateOperationsInput | number
+    to_size_id?: IntFieldUpdateOperationsInput | number
+  }
+
+  export type FavoriteSizeCreateInput = {
+    title: string
+    description?: string | null
+    gender?: FavoriteSizeCreategenderInput | $Enums.Gender[]
+    customer: CustomerCreateNestedOneWithoutFavoriteSizesInput
+    country: CountryCreateNestedOneWithoutFavoriteSizesInput
+    category: CategoryCreateNestedOneWithoutFavoriteSizesInput
+    size: SizeCreateNestedOneWithoutFavoriteSizesInput
+  }
+
+  export type FavoriteSizeUncheckedCreateInput = {
+    id?: number
+    customer_id: number
+    title: string
+    description?: string | null
+    gender?: FavoriteSizeCreategenderInput | $Enums.Gender[]
+    country_id: number
+    category_id: number
+    size_id: number
+  }
+
+  export type FavoriteSizeUpdateInput = {
+    title?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    gender?: FavoriteSizeUpdategenderInput | $Enums.Gender[]
+    customer?: CustomerUpdateOneRequiredWithoutFavoriteSizesNestedInput
+    country?: CountryUpdateOneRequiredWithoutFavoriteSizesNestedInput
+    category?: CategoryUpdateOneRequiredWithoutFavoriteSizesNestedInput
+    size?: SizeUpdateOneRequiredWithoutFavoriteSizesNestedInput
+  }
+
+  export type FavoriteSizeUncheckedUpdateInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    customer_id?: IntFieldUpdateOperationsInput | number
+    title?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    gender?: FavoriteSizeUpdategenderInput | $Enums.Gender[]
+    country_id?: IntFieldUpdateOperationsInput | number
+    category_id?: IntFieldUpdateOperationsInput | number
+    size_id?: IntFieldUpdateOperationsInput | number
+  }
+
+  export type FavoriteSizeCreateManyInput = {
+    id?: number
+    customer_id: number
+    title: string
+    description?: string | null
+    gender?: FavoriteSizeCreategenderInput | $Enums.Gender[]
+    country_id: number
+    category_id: number
+    size_id: number
+  }
+
+  export type FavoriteSizeUpdateManyMutationInput = {
+    title?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    gender?: FavoriteSizeUpdategenderInput | $Enums.Gender[]
+  }
+
+  export type FavoriteSizeUncheckedUpdateManyInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    customer_id?: IntFieldUpdateOperationsInput | number
+    title?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    gender?: FavoriteSizeUpdategenderInput | $Enums.Gender[]
+    country_id?: IntFieldUpdateOperationsInput | number
+    category_id?: IntFieldUpdateOperationsInput | number
+    size_id?: IntFieldUpdateOperationsInput | number
   }
 
   export type IntFilter<$PrismaModel = never> = {
@@ -4935,21 +9199,24 @@ export namespace Prisma {
     not?: NestedStringNullableFilter<$PrismaModel> | string | null
   }
 
-  export type EnumGenderFilter<$PrismaModel = never> = {
-    equals?: $Enums.Gender | EnumGenderFieldRefInput<$PrismaModel>
-    in?: $Enums.Gender[] | ListEnumGenderFieldRefInput<$PrismaModel>
-    notIn?: $Enums.Gender[] | ListEnumGenderFieldRefInput<$PrismaModel>
-    not?: NestedEnumGenderFilter<$PrismaModel> | $Enums.Gender
+  export type EnumRoleNullableListFilter<$PrismaModel = never> = {
+    equals?: $Enums.Role[] | ListEnumRoleFieldRefInput<$PrismaModel> | null
+    has?: $Enums.Role | EnumRoleFieldRefInput<$PrismaModel> | null
+    hasEvery?: $Enums.Role[] | ListEnumRoleFieldRefInput<$PrismaModel>
+    hasSome?: $Enums.Role[] | ListEnumRoleFieldRefInput<$PrismaModel>
+    isEmpty?: boolean
   }
 
-  export type CustomerScalarRelationFilter = {
-    is?: CustomerWhereInput
-    isNot?: CustomerWhereInput
+  export type ConversionListRelationFilter = {
+    every?: ConversionWhereInput
+    some?: ConversionWhereInput
+    none?: ConversionWhereInput
   }
 
-  export type CountryScalarRelationFilter = {
-    is?: CountryWhereInput
-    isNot?: CountryWhereInput
+  export type FavoriteSizeListRelationFilter = {
+    every?: FavoriteSizeWhereInput
+    some?: FavoriteSizeWhereInput
+    none?: FavoriteSizeWhereInput
   }
 
   export type SortOrderInput = {
@@ -4957,43 +9224,42 @@ export namespace Prisma {
     nulls?: NullsOrder
   }
 
-  export type Favorite_sizeCountOrderByAggregateInput = {
-    id?: SortOrder
-    customer_id?: SortOrder
-    title?: SortOrder
-    description?: SortOrder
-    country_id?: SortOrder
-    gender?: SortOrder
+  export type ConversionOrderByRelationAggregateInput = {
+    _count?: SortOrder
   }
 
-  export type Favorite_sizeAvgOrderByAggregateInput = {
-    id?: SortOrder
-    customer_id?: SortOrder
-    country_id?: SortOrder
+  export type FavoriteSizeOrderByRelationAggregateInput = {
+    _count?: SortOrder
   }
 
-  export type Favorite_sizeMaxOrderByAggregateInput = {
+  export type CustomerCountOrderByAggregateInput = {
     id?: SortOrder
-    customer_id?: SortOrder
-    title?: SortOrder
-    description?: SortOrder
-    country_id?: SortOrder
-    gender?: SortOrder
+    email?: SortOrder
+    name?: SortOrder
+    image?: SortOrder
+    role?: SortOrder
   }
 
-  export type Favorite_sizeMinOrderByAggregateInput = {
+  export type CustomerAvgOrderByAggregateInput = {
     id?: SortOrder
-    customer_id?: SortOrder
-    title?: SortOrder
-    description?: SortOrder
-    country_id?: SortOrder
-    gender?: SortOrder
   }
 
-  export type Favorite_sizeSumOrderByAggregateInput = {
+  export type CustomerMaxOrderByAggregateInput = {
     id?: SortOrder
-    customer_id?: SortOrder
-    country_id?: SortOrder
+    email?: SortOrder
+    name?: SortOrder
+    image?: SortOrder
+  }
+
+  export type CustomerMinOrderByAggregateInput = {
+    id?: SortOrder
+    email?: SortOrder
+    name?: SortOrder
+    image?: SortOrder
+  }
+
+  export type CustomerSumOrderByAggregateInput = {
+    id?: SortOrder
   }
 
   export type IntWithAggregatesFilter<$PrismaModel = never> = {
@@ -5048,28 +9314,19 @@ export namespace Prisma {
     _max?: NestedStringNullableFilter<$PrismaModel>
   }
 
-  export type EnumGenderWithAggregatesFilter<$PrismaModel = never> = {
-    equals?: $Enums.Gender | EnumGenderFieldRefInput<$PrismaModel>
-    in?: $Enums.Gender[] | ListEnumGenderFieldRefInput<$PrismaModel>
-    notIn?: $Enums.Gender[] | ListEnumGenderFieldRefInput<$PrismaModel>
-    not?: NestedEnumGenderWithAggregatesFilter<$PrismaModel> | $Enums.Gender
-    _count?: NestedIntFilter<$PrismaModel>
-    _min?: NestedEnumGenderFilter<$PrismaModel>
-    _max?: NestedEnumGenderFilter<$PrismaModel>
+  export type SizeListRelationFilter = {
+    every?: SizeWhereInput
+    some?: SizeWhereInput
+    none?: SizeWhereInput
   }
 
-  export type Favorite_sizeListRelationFilter = {
-    every?: Favorite_sizeWhereInput
-    some?: Favorite_sizeWhereInput
-    none?: Favorite_sizeWhereInput
-  }
-
-  export type Favorite_sizeOrderByRelationAggregateInput = {
+  export type SizeOrderByRelationAggregateInput = {
     _count?: SortOrder
   }
 
   export type CountryCountOrderByAggregateInput = {
     id?: SortOrder
+    code?: SortOrder
     name?: SortOrder
   }
 
@@ -5079,11 +9336,13 @@ export namespace Prisma {
 
   export type CountryMaxOrderByAggregateInput = {
     id?: SortOrder
+    code?: SortOrder
     name?: SortOrder
   }
 
   export type CountryMinOrderByAggregateInput = {
     id?: SortOrder
+    code?: SortOrder
     name?: SortOrder
   }
 
@@ -5091,65 +9350,202 @@ export namespace Prisma {
     id?: SortOrder
   }
 
-  export type EnumRoleFilter<$PrismaModel = never> = {
-    equals?: $Enums.Role | EnumRoleFieldRefInput<$PrismaModel>
-    in?: $Enums.Role[] | ListEnumRoleFieldRefInput<$PrismaModel>
-    notIn?: $Enums.Role[] | ListEnumRoleFieldRefInput<$PrismaModel>
-    not?: NestedEnumRoleFilter<$PrismaModel> | $Enums.Role
-  }
-
-  export type CustomerCountOrderByAggregateInput = {
+  export type CategoryCountOrderByAggregateInput = {
     id?: SortOrder
-    email?: SortOrder
-    name?: SortOrder
-    image?: SortOrder
-    role?: SortOrder
+    type?: SortOrder
   }
 
-  export type CustomerAvgOrderByAggregateInput = {
+  export type CategoryAvgOrderByAggregateInput = {
     id?: SortOrder
   }
 
-  export type CustomerMaxOrderByAggregateInput = {
+  export type CategoryMaxOrderByAggregateInput = {
     id?: SortOrder
-    email?: SortOrder
-    name?: SortOrder
-    image?: SortOrder
-    role?: SortOrder
+    type?: SortOrder
   }
 
-  export type CustomerMinOrderByAggregateInput = {
+  export type CategoryMinOrderByAggregateInput = {
     id?: SortOrder
-    email?: SortOrder
-    name?: SortOrder
-    image?: SortOrder
-    role?: SortOrder
+    type?: SortOrder
   }
 
-  export type CustomerSumOrderByAggregateInput = {
+  export type CategorySumOrderByAggregateInput = {
     id?: SortOrder
   }
 
-  export type EnumRoleWithAggregatesFilter<$PrismaModel = never> = {
-    equals?: $Enums.Role | EnumRoleFieldRefInput<$PrismaModel>
-    in?: $Enums.Role[] | ListEnumRoleFieldRefInput<$PrismaModel>
-    notIn?: $Enums.Role[] | ListEnumRoleFieldRefInput<$PrismaModel>
-    not?: NestedEnumRoleWithAggregatesFilter<$PrismaModel> | $Enums.Role
-    _count?: NestedIntFilter<$PrismaModel>
-    _min?: NestedEnumRoleFilter<$PrismaModel>
-    _max?: NestedEnumRoleFilter<$PrismaModel>
+  export type CategoryScalarRelationFilter = {
+    is?: CategoryWhereInput
+    isNot?: CategoryWhereInput
   }
 
-  export type CustomerCreateNestedOneWithoutFavorite_sizeInput = {
-    create?: XOR<CustomerCreateWithoutFavorite_sizeInput, CustomerUncheckedCreateWithoutFavorite_sizeInput>
-    connectOrCreate?: CustomerCreateOrConnectWithoutFavorite_sizeInput
-    connect?: CustomerWhereUniqueInput
+  export type CountryScalarRelationFilter = {
+    is?: CountryWhereInput
+    isNot?: CountryWhereInput
   }
 
-  export type CountryCreateNestedOneWithoutFavorite_sizeInput = {
-    create?: XOR<CountryCreateWithoutFavorite_sizeInput, CountryUncheckedCreateWithoutFavorite_sizeInput>
-    connectOrCreate?: CountryCreateOrConnectWithoutFavorite_sizeInput
-    connect?: CountryWhereUniqueInput
+  export type SizeCountOrderByAggregateInput = {
+    id?: SortOrder
+    category_id?: SortOrder
+    country_id?: SortOrder
+    size_label?: SortOrder
+  }
+
+  export type SizeAvgOrderByAggregateInput = {
+    id?: SortOrder
+    category_id?: SortOrder
+    country_id?: SortOrder
+  }
+
+  export type SizeMaxOrderByAggregateInput = {
+    id?: SortOrder
+    category_id?: SortOrder
+    country_id?: SortOrder
+    size_label?: SortOrder
+  }
+
+  export type SizeMinOrderByAggregateInput = {
+    id?: SortOrder
+    category_id?: SortOrder
+    country_id?: SortOrder
+    size_label?: SortOrder
+  }
+
+  export type SizeSumOrderByAggregateInput = {
+    id?: SortOrder
+    category_id?: SortOrder
+    country_id?: SortOrder
+  }
+
+  export type CustomerScalarRelationFilter = {
+    is?: CustomerWhereInput
+    isNot?: CustomerWhereInput
+  }
+
+  export type SizeScalarRelationFilter = {
+    is?: SizeWhereInput
+    isNot?: SizeWhereInput
+  }
+
+  export type ConversionCountOrderByAggregateInput = {
+    id?: SortOrder
+    customer_id?: SortOrder
+    from_size_id?: SortOrder
+    to_size_id?: SortOrder
+  }
+
+  export type ConversionAvgOrderByAggregateInput = {
+    id?: SortOrder
+    customer_id?: SortOrder
+    from_size_id?: SortOrder
+    to_size_id?: SortOrder
+  }
+
+  export type ConversionMaxOrderByAggregateInput = {
+    id?: SortOrder
+    customer_id?: SortOrder
+    from_size_id?: SortOrder
+    to_size_id?: SortOrder
+  }
+
+  export type ConversionMinOrderByAggregateInput = {
+    id?: SortOrder
+    customer_id?: SortOrder
+    from_size_id?: SortOrder
+    to_size_id?: SortOrder
+  }
+
+  export type ConversionSumOrderByAggregateInput = {
+    id?: SortOrder
+    customer_id?: SortOrder
+    from_size_id?: SortOrder
+    to_size_id?: SortOrder
+  }
+
+  export type EnumGenderNullableListFilter<$PrismaModel = never> = {
+    equals?: $Enums.Gender[] | ListEnumGenderFieldRefInput<$PrismaModel> | null
+    has?: $Enums.Gender | EnumGenderFieldRefInput<$PrismaModel> | null
+    hasEvery?: $Enums.Gender[] | ListEnumGenderFieldRefInput<$PrismaModel>
+    hasSome?: $Enums.Gender[] | ListEnumGenderFieldRefInput<$PrismaModel>
+    isEmpty?: boolean
+  }
+
+  export type FavoriteSizeCountOrderByAggregateInput = {
+    id?: SortOrder
+    customer_id?: SortOrder
+    title?: SortOrder
+    description?: SortOrder
+    gender?: SortOrder
+    country_id?: SortOrder
+    category_id?: SortOrder
+    size_id?: SortOrder
+  }
+
+  export type FavoriteSizeAvgOrderByAggregateInput = {
+    id?: SortOrder
+    customer_id?: SortOrder
+    country_id?: SortOrder
+    category_id?: SortOrder
+    size_id?: SortOrder
+  }
+
+  export type FavoriteSizeMaxOrderByAggregateInput = {
+    id?: SortOrder
+    customer_id?: SortOrder
+    title?: SortOrder
+    description?: SortOrder
+    country_id?: SortOrder
+    category_id?: SortOrder
+    size_id?: SortOrder
+  }
+
+  export type FavoriteSizeMinOrderByAggregateInput = {
+    id?: SortOrder
+    customer_id?: SortOrder
+    title?: SortOrder
+    description?: SortOrder
+    country_id?: SortOrder
+    category_id?: SortOrder
+    size_id?: SortOrder
+  }
+
+  export type FavoriteSizeSumOrderByAggregateInput = {
+    id?: SortOrder
+    customer_id?: SortOrder
+    country_id?: SortOrder
+    category_id?: SortOrder
+    size_id?: SortOrder
+  }
+
+  export type CustomerCreateroleInput = {
+    set: $Enums.Role[]
+  }
+
+  export type ConversionCreateNestedManyWithoutCustomerInput = {
+    create?: XOR<ConversionCreateWithoutCustomerInput, ConversionUncheckedCreateWithoutCustomerInput> | ConversionCreateWithoutCustomerInput[] | ConversionUncheckedCreateWithoutCustomerInput[]
+    connectOrCreate?: ConversionCreateOrConnectWithoutCustomerInput | ConversionCreateOrConnectWithoutCustomerInput[]
+    createMany?: ConversionCreateManyCustomerInputEnvelope
+    connect?: ConversionWhereUniqueInput | ConversionWhereUniqueInput[]
+  }
+
+  export type FavoriteSizeCreateNestedManyWithoutCustomerInput = {
+    create?: XOR<FavoriteSizeCreateWithoutCustomerInput, FavoriteSizeUncheckedCreateWithoutCustomerInput> | FavoriteSizeCreateWithoutCustomerInput[] | FavoriteSizeUncheckedCreateWithoutCustomerInput[]
+    connectOrCreate?: FavoriteSizeCreateOrConnectWithoutCustomerInput | FavoriteSizeCreateOrConnectWithoutCustomerInput[]
+    createMany?: FavoriteSizeCreateManyCustomerInputEnvelope
+    connect?: FavoriteSizeWhereUniqueInput | FavoriteSizeWhereUniqueInput[]
+  }
+
+  export type ConversionUncheckedCreateNestedManyWithoutCustomerInput = {
+    create?: XOR<ConversionCreateWithoutCustomerInput, ConversionUncheckedCreateWithoutCustomerInput> | ConversionCreateWithoutCustomerInput[] | ConversionUncheckedCreateWithoutCustomerInput[]
+    connectOrCreate?: ConversionCreateOrConnectWithoutCustomerInput | ConversionCreateOrConnectWithoutCustomerInput[]
+    createMany?: ConversionCreateManyCustomerInputEnvelope
+    connect?: ConversionWhereUniqueInput | ConversionWhereUniqueInput[]
+  }
+
+  export type FavoriteSizeUncheckedCreateNestedManyWithoutCustomerInput = {
+    create?: XOR<FavoriteSizeCreateWithoutCustomerInput, FavoriteSizeUncheckedCreateWithoutCustomerInput> | FavoriteSizeCreateWithoutCustomerInput[] | FavoriteSizeUncheckedCreateWithoutCustomerInput[]
+    connectOrCreate?: FavoriteSizeCreateOrConnectWithoutCustomerInput | FavoriteSizeCreateOrConnectWithoutCustomerInput[]
+    createMany?: FavoriteSizeCreateManyCustomerInputEnvelope
+    connect?: FavoriteSizeWhereUniqueInput | FavoriteSizeWhereUniqueInput[]
   }
 
   export type StringFieldUpdateOperationsInput = {
@@ -5160,24 +9556,37 @@ export namespace Prisma {
     set?: string | null
   }
 
-  export type EnumGenderFieldUpdateOperationsInput = {
-    set?: $Enums.Gender
+  export type CustomerUpdateroleInput = {
+    set?: $Enums.Role[]
+    push?: $Enums.Role | $Enums.Role[]
   }
 
-  export type CustomerUpdateOneRequiredWithoutFavorite_sizeNestedInput = {
-    create?: XOR<CustomerCreateWithoutFavorite_sizeInput, CustomerUncheckedCreateWithoutFavorite_sizeInput>
-    connectOrCreate?: CustomerCreateOrConnectWithoutFavorite_sizeInput
-    upsert?: CustomerUpsertWithoutFavorite_sizeInput
-    connect?: CustomerWhereUniqueInput
-    update?: XOR<XOR<CustomerUpdateToOneWithWhereWithoutFavorite_sizeInput, CustomerUpdateWithoutFavorite_sizeInput>, CustomerUncheckedUpdateWithoutFavorite_sizeInput>
+  export type ConversionUpdateManyWithoutCustomerNestedInput = {
+    create?: XOR<ConversionCreateWithoutCustomerInput, ConversionUncheckedCreateWithoutCustomerInput> | ConversionCreateWithoutCustomerInput[] | ConversionUncheckedCreateWithoutCustomerInput[]
+    connectOrCreate?: ConversionCreateOrConnectWithoutCustomerInput | ConversionCreateOrConnectWithoutCustomerInput[]
+    upsert?: ConversionUpsertWithWhereUniqueWithoutCustomerInput | ConversionUpsertWithWhereUniqueWithoutCustomerInput[]
+    createMany?: ConversionCreateManyCustomerInputEnvelope
+    set?: ConversionWhereUniqueInput | ConversionWhereUniqueInput[]
+    disconnect?: ConversionWhereUniqueInput | ConversionWhereUniqueInput[]
+    delete?: ConversionWhereUniqueInput | ConversionWhereUniqueInput[]
+    connect?: ConversionWhereUniqueInput | ConversionWhereUniqueInput[]
+    update?: ConversionUpdateWithWhereUniqueWithoutCustomerInput | ConversionUpdateWithWhereUniqueWithoutCustomerInput[]
+    updateMany?: ConversionUpdateManyWithWhereWithoutCustomerInput | ConversionUpdateManyWithWhereWithoutCustomerInput[]
+    deleteMany?: ConversionScalarWhereInput | ConversionScalarWhereInput[]
   }
 
-  export type CountryUpdateOneRequiredWithoutFavorite_sizeNestedInput = {
-    create?: XOR<CountryCreateWithoutFavorite_sizeInput, CountryUncheckedCreateWithoutFavorite_sizeInput>
-    connectOrCreate?: CountryCreateOrConnectWithoutFavorite_sizeInput
-    upsert?: CountryUpsertWithoutFavorite_sizeInput
-    connect?: CountryWhereUniqueInput
-    update?: XOR<XOR<CountryUpdateToOneWithWhereWithoutFavorite_sizeInput, CountryUpdateWithoutFavorite_sizeInput>, CountryUncheckedUpdateWithoutFavorite_sizeInput>
+  export type FavoriteSizeUpdateManyWithoutCustomerNestedInput = {
+    create?: XOR<FavoriteSizeCreateWithoutCustomerInput, FavoriteSizeUncheckedCreateWithoutCustomerInput> | FavoriteSizeCreateWithoutCustomerInput[] | FavoriteSizeUncheckedCreateWithoutCustomerInput[]
+    connectOrCreate?: FavoriteSizeCreateOrConnectWithoutCustomerInput | FavoriteSizeCreateOrConnectWithoutCustomerInput[]
+    upsert?: FavoriteSizeUpsertWithWhereUniqueWithoutCustomerInput | FavoriteSizeUpsertWithWhereUniqueWithoutCustomerInput[]
+    createMany?: FavoriteSizeCreateManyCustomerInputEnvelope
+    set?: FavoriteSizeWhereUniqueInput | FavoriteSizeWhereUniqueInput[]
+    disconnect?: FavoriteSizeWhereUniqueInput | FavoriteSizeWhereUniqueInput[]
+    delete?: FavoriteSizeWhereUniqueInput | FavoriteSizeWhereUniqueInput[]
+    connect?: FavoriteSizeWhereUniqueInput | FavoriteSizeWhereUniqueInput[]
+    update?: FavoriteSizeUpdateWithWhereUniqueWithoutCustomerInput | FavoriteSizeUpdateWithWhereUniqueWithoutCustomerInput[]
+    updateMany?: FavoriteSizeUpdateManyWithWhereWithoutCustomerInput | FavoriteSizeUpdateManyWithWhereWithoutCustomerInput[]
+    deleteMany?: FavoriteSizeScalarWhereInput | FavoriteSizeScalarWhereInput[]
   }
 
   export type IntFieldUpdateOperationsInput = {
@@ -5188,92 +9597,461 @@ export namespace Prisma {
     divide?: number
   }
 
-  export type Favorite_sizeCreateNestedManyWithoutCountryInput = {
-    create?: XOR<Favorite_sizeCreateWithoutCountryInput, Favorite_sizeUncheckedCreateWithoutCountryInput> | Favorite_sizeCreateWithoutCountryInput[] | Favorite_sizeUncheckedCreateWithoutCountryInput[]
-    connectOrCreate?: Favorite_sizeCreateOrConnectWithoutCountryInput | Favorite_sizeCreateOrConnectWithoutCountryInput[]
-    createMany?: Favorite_sizeCreateManyCountryInputEnvelope
-    connect?: Favorite_sizeWhereUniqueInput | Favorite_sizeWhereUniqueInput[]
+  export type ConversionUncheckedUpdateManyWithoutCustomerNestedInput = {
+    create?: XOR<ConversionCreateWithoutCustomerInput, ConversionUncheckedCreateWithoutCustomerInput> | ConversionCreateWithoutCustomerInput[] | ConversionUncheckedCreateWithoutCustomerInput[]
+    connectOrCreate?: ConversionCreateOrConnectWithoutCustomerInput | ConversionCreateOrConnectWithoutCustomerInput[]
+    upsert?: ConversionUpsertWithWhereUniqueWithoutCustomerInput | ConversionUpsertWithWhereUniqueWithoutCustomerInput[]
+    createMany?: ConversionCreateManyCustomerInputEnvelope
+    set?: ConversionWhereUniqueInput | ConversionWhereUniqueInput[]
+    disconnect?: ConversionWhereUniqueInput | ConversionWhereUniqueInput[]
+    delete?: ConversionWhereUniqueInput | ConversionWhereUniqueInput[]
+    connect?: ConversionWhereUniqueInput | ConversionWhereUniqueInput[]
+    update?: ConversionUpdateWithWhereUniqueWithoutCustomerInput | ConversionUpdateWithWhereUniqueWithoutCustomerInput[]
+    updateMany?: ConversionUpdateManyWithWhereWithoutCustomerInput | ConversionUpdateManyWithWhereWithoutCustomerInput[]
+    deleteMany?: ConversionScalarWhereInput | ConversionScalarWhereInput[]
   }
 
-  export type Favorite_sizeUncheckedCreateNestedManyWithoutCountryInput = {
-    create?: XOR<Favorite_sizeCreateWithoutCountryInput, Favorite_sizeUncheckedCreateWithoutCountryInput> | Favorite_sizeCreateWithoutCountryInput[] | Favorite_sizeUncheckedCreateWithoutCountryInput[]
-    connectOrCreate?: Favorite_sizeCreateOrConnectWithoutCountryInput | Favorite_sizeCreateOrConnectWithoutCountryInput[]
-    createMany?: Favorite_sizeCreateManyCountryInputEnvelope
-    connect?: Favorite_sizeWhereUniqueInput | Favorite_sizeWhereUniqueInput[]
+  export type FavoriteSizeUncheckedUpdateManyWithoutCustomerNestedInput = {
+    create?: XOR<FavoriteSizeCreateWithoutCustomerInput, FavoriteSizeUncheckedCreateWithoutCustomerInput> | FavoriteSizeCreateWithoutCustomerInput[] | FavoriteSizeUncheckedCreateWithoutCustomerInput[]
+    connectOrCreate?: FavoriteSizeCreateOrConnectWithoutCustomerInput | FavoriteSizeCreateOrConnectWithoutCustomerInput[]
+    upsert?: FavoriteSizeUpsertWithWhereUniqueWithoutCustomerInput | FavoriteSizeUpsertWithWhereUniqueWithoutCustomerInput[]
+    createMany?: FavoriteSizeCreateManyCustomerInputEnvelope
+    set?: FavoriteSizeWhereUniqueInput | FavoriteSizeWhereUniqueInput[]
+    disconnect?: FavoriteSizeWhereUniqueInput | FavoriteSizeWhereUniqueInput[]
+    delete?: FavoriteSizeWhereUniqueInput | FavoriteSizeWhereUniqueInput[]
+    connect?: FavoriteSizeWhereUniqueInput | FavoriteSizeWhereUniqueInput[]
+    update?: FavoriteSizeUpdateWithWhereUniqueWithoutCustomerInput | FavoriteSizeUpdateWithWhereUniqueWithoutCustomerInput[]
+    updateMany?: FavoriteSizeUpdateManyWithWhereWithoutCustomerInput | FavoriteSizeUpdateManyWithWhereWithoutCustomerInput[]
+    deleteMany?: FavoriteSizeScalarWhereInput | FavoriteSizeScalarWhereInput[]
   }
 
-  export type Favorite_sizeUpdateManyWithoutCountryNestedInput = {
-    create?: XOR<Favorite_sizeCreateWithoutCountryInput, Favorite_sizeUncheckedCreateWithoutCountryInput> | Favorite_sizeCreateWithoutCountryInput[] | Favorite_sizeUncheckedCreateWithoutCountryInput[]
-    connectOrCreate?: Favorite_sizeCreateOrConnectWithoutCountryInput | Favorite_sizeCreateOrConnectWithoutCountryInput[]
-    upsert?: Favorite_sizeUpsertWithWhereUniqueWithoutCountryInput | Favorite_sizeUpsertWithWhereUniqueWithoutCountryInput[]
-    createMany?: Favorite_sizeCreateManyCountryInputEnvelope
-    set?: Favorite_sizeWhereUniqueInput | Favorite_sizeWhereUniqueInput[]
-    disconnect?: Favorite_sizeWhereUniqueInput | Favorite_sizeWhereUniqueInput[]
-    delete?: Favorite_sizeWhereUniqueInput | Favorite_sizeWhereUniqueInput[]
-    connect?: Favorite_sizeWhereUniqueInput | Favorite_sizeWhereUniqueInput[]
-    update?: Favorite_sizeUpdateWithWhereUniqueWithoutCountryInput | Favorite_sizeUpdateWithWhereUniqueWithoutCountryInput[]
-    updateMany?: Favorite_sizeUpdateManyWithWhereWithoutCountryInput | Favorite_sizeUpdateManyWithWhereWithoutCountryInput[]
-    deleteMany?: Favorite_sizeScalarWhereInput | Favorite_sizeScalarWhereInput[]
+  export type SizeCreateNestedManyWithoutCountryInput = {
+    create?: XOR<SizeCreateWithoutCountryInput, SizeUncheckedCreateWithoutCountryInput> | SizeCreateWithoutCountryInput[] | SizeUncheckedCreateWithoutCountryInput[]
+    connectOrCreate?: SizeCreateOrConnectWithoutCountryInput | SizeCreateOrConnectWithoutCountryInput[]
+    createMany?: SizeCreateManyCountryInputEnvelope
+    connect?: SizeWhereUniqueInput | SizeWhereUniqueInput[]
   }
 
-  export type Favorite_sizeUncheckedUpdateManyWithoutCountryNestedInput = {
-    create?: XOR<Favorite_sizeCreateWithoutCountryInput, Favorite_sizeUncheckedCreateWithoutCountryInput> | Favorite_sizeCreateWithoutCountryInput[] | Favorite_sizeUncheckedCreateWithoutCountryInput[]
-    connectOrCreate?: Favorite_sizeCreateOrConnectWithoutCountryInput | Favorite_sizeCreateOrConnectWithoutCountryInput[]
-    upsert?: Favorite_sizeUpsertWithWhereUniqueWithoutCountryInput | Favorite_sizeUpsertWithWhereUniqueWithoutCountryInput[]
-    createMany?: Favorite_sizeCreateManyCountryInputEnvelope
-    set?: Favorite_sizeWhereUniqueInput | Favorite_sizeWhereUniqueInput[]
-    disconnect?: Favorite_sizeWhereUniqueInput | Favorite_sizeWhereUniqueInput[]
-    delete?: Favorite_sizeWhereUniqueInput | Favorite_sizeWhereUniqueInput[]
-    connect?: Favorite_sizeWhereUniqueInput | Favorite_sizeWhereUniqueInput[]
-    update?: Favorite_sizeUpdateWithWhereUniqueWithoutCountryInput | Favorite_sizeUpdateWithWhereUniqueWithoutCountryInput[]
-    updateMany?: Favorite_sizeUpdateManyWithWhereWithoutCountryInput | Favorite_sizeUpdateManyWithWhereWithoutCountryInput[]
-    deleteMany?: Favorite_sizeScalarWhereInput | Favorite_sizeScalarWhereInput[]
+  export type FavoriteSizeCreateNestedManyWithoutCountryInput = {
+    create?: XOR<FavoriteSizeCreateWithoutCountryInput, FavoriteSizeUncheckedCreateWithoutCountryInput> | FavoriteSizeCreateWithoutCountryInput[] | FavoriteSizeUncheckedCreateWithoutCountryInput[]
+    connectOrCreate?: FavoriteSizeCreateOrConnectWithoutCountryInput | FavoriteSizeCreateOrConnectWithoutCountryInput[]
+    createMany?: FavoriteSizeCreateManyCountryInputEnvelope
+    connect?: FavoriteSizeWhereUniqueInput | FavoriteSizeWhereUniqueInput[]
   }
 
-  export type Favorite_sizeCreateNestedManyWithoutCustomerInput = {
-    create?: XOR<Favorite_sizeCreateWithoutCustomerInput, Favorite_sizeUncheckedCreateWithoutCustomerInput> | Favorite_sizeCreateWithoutCustomerInput[] | Favorite_sizeUncheckedCreateWithoutCustomerInput[]
-    connectOrCreate?: Favorite_sizeCreateOrConnectWithoutCustomerInput | Favorite_sizeCreateOrConnectWithoutCustomerInput[]
-    createMany?: Favorite_sizeCreateManyCustomerInputEnvelope
-    connect?: Favorite_sizeWhereUniqueInput | Favorite_sizeWhereUniqueInput[]
+  export type SizeUncheckedCreateNestedManyWithoutCountryInput = {
+    create?: XOR<SizeCreateWithoutCountryInput, SizeUncheckedCreateWithoutCountryInput> | SizeCreateWithoutCountryInput[] | SizeUncheckedCreateWithoutCountryInput[]
+    connectOrCreate?: SizeCreateOrConnectWithoutCountryInput | SizeCreateOrConnectWithoutCountryInput[]
+    createMany?: SizeCreateManyCountryInputEnvelope
+    connect?: SizeWhereUniqueInput | SizeWhereUniqueInput[]
   }
 
-  export type Favorite_sizeUncheckedCreateNestedManyWithoutCustomerInput = {
-    create?: XOR<Favorite_sizeCreateWithoutCustomerInput, Favorite_sizeUncheckedCreateWithoutCustomerInput> | Favorite_sizeCreateWithoutCustomerInput[] | Favorite_sizeUncheckedCreateWithoutCustomerInput[]
-    connectOrCreate?: Favorite_sizeCreateOrConnectWithoutCustomerInput | Favorite_sizeCreateOrConnectWithoutCustomerInput[]
-    createMany?: Favorite_sizeCreateManyCustomerInputEnvelope
-    connect?: Favorite_sizeWhereUniqueInput | Favorite_sizeWhereUniqueInput[]
+  export type FavoriteSizeUncheckedCreateNestedManyWithoutCountryInput = {
+    create?: XOR<FavoriteSizeCreateWithoutCountryInput, FavoriteSizeUncheckedCreateWithoutCountryInput> | FavoriteSizeCreateWithoutCountryInput[] | FavoriteSizeUncheckedCreateWithoutCountryInput[]
+    connectOrCreate?: FavoriteSizeCreateOrConnectWithoutCountryInput | FavoriteSizeCreateOrConnectWithoutCountryInput[]
+    createMany?: FavoriteSizeCreateManyCountryInputEnvelope
+    connect?: FavoriteSizeWhereUniqueInput | FavoriteSizeWhereUniqueInput[]
   }
 
-  export type EnumRoleFieldUpdateOperationsInput = {
-    set?: $Enums.Role
+  export type SizeUpdateManyWithoutCountryNestedInput = {
+    create?: XOR<SizeCreateWithoutCountryInput, SizeUncheckedCreateWithoutCountryInput> | SizeCreateWithoutCountryInput[] | SizeUncheckedCreateWithoutCountryInput[]
+    connectOrCreate?: SizeCreateOrConnectWithoutCountryInput | SizeCreateOrConnectWithoutCountryInput[]
+    upsert?: SizeUpsertWithWhereUniqueWithoutCountryInput | SizeUpsertWithWhereUniqueWithoutCountryInput[]
+    createMany?: SizeCreateManyCountryInputEnvelope
+    set?: SizeWhereUniqueInput | SizeWhereUniqueInput[]
+    disconnect?: SizeWhereUniqueInput | SizeWhereUniqueInput[]
+    delete?: SizeWhereUniqueInput | SizeWhereUniqueInput[]
+    connect?: SizeWhereUniqueInput | SizeWhereUniqueInput[]
+    update?: SizeUpdateWithWhereUniqueWithoutCountryInput | SizeUpdateWithWhereUniqueWithoutCountryInput[]
+    updateMany?: SizeUpdateManyWithWhereWithoutCountryInput | SizeUpdateManyWithWhereWithoutCountryInput[]
+    deleteMany?: SizeScalarWhereInput | SizeScalarWhereInput[]
   }
 
-  export type Favorite_sizeUpdateManyWithoutCustomerNestedInput = {
-    create?: XOR<Favorite_sizeCreateWithoutCustomerInput, Favorite_sizeUncheckedCreateWithoutCustomerInput> | Favorite_sizeCreateWithoutCustomerInput[] | Favorite_sizeUncheckedCreateWithoutCustomerInput[]
-    connectOrCreate?: Favorite_sizeCreateOrConnectWithoutCustomerInput | Favorite_sizeCreateOrConnectWithoutCustomerInput[]
-    upsert?: Favorite_sizeUpsertWithWhereUniqueWithoutCustomerInput | Favorite_sizeUpsertWithWhereUniqueWithoutCustomerInput[]
-    createMany?: Favorite_sizeCreateManyCustomerInputEnvelope
-    set?: Favorite_sizeWhereUniqueInput | Favorite_sizeWhereUniqueInput[]
-    disconnect?: Favorite_sizeWhereUniqueInput | Favorite_sizeWhereUniqueInput[]
-    delete?: Favorite_sizeWhereUniqueInput | Favorite_sizeWhereUniqueInput[]
-    connect?: Favorite_sizeWhereUniqueInput | Favorite_sizeWhereUniqueInput[]
-    update?: Favorite_sizeUpdateWithWhereUniqueWithoutCustomerInput | Favorite_sizeUpdateWithWhereUniqueWithoutCustomerInput[]
-    updateMany?: Favorite_sizeUpdateManyWithWhereWithoutCustomerInput | Favorite_sizeUpdateManyWithWhereWithoutCustomerInput[]
-    deleteMany?: Favorite_sizeScalarWhereInput | Favorite_sizeScalarWhereInput[]
+  export type FavoriteSizeUpdateManyWithoutCountryNestedInput = {
+    create?: XOR<FavoriteSizeCreateWithoutCountryInput, FavoriteSizeUncheckedCreateWithoutCountryInput> | FavoriteSizeCreateWithoutCountryInput[] | FavoriteSizeUncheckedCreateWithoutCountryInput[]
+    connectOrCreate?: FavoriteSizeCreateOrConnectWithoutCountryInput | FavoriteSizeCreateOrConnectWithoutCountryInput[]
+    upsert?: FavoriteSizeUpsertWithWhereUniqueWithoutCountryInput | FavoriteSizeUpsertWithWhereUniqueWithoutCountryInput[]
+    createMany?: FavoriteSizeCreateManyCountryInputEnvelope
+    set?: FavoriteSizeWhereUniqueInput | FavoriteSizeWhereUniqueInput[]
+    disconnect?: FavoriteSizeWhereUniqueInput | FavoriteSizeWhereUniqueInput[]
+    delete?: FavoriteSizeWhereUniqueInput | FavoriteSizeWhereUniqueInput[]
+    connect?: FavoriteSizeWhereUniqueInput | FavoriteSizeWhereUniqueInput[]
+    update?: FavoriteSizeUpdateWithWhereUniqueWithoutCountryInput | FavoriteSizeUpdateWithWhereUniqueWithoutCountryInput[]
+    updateMany?: FavoriteSizeUpdateManyWithWhereWithoutCountryInput | FavoriteSizeUpdateManyWithWhereWithoutCountryInput[]
+    deleteMany?: FavoriteSizeScalarWhereInput | FavoriteSizeScalarWhereInput[]
   }
 
-  export type Favorite_sizeUncheckedUpdateManyWithoutCustomerNestedInput = {
-    create?: XOR<Favorite_sizeCreateWithoutCustomerInput, Favorite_sizeUncheckedCreateWithoutCustomerInput> | Favorite_sizeCreateWithoutCustomerInput[] | Favorite_sizeUncheckedCreateWithoutCustomerInput[]
-    connectOrCreate?: Favorite_sizeCreateOrConnectWithoutCustomerInput | Favorite_sizeCreateOrConnectWithoutCustomerInput[]
-    upsert?: Favorite_sizeUpsertWithWhereUniqueWithoutCustomerInput | Favorite_sizeUpsertWithWhereUniqueWithoutCustomerInput[]
-    createMany?: Favorite_sizeCreateManyCustomerInputEnvelope
-    set?: Favorite_sizeWhereUniqueInput | Favorite_sizeWhereUniqueInput[]
-    disconnect?: Favorite_sizeWhereUniqueInput | Favorite_sizeWhereUniqueInput[]
-    delete?: Favorite_sizeWhereUniqueInput | Favorite_sizeWhereUniqueInput[]
-    connect?: Favorite_sizeWhereUniqueInput | Favorite_sizeWhereUniqueInput[]
-    update?: Favorite_sizeUpdateWithWhereUniqueWithoutCustomerInput | Favorite_sizeUpdateWithWhereUniqueWithoutCustomerInput[]
-    updateMany?: Favorite_sizeUpdateManyWithWhereWithoutCustomerInput | Favorite_sizeUpdateManyWithWhereWithoutCustomerInput[]
-    deleteMany?: Favorite_sizeScalarWhereInput | Favorite_sizeScalarWhereInput[]
+  export type SizeUncheckedUpdateManyWithoutCountryNestedInput = {
+    create?: XOR<SizeCreateWithoutCountryInput, SizeUncheckedCreateWithoutCountryInput> | SizeCreateWithoutCountryInput[] | SizeUncheckedCreateWithoutCountryInput[]
+    connectOrCreate?: SizeCreateOrConnectWithoutCountryInput | SizeCreateOrConnectWithoutCountryInput[]
+    upsert?: SizeUpsertWithWhereUniqueWithoutCountryInput | SizeUpsertWithWhereUniqueWithoutCountryInput[]
+    createMany?: SizeCreateManyCountryInputEnvelope
+    set?: SizeWhereUniqueInput | SizeWhereUniqueInput[]
+    disconnect?: SizeWhereUniqueInput | SizeWhereUniqueInput[]
+    delete?: SizeWhereUniqueInput | SizeWhereUniqueInput[]
+    connect?: SizeWhereUniqueInput | SizeWhereUniqueInput[]
+    update?: SizeUpdateWithWhereUniqueWithoutCountryInput | SizeUpdateWithWhereUniqueWithoutCountryInput[]
+    updateMany?: SizeUpdateManyWithWhereWithoutCountryInput | SizeUpdateManyWithWhereWithoutCountryInput[]
+    deleteMany?: SizeScalarWhereInput | SizeScalarWhereInput[]
+  }
+
+  export type FavoriteSizeUncheckedUpdateManyWithoutCountryNestedInput = {
+    create?: XOR<FavoriteSizeCreateWithoutCountryInput, FavoriteSizeUncheckedCreateWithoutCountryInput> | FavoriteSizeCreateWithoutCountryInput[] | FavoriteSizeUncheckedCreateWithoutCountryInput[]
+    connectOrCreate?: FavoriteSizeCreateOrConnectWithoutCountryInput | FavoriteSizeCreateOrConnectWithoutCountryInput[]
+    upsert?: FavoriteSizeUpsertWithWhereUniqueWithoutCountryInput | FavoriteSizeUpsertWithWhereUniqueWithoutCountryInput[]
+    createMany?: FavoriteSizeCreateManyCountryInputEnvelope
+    set?: FavoriteSizeWhereUniqueInput | FavoriteSizeWhereUniqueInput[]
+    disconnect?: FavoriteSizeWhereUniqueInput | FavoriteSizeWhereUniqueInput[]
+    delete?: FavoriteSizeWhereUniqueInput | FavoriteSizeWhereUniqueInput[]
+    connect?: FavoriteSizeWhereUniqueInput | FavoriteSizeWhereUniqueInput[]
+    update?: FavoriteSizeUpdateWithWhereUniqueWithoutCountryInput | FavoriteSizeUpdateWithWhereUniqueWithoutCountryInput[]
+    updateMany?: FavoriteSizeUpdateManyWithWhereWithoutCountryInput | FavoriteSizeUpdateManyWithWhereWithoutCountryInput[]
+    deleteMany?: FavoriteSizeScalarWhereInput | FavoriteSizeScalarWhereInput[]
+  }
+
+  export type SizeCreateNestedManyWithoutCategoryInput = {
+    create?: XOR<SizeCreateWithoutCategoryInput, SizeUncheckedCreateWithoutCategoryInput> | SizeCreateWithoutCategoryInput[] | SizeUncheckedCreateWithoutCategoryInput[]
+    connectOrCreate?: SizeCreateOrConnectWithoutCategoryInput | SizeCreateOrConnectWithoutCategoryInput[]
+    createMany?: SizeCreateManyCategoryInputEnvelope
+    connect?: SizeWhereUniqueInput | SizeWhereUniqueInput[]
+  }
+
+  export type FavoriteSizeCreateNestedManyWithoutCategoryInput = {
+    create?: XOR<FavoriteSizeCreateWithoutCategoryInput, FavoriteSizeUncheckedCreateWithoutCategoryInput> | FavoriteSizeCreateWithoutCategoryInput[] | FavoriteSizeUncheckedCreateWithoutCategoryInput[]
+    connectOrCreate?: FavoriteSizeCreateOrConnectWithoutCategoryInput | FavoriteSizeCreateOrConnectWithoutCategoryInput[]
+    createMany?: FavoriteSizeCreateManyCategoryInputEnvelope
+    connect?: FavoriteSizeWhereUniqueInput | FavoriteSizeWhereUniqueInput[]
+  }
+
+  export type SizeUncheckedCreateNestedManyWithoutCategoryInput = {
+    create?: XOR<SizeCreateWithoutCategoryInput, SizeUncheckedCreateWithoutCategoryInput> | SizeCreateWithoutCategoryInput[] | SizeUncheckedCreateWithoutCategoryInput[]
+    connectOrCreate?: SizeCreateOrConnectWithoutCategoryInput | SizeCreateOrConnectWithoutCategoryInput[]
+    createMany?: SizeCreateManyCategoryInputEnvelope
+    connect?: SizeWhereUniqueInput | SizeWhereUniqueInput[]
+  }
+
+  export type FavoriteSizeUncheckedCreateNestedManyWithoutCategoryInput = {
+    create?: XOR<FavoriteSizeCreateWithoutCategoryInput, FavoriteSizeUncheckedCreateWithoutCategoryInput> | FavoriteSizeCreateWithoutCategoryInput[] | FavoriteSizeUncheckedCreateWithoutCategoryInput[]
+    connectOrCreate?: FavoriteSizeCreateOrConnectWithoutCategoryInput | FavoriteSizeCreateOrConnectWithoutCategoryInput[]
+    createMany?: FavoriteSizeCreateManyCategoryInputEnvelope
+    connect?: FavoriteSizeWhereUniqueInput | FavoriteSizeWhereUniqueInput[]
+  }
+
+  export type SizeUpdateManyWithoutCategoryNestedInput = {
+    create?: XOR<SizeCreateWithoutCategoryInput, SizeUncheckedCreateWithoutCategoryInput> | SizeCreateWithoutCategoryInput[] | SizeUncheckedCreateWithoutCategoryInput[]
+    connectOrCreate?: SizeCreateOrConnectWithoutCategoryInput | SizeCreateOrConnectWithoutCategoryInput[]
+    upsert?: SizeUpsertWithWhereUniqueWithoutCategoryInput | SizeUpsertWithWhereUniqueWithoutCategoryInput[]
+    createMany?: SizeCreateManyCategoryInputEnvelope
+    set?: SizeWhereUniqueInput | SizeWhereUniqueInput[]
+    disconnect?: SizeWhereUniqueInput | SizeWhereUniqueInput[]
+    delete?: SizeWhereUniqueInput | SizeWhereUniqueInput[]
+    connect?: SizeWhereUniqueInput | SizeWhereUniqueInput[]
+    update?: SizeUpdateWithWhereUniqueWithoutCategoryInput | SizeUpdateWithWhereUniqueWithoutCategoryInput[]
+    updateMany?: SizeUpdateManyWithWhereWithoutCategoryInput | SizeUpdateManyWithWhereWithoutCategoryInput[]
+    deleteMany?: SizeScalarWhereInput | SizeScalarWhereInput[]
+  }
+
+  export type FavoriteSizeUpdateManyWithoutCategoryNestedInput = {
+    create?: XOR<FavoriteSizeCreateWithoutCategoryInput, FavoriteSizeUncheckedCreateWithoutCategoryInput> | FavoriteSizeCreateWithoutCategoryInput[] | FavoriteSizeUncheckedCreateWithoutCategoryInput[]
+    connectOrCreate?: FavoriteSizeCreateOrConnectWithoutCategoryInput | FavoriteSizeCreateOrConnectWithoutCategoryInput[]
+    upsert?: FavoriteSizeUpsertWithWhereUniqueWithoutCategoryInput | FavoriteSizeUpsertWithWhereUniqueWithoutCategoryInput[]
+    createMany?: FavoriteSizeCreateManyCategoryInputEnvelope
+    set?: FavoriteSizeWhereUniqueInput | FavoriteSizeWhereUniqueInput[]
+    disconnect?: FavoriteSizeWhereUniqueInput | FavoriteSizeWhereUniqueInput[]
+    delete?: FavoriteSizeWhereUniqueInput | FavoriteSizeWhereUniqueInput[]
+    connect?: FavoriteSizeWhereUniqueInput | FavoriteSizeWhereUniqueInput[]
+    update?: FavoriteSizeUpdateWithWhereUniqueWithoutCategoryInput | FavoriteSizeUpdateWithWhereUniqueWithoutCategoryInput[]
+    updateMany?: FavoriteSizeUpdateManyWithWhereWithoutCategoryInput | FavoriteSizeUpdateManyWithWhereWithoutCategoryInput[]
+    deleteMany?: FavoriteSizeScalarWhereInput | FavoriteSizeScalarWhereInput[]
+  }
+
+  export type SizeUncheckedUpdateManyWithoutCategoryNestedInput = {
+    create?: XOR<SizeCreateWithoutCategoryInput, SizeUncheckedCreateWithoutCategoryInput> | SizeCreateWithoutCategoryInput[] | SizeUncheckedCreateWithoutCategoryInput[]
+    connectOrCreate?: SizeCreateOrConnectWithoutCategoryInput | SizeCreateOrConnectWithoutCategoryInput[]
+    upsert?: SizeUpsertWithWhereUniqueWithoutCategoryInput | SizeUpsertWithWhereUniqueWithoutCategoryInput[]
+    createMany?: SizeCreateManyCategoryInputEnvelope
+    set?: SizeWhereUniqueInput | SizeWhereUniqueInput[]
+    disconnect?: SizeWhereUniqueInput | SizeWhereUniqueInput[]
+    delete?: SizeWhereUniqueInput | SizeWhereUniqueInput[]
+    connect?: SizeWhereUniqueInput | SizeWhereUniqueInput[]
+    update?: SizeUpdateWithWhereUniqueWithoutCategoryInput | SizeUpdateWithWhereUniqueWithoutCategoryInput[]
+    updateMany?: SizeUpdateManyWithWhereWithoutCategoryInput | SizeUpdateManyWithWhereWithoutCategoryInput[]
+    deleteMany?: SizeScalarWhereInput | SizeScalarWhereInput[]
+  }
+
+  export type FavoriteSizeUncheckedUpdateManyWithoutCategoryNestedInput = {
+    create?: XOR<FavoriteSizeCreateWithoutCategoryInput, FavoriteSizeUncheckedCreateWithoutCategoryInput> | FavoriteSizeCreateWithoutCategoryInput[] | FavoriteSizeUncheckedCreateWithoutCategoryInput[]
+    connectOrCreate?: FavoriteSizeCreateOrConnectWithoutCategoryInput | FavoriteSizeCreateOrConnectWithoutCategoryInput[]
+    upsert?: FavoriteSizeUpsertWithWhereUniqueWithoutCategoryInput | FavoriteSizeUpsertWithWhereUniqueWithoutCategoryInput[]
+    createMany?: FavoriteSizeCreateManyCategoryInputEnvelope
+    set?: FavoriteSizeWhereUniqueInput | FavoriteSizeWhereUniqueInput[]
+    disconnect?: FavoriteSizeWhereUniqueInput | FavoriteSizeWhereUniqueInput[]
+    delete?: FavoriteSizeWhereUniqueInput | FavoriteSizeWhereUniqueInput[]
+    connect?: FavoriteSizeWhereUniqueInput | FavoriteSizeWhereUniqueInput[]
+    update?: FavoriteSizeUpdateWithWhereUniqueWithoutCategoryInput | FavoriteSizeUpdateWithWhereUniqueWithoutCategoryInput[]
+    updateMany?: FavoriteSizeUpdateManyWithWhereWithoutCategoryInput | FavoriteSizeUpdateManyWithWhereWithoutCategoryInput[]
+    deleteMany?: FavoriteSizeScalarWhereInput | FavoriteSizeScalarWhereInput[]
+  }
+
+  export type CategoryCreateNestedOneWithoutSizesInput = {
+    create?: XOR<CategoryCreateWithoutSizesInput, CategoryUncheckedCreateWithoutSizesInput>
+    connectOrCreate?: CategoryCreateOrConnectWithoutSizesInput
+    connect?: CategoryWhereUniqueInput
+  }
+
+  export type CountryCreateNestedOneWithoutSizesInput = {
+    create?: XOR<CountryCreateWithoutSizesInput, CountryUncheckedCreateWithoutSizesInput>
+    connectOrCreate?: CountryCreateOrConnectWithoutSizesInput
+    connect?: CountryWhereUniqueInput
+  }
+
+  export type FavoriteSizeCreateNestedManyWithoutSizeInput = {
+    create?: XOR<FavoriteSizeCreateWithoutSizeInput, FavoriteSizeUncheckedCreateWithoutSizeInput> | FavoriteSizeCreateWithoutSizeInput[] | FavoriteSizeUncheckedCreateWithoutSizeInput[]
+    connectOrCreate?: FavoriteSizeCreateOrConnectWithoutSizeInput | FavoriteSizeCreateOrConnectWithoutSizeInput[]
+    createMany?: FavoriteSizeCreateManySizeInputEnvelope
+    connect?: FavoriteSizeWhereUniqueInput | FavoriteSizeWhereUniqueInput[]
+  }
+
+  export type ConversionCreateNestedManyWithoutFromSizeInput = {
+    create?: XOR<ConversionCreateWithoutFromSizeInput, ConversionUncheckedCreateWithoutFromSizeInput> | ConversionCreateWithoutFromSizeInput[] | ConversionUncheckedCreateWithoutFromSizeInput[]
+    connectOrCreate?: ConversionCreateOrConnectWithoutFromSizeInput | ConversionCreateOrConnectWithoutFromSizeInput[]
+    createMany?: ConversionCreateManyFromSizeInputEnvelope
+    connect?: ConversionWhereUniqueInput | ConversionWhereUniqueInput[]
+  }
+
+  export type ConversionCreateNestedManyWithoutToSizeInput = {
+    create?: XOR<ConversionCreateWithoutToSizeInput, ConversionUncheckedCreateWithoutToSizeInput> | ConversionCreateWithoutToSizeInput[] | ConversionUncheckedCreateWithoutToSizeInput[]
+    connectOrCreate?: ConversionCreateOrConnectWithoutToSizeInput | ConversionCreateOrConnectWithoutToSizeInput[]
+    createMany?: ConversionCreateManyToSizeInputEnvelope
+    connect?: ConversionWhereUniqueInput | ConversionWhereUniqueInput[]
+  }
+
+  export type FavoriteSizeUncheckedCreateNestedManyWithoutSizeInput = {
+    create?: XOR<FavoriteSizeCreateWithoutSizeInput, FavoriteSizeUncheckedCreateWithoutSizeInput> | FavoriteSizeCreateWithoutSizeInput[] | FavoriteSizeUncheckedCreateWithoutSizeInput[]
+    connectOrCreate?: FavoriteSizeCreateOrConnectWithoutSizeInput | FavoriteSizeCreateOrConnectWithoutSizeInput[]
+    createMany?: FavoriteSizeCreateManySizeInputEnvelope
+    connect?: FavoriteSizeWhereUniqueInput | FavoriteSizeWhereUniqueInput[]
+  }
+
+  export type ConversionUncheckedCreateNestedManyWithoutFromSizeInput = {
+    create?: XOR<ConversionCreateWithoutFromSizeInput, ConversionUncheckedCreateWithoutFromSizeInput> | ConversionCreateWithoutFromSizeInput[] | ConversionUncheckedCreateWithoutFromSizeInput[]
+    connectOrCreate?: ConversionCreateOrConnectWithoutFromSizeInput | ConversionCreateOrConnectWithoutFromSizeInput[]
+    createMany?: ConversionCreateManyFromSizeInputEnvelope
+    connect?: ConversionWhereUniqueInput | ConversionWhereUniqueInput[]
+  }
+
+  export type ConversionUncheckedCreateNestedManyWithoutToSizeInput = {
+    create?: XOR<ConversionCreateWithoutToSizeInput, ConversionUncheckedCreateWithoutToSizeInput> | ConversionCreateWithoutToSizeInput[] | ConversionUncheckedCreateWithoutToSizeInput[]
+    connectOrCreate?: ConversionCreateOrConnectWithoutToSizeInput | ConversionCreateOrConnectWithoutToSizeInput[]
+    createMany?: ConversionCreateManyToSizeInputEnvelope
+    connect?: ConversionWhereUniqueInput | ConversionWhereUniqueInput[]
+  }
+
+  export type CategoryUpdateOneRequiredWithoutSizesNestedInput = {
+    create?: XOR<CategoryCreateWithoutSizesInput, CategoryUncheckedCreateWithoutSizesInput>
+    connectOrCreate?: CategoryCreateOrConnectWithoutSizesInput
+    upsert?: CategoryUpsertWithoutSizesInput
+    connect?: CategoryWhereUniqueInput
+    update?: XOR<XOR<CategoryUpdateToOneWithWhereWithoutSizesInput, CategoryUpdateWithoutSizesInput>, CategoryUncheckedUpdateWithoutSizesInput>
+  }
+
+  export type CountryUpdateOneRequiredWithoutSizesNestedInput = {
+    create?: XOR<CountryCreateWithoutSizesInput, CountryUncheckedCreateWithoutSizesInput>
+    connectOrCreate?: CountryCreateOrConnectWithoutSizesInput
+    upsert?: CountryUpsertWithoutSizesInput
+    connect?: CountryWhereUniqueInput
+    update?: XOR<XOR<CountryUpdateToOneWithWhereWithoutSizesInput, CountryUpdateWithoutSizesInput>, CountryUncheckedUpdateWithoutSizesInput>
+  }
+
+  export type FavoriteSizeUpdateManyWithoutSizeNestedInput = {
+    create?: XOR<FavoriteSizeCreateWithoutSizeInput, FavoriteSizeUncheckedCreateWithoutSizeInput> | FavoriteSizeCreateWithoutSizeInput[] | FavoriteSizeUncheckedCreateWithoutSizeInput[]
+    connectOrCreate?: FavoriteSizeCreateOrConnectWithoutSizeInput | FavoriteSizeCreateOrConnectWithoutSizeInput[]
+    upsert?: FavoriteSizeUpsertWithWhereUniqueWithoutSizeInput | FavoriteSizeUpsertWithWhereUniqueWithoutSizeInput[]
+    createMany?: FavoriteSizeCreateManySizeInputEnvelope
+    set?: FavoriteSizeWhereUniqueInput | FavoriteSizeWhereUniqueInput[]
+    disconnect?: FavoriteSizeWhereUniqueInput | FavoriteSizeWhereUniqueInput[]
+    delete?: FavoriteSizeWhereUniqueInput | FavoriteSizeWhereUniqueInput[]
+    connect?: FavoriteSizeWhereUniqueInput | FavoriteSizeWhereUniqueInput[]
+    update?: FavoriteSizeUpdateWithWhereUniqueWithoutSizeInput | FavoriteSizeUpdateWithWhereUniqueWithoutSizeInput[]
+    updateMany?: FavoriteSizeUpdateManyWithWhereWithoutSizeInput | FavoriteSizeUpdateManyWithWhereWithoutSizeInput[]
+    deleteMany?: FavoriteSizeScalarWhereInput | FavoriteSizeScalarWhereInput[]
+  }
+
+  export type ConversionUpdateManyWithoutFromSizeNestedInput = {
+    create?: XOR<ConversionCreateWithoutFromSizeInput, ConversionUncheckedCreateWithoutFromSizeInput> | ConversionCreateWithoutFromSizeInput[] | ConversionUncheckedCreateWithoutFromSizeInput[]
+    connectOrCreate?: ConversionCreateOrConnectWithoutFromSizeInput | ConversionCreateOrConnectWithoutFromSizeInput[]
+    upsert?: ConversionUpsertWithWhereUniqueWithoutFromSizeInput | ConversionUpsertWithWhereUniqueWithoutFromSizeInput[]
+    createMany?: ConversionCreateManyFromSizeInputEnvelope
+    set?: ConversionWhereUniqueInput | ConversionWhereUniqueInput[]
+    disconnect?: ConversionWhereUniqueInput | ConversionWhereUniqueInput[]
+    delete?: ConversionWhereUniqueInput | ConversionWhereUniqueInput[]
+    connect?: ConversionWhereUniqueInput | ConversionWhereUniqueInput[]
+    update?: ConversionUpdateWithWhereUniqueWithoutFromSizeInput | ConversionUpdateWithWhereUniqueWithoutFromSizeInput[]
+    updateMany?: ConversionUpdateManyWithWhereWithoutFromSizeInput | ConversionUpdateManyWithWhereWithoutFromSizeInput[]
+    deleteMany?: ConversionScalarWhereInput | ConversionScalarWhereInput[]
+  }
+
+  export type ConversionUpdateManyWithoutToSizeNestedInput = {
+    create?: XOR<ConversionCreateWithoutToSizeInput, ConversionUncheckedCreateWithoutToSizeInput> | ConversionCreateWithoutToSizeInput[] | ConversionUncheckedCreateWithoutToSizeInput[]
+    connectOrCreate?: ConversionCreateOrConnectWithoutToSizeInput | ConversionCreateOrConnectWithoutToSizeInput[]
+    upsert?: ConversionUpsertWithWhereUniqueWithoutToSizeInput | ConversionUpsertWithWhereUniqueWithoutToSizeInput[]
+    createMany?: ConversionCreateManyToSizeInputEnvelope
+    set?: ConversionWhereUniqueInput | ConversionWhereUniqueInput[]
+    disconnect?: ConversionWhereUniqueInput | ConversionWhereUniqueInput[]
+    delete?: ConversionWhereUniqueInput | ConversionWhereUniqueInput[]
+    connect?: ConversionWhereUniqueInput | ConversionWhereUniqueInput[]
+    update?: ConversionUpdateWithWhereUniqueWithoutToSizeInput | ConversionUpdateWithWhereUniqueWithoutToSizeInput[]
+    updateMany?: ConversionUpdateManyWithWhereWithoutToSizeInput | ConversionUpdateManyWithWhereWithoutToSizeInput[]
+    deleteMany?: ConversionScalarWhereInput | ConversionScalarWhereInput[]
+  }
+
+  export type FavoriteSizeUncheckedUpdateManyWithoutSizeNestedInput = {
+    create?: XOR<FavoriteSizeCreateWithoutSizeInput, FavoriteSizeUncheckedCreateWithoutSizeInput> | FavoriteSizeCreateWithoutSizeInput[] | FavoriteSizeUncheckedCreateWithoutSizeInput[]
+    connectOrCreate?: FavoriteSizeCreateOrConnectWithoutSizeInput | FavoriteSizeCreateOrConnectWithoutSizeInput[]
+    upsert?: FavoriteSizeUpsertWithWhereUniqueWithoutSizeInput | FavoriteSizeUpsertWithWhereUniqueWithoutSizeInput[]
+    createMany?: FavoriteSizeCreateManySizeInputEnvelope
+    set?: FavoriteSizeWhereUniqueInput | FavoriteSizeWhereUniqueInput[]
+    disconnect?: FavoriteSizeWhereUniqueInput | FavoriteSizeWhereUniqueInput[]
+    delete?: FavoriteSizeWhereUniqueInput | FavoriteSizeWhereUniqueInput[]
+    connect?: FavoriteSizeWhereUniqueInput | FavoriteSizeWhereUniqueInput[]
+    update?: FavoriteSizeUpdateWithWhereUniqueWithoutSizeInput | FavoriteSizeUpdateWithWhereUniqueWithoutSizeInput[]
+    updateMany?: FavoriteSizeUpdateManyWithWhereWithoutSizeInput | FavoriteSizeUpdateManyWithWhereWithoutSizeInput[]
+    deleteMany?: FavoriteSizeScalarWhereInput | FavoriteSizeScalarWhereInput[]
+  }
+
+  export type ConversionUncheckedUpdateManyWithoutFromSizeNestedInput = {
+    create?: XOR<ConversionCreateWithoutFromSizeInput, ConversionUncheckedCreateWithoutFromSizeInput> | ConversionCreateWithoutFromSizeInput[] | ConversionUncheckedCreateWithoutFromSizeInput[]
+    connectOrCreate?: ConversionCreateOrConnectWithoutFromSizeInput | ConversionCreateOrConnectWithoutFromSizeInput[]
+    upsert?: ConversionUpsertWithWhereUniqueWithoutFromSizeInput | ConversionUpsertWithWhereUniqueWithoutFromSizeInput[]
+    createMany?: ConversionCreateManyFromSizeInputEnvelope
+    set?: ConversionWhereUniqueInput | ConversionWhereUniqueInput[]
+    disconnect?: ConversionWhereUniqueInput | ConversionWhereUniqueInput[]
+    delete?: ConversionWhereUniqueInput | ConversionWhereUniqueInput[]
+    connect?: ConversionWhereUniqueInput | ConversionWhereUniqueInput[]
+    update?: ConversionUpdateWithWhereUniqueWithoutFromSizeInput | ConversionUpdateWithWhereUniqueWithoutFromSizeInput[]
+    updateMany?: ConversionUpdateManyWithWhereWithoutFromSizeInput | ConversionUpdateManyWithWhereWithoutFromSizeInput[]
+    deleteMany?: ConversionScalarWhereInput | ConversionScalarWhereInput[]
+  }
+
+  export type ConversionUncheckedUpdateManyWithoutToSizeNestedInput = {
+    create?: XOR<ConversionCreateWithoutToSizeInput, ConversionUncheckedCreateWithoutToSizeInput> | ConversionCreateWithoutToSizeInput[] | ConversionUncheckedCreateWithoutToSizeInput[]
+    connectOrCreate?: ConversionCreateOrConnectWithoutToSizeInput | ConversionCreateOrConnectWithoutToSizeInput[]
+    upsert?: ConversionUpsertWithWhereUniqueWithoutToSizeInput | ConversionUpsertWithWhereUniqueWithoutToSizeInput[]
+    createMany?: ConversionCreateManyToSizeInputEnvelope
+    set?: ConversionWhereUniqueInput | ConversionWhereUniqueInput[]
+    disconnect?: ConversionWhereUniqueInput | ConversionWhereUniqueInput[]
+    delete?: ConversionWhereUniqueInput | ConversionWhereUniqueInput[]
+    connect?: ConversionWhereUniqueInput | ConversionWhereUniqueInput[]
+    update?: ConversionUpdateWithWhereUniqueWithoutToSizeInput | ConversionUpdateWithWhereUniqueWithoutToSizeInput[]
+    updateMany?: ConversionUpdateManyWithWhereWithoutToSizeInput | ConversionUpdateManyWithWhereWithoutToSizeInput[]
+    deleteMany?: ConversionScalarWhereInput | ConversionScalarWhereInput[]
+  }
+
+  export type CustomerCreateNestedOneWithoutConversionsInput = {
+    create?: XOR<CustomerCreateWithoutConversionsInput, CustomerUncheckedCreateWithoutConversionsInput>
+    connectOrCreate?: CustomerCreateOrConnectWithoutConversionsInput
+    connect?: CustomerWhereUniqueInput
+  }
+
+  export type SizeCreateNestedOneWithoutFromConversionsInput = {
+    create?: XOR<SizeCreateWithoutFromConversionsInput, SizeUncheckedCreateWithoutFromConversionsInput>
+    connectOrCreate?: SizeCreateOrConnectWithoutFromConversionsInput
+    connect?: SizeWhereUniqueInput
+  }
+
+  export type SizeCreateNestedOneWithoutToConversionsInput = {
+    create?: XOR<SizeCreateWithoutToConversionsInput, SizeUncheckedCreateWithoutToConversionsInput>
+    connectOrCreate?: SizeCreateOrConnectWithoutToConversionsInput
+    connect?: SizeWhereUniqueInput
+  }
+
+  export type CustomerUpdateOneRequiredWithoutConversionsNestedInput = {
+    create?: XOR<CustomerCreateWithoutConversionsInput, CustomerUncheckedCreateWithoutConversionsInput>
+    connectOrCreate?: CustomerCreateOrConnectWithoutConversionsInput
+    upsert?: CustomerUpsertWithoutConversionsInput
+    connect?: CustomerWhereUniqueInput
+    update?: XOR<XOR<CustomerUpdateToOneWithWhereWithoutConversionsInput, CustomerUpdateWithoutConversionsInput>, CustomerUncheckedUpdateWithoutConversionsInput>
+  }
+
+  export type SizeUpdateOneRequiredWithoutFromConversionsNestedInput = {
+    create?: XOR<SizeCreateWithoutFromConversionsInput, SizeUncheckedCreateWithoutFromConversionsInput>
+    connectOrCreate?: SizeCreateOrConnectWithoutFromConversionsInput
+    upsert?: SizeUpsertWithoutFromConversionsInput
+    connect?: SizeWhereUniqueInput
+    update?: XOR<XOR<SizeUpdateToOneWithWhereWithoutFromConversionsInput, SizeUpdateWithoutFromConversionsInput>, SizeUncheckedUpdateWithoutFromConversionsInput>
+  }
+
+  export type SizeUpdateOneRequiredWithoutToConversionsNestedInput = {
+    create?: XOR<SizeCreateWithoutToConversionsInput, SizeUncheckedCreateWithoutToConversionsInput>
+    connectOrCreate?: SizeCreateOrConnectWithoutToConversionsInput
+    upsert?: SizeUpsertWithoutToConversionsInput
+    connect?: SizeWhereUniqueInput
+    update?: XOR<XOR<SizeUpdateToOneWithWhereWithoutToConversionsInput, SizeUpdateWithoutToConversionsInput>, SizeUncheckedUpdateWithoutToConversionsInput>
+  }
+
+  export type FavoriteSizeCreategenderInput = {
+    set: $Enums.Gender[]
+  }
+
+  export type CustomerCreateNestedOneWithoutFavoriteSizesInput = {
+    create?: XOR<CustomerCreateWithoutFavoriteSizesInput, CustomerUncheckedCreateWithoutFavoriteSizesInput>
+    connectOrCreate?: CustomerCreateOrConnectWithoutFavoriteSizesInput
+    connect?: CustomerWhereUniqueInput
+  }
+
+  export type CountryCreateNestedOneWithoutFavoriteSizesInput = {
+    create?: XOR<CountryCreateWithoutFavoriteSizesInput, CountryUncheckedCreateWithoutFavoriteSizesInput>
+    connectOrCreate?: CountryCreateOrConnectWithoutFavoriteSizesInput
+    connect?: CountryWhereUniqueInput
+  }
+
+  export type CategoryCreateNestedOneWithoutFavoriteSizesInput = {
+    create?: XOR<CategoryCreateWithoutFavoriteSizesInput, CategoryUncheckedCreateWithoutFavoriteSizesInput>
+    connectOrCreate?: CategoryCreateOrConnectWithoutFavoriteSizesInput
+    connect?: CategoryWhereUniqueInput
+  }
+
+  export type SizeCreateNestedOneWithoutFavoriteSizesInput = {
+    create?: XOR<SizeCreateWithoutFavoriteSizesInput, SizeUncheckedCreateWithoutFavoriteSizesInput>
+    connectOrCreate?: SizeCreateOrConnectWithoutFavoriteSizesInput
+    connect?: SizeWhereUniqueInput
+  }
+
+  export type FavoriteSizeUpdategenderInput = {
+    set?: $Enums.Gender[]
+    push?: $Enums.Gender | $Enums.Gender[]
+  }
+
+  export type CustomerUpdateOneRequiredWithoutFavoriteSizesNestedInput = {
+    create?: XOR<CustomerCreateWithoutFavoriteSizesInput, CustomerUncheckedCreateWithoutFavoriteSizesInput>
+    connectOrCreate?: CustomerCreateOrConnectWithoutFavoriteSizesInput
+    upsert?: CustomerUpsertWithoutFavoriteSizesInput
+    connect?: CustomerWhereUniqueInput
+    update?: XOR<XOR<CustomerUpdateToOneWithWhereWithoutFavoriteSizesInput, CustomerUpdateWithoutFavoriteSizesInput>, CustomerUncheckedUpdateWithoutFavoriteSizesInput>
+  }
+
+  export type CountryUpdateOneRequiredWithoutFavoriteSizesNestedInput = {
+    create?: XOR<CountryCreateWithoutFavoriteSizesInput, CountryUncheckedCreateWithoutFavoriteSizesInput>
+    connectOrCreate?: CountryCreateOrConnectWithoutFavoriteSizesInput
+    upsert?: CountryUpsertWithoutFavoriteSizesInput
+    connect?: CountryWhereUniqueInput
+    update?: XOR<XOR<CountryUpdateToOneWithWhereWithoutFavoriteSizesInput, CountryUpdateWithoutFavoriteSizesInput>, CountryUncheckedUpdateWithoutFavoriteSizesInput>
+  }
+
+  export type CategoryUpdateOneRequiredWithoutFavoriteSizesNestedInput = {
+    create?: XOR<CategoryCreateWithoutFavoriteSizesInput, CategoryUncheckedCreateWithoutFavoriteSizesInput>
+    connectOrCreate?: CategoryCreateOrConnectWithoutFavoriteSizesInput
+    upsert?: CategoryUpsertWithoutFavoriteSizesInput
+    connect?: CategoryWhereUniqueInput
+    update?: XOR<XOR<CategoryUpdateToOneWithWhereWithoutFavoriteSizesInput, CategoryUpdateWithoutFavoriteSizesInput>, CategoryUncheckedUpdateWithoutFavoriteSizesInput>
+  }
+
+  export type SizeUpdateOneRequiredWithoutFavoriteSizesNestedInput = {
+    create?: XOR<SizeCreateWithoutFavoriteSizesInput, SizeUncheckedCreateWithoutFavoriteSizesInput>
+    connectOrCreate?: SizeCreateOrConnectWithoutFavoriteSizesInput
+    upsert?: SizeUpsertWithoutFavoriteSizesInput
+    connect?: SizeWhereUniqueInput
+    update?: XOR<XOR<SizeUpdateToOneWithWhereWithoutFavoriteSizesInput, SizeUpdateWithoutFavoriteSizesInput>, SizeUncheckedUpdateWithoutFavoriteSizesInput>
   }
 
   export type NestedIntFilter<$PrismaModel = never> = {
@@ -5313,13 +10091,6 @@ export namespace Prisma {
     startsWith?: string | StringFieldRefInput<$PrismaModel>
     endsWith?: string | StringFieldRefInput<$PrismaModel>
     not?: NestedStringNullableFilter<$PrismaModel> | string | null
-  }
-
-  export type NestedEnumGenderFilter<$PrismaModel = never> = {
-    equals?: $Enums.Gender | EnumGenderFieldRefInput<$PrismaModel>
-    in?: $Enums.Gender[] | ListEnumGenderFieldRefInput<$PrismaModel>
-    notIn?: $Enums.Gender[] | ListEnumGenderFieldRefInput<$PrismaModel>
-    not?: NestedEnumGenderFilter<$PrismaModel> | $Enums.Gender
   }
 
   export type NestedIntWithAggregatesFilter<$PrismaModel = never> = {
@@ -5394,267 +10165,1108 @@ export namespace Prisma {
     not?: NestedIntNullableFilter<$PrismaModel> | number | null
   }
 
-  export type NestedEnumGenderWithAggregatesFilter<$PrismaModel = never> = {
-    equals?: $Enums.Gender | EnumGenderFieldRefInput<$PrismaModel>
-    in?: $Enums.Gender[] | ListEnumGenderFieldRefInput<$PrismaModel>
-    notIn?: $Enums.Gender[] | ListEnumGenderFieldRefInput<$PrismaModel>
-    not?: NestedEnumGenderWithAggregatesFilter<$PrismaModel> | $Enums.Gender
-    _count?: NestedIntFilter<$PrismaModel>
-    _min?: NestedEnumGenderFilter<$PrismaModel>
-    _max?: NestedEnumGenderFilter<$PrismaModel>
+  export type ConversionCreateWithoutCustomerInput = {
+    fromSize: SizeCreateNestedOneWithoutFromConversionsInput
+    toSize: SizeCreateNestedOneWithoutToConversionsInput
   }
 
-  export type NestedEnumRoleFilter<$PrismaModel = never> = {
-    equals?: $Enums.Role | EnumRoleFieldRefInput<$PrismaModel>
-    in?: $Enums.Role[] | ListEnumRoleFieldRefInput<$PrismaModel>
-    notIn?: $Enums.Role[] | ListEnumRoleFieldRefInput<$PrismaModel>
-    not?: NestedEnumRoleFilter<$PrismaModel> | $Enums.Role
-  }
-
-  export type NestedEnumRoleWithAggregatesFilter<$PrismaModel = never> = {
-    equals?: $Enums.Role | EnumRoleFieldRefInput<$PrismaModel>
-    in?: $Enums.Role[] | ListEnumRoleFieldRefInput<$PrismaModel>
-    notIn?: $Enums.Role[] | ListEnumRoleFieldRefInput<$PrismaModel>
-    not?: NestedEnumRoleWithAggregatesFilter<$PrismaModel> | $Enums.Role
-    _count?: NestedIntFilter<$PrismaModel>
-    _min?: NestedEnumRoleFilter<$PrismaModel>
-    _max?: NestedEnumRoleFilter<$PrismaModel>
-  }
-
-  export type CustomerCreateWithoutFavorite_sizeInput = {
-    email: string
-    name?: string | null
-    image?: string | null
-    role?: $Enums.Role
-  }
-
-  export type CustomerUncheckedCreateWithoutFavorite_sizeInput = {
+  export type ConversionUncheckedCreateWithoutCustomerInput = {
     id?: number
-    email: string
-    name?: string | null
-    image?: string | null
-    role?: $Enums.Role
+    from_size_id: number
+    to_size_id: number
   }
 
-  export type CustomerCreateOrConnectWithoutFavorite_sizeInput = {
-    where: CustomerWhereUniqueInput
-    create: XOR<CustomerCreateWithoutFavorite_sizeInput, CustomerUncheckedCreateWithoutFavorite_sizeInput>
+  export type ConversionCreateOrConnectWithoutCustomerInput = {
+    where: ConversionWhereUniqueInput
+    create: XOR<ConversionCreateWithoutCustomerInput, ConversionUncheckedCreateWithoutCustomerInput>
   }
 
-  export type CountryCreateWithoutFavorite_sizeInput = {
-    name: string
+  export type ConversionCreateManyCustomerInputEnvelope = {
+    data: ConversionCreateManyCustomerInput | ConversionCreateManyCustomerInput[]
+    skipDuplicates?: boolean
   }
 
-  export type CountryUncheckedCreateWithoutFavorite_sizeInput = {
+  export type FavoriteSizeCreateWithoutCustomerInput = {
+    title: string
+    description?: string | null
+    gender?: FavoriteSizeCreategenderInput | $Enums.Gender[]
+    country: CountryCreateNestedOneWithoutFavoriteSizesInput
+    category: CategoryCreateNestedOneWithoutFavoriteSizesInput
+    size: SizeCreateNestedOneWithoutFavoriteSizesInput
+  }
+
+  export type FavoriteSizeUncheckedCreateWithoutCustomerInput = {
     id?: number
-    name: string
+    title: string
+    description?: string | null
+    gender?: FavoriteSizeCreategenderInput | $Enums.Gender[]
+    country_id: number
+    category_id: number
+    size_id: number
   }
 
-  export type CountryCreateOrConnectWithoutFavorite_sizeInput = {
+  export type FavoriteSizeCreateOrConnectWithoutCustomerInput = {
+    where: FavoriteSizeWhereUniqueInput
+    create: XOR<FavoriteSizeCreateWithoutCustomerInput, FavoriteSizeUncheckedCreateWithoutCustomerInput>
+  }
+
+  export type FavoriteSizeCreateManyCustomerInputEnvelope = {
+    data: FavoriteSizeCreateManyCustomerInput | FavoriteSizeCreateManyCustomerInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type ConversionUpsertWithWhereUniqueWithoutCustomerInput = {
+    where: ConversionWhereUniqueInput
+    update: XOR<ConversionUpdateWithoutCustomerInput, ConversionUncheckedUpdateWithoutCustomerInput>
+    create: XOR<ConversionCreateWithoutCustomerInput, ConversionUncheckedCreateWithoutCustomerInput>
+  }
+
+  export type ConversionUpdateWithWhereUniqueWithoutCustomerInput = {
+    where: ConversionWhereUniqueInput
+    data: XOR<ConversionUpdateWithoutCustomerInput, ConversionUncheckedUpdateWithoutCustomerInput>
+  }
+
+  export type ConversionUpdateManyWithWhereWithoutCustomerInput = {
+    where: ConversionScalarWhereInput
+    data: XOR<ConversionUpdateManyMutationInput, ConversionUncheckedUpdateManyWithoutCustomerInput>
+  }
+
+  export type ConversionScalarWhereInput = {
+    AND?: ConversionScalarWhereInput | ConversionScalarWhereInput[]
+    OR?: ConversionScalarWhereInput[]
+    NOT?: ConversionScalarWhereInput | ConversionScalarWhereInput[]
+    id?: IntFilter<"Conversion"> | number
+    customer_id?: IntFilter<"Conversion"> | number
+    from_size_id?: IntFilter<"Conversion"> | number
+    to_size_id?: IntFilter<"Conversion"> | number
+  }
+
+  export type FavoriteSizeUpsertWithWhereUniqueWithoutCustomerInput = {
+    where: FavoriteSizeWhereUniqueInput
+    update: XOR<FavoriteSizeUpdateWithoutCustomerInput, FavoriteSizeUncheckedUpdateWithoutCustomerInput>
+    create: XOR<FavoriteSizeCreateWithoutCustomerInput, FavoriteSizeUncheckedCreateWithoutCustomerInput>
+  }
+
+  export type FavoriteSizeUpdateWithWhereUniqueWithoutCustomerInput = {
+    where: FavoriteSizeWhereUniqueInput
+    data: XOR<FavoriteSizeUpdateWithoutCustomerInput, FavoriteSizeUncheckedUpdateWithoutCustomerInput>
+  }
+
+  export type FavoriteSizeUpdateManyWithWhereWithoutCustomerInput = {
+    where: FavoriteSizeScalarWhereInput
+    data: XOR<FavoriteSizeUpdateManyMutationInput, FavoriteSizeUncheckedUpdateManyWithoutCustomerInput>
+  }
+
+  export type FavoriteSizeScalarWhereInput = {
+    AND?: FavoriteSizeScalarWhereInput | FavoriteSizeScalarWhereInput[]
+    OR?: FavoriteSizeScalarWhereInput[]
+    NOT?: FavoriteSizeScalarWhereInput | FavoriteSizeScalarWhereInput[]
+    id?: IntFilter<"FavoriteSize"> | number
+    customer_id?: IntFilter<"FavoriteSize"> | number
+    title?: StringFilter<"FavoriteSize"> | string
+    description?: StringNullableFilter<"FavoriteSize"> | string | null
+    gender?: EnumGenderNullableListFilter<"FavoriteSize">
+    country_id?: IntFilter<"FavoriteSize"> | number
+    category_id?: IntFilter<"FavoriteSize"> | number
+    size_id?: IntFilter<"FavoriteSize"> | number
+  }
+
+  export type SizeCreateWithoutCountryInput = {
+    size_label: string
+    category: CategoryCreateNestedOneWithoutSizesInput
+    favoriteSizes?: FavoriteSizeCreateNestedManyWithoutSizeInput
+    fromConversions?: ConversionCreateNestedManyWithoutFromSizeInput
+    toConversions?: ConversionCreateNestedManyWithoutToSizeInput
+  }
+
+  export type SizeUncheckedCreateWithoutCountryInput = {
+    id?: number
+    category_id: number
+    size_label: string
+    favoriteSizes?: FavoriteSizeUncheckedCreateNestedManyWithoutSizeInput
+    fromConversions?: ConversionUncheckedCreateNestedManyWithoutFromSizeInput
+    toConversions?: ConversionUncheckedCreateNestedManyWithoutToSizeInput
+  }
+
+  export type SizeCreateOrConnectWithoutCountryInput = {
+    where: SizeWhereUniqueInput
+    create: XOR<SizeCreateWithoutCountryInput, SizeUncheckedCreateWithoutCountryInput>
+  }
+
+  export type SizeCreateManyCountryInputEnvelope = {
+    data: SizeCreateManyCountryInput | SizeCreateManyCountryInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type FavoriteSizeCreateWithoutCountryInput = {
+    title: string
+    description?: string | null
+    gender?: FavoriteSizeCreategenderInput | $Enums.Gender[]
+    customer: CustomerCreateNestedOneWithoutFavoriteSizesInput
+    category: CategoryCreateNestedOneWithoutFavoriteSizesInput
+    size: SizeCreateNestedOneWithoutFavoriteSizesInput
+  }
+
+  export type FavoriteSizeUncheckedCreateWithoutCountryInput = {
+    id?: number
+    customer_id: number
+    title: string
+    description?: string | null
+    gender?: FavoriteSizeCreategenderInput | $Enums.Gender[]
+    category_id: number
+    size_id: number
+  }
+
+  export type FavoriteSizeCreateOrConnectWithoutCountryInput = {
+    where: FavoriteSizeWhereUniqueInput
+    create: XOR<FavoriteSizeCreateWithoutCountryInput, FavoriteSizeUncheckedCreateWithoutCountryInput>
+  }
+
+  export type FavoriteSizeCreateManyCountryInputEnvelope = {
+    data: FavoriteSizeCreateManyCountryInput | FavoriteSizeCreateManyCountryInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type SizeUpsertWithWhereUniqueWithoutCountryInput = {
+    where: SizeWhereUniqueInput
+    update: XOR<SizeUpdateWithoutCountryInput, SizeUncheckedUpdateWithoutCountryInput>
+    create: XOR<SizeCreateWithoutCountryInput, SizeUncheckedCreateWithoutCountryInput>
+  }
+
+  export type SizeUpdateWithWhereUniqueWithoutCountryInput = {
+    where: SizeWhereUniqueInput
+    data: XOR<SizeUpdateWithoutCountryInput, SizeUncheckedUpdateWithoutCountryInput>
+  }
+
+  export type SizeUpdateManyWithWhereWithoutCountryInput = {
+    where: SizeScalarWhereInput
+    data: XOR<SizeUpdateManyMutationInput, SizeUncheckedUpdateManyWithoutCountryInput>
+  }
+
+  export type SizeScalarWhereInput = {
+    AND?: SizeScalarWhereInput | SizeScalarWhereInput[]
+    OR?: SizeScalarWhereInput[]
+    NOT?: SizeScalarWhereInput | SizeScalarWhereInput[]
+    id?: IntFilter<"Size"> | number
+    category_id?: IntFilter<"Size"> | number
+    country_id?: IntFilter<"Size"> | number
+    size_label?: StringFilter<"Size"> | string
+  }
+
+  export type FavoriteSizeUpsertWithWhereUniqueWithoutCountryInput = {
+    where: FavoriteSizeWhereUniqueInput
+    update: XOR<FavoriteSizeUpdateWithoutCountryInput, FavoriteSizeUncheckedUpdateWithoutCountryInput>
+    create: XOR<FavoriteSizeCreateWithoutCountryInput, FavoriteSizeUncheckedCreateWithoutCountryInput>
+  }
+
+  export type FavoriteSizeUpdateWithWhereUniqueWithoutCountryInput = {
+    where: FavoriteSizeWhereUniqueInput
+    data: XOR<FavoriteSizeUpdateWithoutCountryInput, FavoriteSizeUncheckedUpdateWithoutCountryInput>
+  }
+
+  export type FavoriteSizeUpdateManyWithWhereWithoutCountryInput = {
+    where: FavoriteSizeScalarWhereInput
+    data: XOR<FavoriteSizeUpdateManyMutationInput, FavoriteSizeUncheckedUpdateManyWithoutCountryInput>
+  }
+
+  export type SizeCreateWithoutCategoryInput = {
+    size_label: string
+    country: CountryCreateNestedOneWithoutSizesInput
+    favoriteSizes?: FavoriteSizeCreateNestedManyWithoutSizeInput
+    fromConversions?: ConversionCreateNestedManyWithoutFromSizeInput
+    toConversions?: ConversionCreateNestedManyWithoutToSizeInput
+  }
+
+  export type SizeUncheckedCreateWithoutCategoryInput = {
+    id?: number
+    country_id: number
+    size_label: string
+    favoriteSizes?: FavoriteSizeUncheckedCreateNestedManyWithoutSizeInput
+    fromConversions?: ConversionUncheckedCreateNestedManyWithoutFromSizeInput
+    toConversions?: ConversionUncheckedCreateNestedManyWithoutToSizeInput
+  }
+
+  export type SizeCreateOrConnectWithoutCategoryInput = {
+    where: SizeWhereUniqueInput
+    create: XOR<SizeCreateWithoutCategoryInput, SizeUncheckedCreateWithoutCategoryInput>
+  }
+
+  export type SizeCreateManyCategoryInputEnvelope = {
+    data: SizeCreateManyCategoryInput | SizeCreateManyCategoryInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type FavoriteSizeCreateWithoutCategoryInput = {
+    title: string
+    description?: string | null
+    gender?: FavoriteSizeCreategenderInput | $Enums.Gender[]
+    customer: CustomerCreateNestedOneWithoutFavoriteSizesInput
+    country: CountryCreateNestedOneWithoutFavoriteSizesInput
+    size: SizeCreateNestedOneWithoutFavoriteSizesInput
+  }
+
+  export type FavoriteSizeUncheckedCreateWithoutCategoryInput = {
+    id?: number
+    customer_id: number
+    title: string
+    description?: string | null
+    gender?: FavoriteSizeCreategenderInput | $Enums.Gender[]
+    country_id: number
+    size_id: number
+  }
+
+  export type FavoriteSizeCreateOrConnectWithoutCategoryInput = {
+    where: FavoriteSizeWhereUniqueInput
+    create: XOR<FavoriteSizeCreateWithoutCategoryInput, FavoriteSizeUncheckedCreateWithoutCategoryInput>
+  }
+
+  export type FavoriteSizeCreateManyCategoryInputEnvelope = {
+    data: FavoriteSizeCreateManyCategoryInput | FavoriteSizeCreateManyCategoryInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type SizeUpsertWithWhereUniqueWithoutCategoryInput = {
+    where: SizeWhereUniqueInput
+    update: XOR<SizeUpdateWithoutCategoryInput, SizeUncheckedUpdateWithoutCategoryInput>
+    create: XOR<SizeCreateWithoutCategoryInput, SizeUncheckedCreateWithoutCategoryInput>
+  }
+
+  export type SizeUpdateWithWhereUniqueWithoutCategoryInput = {
+    where: SizeWhereUniqueInput
+    data: XOR<SizeUpdateWithoutCategoryInput, SizeUncheckedUpdateWithoutCategoryInput>
+  }
+
+  export type SizeUpdateManyWithWhereWithoutCategoryInput = {
+    where: SizeScalarWhereInput
+    data: XOR<SizeUpdateManyMutationInput, SizeUncheckedUpdateManyWithoutCategoryInput>
+  }
+
+  export type FavoriteSizeUpsertWithWhereUniqueWithoutCategoryInput = {
+    where: FavoriteSizeWhereUniqueInput
+    update: XOR<FavoriteSizeUpdateWithoutCategoryInput, FavoriteSizeUncheckedUpdateWithoutCategoryInput>
+    create: XOR<FavoriteSizeCreateWithoutCategoryInput, FavoriteSizeUncheckedCreateWithoutCategoryInput>
+  }
+
+  export type FavoriteSizeUpdateWithWhereUniqueWithoutCategoryInput = {
+    where: FavoriteSizeWhereUniqueInput
+    data: XOR<FavoriteSizeUpdateWithoutCategoryInput, FavoriteSizeUncheckedUpdateWithoutCategoryInput>
+  }
+
+  export type FavoriteSizeUpdateManyWithWhereWithoutCategoryInput = {
+    where: FavoriteSizeScalarWhereInput
+    data: XOR<FavoriteSizeUpdateManyMutationInput, FavoriteSizeUncheckedUpdateManyWithoutCategoryInput>
+  }
+
+  export type CategoryCreateWithoutSizesInput = {
+    type: string
+    favoriteSizes?: FavoriteSizeCreateNestedManyWithoutCategoryInput
+  }
+
+  export type CategoryUncheckedCreateWithoutSizesInput = {
+    id?: number
+    type: string
+    favoriteSizes?: FavoriteSizeUncheckedCreateNestedManyWithoutCategoryInput
+  }
+
+  export type CategoryCreateOrConnectWithoutSizesInput = {
+    where: CategoryWhereUniqueInput
+    create: XOR<CategoryCreateWithoutSizesInput, CategoryUncheckedCreateWithoutSizesInput>
+  }
+
+  export type CountryCreateWithoutSizesInput = {
+    code: string
+    name: string
+    favoriteSizes?: FavoriteSizeCreateNestedManyWithoutCountryInput
+  }
+
+  export type CountryUncheckedCreateWithoutSizesInput = {
+    id?: number
+    code: string
+    name: string
+    favoriteSizes?: FavoriteSizeUncheckedCreateNestedManyWithoutCountryInput
+  }
+
+  export type CountryCreateOrConnectWithoutSizesInput = {
     where: CountryWhereUniqueInput
-    create: XOR<CountryCreateWithoutFavorite_sizeInput, CountryUncheckedCreateWithoutFavorite_sizeInput>
+    create: XOR<CountryCreateWithoutSizesInput, CountryUncheckedCreateWithoutSizesInput>
   }
 
-  export type CustomerUpsertWithoutFavorite_sizeInput = {
-    update: XOR<CustomerUpdateWithoutFavorite_sizeInput, CustomerUncheckedUpdateWithoutFavorite_sizeInput>
-    create: XOR<CustomerCreateWithoutFavorite_sizeInput, CustomerUncheckedCreateWithoutFavorite_sizeInput>
-    where?: CustomerWhereInput
-  }
-
-  export type CustomerUpdateToOneWithWhereWithoutFavorite_sizeInput = {
-    where?: CustomerWhereInput
-    data: XOR<CustomerUpdateWithoutFavorite_sizeInput, CustomerUncheckedUpdateWithoutFavorite_sizeInput>
-  }
-
-  export type CustomerUpdateWithoutFavorite_sizeInput = {
-    email?: StringFieldUpdateOperationsInput | string
-    name?: NullableStringFieldUpdateOperationsInput | string | null
-    image?: NullableStringFieldUpdateOperationsInput | string | null
-    role?: EnumRoleFieldUpdateOperationsInput | $Enums.Role
-  }
-
-  export type CustomerUncheckedUpdateWithoutFavorite_sizeInput = {
-    id?: IntFieldUpdateOperationsInput | number
-    email?: StringFieldUpdateOperationsInput | string
-    name?: NullableStringFieldUpdateOperationsInput | string | null
-    image?: NullableStringFieldUpdateOperationsInput | string | null
-    role?: EnumRoleFieldUpdateOperationsInput | $Enums.Role
-  }
-
-  export type CountryUpsertWithoutFavorite_sizeInput = {
-    update: XOR<CountryUpdateWithoutFavorite_sizeInput, CountryUncheckedUpdateWithoutFavorite_sizeInput>
-    create: XOR<CountryCreateWithoutFavorite_sizeInput, CountryUncheckedCreateWithoutFavorite_sizeInput>
-    where?: CountryWhereInput
-  }
-
-  export type CountryUpdateToOneWithWhereWithoutFavorite_sizeInput = {
-    where?: CountryWhereInput
-    data: XOR<CountryUpdateWithoutFavorite_sizeInput, CountryUncheckedUpdateWithoutFavorite_sizeInput>
-  }
-
-  export type CountryUpdateWithoutFavorite_sizeInput = {
-    name?: StringFieldUpdateOperationsInput | string
-  }
-
-  export type CountryUncheckedUpdateWithoutFavorite_sizeInput = {
-    id?: IntFieldUpdateOperationsInput | number
-    name?: StringFieldUpdateOperationsInput | string
-  }
-
-  export type Favorite_sizeCreateWithoutCountryInput = {
+  export type FavoriteSizeCreateWithoutSizeInput = {
     title: string
     description?: string | null
-    gender: $Enums.Gender
-    customer: CustomerCreateNestedOneWithoutFavorite_sizeInput
+    gender?: FavoriteSizeCreategenderInput | $Enums.Gender[]
+    customer: CustomerCreateNestedOneWithoutFavoriteSizesInput
+    country: CountryCreateNestedOneWithoutFavoriteSizesInput
+    category: CategoryCreateNestedOneWithoutFavoriteSizesInput
   }
 
-  export type Favorite_sizeUncheckedCreateWithoutCountryInput = {
+  export type FavoriteSizeUncheckedCreateWithoutSizeInput = {
     id?: number
     customer_id: number
     title: string
     description?: string | null
-    gender: $Enums.Gender
+    gender?: FavoriteSizeCreategenderInput | $Enums.Gender[]
+    country_id: number
+    category_id: number
   }
 
-  export type Favorite_sizeCreateOrConnectWithoutCountryInput = {
-    where: Favorite_sizeWhereUniqueInput
-    create: XOR<Favorite_sizeCreateWithoutCountryInput, Favorite_sizeUncheckedCreateWithoutCountryInput>
+  export type FavoriteSizeCreateOrConnectWithoutSizeInput = {
+    where: FavoriteSizeWhereUniqueInput
+    create: XOR<FavoriteSizeCreateWithoutSizeInput, FavoriteSizeUncheckedCreateWithoutSizeInput>
   }
 
-  export type Favorite_sizeCreateManyCountryInputEnvelope = {
-    data: Favorite_sizeCreateManyCountryInput | Favorite_sizeCreateManyCountryInput[]
+  export type FavoriteSizeCreateManySizeInputEnvelope = {
+    data: FavoriteSizeCreateManySizeInput | FavoriteSizeCreateManySizeInput[]
     skipDuplicates?: boolean
   }
 
-  export type Favorite_sizeUpsertWithWhereUniqueWithoutCountryInput = {
-    where: Favorite_sizeWhereUniqueInput
-    update: XOR<Favorite_sizeUpdateWithoutCountryInput, Favorite_sizeUncheckedUpdateWithoutCountryInput>
-    create: XOR<Favorite_sizeCreateWithoutCountryInput, Favorite_sizeUncheckedCreateWithoutCountryInput>
+  export type ConversionCreateWithoutFromSizeInput = {
+    customer: CustomerCreateNestedOneWithoutConversionsInput
+    toSize: SizeCreateNestedOneWithoutToConversionsInput
   }
 
-  export type Favorite_sizeUpdateWithWhereUniqueWithoutCountryInput = {
-    where: Favorite_sizeWhereUniqueInput
-    data: XOR<Favorite_sizeUpdateWithoutCountryInput, Favorite_sizeUncheckedUpdateWithoutCountryInput>
+  export type ConversionUncheckedCreateWithoutFromSizeInput = {
+    id?: number
+    customer_id: number
+    to_size_id: number
   }
 
-  export type Favorite_sizeUpdateManyWithWhereWithoutCountryInput = {
-    where: Favorite_sizeScalarWhereInput
-    data: XOR<Favorite_sizeUpdateManyMutationInput, Favorite_sizeUncheckedUpdateManyWithoutCountryInput>
+  export type ConversionCreateOrConnectWithoutFromSizeInput = {
+    where: ConversionWhereUniqueInput
+    create: XOR<ConversionCreateWithoutFromSizeInput, ConversionUncheckedCreateWithoutFromSizeInput>
   }
 
-  export type Favorite_sizeScalarWhereInput = {
-    AND?: Favorite_sizeScalarWhereInput | Favorite_sizeScalarWhereInput[]
-    OR?: Favorite_sizeScalarWhereInput[]
-    NOT?: Favorite_sizeScalarWhereInput | Favorite_sizeScalarWhereInput[]
-    id?: IntFilter<"Favorite_size"> | number
-    customer_id?: IntFilter<"Favorite_size"> | number
-    title?: StringFilter<"Favorite_size"> | string
-    description?: StringNullableFilter<"Favorite_size"> | string | null
-    country_id?: IntFilter<"Favorite_size"> | number
-    gender?: EnumGenderFilter<"Favorite_size"> | $Enums.Gender
+  export type ConversionCreateManyFromSizeInputEnvelope = {
+    data: ConversionCreateManyFromSizeInput | ConversionCreateManyFromSizeInput[]
+    skipDuplicates?: boolean
   }
 
-  export type Favorite_sizeCreateWithoutCustomerInput = {
-    title: string
-    description?: string | null
-    gender: $Enums.Gender
-    country: CountryCreateNestedOneWithoutFavorite_sizeInput
+  export type ConversionCreateWithoutToSizeInput = {
+    customer: CustomerCreateNestedOneWithoutConversionsInput
+    fromSize: SizeCreateNestedOneWithoutFromConversionsInput
   }
 
-  export type Favorite_sizeUncheckedCreateWithoutCustomerInput = {
+  export type ConversionUncheckedCreateWithoutToSizeInput = {
+    id?: number
+    customer_id: number
+    from_size_id: number
+  }
+
+  export type ConversionCreateOrConnectWithoutToSizeInput = {
+    where: ConversionWhereUniqueInput
+    create: XOR<ConversionCreateWithoutToSizeInput, ConversionUncheckedCreateWithoutToSizeInput>
+  }
+
+  export type ConversionCreateManyToSizeInputEnvelope = {
+    data: ConversionCreateManyToSizeInput | ConversionCreateManyToSizeInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type CategoryUpsertWithoutSizesInput = {
+    update: XOR<CategoryUpdateWithoutSizesInput, CategoryUncheckedUpdateWithoutSizesInput>
+    create: XOR<CategoryCreateWithoutSizesInput, CategoryUncheckedCreateWithoutSizesInput>
+    where?: CategoryWhereInput
+  }
+
+  export type CategoryUpdateToOneWithWhereWithoutSizesInput = {
+    where?: CategoryWhereInput
+    data: XOR<CategoryUpdateWithoutSizesInput, CategoryUncheckedUpdateWithoutSizesInput>
+  }
+
+  export type CategoryUpdateWithoutSizesInput = {
+    type?: StringFieldUpdateOperationsInput | string
+    favoriteSizes?: FavoriteSizeUpdateManyWithoutCategoryNestedInput
+  }
+
+  export type CategoryUncheckedUpdateWithoutSizesInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    type?: StringFieldUpdateOperationsInput | string
+    favoriteSizes?: FavoriteSizeUncheckedUpdateManyWithoutCategoryNestedInput
+  }
+
+  export type CountryUpsertWithoutSizesInput = {
+    update: XOR<CountryUpdateWithoutSizesInput, CountryUncheckedUpdateWithoutSizesInput>
+    create: XOR<CountryCreateWithoutSizesInput, CountryUncheckedCreateWithoutSizesInput>
+    where?: CountryWhereInput
+  }
+
+  export type CountryUpdateToOneWithWhereWithoutSizesInput = {
+    where?: CountryWhereInput
+    data: XOR<CountryUpdateWithoutSizesInput, CountryUncheckedUpdateWithoutSizesInput>
+  }
+
+  export type CountryUpdateWithoutSizesInput = {
+    code?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    favoriteSizes?: FavoriteSizeUpdateManyWithoutCountryNestedInput
+  }
+
+  export type CountryUncheckedUpdateWithoutSizesInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    code?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    favoriteSizes?: FavoriteSizeUncheckedUpdateManyWithoutCountryNestedInput
+  }
+
+  export type FavoriteSizeUpsertWithWhereUniqueWithoutSizeInput = {
+    where: FavoriteSizeWhereUniqueInput
+    update: XOR<FavoriteSizeUpdateWithoutSizeInput, FavoriteSizeUncheckedUpdateWithoutSizeInput>
+    create: XOR<FavoriteSizeCreateWithoutSizeInput, FavoriteSizeUncheckedCreateWithoutSizeInput>
+  }
+
+  export type FavoriteSizeUpdateWithWhereUniqueWithoutSizeInput = {
+    where: FavoriteSizeWhereUniqueInput
+    data: XOR<FavoriteSizeUpdateWithoutSizeInput, FavoriteSizeUncheckedUpdateWithoutSizeInput>
+  }
+
+  export type FavoriteSizeUpdateManyWithWhereWithoutSizeInput = {
+    where: FavoriteSizeScalarWhereInput
+    data: XOR<FavoriteSizeUpdateManyMutationInput, FavoriteSizeUncheckedUpdateManyWithoutSizeInput>
+  }
+
+  export type ConversionUpsertWithWhereUniqueWithoutFromSizeInput = {
+    where: ConversionWhereUniqueInput
+    update: XOR<ConversionUpdateWithoutFromSizeInput, ConversionUncheckedUpdateWithoutFromSizeInput>
+    create: XOR<ConversionCreateWithoutFromSizeInput, ConversionUncheckedCreateWithoutFromSizeInput>
+  }
+
+  export type ConversionUpdateWithWhereUniqueWithoutFromSizeInput = {
+    where: ConversionWhereUniqueInput
+    data: XOR<ConversionUpdateWithoutFromSizeInput, ConversionUncheckedUpdateWithoutFromSizeInput>
+  }
+
+  export type ConversionUpdateManyWithWhereWithoutFromSizeInput = {
+    where: ConversionScalarWhereInput
+    data: XOR<ConversionUpdateManyMutationInput, ConversionUncheckedUpdateManyWithoutFromSizeInput>
+  }
+
+  export type ConversionUpsertWithWhereUniqueWithoutToSizeInput = {
+    where: ConversionWhereUniqueInput
+    update: XOR<ConversionUpdateWithoutToSizeInput, ConversionUncheckedUpdateWithoutToSizeInput>
+    create: XOR<ConversionCreateWithoutToSizeInput, ConversionUncheckedCreateWithoutToSizeInput>
+  }
+
+  export type ConversionUpdateWithWhereUniqueWithoutToSizeInput = {
+    where: ConversionWhereUniqueInput
+    data: XOR<ConversionUpdateWithoutToSizeInput, ConversionUncheckedUpdateWithoutToSizeInput>
+  }
+
+  export type ConversionUpdateManyWithWhereWithoutToSizeInput = {
+    where: ConversionScalarWhereInput
+    data: XOR<ConversionUpdateManyMutationInput, ConversionUncheckedUpdateManyWithoutToSizeInput>
+  }
+
+  export type CustomerCreateWithoutConversionsInput = {
+    email: string
+    name?: string | null
+    image?: string | null
+    role?: CustomerCreateroleInput | $Enums.Role[]
+    favoriteSizes?: FavoriteSizeCreateNestedManyWithoutCustomerInput
+  }
+
+  export type CustomerUncheckedCreateWithoutConversionsInput = {
+    id?: number
+    email: string
+    name?: string | null
+    image?: string | null
+    role?: CustomerCreateroleInput | $Enums.Role[]
+    favoriteSizes?: FavoriteSizeUncheckedCreateNestedManyWithoutCustomerInput
+  }
+
+  export type CustomerCreateOrConnectWithoutConversionsInput = {
+    where: CustomerWhereUniqueInput
+    create: XOR<CustomerCreateWithoutConversionsInput, CustomerUncheckedCreateWithoutConversionsInput>
+  }
+
+  export type SizeCreateWithoutFromConversionsInput = {
+    size_label: string
+    category: CategoryCreateNestedOneWithoutSizesInput
+    country: CountryCreateNestedOneWithoutSizesInput
+    favoriteSizes?: FavoriteSizeCreateNestedManyWithoutSizeInput
+    toConversions?: ConversionCreateNestedManyWithoutToSizeInput
+  }
+
+  export type SizeUncheckedCreateWithoutFromConversionsInput = {
+    id?: number
+    category_id: number
+    country_id: number
+    size_label: string
+    favoriteSizes?: FavoriteSizeUncheckedCreateNestedManyWithoutSizeInput
+    toConversions?: ConversionUncheckedCreateNestedManyWithoutToSizeInput
+  }
+
+  export type SizeCreateOrConnectWithoutFromConversionsInput = {
+    where: SizeWhereUniqueInput
+    create: XOR<SizeCreateWithoutFromConversionsInput, SizeUncheckedCreateWithoutFromConversionsInput>
+  }
+
+  export type SizeCreateWithoutToConversionsInput = {
+    size_label: string
+    category: CategoryCreateNestedOneWithoutSizesInput
+    country: CountryCreateNestedOneWithoutSizesInput
+    favoriteSizes?: FavoriteSizeCreateNestedManyWithoutSizeInput
+    fromConversions?: ConversionCreateNestedManyWithoutFromSizeInput
+  }
+
+  export type SizeUncheckedCreateWithoutToConversionsInput = {
+    id?: number
+    category_id: number
+    country_id: number
+    size_label: string
+    favoriteSizes?: FavoriteSizeUncheckedCreateNestedManyWithoutSizeInput
+    fromConversions?: ConversionUncheckedCreateNestedManyWithoutFromSizeInput
+  }
+
+  export type SizeCreateOrConnectWithoutToConversionsInput = {
+    where: SizeWhereUniqueInput
+    create: XOR<SizeCreateWithoutToConversionsInput, SizeUncheckedCreateWithoutToConversionsInput>
+  }
+
+  export type CustomerUpsertWithoutConversionsInput = {
+    update: XOR<CustomerUpdateWithoutConversionsInput, CustomerUncheckedUpdateWithoutConversionsInput>
+    create: XOR<CustomerCreateWithoutConversionsInput, CustomerUncheckedCreateWithoutConversionsInput>
+    where?: CustomerWhereInput
+  }
+
+  export type CustomerUpdateToOneWithWhereWithoutConversionsInput = {
+    where?: CustomerWhereInput
+    data: XOR<CustomerUpdateWithoutConversionsInput, CustomerUncheckedUpdateWithoutConversionsInput>
+  }
+
+  export type CustomerUpdateWithoutConversionsInput = {
+    email?: StringFieldUpdateOperationsInput | string
+    name?: NullableStringFieldUpdateOperationsInput | string | null
+    image?: NullableStringFieldUpdateOperationsInput | string | null
+    role?: CustomerUpdateroleInput | $Enums.Role[]
+    favoriteSizes?: FavoriteSizeUpdateManyWithoutCustomerNestedInput
+  }
+
+  export type CustomerUncheckedUpdateWithoutConversionsInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    email?: StringFieldUpdateOperationsInput | string
+    name?: NullableStringFieldUpdateOperationsInput | string | null
+    image?: NullableStringFieldUpdateOperationsInput | string | null
+    role?: CustomerUpdateroleInput | $Enums.Role[]
+    favoriteSizes?: FavoriteSizeUncheckedUpdateManyWithoutCustomerNestedInput
+  }
+
+  export type SizeUpsertWithoutFromConversionsInput = {
+    update: XOR<SizeUpdateWithoutFromConversionsInput, SizeUncheckedUpdateWithoutFromConversionsInput>
+    create: XOR<SizeCreateWithoutFromConversionsInput, SizeUncheckedCreateWithoutFromConversionsInput>
+    where?: SizeWhereInput
+  }
+
+  export type SizeUpdateToOneWithWhereWithoutFromConversionsInput = {
+    where?: SizeWhereInput
+    data: XOR<SizeUpdateWithoutFromConversionsInput, SizeUncheckedUpdateWithoutFromConversionsInput>
+  }
+
+  export type SizeUpdateWithoutFromConversionsInput = {
+    size_label?: StringFieldUpdateOperationsInput | string
+    category?: CategoryUpdateOneRequiredWithoutSizesNestedInput
+    country?: CountryUpdateOneRequiredWithoutSizesNestedInput
+    favoriteSizes?: FavoriteSizeUpdateManyWithoutSizeNestedInput
+    toConversions?: ConversionUpdateManyWithoutToSizeNestedInput
+  }
+
+  export type SizeUncheckedUpdateWithoutFromConversionsInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    category_id?: IntFieldUpdateOperationsInput | number
+    country_id?: IntFieldUpdateOperationsInput | number
+    size_label?: StringFieldUpdateOperationsInput | string
+    favoriteSizes?: FavoriteSizeUncheckedUpdateManyWithoutSizeNestedInput
+    toConversions?: ConversionUncheckedUpdateManyWithoutToSizeNestedInput
+  }
+
+  export type SizeUpsertWithoutToConversionsInput = {
+    update: XOR<SizeUpdateWithoutToConversionsInput, SizeUncheckedUpdateWithoutToConversionsInput>
+    create: XOR<SizeCreateWithoutToConversionsInput, SizeUncheckedCreateWithoutToConversionsInput>
+    where?: SizeWhereInput
+  }
+
+  export type SizeUpdateToOneWithWhereWithoutToConversionsInput = {
+    where?: SizeWhereInput
+    data: XOR<SizeUpdateWithoutToConversionsInput, SizeUncheckedUpdateWithoutToConversionsInput>
+  }
+
+  export type SizeUpdateWithoutToConversionsInput = {
+    size_label?: StringFieldUpdateOperationsInput | string
+    category?: CategoryUpdateOneRequiredWithoutSizesNestedInput
+    country?: CountryUpdateOneRequiredWithoutSizesNestedInput
+    favoriteSizes?: FavoriteSizeUpdateManyWithoutSizeNestedInput
+    fromConversions?: ConversionUpdateManyWithoutFromSizeNestedInput
+  }
+
+  export type SizeUncheckedUpdateWithoutToConversionsInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    category_id?: IntFieldUpdateOperationsInput | number
+    country_id?: IntFieldUpdateOperationsInput | number
+    size_label?: StringFieldUpdateOperationsInput | string
+    favoriteSizes?: FavoriteSizeUncheckedUpdateManyWithoutSizeNestedInput
+    fromConversions?: ConversionUncheckedUpdateManyWithoutFromSizeNestedInput
+  }
+
+  export type CustomerCreateWithoutFavoriteSizesInput = {
+    email: string
+    name?: string | null
+    image?: string | null
+    role?: CustomerCreateroleInput | $Enums.Role[]
+    conversions?: ConversionCreateNestedManyWithoutCustomerInput
+  }
+
+  export type CustomerUncheckedCreateWithoutFavoriteSizesInput = {
+    id?: number
+    email: string
+    name?: string | null
+    image?: string | null
+    role?: CustomerCreateroleInput | $Enums.Role[]
+    conversions?: ConversionUncheckedCreateNestedManyWithoutCustomerInput
+  }
+
+  export type CustomerCreateOrConnectWithoutFavoriteSizesInput = {
+    where: CustomerWhereUniqueInput
+    create: XOR<CustomerCreateWithoutFavoriteSizesInput, CustomerUncheckedCreateWithoutFavoriteSizesInput>
+  }
+
+  export type CountryCreateWithoutFavoriteSizesInput = {
+    code: string
+    name: string
+    sizes?: SizeCreateNestedManyWithoutCountryInput
+  }
+
+  export type CountryUncheckedCreateWithoutFavoriteSizesInput = {
+    id?: number
+    code: string
+    name: string
+    sizes?: SizeUncheckedCreateNestedManyWithoutCountryInput
+  }
+
+  export type CountryCreateOrConnectWithoutFavoriteSizesInput = {
+    where: CountryWhereUniqueInput
+    create: XOR<CountryCreateWithoutFavoriteSizesInput, CountryUncheckedCreateWithoutFavoriteSizesInput>
+  }
+
+  export type CategoryCreateWithoutFavoriteSizesInput = {
+    type: string
+    sizes?: SizeCreateNestedManyWithoutCategoryInput
+  }
+
+  export type CategoryUncheckedCreateWithoutFavoriteSizesInput = {
+    id?: number
+    type: string
+    sizes?: SizeUncheckedCreateNestedManyWithoutCategoryInput
+  }
+
+  export type CategoryCreateOrConnectWithoutFavoriteSizesInput = {
+    where: CategoryWhereUniqueInput
+    create: XOR<CategoryCreateWithoutFavoriteSizesInput, CategoryUncheckedCreateWithoutFavoriteSizesInput>
+  }
+
+  export type SizeCreateWithoutFavoriteSizesInput = {
+    size_label: string
+    category: CategoryCreateNestedOneWithoutSizesInput
+    country: CountryCreateNestedOneWithoutSizesInput
+    fromConversions?: ConversionCreateNestedManyWithoutFromSizeInput
+    toConversions?: ConversionCreateNestedManyWithoutToSizeInput
+  }
+
+  export type SizeUncheckedCreateWithoutFavoriteSizesInput = {
+    id?: number
+    category_id: number
+    country_id: number
+    size_label: string
+    fromConversions?: ConversionUncheckedCreateNestedManyWithoutFromSizeInput
+    toConversions?: ConversionUncheckedCreateNestedManyWithoutToSizeInput
+  }
+
+  export type SizeCreateOrConnectWithoutFavoriteSizesInput = {
+    where: SizeWhereUniqueInput
+    create: XOR<SizeCreateWithoutFavoriteSizesInput, SizeUncheckedCreateWithoutFavoriteSizesInput>
+  }
+
+  export type CustomerUpsertWithoutFavoriteSizesInput = {
+    update: XOR<CustomerUpdateWithoutFavoriteSizesInput, CustomerUncheckedUpdateWithoutFavoriteSizesInput>
+    create: XOR<CustomerCreateWithoutFavoriteSizesInput, CustomerUncheckedCreateWithoutFavoriteSizesInput>
+    where?: CustomerWhereInput
+  }
+
+  export type CustomerUpdateToOneWithWhereWithoutFavoriteSizesInput = {
+    where?: CustomerWhereInput
+    data: XOR<CustomerUpdateWithoutFavoriteSizesInput, CustomerUncheckedUpdateWithoutFavoriteSizesInput>
+  }
+
+  export type CustomerUpdateWithoutFavoriteSizesInput = {
+    email?: StringFieldUpdateOperationsInput | string
+    name?: NullableStringFieldUpdateOperationsInput | string | null
+    image?: NullableStringFieldUpdateOperationsInput | string | null
+    role?: CustomerUpdateroleInput | $Enums.Role[]
+    conversions?: ConversionUpdateManyWithoutCustomerNestedInput
+  }
+
+  export type CustomerUncheckedUpdateWithoutFavoriteSizesInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    email?: StringFieldUpdateOperationsInput | string
+    name?: NullableStringFieldUpdateOperationsInput | string | null
+    image?: NullableStringFieldUpdateOperationsInput | string | null
+    role?: CustomerUpdateroleInput | $Enums.Role[]
+    conversions?: ConversionUncheckedUpdateManyWithoutCustomerNestedInput
+  }
+
+  export type CountryUpsertWithoutFavoriteSizesInput = {
+    update: XOR<CountryUpdateWithoutFavoriteSizesInput, CountryUncheckedUpdateWithoutFavoriteSizesInput>
+    create: XOR<CountryCreateWithoutFavoriteSizesInput, CountryUncheckedCreateWithoutFavoriteSizesInput>
+    where?: CountryWhereInput
+  }
+
+  export type CountryUpdateToOneWithWhereWithoutFavoriteSizesInput = {
+    where?: CountryWhereInput
+    data: XOR<CountryUpdateWithoutFavoriteSizesInput, CountryUncheckedUpdateWithoutFavoriteSizesInput>
+  }
+
+  export type CountryUpdateWithoutFavoriteSizesInput = {
+    code?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    sizes?: SizeUpdateManyWithoutCountryNestedInput
+  }
+
+  export type CountryUncheckedUpdateWithoutFavoriteSizesInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    code?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    sizes?: SizeUncheckedUpdateManyWithoutCountryNestedInput
+  }
+
+  export type CategoryUpsertWithoutFavoriteSizesInput = {
+    update: XOR<CategoryUpdateWithoutFavoriteSizesInput, CategoryUncheckedUpdateWithoutFavoriteSizesInput>
+    create: XOR<CategoryCreateWithoutFavoriteSizesInput, CategoryUncheckedCreateWithoutFavoriteSizesInput>
+    where?: CategoryWhereInput
+  }
+
+  export type CategoryUpdateToOneWithWhereWithoutFavoriteSizesInput = {
+    where?: CategoryWhereInput
+    data: XOR<CategoryUpdateWithoutFavoriteSizesInput, CategoryUncheckedUpdateWithoutFavoriteSizesInput>
+  }
+
+  export type CategoryUpdateWithoutFavoriteSizesInput = {
+    type?: StringFieldUpdateOperationsInput | string
+    sizes?: SizeUpdateManyWithoutCategoryNestedInput
+  }
+
+  export type CategoryUncheckedUpdateWithoutFavoriteSizesInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    type?: StringFieldUpdateOperationsInput | string
+    sizes?: SizeUncheckedUpdateManyWithoutCategoryNestedInput
+  }
+
+  export type SizeUpsertWithoutFavoriteSizesInput = {
+    update: XOR<SizeUpdateWithoutFavoriteSizesInput, SizeUncheckedUpdateWithoutFavoriteSizesInput>
+    create: XOR<SizeCreateWithoutFavoriteSizesInput, SizeUncheckedCreateWithoutFavoriteSizesInput>
+    where?: SizeWhereInput
+  }
+
+  export type SizeUpdateToOneWithWhereWithoutFavoriteSizesInput = {
+    where?: SizeWhereInput
+    data: XOR<SizeUpdateWithoutFavoriteSizesInput, SizeUncheckedUpdateWithoutFavoriteSizesInput>
+  }
+
+  export type SizeUpdateWithoutFavoriteSizesInput = {
+    size_label?: StringFieldUpdateOperationsInput | string
+    category?: CategoryUpdateOneRequiredWithoutSizesNestedInput
+    country?: CountryUpdateOneRequiredWithoutSizesNestedInput
+    fromConversions?: ConversionUpdateManyWithoutFromSizeNestedInput
+    toConversions?: ConversionUpdateManyWithoutToSizeNestedInput
+  }
+
+  export type SizeUncheckedUpdateWithoutFavoriteSizesInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    category_id?: IntFieldUpdateOperationsInput | number
+    country_id?: IntFieldUpdateOperationsInput | number
+    size_label?: StringFieldUpdateOperationsInput | string
+    fromConversions?: ConversionUncheckedUpdateManyWithoutFromSizeNestedInput
+    toConversions?: ConversionUncheckedUpdateManyWithoutToSizeNestedInput
+  }
+
+  export type ConversionCreateManyCustomerInput = {
+    id?: number
+    from_size_id: number
+    to_size_id: number
+  }
+
+  export type FavoriteSizeCreateManyCustomerInput = {
     id?: number
     title: string
     description?: string | null
+    gender?: FavoriteSizeCreategenderInput | $Enums.Gender[]
     country_id: number
-    gender: $Enums.Gender
+    category_id: number
+    size_id: number
   }
 
-  export type Favorite_sizeCreateOrConnectWithoutCustomerInput = {
-    where: Favorite_sizeWhereUniqueInput
-    create: XOR<Favorite_sizeCreateWithoutCustomerInput, Favorite_sizeUncheckedCreateWithoutCustomerInput>
+  export type ConversionUpdateWithoutCustomerInput = {
+    fromSize?: SizeUpdateOneRequiredWithoutFromConversionsNestedInput
+    toSize?: SizeUpdateOneRequiredWithoutToConversionsNestedInput
   }
 
-  export type Favorite_sizeCreateManyCustomerInputEnvelope = {
-    data: Favorite_sizeCreateManyCustomerInput | Favorite_sizeCreateManyCustomerInput[]
-    skipDuplicates?: boolean
+  export type ConversionUncheckedUpdateWithoutCustomerInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    from_size_id?: IntFieldUpdateOperationsInput | number
+    to_size_id?: IntFieldUpdateOperationsInput | number
   }
 
-  export type Favorite_sizeUpsertWithWhereUniqueWithoutCustomerInput = {
-    where: Favorite_sizeWhereUniqueInput
-    update: XOR<Favorite_sizeUpdateWithoutCustomerInput, Favorite_sizeUncheckedUpdateWithoutCustomerInput>
-    create: XOR<Favorite_sizeCreateWithoutCustomerInput, Favorite_sizeUncheckedCreateWithoutCustomerInput>
+  export type ConversionUncheckedUpdateManyWithoutCustomerInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    from_size_id?: IntFieldUpdateOperationsInput | number
+    to_size_id?: IntFieldUpdateOperationsInput | number
   }
 
-  export type Favorite_sizeUpdateWithWhereUniqueWithoutCustomerInput = {
-    where: Favorite_sizeWhereUniqueInput
-    data: XOR<Favorite_sizeUpdateWithoutCustomerInput, Favorite_sizeUncheckedUpdateWithoutCustomerInput>
+  export type FavoriteSizeUpdateWithoutCustomerInput = {
+    title?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    gender?: FavoriteSizeUpdategenderInput | $Enums.Gender[]
+    country?: CountryUpdateOneRequiredWithoutFavoriteSizesNestedInput
+    category?: CategoryUpdateOneRequiredWithoutFavoriteSizesNestedInput
+    size?: SizeUpdateOneRequiredWithoutFavoriteSizesNestedInput
   }
 
-  export type Favorite_sizeUpdateManyWithWhereWithoutCustomerInput = {
-    where: Favorite_sizeScalarWhereInput
-    data: XOR<Favorite_sizeUpdateManyMutationInput, Favorite_sizeUncheckedUpdateManyWithoutCustomerInput>
+  export type FavoriteSizeUncheckedUpdateWithoutCustomerInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    title?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    gender?: FavoriteSizeUpdategenderInput | $Enums.Gender[]
+    country_id?: IntFieldUpdateOperationsInput | number
+    category_id?: IntFieldUpdateOperationsInput | number
+    size_id?: IntFieldUpdateOperationsInput | number
   }
 
-  export type Favorite_sizeCreateManyCountryInput = {
+  export type FavoriteSizeUncheckedUpdateManyWithoutCustomerInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    title?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    gender?: FavoriteSizeUpdategenderInput | $Enums.Gender[]
+    country_id?: IntFieldUpdateOperationsInput | number
+    category_id?: IntFieldUpdateOperationsInput | number
+    size_id?: IntFieldUpdateOperationsInput | number
+  }
+
+  export type SizeCreateManyCountryInput = {
+    id?: number
+    category_id: number
+    size_label: string
+  }
+
+  export type FavoriteSizeCreateManyCountryInput = {
     id?: number
     customer_id: number
     title: string
     description?: string | null
-    gender: $Enums.Gender
+    gender?: FavoriteSizeCreategenderInput | $Enums.Gender[]
+    category_id: number
+    size_id: number
   }
 
-  export type Favorite_sizeUpdateWithoutCountryInput = {
+  export type SizeUpdateWithoutCountryInput = {
+    size_label?: StringFieldUpdateOperationsInput | string
+    category?: CategoryUpdateOneRequiredWithoutSizesNestedInput
+    favoriteSizes?: FavoriteSizeUpdateManyWithoutSizeNestedInput
+    fromConversions?: ConversionUpdateManyWithoutFromSizeNestedInput
+    toConversions?: ConversionUpdateManyWithoutToSizeNestedInput
+  }
+
+  export type SizeUncheckedUpdateWithoutCountryInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    category_id?: IntFieldUpdateOperationsInput | number
+    size_label?: StringFieldUpdateOperationsInput | string
+    favoriteSizes?: FavoriteSizeUncheckedUpdateManyWithoutSizeNestedInput
+    fromConversions?: ConversionUncheckedUpdateManyWithoutFromSizeNestedInput
+    toConversions?: ConversionUncheckedUpdateManyWithoutToSizeNestedInput
+  }
+
+  export type SizeUncheckedUpdateManyWithoutCountryInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    category_id?: IntFieldUpdateOperationsInput | number
+    size_label?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type FavoriteSizeUpdateWithoutCountryInput = {
     title?: StringFieldUpdateOperationsInput | string
     description?: NullableStringFieldUpdateOperationsInput | string | null
-    gender?: EnumGenderFieldUpdateOperationsInput | $Enums.Gender
-    customer?: CustomerUpdateOneRequiredWithoutFavorite_sizeNestedInput
+    gender?: FavoriteSizeUpdategenderInput | $Enums.Gender[]
+    customer?: CustomerUpdateOneRequiredWithoutFavoriteSizesNestedInput
+    category?: CategoryUpdateOneRequiredWithoutFavoriteSizesNestedInput
+    size?: SizeUpdateOneRequiredWithoutFavoriteSizesNestedInput
   }
 
-  export type Favorite_sizeUncheckedUpdateWithoutCountryInput = {
+  export type FavoriteSizeUncheckedUpdateWithoutCountryInput = {
     id?: IntFieldUpdateOperationsInput | number
     customer_id?: IntFieldUpdateOperationsInput | number
     title?: StringFieldUpdateOperationsInput | string
     description?: NullableStringFieldUpdateOperationsInput | string | null
-    gender?: EnumGenderFieldUpdateOperationsInput | $Enums.Gender
+    gender?: FavoriteSizeUpdategenderInput | $Enums.Gender[]
+    category_id?: IntFieldUpdateOperationsInput | number
+    size_id?: IntFieldUpdateOperationsInput | number
   }
 
-  export type Favorite_sizeUncheckedUpdateManyWithoutCountryInput = {
+  export type FavoriteSizeUncheckedUpdateManyWithoutCountryInput = {
     id?: IntFieldUpdateOperationsInput | number
     customer_id?: IntFieldUpdateOperationsInput | number
     title?: StringFieldUpdateOperationsInput | string
     description?: NullableStringFieldUpdateOperationsInput | string | null
-    gender?: EnumGenderFieldUpdateOperationsInput | $Enums.Gender
+    gender?: FavoriteSizeUpdategenderInput | $Enums.Gender[]
+    category_id?: IntFieldUpdateOperationsInput | number
+    size_id?: IntFieldUpdateOperationsInput | number
   }
 
-  export type Favorite_sizeCreateManyCustomerInput = {
+  export type SizeCreateManyCategoryInput = {
     id?: number
+    country_id: number
+    size_label: string
+  }
+
+  export type FavoriteSizeCreateManyCategoryInput = {
+    id?: number
+    customer_id: number
     title: string
     description?: string | null
+    gender?: FavoriteSizeCreategenderInput | $Enums.Gender[]
     country_id: number
-    gender: $Enums.Gender
+    size_id: number
   }
 
-  export type Favorite_sizeUpdateWithoutCustomerInput = {
-    title?: StringFieldUpdateOperationsInput | string
-    description?: NullableStringFieldUpdateOperationsInput | string | null
-    gender?: EnumGenderFieldUpdateOperationsInput | $Enums.Gender
-    country?: CountryUpdateOneRequiredWithoutFavorite_sizeNestedInput
+  export type SizeUpdateWithoutCategoryInput = {
+    size_label?: StringFieldUpdateOperationsInput | string
+    country?: CountryUpdateOneRequiredWithoutSizesNestedInput
+    favoriteSizes?: FavoriteSizeUpdateManyWithoutSizeNestedInput
+    fromConversions?: ConversionUpdateManyWithoutFromSizeNestedInput
+    toConversions?: ConversionUpdateManyWithoutToSizeNestedInput
   }
 
-  export type Favorite_sizeUncheckedUpdateWithoutCustomerInput = {
+  export type SizeUncheckedUpdateWithoutCategoryInput = {
     id?: IntFieldUpdateOperationsInput | number
-    title?: StringFieldUpdateOperationsInput | string
-    description?: NullableStringFieldUpdateOperationsInput | string | null
     country_id?: IntFieldUpdateOperationsInput | number
-    gender?: EnumGenderFieldUpdateOperationsInput | $Enums.Gender
+    size_label?: StringFieldUpdateOperationsInput | string
+    favoriteSizes?: FavoriteSizeUncheckedUpdateManyWithoutSizeNestedInput
+    fromConversions?: ConversionUncheckedUpdateManyWithoutFromSizeNestedInput
+    toConversions?: ConversionUncheckedUpdateManyWithoutToSizeNestedInput
   }
 
-  export type Favorite_sizeUncheckedUpdateManyWithoutCustomerInput = {
+  export type SizeUncheckedUpdateManyWithoutCategoryInput = {
     id?: IntFieldUpdateOperationsInput | number
+    country_id?: IntFieldUpdateOperationsInput | number
+    size_label?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type FavoriteSizeUpdateWithoutCategoryInput = {
     title?: StringFieldUpdateOperationsInput | string
     description?: NullableStringFieldUpdateOperationsInput | string | null
+    gender?: FavoriteSizeUpdategenderInput | $Enums.Gender[]
+    customer?: CustomerUpdateOneRequiredWithoutFavoriteSizesNestedInput
+    country?: CountryUpdateOneRequiredWithoutFavoriteSizesNestedInput
+    size?: SizeUpdateOneRequiredWithoutFavoriteSizesNestedInput
+  }
+
+  export type FavoriteSizeUncheckedUpdateWithoutCategoryInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    customer_id?: IntFieldUpdateOperationsInput | number
+    title?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    gender?: FavoriteSizeUpdategenderInput | $Enums.Gender[]
     country_id?: IntFieldUpdateOperationsInput | number
-    gender?: EnumGenderFieldUpdateOperationsInput | $Enums.Gender
+    size_id?: IntFieldUpdateOperationsInput | number
+  }
+
+  export type FavoriteSizeUncheckedUpdateManyWithoutCategoryInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    customer_id?: IntFieldUpdateOperationsInput | number
+    title?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    gender?: FavoriteSizeUpdategenderInput | $Enums.Gender[]
+    country_id?: IntFieldUpdateOperationsInput | number
+    size_id?: IntFieldUpdateOperationsInput | number
+  }
+
+  export type FavoriteSizeCreateManySizeInput = {
+    id?: number
+    customer_id: number
+    title: string
+    description?: string | null
+    gender?: FavoriteSizeCreategenderInput | $Enums.Gender[]
+    country_id: number
+    category_id: number
+  }
+
+  export type ConversionCreateManyFromSizeInput = {
+    id?: number
+    customer_id: number
+    to_size_id: number
+  }
+
+  export type ConversionCreateManyToSizeInput = {
+    id?: number
+    customer_id: number
+    from_size_id: number
+  }
+
+  export type FavoriteSizeUpdateWithoutSizeInput = {
+    title?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    gender?: FavoriteSizeUpdategenderInput | $Enums.Gender[]
+    customer?: CustomerUpdateOneRequiredWithoutFavoriteSizesNestedInput
+    country?: CountryUpdateOneRequiredWithoutFavoriteSizesNestedInput
+    category?: CategoryUpdateOneRequiredWithoutFavoriteSizesNestedInput
+  }
+
+  export type FavoriteSizeUncheckedUpdateWithoutSizeInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    customer_id?: IntFieldUpdateOperationsInput | number
+    title?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    gender?: FavoriteSizeUpdategenderInput | $Enums.Gender[]
+    country_id?: IntFieldUpdateOperationsInput | number
+    category_id?: IntFieldUpdateOperationsInput | number
+  }
+
+  export type FavoriteSizeUncheckedUpdateManyWithoutSizeInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    customer_id?: IntFieldUpdateOperationsInput | number
+    title?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    gender?: FavoriteSizeUpdategenderInput | $Enums.Gender[]
+    country_id?: IntFieldUpdateOperationsInput | number
+    category_id?: IntFieldUpdateOperationsInput | number
+  }
+
+  export type ConversionUpdateWithoutFromSizeInput = {
+    customer?: CustomerUpdateOneRequiredWithoutConversionsNestedInput
+    toSize?: SizeUpdateOneRequiredWithoutToConversionsNestedInput
+  }
+
+  export type ConversionUncheckedUpdateWithoutFromSizeInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    customer_id?: IntFieldUpdateOperationsInput | number
+    to_size_id?: IntFieldUpdateOperationsInput | number
+  }
+
+  export type ConversionUncheckedUpdateManyWithoutFromSizeInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    customer_id?: IntFieldUpdateOperationsInput | number
+    to_size_id?: IntFieldUpdateOperationsInput | number
+  }
+
+  export type ConversionUpdateWithoutToSizeInput = {
+    customer?: CustomerUpdateOneRequiredWithoutConversionsNestedInput
+    fromSize?: SizeUpdateOneRequiredWithoutFromConversionsNestedInput
+  }
+
+  export type ConversionUncheckedUpdateWithoutToSizeInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    customer_id?: IntFieldUpdateOperationsInput | number
+    from_size_id?: IntFieldUpdateOperationsInput | number
+  }
+
+  export type ConversionUncheckedUpdateManyWithoutToSizeInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    customer_id?: IntFieldUpdateOperationsInput | number
+    from_size_id?: IntFieldUpdateOperationsInput | number
   }
 
 
