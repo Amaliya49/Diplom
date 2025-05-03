@@ -1,6 +1,5 @@
 generator client {
   provider = "prisma-client-js"
-  output   = "./src/generated/prisma/client"
 }
 
 datasource db {
@@ -9,15 +8,15 @@ datasource db {
   shadowDatabaseUrl = env("SHADOW_DATABASE_URL")
 }
 
-enum Role {
-  CUSTOMER
-  ADMIN
-}
-
 enum Gender {
   MALE
   FEMALE
   UNISEX
+}
+
+enum Role {
+  CUSTOMER
+  ADMIN
 }
 
 model Customer {
@@ -25,52 +24,47 @@ model Customer {
   email String  @unique
   name  String?
   image String?
-  role  Role[]
+  role Role @default(CUSTOMER)
 
-  conversions   Conversion[]   @relation("CustomerConversions")
-  favoriteSizes FavoriteSize[] @relation("CustomerFavorites")
+  favoriteSizes FavoriteSize[] 
 }
 
-model Country {
+model Region {
   id   Int    @id @default(autoincrement())
   code String
   name String @unique
 
-  sizes         Size[]         @relation("CountrySizes")
-  favoriteSizes FavoriteSize[] @relation("CountryFavorites")
+  sizes Size[]         
 }
 
 model Category {
   id   Int    @id @default(autoincrement())
-  type String
+  name String
 
-  sizes         Size[]         @relation("CategorySizes")
-  favoriteSizes FavoriteSize[] @relation("CategoryFavorites")
+  sizes Size[]        
 }
 
 model Size {
   id          Int    @id @default(autoincrement())
   category_id Int
-  country_id  Int
-  size_label  String
+  region_id   Int
+  label       String
 
-  category Category @relation("CategorySizes", fields: [category_id], references: [id])
-  country  Country  @relation("CountrySizes", fields: [country_id], references: [id])
+  category      Category        @relation(fields: [category_id], references: [id])
+  region        Region          @relation(fields: [region_id], references: [id])
 
-  favoriteSizes   FavoriteSize[] @relation("SizeFavorites")
-  fromConversions Conversion[]   @relation("FromSizeConversions")
-  toConversions   Conversion[]   @relation("ToSizeConversions")
+  favoriteSizes FavoriteSize[]
+  fromConversions Conversion[]  @relation("FromSizeConversions")
+  toConversions   Conversion[]  @relation("ToSizeConversions")
 }
 
 model Conversion {
   id           Int @id @default(autoincrement())
-  customer_id  Int
   from_size_id Int
   to_size_id   Int
 
-  customer Customer @relation("CustomerConversions", fields: [customer_id], references: [id])
-  fromSize Size     @relation("FromSizeConversions", fields: [from_size_id], references: [id])
-  toSize   Size     @relation("ToSizeConversions", fields: [to_size_id], references: [id])
+  fromSize Size @relation("FromSizeConversions", fields: [from_size_id], references: [id])
+  toSize   Size @relation("ToSizeConversions", fields: [to_size_id], references: [id])
 }
 
 model FavoriteSize {
@@ -78,13 +72,9 @@ model FavoriteSize {
   customer_id Int
   title       String
   description String?
-  gender      Gender[]
-  country_id  Int
-  category_id Int
+  gender      Gender
   size_id     Int
 
-  customer Customer @relation("CustomerFavorites", fields: [customer_id], references: [id])
-  country  Country  @relation("CountryFavorites", fields: [country_id], references: [id])
-  category Category @relation("CategoryFavorites", fields: [category_id], references: [id])
-  size     Size     @relation("SizeFavorites", fields: [size_id], references: [id])
+  customer Customer @relation(fields: [customer_id], references: [id])
+  size     Size     @relation(fields: [size_id], references: [id])
 }

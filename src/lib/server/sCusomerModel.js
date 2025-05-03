@@ -27,10 +27,10 @@ export const getCustomer4Token = async (session) => {
     }
 
     customer = await prisma.Customer.create({
-      data: { email, image, name, role:['CUSTOMER'] }
+      data: { email, image, name }
     });
     return customer;
   } catch (e) {
     console.log(e);
   }
-};
+}

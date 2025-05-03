@@ -14,8 +14,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata = {
-  title: "My App",
-  description: "My App"
+  title: "My Size",
+  description: "My Size"
 };
 
 export default function RootLayout({ children }) {
