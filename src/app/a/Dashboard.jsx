@@ -118,6 +118,17 @@ const Dashboard = () => {
     }
   };
 
+  const onFavoriteChange = (favSize) => {
+    console.log("Dashboard.onFavoriteChange()", favSize);
+    
+    setSelectedSourceRegion(favSize.size.region_id);
+    setSelectedCategory(favSize.size.category_id);
+    setSelectedSize(favSize.size.id);
+
+  };
+
+  global.onFavoriteChange = onFavoriteChange;
+
   return (
     <div className="container">
       <div className="main-content">

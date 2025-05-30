@@ -20,14 +20,9 @@ const CustomerCard = ({
     const favoriteSizes = customer?.favoriteSizes || [];
     
     const handleInsert = (favSize) => {
-      const sizeData = {
-        size: favSize.size?.label,
-        category: favSize.title,
-        region: favSize.size.region.name,
-        description: favSize.description,
-        gender: favSize.gender
-      };
-      onInsertSize(sizeData);
+      if (global.onFavoriteChange) {
+        onFavoriteChange(favSize);
+      }
     };
 
     return (
