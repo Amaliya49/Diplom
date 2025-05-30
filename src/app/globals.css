@@ -40,7 +40,7 @@
 }
 
 .main-content h1 {
-  font-family: 'Comfortaa', sans-serif;
+  font-family: 'Comfortaa';
   font-size: 35px;
   margin: -20px 0 50px 200px;
 }
@@ -74,7 +74,7 @@
 label {
   display: block;
   text-align: left;
-  font-family: 'Comfortaa', sans-serif;
+  font-family: 'Comfortaa';
   font-weight: bold;
   font-size: 16px;
 }
@@ -110,7 +110,7 @@ select {
   background: #969696;
   border-radius: 10px;
   border: none;
-  font-family: 'Comfortaa', sans-serif;
+  font-family: 'Comfortaa';
   font-size: 32px;
   color: white;
   cursor: pointer;
@@ -124,21 +124,250 @@ select {
   margin-top: 30px;
 }
 .help p {
-  font-family: 'PhillippScript', cursive;
-  font-size: 20px;
-  margin-top: 20px;
+  font-family: 'Comfortaa';
+  font-size: 16px;
+  margin-top: 5px;
 }
 
 .result {
   background: white;
-  border-radius: 10px;
-  width: 424;
-  height: 462;
+  border-radius: 20px;
+  padding: 25px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
 }
+
 .result h3 {
   font-family: 'Comfortaa', sans-serif;
   font-size: 36px;
-  margin: 0 0 20px 0;
+  margin: 0 0 15px 0;
+  color: #333;
+  text-align: center;
+}
+
+.result hr {
+  border: none;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #969696, transparent);
+  margin: 0 0 25px 0;
+}
+
+.conversion-result {
+  margin-top: 30px;
+}
+
+.conversion-result h4 {
+  font-size: 32px;
+  font-family: 'Comfortaa', sans-serif;
+  margin-bottom: 30px;
+  text-align: center;
+  color: #444;
+  font-weight: 600;
+}
+
+.result-window {
+  background: #f8f8f8;
+  border-radius: 15px;
+  padding: 25px;
+  align-items: center;
+}
+
+.size-row {
+  text-align: center;
+  padding: 15px;
+  min-width: 180px;
+}
+
+.size-row .region-code {
+  font-size: 28px;
+  font-family: 'Comfortaa', sans-serif;
+  font-weight: 700;
+  color: #2c3e50;
+  display: block;
+  margin-bottom: 10px;
+}
+
+.size-row .size-value {
+  font-size: 32px;
+  font-family: 'Comfortaa', sans-serif;
+  font-weight: 700;
+  color: #e74c3c;
+  background: white;
+  padding: 8px 20px;
+  border-radius: 8px;
+  display: inline-block;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.destination-sizes {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  align-items: center;
+}
+
+.destination-sizes .size-value {
+  background: #3498db;
+  color: white;
+  min-width: 80px;
+  text-align: center;
+}
+
+/* Анимация стрелки */
+.result-window img {
+  transition: transform 0.3s ease;
+}
+
+.result-window:hover img {
+  transform: scale(1.1);
+}
+
+
+@media (max-width: 768px) {
+  .top-image {
+    margin-top: -30px;
+    margin-left: 20px;
+    max-width: 80%;
+  }
+
+  .content-section, 
+  .main-content h1 {
+    margin-left: 20px;
+    margin-right: 20px;
+  }
+
+  .content-section .first-block {
+    margin-bottom: 50px;
+  }
+
+  .content-section .first-block h1 {
+    font-size: 28px;
+    line-height: 28px;
+  }
+
+  .content-section .first-block h4 {
+    font-size: 24px;
+    line-height: 24px;
+  }
+
+  .content-section .second-block {
+    font-size: 28px;
+    line-height: 36px;
+  }
+
+  .main-content h1 {
+    font-size: 24px;
+    margin: -10px 0 30px 20px;
+  }
+
+  .conv-block {
+    width: auto;
+    height: auto;
+    margin: 0 20px;
+    grid-template-columns: 1fr;
+    padding: 15px;
+  }
+
+  .form-grid {
+    gap: 15px;
+  }
+
+  .regions {
+    grid-template-columns: 1fr;
+    gap: 15px;
+  }
+
+  .region {
+    max-width: 100%;
+  }
+
+  select {
+    height: 50px;
+    font-size: 14px;
+  }
+
+  .submit-btn {
+    height: 60px;
+    font-size: 24px;
+  }
+
+  .help {
+    flex-direction: column;
+    text-align: center;
+    margin-top: 20px;
+  }
+
+  .help img {
+    margin-bottom: 10px;
+  }
+
+  .result h3 {
+    font-size: 28px;
+  }
+  .result-window {
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  .conversion-result h4 {
+    font-size: 28px;
+    margin-bottom: 20px;
+  }
+  
+  .size-row .region-code {
+    font-size: 24px;
+  }
+  
+  .size-row .size-value {
+    font-size: 28px;
+  }
+}
+
+
+@media (min-width: 769px) and (max-width: 1024px) {
+  .top-image {
+    margin-left: 100px;
+  }
+
+  .content-section, 
+  .main-content h1 {
+    margin-left: 100px;
+  }
+
+  .conv-block {
+    width: auto;
+    margin-left: 100px;
+    margin-right: 20px;
+    grid-template-columns: 1fr 300px;
+  }
+
+  .main-content h1 {
+    font-size: 30px;
+    margin-left: 100px;
+  }
+}
+
+@media (max-width: 500px) {
+  .content-section .first-block h1 {
+    font-size: 24px;
+  }
+
+  .content-section .first-block h4 {
+    font-size: 20px;
+  }
+
+  .content-section .second-block {
+    font-size: 22px;
+    line-height: 28px;
+  }
+
+  .submit-btn {
+    font-size: 20px;
+    height: 50px;
+  }
+
+  .result h3 {
+    font-size: 24px;
+  }
 }
 
 @custom-variant dark (&:is(.dark *));

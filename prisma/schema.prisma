@@ -14,17 +14,11 @@ enum Gender {
   UNISEX
 }
 
-enum Role {
-  CUSTOMER
-  ADMIN
-}
-
 model Customer {
   id    Int     @id @default(autoincrement())
   email String  @unique
   name  String?
   image String?
-  role Role @default(CUSTOMER)
 
   favoriteSizes FavoriteSize[] 
 }
