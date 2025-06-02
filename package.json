@@ -6,7 +6,10 @@
     "dev": "next dev -p2504",
     "build": "next build",
     "start": "next start -p2504",
-    "lint": "next lint"
+    "lint": "next lint",
+    "dbuild": "docker build -t diplom-a:latest .",
+    "dtag": "docker tag diplom-a:latest varkadyev/diplom-a:latest",
+    "dpush": "docker push varkadyev/diplom-a:latest"
   },
   "dependencies": {
     "@radix-ui/react-dialog": "^1.1.6",
