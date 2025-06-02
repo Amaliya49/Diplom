@@ -19,6 +19,7 @@ const Dashboard = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [rememberChoice, setRememberChoice] = useState(false);
   const [saveSuccess, setSaveSuccess] = useState(false);
+  const [isHovered, setIsHovered] = useState(false);
 
   // Загрузка данных
   useEffect(() => {
@@ -87,7 +88,6 @@ const Dashboard = () => {
 
     setIsLoading(true);
     try {
-      // Выполняем конвертацию
       const conversions = await getConversions(Number(selectedSize));
       const sourceSize = sizes.find(s => s.id === Number(selectedSize));
       const relevantConversions = conversions.filter(conv => 
@@ -119,30 +119,34 @@ const Dashboard = () => {
   };
 
   const onFavoriteChange = (favSize) => {
-    console.log("Dashboard.onFavoriteChange()", favSize);
-    
     setSelectedSourceRegion(favSize.size.region_id);
     setSelectedCategory(favSize.size.category_id);
     setSelectedSize(favSize.size.id);
-
   };
 
   global.onFavoriteChange = onFavoriteChange;
 
   return (
-    <div className="container">
-      <div className="main-content">
-        <h1>МОЙ РАЗМЕР - НАДЕЖНЫЙ КОНВЕРТАТОР</h1>
-
-        <div className="conv-block">
-          <div className="form-container">
-            <form className="form-grid" onSubmit={handleConvert}>
-              <div className="regions">
-                <label>Исходный регион
+    <div className="ml-[140px] flex items-center justify-center">
+      <div className="w-full max-w-6xl mx-auto">
+       <h1 className="text-4xl md:text-5xl font-bold text-center mb-12 text-transparent bg-clip-text
+                      bg-gradient-to-r from-gray-200 via-gray-100 to-gray-300
+                      drop-shadow-[0_4px_3px_rgba(0,0,0,0.25)]">
+        МОЙ РАЗМЕР - НАДЕЖНЫЙ КОНВЕРТАТОР
+      </h1>
+        <div className="flex flex-col lg:flex-row gap-6">
+          {/* Форма конвертации */}
+          <div className="flex-1 bg-white rounded-2xl shadow-xl p-6">
+            <form className="space-y-4" onSubmit={handleConvert}>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div className="space-y-1">
+                  <label className="block text-sm font-medium text-gray-700">
+                    Исходный регион
+                  </label>
                   <select 
                     value={selectedSourceRegion}
                     onChange={(e) => setSelectedSourceRegion(e.target.value)}
-                    className="region" 
+                    className="w-full p-2 rounded-md border-2 border-gray-200 focus:border-purple-500 focus:ring-0 transition-all"
                     required
                   >
                     <option value="" disabled>Выберите регион</option>
@@ -152,13 +156,16 @@ const Dashboard = () => {
                       </option>
                     ))}     
                   </select>
-                </label>
+                </div>
 
-                <label>Регион назначения
+                <div className="space-y-1">
+                  <label className="block text-sm font-medium text-gray-700">
+                    Регион назначения
+                  </label>
                   <select 
                     value={selectedDestRegion}
                     onChange={(e) => setSelectedDestRegion(e.target.value)}
-                    className="region" 
+                    className="w-full p-2 rounded-md border-2 border-gray-200 focus:border-purple-500 focus:ring-0 transition-all"
                     required
                   >
                     <option value="" disabled>Выберите регион</option>
@@ -170,14 +177,17 @@ const Dashboard = () => {
                         </option>
                       ))}     
                   </select>
-                </label>
+                </div>
               </div>
               
-              <label>Категория
+              <div className="space-y-1">
+                <label className="block text-sm font-medium text-gray-700">
+                  Категория
+                </label>
                 <select 
                   value={selectedCategory}
                   onChange={(e) => setSelectedCategory(e.target.value)}
-                  className="group" 
+                  className="w-full p-2 rounded-md border-2 border-gray-200 focus:border-purple-500 focus:ring-0 transition-all"
                   required
                 >
                   <option value="" disabled>Выберите категорию</option>
@@ -185,13 +195,16 @@ const Dashboard = () => {
                     <option value={c.id} key={`category-${c.id}`}>{c.name}</option>
                   ))}                 
                 </select>
-              </label>
+              </div>
               
-              <label>Размер
+              <div className="space-y-1">
+                <label className="block text-sm font-medium text-gray-700">
+                  Размер
+                </label>
                 <select 
                   value={selectedSize}
                   onChange={(e) => setSelectedSize(e.target.value)}
-                  className="group" 
+                  className="w-full p-2 rounded-md border-2 border-gray-200 focus:border-purple-500 focus:ring-0 transition-all"
                   required
                   disabled={!filteredSizes.length}
                 >
@@ -200,66 +213,160 @@ const Dashboard = () => {
                     <option value={s.id} key={`size-${s.id}`}>{s.label}</option>
                   ))}    
                 </select>
-              </label>
+              </div>
 
-              <div className="checkbox-row">
-                <label className="checkbox-label">
-                  <input 
-                    type="checkbox"
-                    checked={rememberChoice}
-                    onChange={(e) => setRememberChoice(e.target.checked)}
-                    disabled={!session?.customer}
-                  />
+              <div className="flex items-center pt-2">
+                <input 
+                  type="checkbox"
+                  checked={rememberChoice}
+                  onChange={(e) => setRememberChoice(e.target.checked)}
+                  disabled={!session?.customer}
+                  className="h-4 w-4 rounded border-2 border-gray-300 text-purple-600 focus:ring-0"
+                />
+                <label className="ml-2 text-sm text-gray-700">
                   {session?.customer ? 'Сохранить размер' : 'Войдите, чтобы сохранять'}
                 </label>
               </div>
 
               <button 
                 type="submit" 
-                className="submit-btn"
+                className={`w-full py-4 px-6 rounded-xl text-white font-bold text-lg transition-all duration-300 ${
+                  isLoading 
+                    ? 'bg-gray-400' 
+                    : 'bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-700 hover:to-indigo-700 shadow-lg hover:shadow-xl'
+                } ${isHovered ? 'transform hover:-translate-y-1' : ''}`}
                 disabled={isLoading}
+                onMouseEnter={() => setIsHovered(true)}
+                onMouseLeave={() => setIsHovered(false)}
               >
-                {isLoading ? 'ЗАГРУЗКА...' : 'ПЕРЕВЕСТИ РАЗМЕР'}
+                {isLoading ? (
+                  <div className="flex items-center justify-center space-x-2">
+                    <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
+                    <span>Загрузка...</span>
+                  </div>
+                ) : (
+                  <div className="flex items-center justify-center space-x-2">
+                    <span>Конвертировать</span>
+                    <svg 
+                      xmlns="http://www.w3.org/2000/svg" 
+                      className={`h-5 w-5 transition-transform ${isHovered ? 'transform translate-x-1' : ''}`}
+                      fill="none" 
+                      viewBox="0 0 24 24" 
+                      stroke="currentColor"
+                    >
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
+                    </svg>
+                  </div>
+                )}
               </button>
             </form>
             
-            <div className="help">
-              <img src="/images/question2.png" width={45} alt="Help" />
-              <p><Link href="/faq">Нужна помощь? Тогда вам сюда</Link></p>
+            <div className="faq mt-6 flex items-center space-x-2">
+              <img 
+                src="/images/question2.png" 
+                width={40} 
+                alt="Help" 
+                className="animate-pulse"
+              />
+              <Link 
+                href="/faq" 
+                className="faq-link text-purple-600 hover:text-purple-800 font-medium transition-colors"
+              >
+                Остались вопросы? Тогда вам сюда.
+              </Link>
             </div>
           </div>
-          
-          <div className="result">
-            <h3>РЕЗУЛЬТАТ</h3>
-            <hr />
-            {conversionResult && (
-              <div className="conversion-result">
-                <h4>{conversionResult.category}</h4>
-                <div className="result-window flex justify-evenly w-full">
-                  <div className="size-row">
-                    <span className="region-code">{conversionResult.source.region}</span><br />
-                    <span className="size-value">{conversionResult.source.size}</span>
+
+         {/* Блок результатов */}
+          <div className="result flex-1 bg-white rounded-2xl shadow-xl p-6">
+            <h2 className="text-3xl font-bold text-center mb-3 text-gray-800">
+              Результат конвертации
+            </h2>
+            <hr className="mb-4" />
+            {conversionResult ? (
+              <div className="space-y-3 mt-12">
+                <h3 className="text-2xl font-semibold text-center text-purple-700 mb-12">
+                  {conversionResult.category}
+                </h3>
+                
+                <div className="flex flex-col md:flex-row items-center justify-center gap-4">
+                  {/* Исходный размер */}
+                  <div className="text-center min-w-[120px]">
+                    <div className="text-sm font-medium text-gray-600 mb-1">
+                      {conversionResult.source.region}
+                    </div>
+                    <div className="bg-gradient-to-r from-purple-100 to-indigo-100 rounded-md px-4 py-2">
+                      <span className="text-3xl font-bold text-purple-700">
+                        {conversionResult.source.size}
+                      </span>
+                    </div>
                   </div>
-                  <div>
-                    <img src="/images/arrow-size.png" width={72} alt="Arrow-size" />
+                  
+                  {/* Стрелка */}
+                  <div className="animate-bounce mx-2 mt-8">
+                    <svg 
+                      xmlns="http://www.w3.org/2000/svg" 
+                      className="h-8 w-8 text-purple-500"
+                      fill="none" 
+                      viewBox="0 0 24 24" 
+                      stroke="currentColor"
+                    >
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 5l7 7-7 7M5 5l7 7-7 7" />
+                    </svg>
                   </div>
-                  <div className="size-row">
-                    <span className="region-code">{conversionResult.destination.region}</span><br />
-                    <div className="destination-sizes">
+                  
+                  {/* Результат */}
+                  <div className="text-center min-w-[120px]">
+                    <div className="text-sm font-medium text-gray-600 mb-1">
+                      {conversionResult.destination.region}
+                    </div>
+                    <div className="flex flex-col gap-2">
                       {conversionResult.destination.sizes.length > 0 ? (
                         conversionResult.destination.sizes.map((size, i) => (
-                          <span key={i} className="size-value">{size}</span>
+                          <div 
+                            key={i} 
+                            className="bg-gradient-to-r from-indigo-100 to-purple-100 rounded-md px-4 py-2"
+                          >
+                            <span className="text-2xl font-bold text-indigo-700">
+                              {size}
+                            </span>
+                          </div>
                         ))
                       ) : (
-                        <span className="size-value">Соответствие не найдено</span>
+                        <div className="bg-gray-100 rounded-md p-2">
+                          <span className="text-gray-500 text-sm">
+                            Соответствие не найдено
+                          </span>
+                        </div>
                       )}
                     </div>
                   </div>
                 </div>
               </div>
+            ) : (
+              <div className="flex flex-col items-center justify-center py-8">
+                <svg 
+                  xmlns="http://www.w3.org/2000/svg" 
+                  className="h-12 w-12 text-gray-400 mb-2"
+                  fill="none" 
+                  viewBox="0 0 24 24" 
+                  stroke="currentColor"
+                >
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.172 16.172a4 4 0 015.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+                <p className="text-gray-500 text-l text-center mt-2">
+                  Введите параметры для конвертации
+                </p>
+              </div>
             )}
           </div>
         </div>
+
+        {saveSuccess && (
+          <div className="fixed bottom-4 right-4 bg-green-500 text-white px-4 py-2 rounded-md shadow-md text-sm">
+            Размер сохранен в избранное
+          </div>
+        )}
       </div>
     </div>
   );

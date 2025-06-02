@@ -1,10 +1,10 @@
 'use server';
 import prisma from "../db";
 
+// Сохранение нового избранного размера
 export const saveFavoriteSize = async ({ customer_id, size_id, title, description }) => {
   try {
-    // Создание записи с включением связанных данных о размере
-    const savedSize = await prisma.FavoriteSize.create({
+    return await prisma.favoriteSize.create({
       data: {
         customer_id: Number(customer_id),
         size_id: Number(size_id),
@@ -13,26 +13,36 @@ export const saveFavoriteSize = async ({ customer_id, size_id, title, descriptio
         gender: 'UNISEX'
       },
       include: {
-        size: true  // Включаем связанную сущность Size
+        size: {
+          include: {
+            region: true
+          }
+        }
       }
     });
-    
-    return savedSize;
   } catch (error) {
     console.error("Ошибка сохранения:", error);
-    throw new Error("Не удалось сохранить размер");
+    throw error;
   }
 };
 
-// Новый метод для получения избранных размеров с включением данных о размере
+// Получение избранных размеров пользователя
 export const getFavoriteSizes = async (customer_id) => {
   try {
-    return await prisma.FavoriteSize.findMany({
+    return await prisma.favoriteSize.findMany({
       where: {
         customer_id: Number(customer_id)
       },
       include: {
-        size: true  // Включаем связанные данные
+        size: {
+          include: {
+            region: true,
+            category: true
+          }
+        }
+      },
+      orderBy: {
+        updated_at: 'desc'
       }
     });
   } catch (error) {
@@ -40,3 +50,68 @@ export const getFavoriteSizes = async (customer_id) => {
     throw new Error("Не удалось получить избранные размеры");
   }
 };
+
+// Обновление избранного размера
+export const updateFavoriteSize = async ({ id, description, gender }) => {
+  try {
+    return await prisma.favoriteSize.update({
+      where: { id: Number(id) },
+      data: { 
+        description,
+        gender
+      },
+      include: {
+        size: {
+          include: {
+            region: true
+          }
+        }
+      }
+    });
+  } catch (error) {
+    console.error("Ошибка обновления:", error);
+    throw error;
+  }
+};
+
+// Удаление избранного размера
+export const deleteFavoriteSize = async (id) => {
+  try {
+    await prisma.favoriteSize.delete({
+      where: { id: Number(id) }
+    });
+    return true;
+  } catch (error) {
+    console.error("Ошибка удаления:", error);
+    throw error;
+  }
+};
+
+// Новые Server Actions для прямого вызова из компонента
+export const updateFavoriteSizeAction = async (formData) => {
+  try {
+    const id = formData.get('id');
+    const description = formData.get('description');
+    const gender = formData.get('gender');
+    
+    return await updateFavoriteSize({ 
+      id: Number(id), 
+      description, 
+      gender 
+    });
+  } catch (error) {
+    console.error("Update failed:", error);
+    throw error;
+  }
+};
+
+export const deleteFavoriteSizeAction = async (id) => {
+  try {
+    await deleteFavoriteSize(Number(id));
+    return { success: true };
+  } catch (error) {
+    console.error("Delete failed:", error);
+    throw error;
+  }
+};
+

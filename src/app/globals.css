@@ -1,42 +1,50 @@
 @import "tailwindcss";
 @import "tw-animate-css";
 
+body {
+  @apply h-screen bg-gradient-to-br from-indigo-50 to-purple-50;
+  overflow: hidden;
+}
+
 @font-face {
   font-family: 'PhillippScript';
-  src: url(/public/fonts/PhillippScript.ttf);
+  src: url('/public/fonts/PhillippScript.ttf');
 }
 @font-face {
   font-family: 'Comfortaa';
-  src: url(/public/fonts/Comfortaa.ttf);
+  src: url('/public/fonts/Comfortaa.ttf');
 }
 
-.top-image{
-  margin-top: -65px;
-  margin-left: 200px;
-}
-.content-section{
+.content-section {
+  font-family: 'Comfortaa';
   margin-top: 50px;
-  margin-left: 200px;
+  margin-left: 6%;
 }
-.content-section .first-block{
-  font-family: Comfortaa;
+
+.content-section .first-block {
   margin-bottom: 100px;
 }
-.content-section .first-block h1{
+
+.content-section .first-block h1 {
+  margin-top: 50px;
   font-size: 40px;
   line-height: 32px;
   font-weight: 300;
-  margin-bottom: 10px;
+  margin-bottom: 20px;
+  color: white;
 }
-.content-section .first-block h4{
+
+.content-section .first-block h4 {
   font-size: 32px;
   line-height: 32px;
   font-weight: 700;
+  color: rgb(255, 255, 255);
 }
-.content-section .second-block {
-  font-family: PhillippScript;
-  font-size: 40px;
+
+.content-section .second-block p {
+  font-size: 25px;
   line-height: 50px;
+  color: black;
 }
 
 .main-content h1 {
@@ -56,21 +64,25 @@
   gap: 20px;
   padding: 20px;
 }
+
 .form-container {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
 }
+
 .form-grid {
   display: grid;
   grid-template-columns: 1fr;
   gap: 25px;
 }
+
 .regions {
   display: grid;
   grid-template-columns: 2fr 2fr;
   gap: 20px;
 }
+
 label {
   display: block;
   text-align: left;
@@ -84,20 +96,23 @@ select {
   height: 57px;
   background: #fff;
   border-radius: 10px;
-  border: none;
   padding: 0 15px;
   margin-top: 8px;
 }
+
 .region {
   max-width: 279px;
 }
+
 .group {
   width: 100%;
 }
+
 .checkbox-row {
   display: flex;
   align-items: center;
 }
+
 .checkbox-label {
   display: flex;
   align-items: center;
@@ -123,25 +138,16 @@ select {
   gap: 10px;
   margin-top: 30px;
 }
+
 .help p {
   font-family: 'Comfortaa';
   font-size: 16px;
   margin-top: 5px;
 }
 
-.result {
-  background: white;
-  border-radius: 20px;
-  padding: 25px;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
-}
-
-.result h3 {
-  font-family: 'Comfortaa', sans-serif;
-  font-size: 36px;
-  margin: 0 0 15px 0;
-  color: #333;
-  text-align: center;
+.result h2 {
+  font-family: 'Comfortaa';
+  font-size: 30px;
 }
 
 .result hr {
@@ -221,6 +227,10 @@ select {
   transform: scale(1.1);
 }
 
+.faq .faq-link {
+  font-family: 'Comfortaa';
+  font-weight: bold;
+}
 
 @media (max-width: 768px) {
   .top-image {
@@ -233,25 +243,6 @@ select {
   .main-content h1 {
     margin-left: 20px;
     margin-right: 20px;
-  }
-
-  .content-section .first-block {
-    margin-bottom: 50px;
-  }
-
-  .content-section .first-block h1 {
-    font-size: 28px;
-    line-height: 28px;
-  }
-
-  .content-section .first-block h4 {
-    font-size: 24px;
-    line-height: 24px;
-  }
-
-  .content-section .second-block {
-    font-size: 28px;
-    line-height: 36px;
   }
 
   .main-content h1 {
@@ -303,25 +294,18 @@ select {
   .result h3 {
     font-size: 28px;
   }
-  .result-window {
-    flex-direction: column;
-    gap: 20px;
-  }
-  
-  .conversion-result h4 {
-    font-size: 28px;
-    margin-bottom: 20px;
-  }
-  
-  .size-row .region-code {
-    font-size: 24px;
-  }
-  
-  .size-row .size-value {
-    font-size: 28px;
-  }
 }
-
+@keyframes gradient-pulse {
+  0%, 100% { opacity: 0.9; }
+  50% { opacity: 1; }
+}
+.animate-pulse-slow {
+  animation: gradient-pulse 5s ease-in-out infinite;
+}
+.animate-gradient {
+  animation: gradient-flow 8s ease infinite;
+  background-size: 200% 200%;
+}
 
 @media (min-width: 769px) and (max-width: 1024px) {
   .top-image {
@@ -592,10 +576,9 @@ select {
 }
 
 .page-container {
-  @apply mt-16 flex flex-col justify-center text-center
+  @apply mt-16 flex flex-col justify-center text-center;
 }
 
-
 .icon {
-  @apply w-10 h-10
+  @apply w-10 h-10;
 }
