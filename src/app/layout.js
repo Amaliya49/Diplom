@@ -20,12 +20,29 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang='en'>
-      <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
+    <html lang='en' className="h-full">
+      <body className={`${geistSans.variable} ${geistMono.variable} antialiased h-full`}>
         <NextAuthProvider>
-          <div className='page-container'>
-            <Header />
-            {children}
+          {/* Фоновое изображение */}
+          <div 
+            className="fixed inset-0 -z-10 h-[100vh] w-full"
+            style={{
+              backgroundImage: "url('/images/фон.jpg')",
+              backgroundSize: "cover",
+              backgroundPosition: "center",
+              backgroundRepeat: "no-repeat",
+              height: "100vh" // Фиксированная высота вьюпорта
+            }}
+          />
+          
+          {/* Основной контент */}
+          <div className="relative h-full w-full">
+            <div className='page-container min-h-screen flex flex-col'>
+              <Header />
+              <main className="flex-1 "> {/* Отключаем скролл внутри main */}
+                {children}
+              </main>
+            </div>
           </div>
         </NextAuthProvider>
       </body>
