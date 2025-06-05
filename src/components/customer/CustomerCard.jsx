@@ -86,7 +86,7 @@ const CustomerCard = ({
               <div className="text-lg font-bold text-center mb-6 text-purple-700 bg-gradient-to-r from-purple-100 to-pink-100 py-2 px-4 rounded-full shadow-sm">
                 Избранные размеры
               </div>
-              <div className="grid grid-cols-1 gap-4">
+              <div className="grid grid-cols-1 gap-4 max-h-[600px] overflow-y-auto pr-2">
                 {favoriteSizes.map((favSize) => {
                   const sizeValue = favSize.size?.value || favSize.size?.name || favSize.size?.label || 'Не указан';
                   const isEditing = editingId === favSize.id;
