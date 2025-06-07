@@ -23,7 +23,7 @@ const HeaderRight = () => {
           <DrawerTrigger>
             <div className='flex gap-2 cursor-pointer'>
               <CustomerCard customer={session.customer} variant='short' />
-              <MenuIcon className='icon text-gray-400' />
+              <MenuIcon className='icon text-white' />
             </div>
           </DrawerTrigger>
           <DrawerContent>

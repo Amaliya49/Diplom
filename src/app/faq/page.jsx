@@ -32,7 +32,8 @@ const FAQ = () => {
   };
 
   return (
-    <div className="min-h-[calc(100vh-4rem)] flex items-center justify-center py-12 px-4">
+    <center>
+    <div className="min-h-[calc(100vh-4rem)] flex items-center justify-center">
       <div className="w-full max-w-4xl">
         <h1 className="text-4xl md:text-5xl font-bold text-center mb-12 text-transparent bg-clip-text
                       bg-gradient-to-r from-gray-200 via-gray-100 to-gray-300
@@ -68,12 +69,9 @@ const FAQ = () => {
             </div>
           ))}
         </div>
-
-        <div className="mt-8 text-center text-gray-500">
-          Не нашли ответ? <a href="/contacts" className="text-purple-600 hover:underline">Свяжитесь с нами</a>
-        </div>
       </div>
     </div>
+    </center>
   );
 };
 
