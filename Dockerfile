@@ -1,26 +1,20 @@
-# Используем официальный образ Node.js (LTS-версия)
-FROM node:22-alpine
-
-# Создаём рабочую директорию внутри контейнера
-WORKDIR /usr/src/app
-
-# Копируем package.json и package-lock.json (или yarn.lock)
+FROM node:22-slim AS builder
+WORKDIR /app
 COPY package*.json ./
-
-# Устанавливаем зависимости
 RUN npm install
-
-
-# Копируем все файлы проекта (кроме тех, что указаны в .dockerignore)
 COPY . .
-
 RUN npx prisma generate
-
-# Указываем порт, на котором будет работать приложение
-EXPOSE 2504
-
-# Собираем проект
 RUN npm run build
 
-# Запускаем приложение
+# Stage 2: Production
+FROM node:22-alpine AS production
+WORKDIR /app
+COPY --from=builder /app/.next ./.next
+COPY --from=builder /app/public ./public
+COPY --from=builder /app/prisma ./prisma
+COPY --from=builder /app/*.js ./
+COPY --from=builder /app/*.json ./
+#COPY --from=builder /app/package.json ./
+RUN npm install --only=production
+RUN npx prisma generate
 CMD ["npm", "start"]
