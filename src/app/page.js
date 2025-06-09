@@ -1,6 +1,6 @@
 export default function Home() {
   return (
-    <div className="content-section flex justify-center min-h-150 w-full">
+    <div className="relative content-section flex justify-center w-full">
       <div className="container bg-white/10 backdrop-blur-sm py-8 w-full rounded-lg ">
         <div className="p-6">
           <div className="first-block mb-8 text-center">

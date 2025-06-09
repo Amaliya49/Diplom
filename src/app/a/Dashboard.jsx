@@ -127,13 +127,13 @@ const Dashboard = () => {
   global.onFavoriteChange = onFavoriteChange;
 
   return (
-    <div className="ml-[140px] flex items-center justify-center">
-      <div className="w-full max-w-6xl mx-auto">
-       <h1 className="text-4xl md:text-5xl font-bold text-center mb-12 text-transparent bg-clip-text
+    <div className="flex items-center justify-center">
+      <div className="w-full">
+        <h1 className="text-4xl md:text-5xl font-bold text-center mb-12 text-transparent bg-clip-text
                       bg-gradient-to-r from-gray-200 via-gray-100 to-gray-300
                       drop-shadow-[0_4px_3px_rgba(0,0,0,0.25)]">
-        МОЙ РАЗМЕР - НАДЕЖНЫЙ КОНВЕРТЕР ЛАЛААЛАЛА
-      </h1>
+        МОЙ РАЗМЕР - НАДЕЖНЫЙ КОНВЕРТЕР
+        </h1>
         <div className="flex flex-col lg:flex-row gap-6">
           {/* Форма конвертации */}
           <div className="flex-1 bg-white rounded-2xl shadow-xl p-6">

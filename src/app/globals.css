@@ -1,9 +1,15 @@
 @import "tailwindcss";
 @import "tw-animate-css";
 
+html, body {
+  overflow-x: hidden;
+}
+/* * {
+  outline: 1px solid red !important;
+} */
 body {
+  position: relative;
   @apply h-screen bg-gradient-to-br from-indigo-50 to-purple-50;
-  overflow: hidden;
 }
 
 @font-face {
@@ -14,11 +20,13 @@ body {
   font-family: 'Comfortaa';
   src: url('/public/fonts/Comfortaa.ttf');
 }
+.custom-scrollbar {
+  scrollbar-color: #c4b5fd #f1f1f1;
+}
 
 .content-section {
   font-family: 'Comfortaa';
   margin-top: 50px;
-  margin-left: 6%;
 }
 
 .content-section .first-block {
@@ -28,7 +36,7 @@ body {
 .content-section .first-block h1 {
   margin-top: 50px;
   font-size: 40px;
-  line-height: 32px;
+  line-height: normal;
   font-weight: 300;
   margin-bottom: 20px;
   color: white;
@@ -232,69 +240,7 @@ select {
   font-weight: bold;
 }
 
-@media (max-width: 768px) {
-  .top-image {
-    margin-top: -30px;
-    margin-left: 20px;
-    max-width: 80%;
-  }
 
-  .content-section, 
-  .main-content h1 {
-    margin-left: 20px;
-    margin-right: 20px;
-  }
-
-  .main-content h1 {
-    font-size: 24px;
-    margin: -10px 0 30px 20px;
-  }
-
-  .conv-block {
-    width: auto;
-    height: auto;
-    margin: 0 20px;
-    grid-template-columns: 1fr;
-    padding: 15px;
-  }
-
-  .form-grid {
-    gap: 15px;
-  }
-
-  .regions {
-    grid-template-columns: 1fr;
-    gap: 15px;
-  }
-
-  .region {
-    max-width: 100%;
-  }
-
-  select {
-    height: 50px;
-    font-size: 14px;
-  }
-
-  .submit-btn {
-    height: 60px;
-    font-size: 24px;
-  }
-
-  .help {
-    flex-direction: column;
-    text-align: center;
-    margin-top: 20px;
-  }
-
-  .help img {
-    margin-bottom: 10px;
-  }
-
-  .result h3 {
-    font-size: 28px;
-  }
-}
 @keyframes gradient-pulse {
   0%, 100% { opacity: 0.9; }
   50% { opacity: 1; }
@@ -307,52 +253,7 @@ select {
   background-size: 200% 200%;
 }
 
-@media (min-width: 769px) and (max-width: 1024px) {
-  .top-image {
-    margin-left: 100px;
-  }
 
-  .content-section, 
-  .main-content h1 {
-    margin-left: 100px;
-  }
-
-  .conv-block {
-    width: auto;
-    margin-left: 100px;
-    margin-right: 20px;
-    grid-template-columns: 1fr 300px;
-  }
-
-  .main-content h1 {
-    font-size: 30px;
-    margin-left: 100px;
-  }
-}
-
-@media (max-width: 500px) {
-  .content-section .first-block h1 {
-    font-size: 24px;
-  }
-
-  .content-section .first-block h4 {
-    font-size: 20px;
-  }
-
-  .content-section .second-block {
-    font-size: 22px;
-    line-height: 28px;
-  }
-
-  .submit-btn {
-    font-size: 20px;
-    height: 50px;
-  }
-
-  .result h3 {
-    font-size: 24px;
-  }
-}
 
 @custom-variant dark (&:is(.dark *));
 

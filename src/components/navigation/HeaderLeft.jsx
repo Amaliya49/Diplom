@@ -8,7 +8,7 @@ const HeaderLeft = () => {
   const router = useRouter();
   const pathname = usePathname();
   return (
-    <div className='header-item header-left'>
+    <div className='header-item header-left text-white'>
       <div
         onClick={() => {
           router.back();

@@ -21,7 +21,7 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang='ru' className="h-full">
-      <head>
+      <head >
        {/* Базовые мета-теги */}
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -40,28 +40,27 @@ export default function RootLayout({ children }) {
         <meta property="og:type" content="website" />
         <meta property="og:image" content="/icons/512.png" />
       </head>
-      <body className={`${geistSans.variable} ${geistMono.variable} antialiased h-full`}>
-        <NextAuthProvider>
+      <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
+        <NextAuthProvider >
           {/* Фоновое изображение */}
           <div 
-            className="fixed inset-0 -z-10 h-[100vh] w-full"
+            className="fixed inset-0 w-full h-full"
             style={{
               backgroundImage: "url('/images/фон.jpg')",
               backgroundSize: "cover",
               backgroundPosition: "center",
               backgroundRepeat: "no-repeat",
-              height: "100vh" // Фиксированная высота вьюпорта
             }}
           />
-          
+    
           {/* Основной контент */}
-          <div className="relative h-full w-full">
-            <div className='page-container min-h-screen flex flex-col'>
-              <Header />
-              <main className="flex-1 "> {/* Отключаем скролл внутри main */}
+          <div className="relative flex flex-col h-full">
+            <Header />
+            <main className="flex-1 w-full overflow-y-auto">
+              <div className="page-container mx-auto w-full p-4 md:p-8">
                 {children}
-              </main>
-            </div>
+              </div>
+            </main>
           </div>
         </NextAuthProvider>
       </body>
