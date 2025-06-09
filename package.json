@@ -7,7 +7,7 @@
     "build": "next build",
     "start": "next start -p2504",
     "lint": "next lint",
-    "dbuild": "docker build -t diplom-a:latest .",
+    "dbuild": "docker build -t diplom-a:latest --platform linux/amd64,linux/arm64 .",
     "dtag": "docker tag diplom-a:latest varkadyev/diplom-a:latest",
     "dpush": "docker push varkadyev/diplom-a:latest"
   },
