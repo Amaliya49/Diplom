@@ -30,7 +30,7 @@ body {
 }
 
 .content-section .first-block {
-  margin-bottom: 100px;
+  margin-bottom: 70px;
 }
 
 .content-section .first-block h1 {
@@ -44,14 +44,14 @@ body {
 
 .content-section .first-block h4 {
   font-size: 32px;
-  line-height: 32px;
+  line-height: normal1;
   font-weight: 700;
   color: rgb(255, 255, 255);
 }
 
 .content-section .second-block p {
   font-size: 25px;
-  line-height: 50px;
+  line-height: 40px;
   color: black;
 }
 
